@@ -11,7 +11,7 @@ namespace INF2011S_Project_Group22
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
-        /// test
+        /// test comment
         [STAThread]
         static void Main()
         {
