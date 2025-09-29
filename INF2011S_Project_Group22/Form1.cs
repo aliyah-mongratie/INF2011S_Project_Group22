@@ -17,11 +17,9 @@ namespace INF2011S_Project_Group22
         {
             InitializeComponent();
 
+            // hellooo
 
-
-            //hi 
-            string helloooo;
-
+           
 
 
         }
