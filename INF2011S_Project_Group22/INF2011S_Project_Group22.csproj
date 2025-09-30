@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Business\Receptionist.cs" />
+    <Compile Include="Business\TravelAgent.cs" />
     <Compile Include="Presentation\CreateAReservation.cs">
       <SubType>Form</SubType>
     </Compile>

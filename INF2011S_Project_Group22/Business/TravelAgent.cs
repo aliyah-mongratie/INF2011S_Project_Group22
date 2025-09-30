@@ -8,5 +8,8 @@ namespace INF2011S_Project_Group22.Business
 {
     internal class TravelAgent : Person
     {
+        // Travel Agent inherits from Person
+        public string TravelAgentId { get; set; }
+        public string AgencyName { get; set; }
     }
 }
