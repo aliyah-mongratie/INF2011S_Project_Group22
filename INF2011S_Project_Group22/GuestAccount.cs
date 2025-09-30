@@ -9,14 +9,55 @@ namespace INF2011S_Project_Group22
     internal class GuestAccount
     {
         //Munta's part
-        public int guestID { get; set; }
-        public string guestStatus { get; set; }
-        public int roomID { get; set; }
-        public int creditCardCredentials { get; set; }
-        public string accountStatus { get; set; }
-        public decimal accountBalance { get; set; }
-        public decimal accountCharges { get; set; } 
+        #region Data Members
+        private int guestID;
+        private string guestStatus; // e.g. regular, vip, etc
+        private int roomID;
+        private int creditCardCredentials; // e.g. credit card number
+        private string accountStatus; // e.g. active, inactive, closed
+        private decimal accountBalance; // e.g. current balance
+        private decimal accountCharges; // e.g. charges incurred
+        #endregion
 
+        #region Property methods
+        public int GuestID
+        {
+            get { return guestID; }
+            set { guestID = value; }
+        }
+        public string GuestStatus
+        {
+            get { return guestStatus; }
+            set { guestStatus = value; }
+        }
+        public int RoomID
+        {
+            get { return roomID; }
+            set { roomID = value; }
+        }
+        public int CreditCardCredentials
+        {
+            get { return creditCardCredentials; }
+            set { creditCardCredentials = value; }
+        }
+        public string AccountStatus
+        {
+            get { return accountStatus; }
+            set { accountStatus = value; }
+        }
+        public decimal AccountBalance
+        {
+            get { return accountBalance; }
+            set { accountBalance = value; }
+        }
+        public decimal AccountCharges
+        {
+            get { return accountCharges; } 
+            set { accountCharges = value; }
+        }
+        #endregion
+
+        #region Constructors
         public GuestAccount()
         {
             guestID = 0;
@@ -28,19 +69,22 @@ namespace INF2011S_Project_Group22
             accountCharges = 0.0m;
         }
 
-        public GuestAccount(int guestID, string guestStatus, int roomID, int creditCardCredentials, string accountStatus, decimal accountBalance)
+        public GuestAccount(int newGuestID, string newGuestStatus, int newRoomID, int newCreditCardCredentials, string newAccountStatus, decimal newAccountBalance)
         {
-            this.guestID = guestID;
-            this.guestStatus = guestStatus;
-            this.roomID = roomID;
-            this.creditCardCredentials = creditCardCredentials;
-            this.accountStatus = accountStatus;
-            this.accountBalance = accountBalance;
+            guestID = newGuestID;
+            guestStatus = newGuestStatus;
+            roomID = newRoomID;
+            creditCardCredentials = newCreditCardCredentials;
+            accountStatus = newAccountStatus;
+            accountBalance = newAccountBalance;
         }
+        #endregion
 
-        public void updateGuestAccount(decimal accountCharges) //
+        #region Methods
+        public void updateGuestAccount(decimal accountCharges) // method to update guest account balance by deducting charges incurred
         {
             accountBalance = accountBalance - accountCharges;
         }
+        #endregion
     }
 }
