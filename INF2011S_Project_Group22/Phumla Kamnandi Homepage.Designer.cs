@@ -101,7 +101,7 @@
             // btnCancelABooking
             // 
             this.btnCancelABooking.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelABooking.Image")));
-            this.btnCancelABooking.Location = new System.Drawing.Point(983, 398);
+            this.btnCancelABooking.Location = new System.Drawing.Point(983, 418);
             this.btnCancelABooking.Name = "btnCancelABooking";
             this.btnCancelABooking.Size = new System.Drawing.Size(261, 61);
             this.btnCancelABooking.TabIndex = 6;
@@ -111,7 +111,7 @@
             // btnBookingEnquiry
             // 
             this.btnBookingEnquiry.Image = ((System.Drawing.Image)(resources.GetObject("btnBookingEnquiry.Image")));
-            this.btnBookingEnquiry.Location = new System.Drawing.Point(983, 465);
+            this.btnBookingEnquiry.Location = new System.Drawing.Point(983, 485);
             this.btnBookingEnquiry.Name = "btnBookingEnquiry";
             this.btnBookingEnquiry.Size = new System.Drawing.Size(261, 57);
             this.btnBookingEnquiry.TabIndex = 7;
@@ -122,7 +122,7 @@
             // btnViewAvailability
             // 
             this.btnViewAvailability.Image = ((System.Drawing.Image)(resources.GetObject("btnViewAvailability.Image")));
-            this.btnViewAvailability.Location = new System.Drawing.Point(983, 528);
+            this.btnViewAvailability.Location = new System.Drawing.Point(983, 562);
             this.btnViewAvailability.Name = "btnViewAvailability";
             this.btnViewAvailability.Size = new System.Drawing.Size(261, 55);
             this.btnViewAvailability.TabIndex = 8;
@@ -132,7 +132,7 @@
             // btnMakeABooking
             // 
             this.btnMakeABooking.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnMakeABooking.BackgroundImage")));
-            this.btnMakeABooking.Location = new System.Drawing.Point(983, 337);
+            this.btnMakeABooking.Location = new System.Drawing.Point(983, 357);
             this.btnMakeABooking.Name = "btnMakeABooking";
             this.btnMakeABooking.Size = new System.Drawing.Size(259, 55);
             this.btnMakeABooking.TabIndex = 13;
