@@ -37,7 +37,7 @@ namespace INF2011S_Project_Group22
 
         public string PhoneNumber
         {
-            get { return phoneNumber.ToString(); }
+            get { return phoneNumber; }
             set { phoneNumber = value; }
         }
         public string Email
