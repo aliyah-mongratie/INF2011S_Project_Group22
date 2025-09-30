@@ -121,7 +121,7 @@
   <data name="pictureBox1.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAABVYAAAMACAIAAABAXKuVAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wgAADsIBFShKgAAA/7JJREFUeF7s/Xd0VGnW7gnyX8+9fb9Z6/b0rL4z3dO3Z6Z7enois7IykzJZVWRl
+        wQAADsEBuJFr7QAA/7JJREFUeF7s/Xd0VGnW7gnyX8+9fb9Z6/b0rL4z3dO3Z6Z7enois7IykzJZVWRl
         BWRiEjJJMskQEhJWIOGN8E4gIPFOOCHvHcgiIYeEHJKQ9xYnjEDIm/qqKr+vmHVin3jjnPd9jwlFSIjU
         rvVbex1CoVAoFMrS8+znPGfa6GgHgiAIgiAIgiAIgiC/eKaxNyEIgiAIgiAIgiAI8ssDLQAEQRAEQRAE
         QRAEmRKgBYAgCIIgCIIgCIIgUwK0ABAEQRAEQRAEQRBkSoAWAIIgCIIgCIIgCIJMCdACQBAEQRAEQRAE
@@ -12473,7 +12473,7 @@
   <data name="pictureBox1.InitialImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAABVYAAAMACAIAAABAXKuVAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wgAADsIBFShKgAAA/7JJREFUeF7s/Xd0VGnW7gnyX8+9fb9Z6/b0rL4z3dO3Z6Z7enois7IykzJZVWRl
+        wQAADsEBuJFr7QAA/7JJREFUeF7s/Xd0VGnW7gnyX8+9fb9Z6/b0rL4z3dO3Z6Z7enois7IykzJZVWRl
         BWRiEjJJMskQEhJWIOGN8E4gIPFOOCHvHcgiIYeEHJKQ9xYnjEDIm/qqKr+vmHVin3jjnPd9jwlFSIjU
         rvVbex1CoVAoFMrS8+znPGfa6GgHgiAIgiAIgiAIgiC/eKaxNyEIgiAIgiAIgiAI8ssDLQAEQRAEQRAE
         QRAEmRKgBYAgCIIgCIIgCIIgUwK0ABAEQRAEQRAEQRBkSoAWAIIgCIIgCIIgCIJMCdACQBAEQRAEQRAE
@@ -24830,7 +24830,7 @@ contributing to a rich and luxury stay for all guests.</value>
   <data name="pictureBox2.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAr4AAAFuCAYAAABnURvHAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wgAADsIBFShKgAAA/7JJREFUeF6k/WV3XFm2tYvW3pVpZmZmZssoy7LAtsyyZFnMzMzMzMzMLDMnM3Nm
+        wQAADsEBuJFr7QAA/7JJREFUeF6k/WV3XFm2tYvW3pVpZmZmZssoy7LAtsyyZFnMzMzMzMzMLDMnM3Nm
         JRRtfOH+gOe2MZdClrNqn/PhfBhtBUgRS7Ei08/ss48+/vDJi0Y+eFLFW3eLeTyQyVhnPAPNoXTV+tBW
         6U5TmRN1xXbUFFlTW2xJbdF1KvMuUZZlSE6yHrHhe/D1WoONzXwsLGcR6Lua6nwD7nda83zQlQc9DjRX
         mBETfoBbVou4eHkKdrbzSI7aTlWuAc2lJjSVGFNfYkRdkRFVBecoSD9JXPhO7O0WYWgyleOn/xW9E/+K
@@ -35768,7 +35768,7 @@ contributing to a rich and luxury stay for all guests.</value>
   <data name="btnCancelABooking.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAPwAAAAzCAYAAACzFWUGAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wgAADsIBFShKgAAAA0ZJREFUeF7t3VtPE0EYgGH+vhIUMaIGRWJCIl4o0QSNeEANGk2kBSoUWoKCHD3Q
+        wQAADsEBuJFr7QAAA0ZJREFUeF7t3VtPE0EYgGH+vhIUMaIGRWJCIl4o0QSNeEANGk2kBSoUWoKCHD3Q
         QjuzXH1mVo2wX7vdLaV0ynvx3Bhnd2/edJmd2e2pVosC4Hzoif4DgO5F8MA50lOpFOV0FQCkEm2odVr6
         C29KWbEbk2IL9+QwNyiHny4AaEZuUGxxTOzmpJjSnGqtWS0J3l1U8HlIXzSAlggWb4vZmlLtpXWi4O3m
         cwlmB9TFATgluetitl+rFpNqKnhTnhe7OKIvBkBbBMujUi3nVJuNpA7ebL2Sw+wldQEA2my2X8zuO9Vo
@@ -35788,7 +35788,7 @@ contributing to a rich and luxury stay for all guests.</value>
   <data name="btnBookingEnquiry.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAPwAAAAzCAYAAACzFWUGAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wgAADsIBFShKgAAAA0ZJREFUeF7t3VtPE0EYgGH+vhIUMaIGRWJCIl4o0QSNeEANGk2kBSoUWoKCHD3Q
+        wQAADsEBuJFr7QAAA0ZJREFUeF7t3VtPE0EYgGH+vhIUMaIGRWJCIl4o0QSNeEANGk2kBSoUWoKCHD3Q
         QjuzXH1mVo2wX7vdLaV0ynvx3Bhnd2/edJmd2e2pVosC4Hzoif4DgO5F8MA50lOpFOV0FQCkEm2odVr6
         C29KWbEbk2IL9+QwNyiHny4AaEZuUGxxTOzmpJjSnGqtWS0J3l1U8HlIXzSAlggWb4vZmlLtpXWi4O3m
         cwlmB9TFATgluetitl+rFpNqKnhTnhe7OKIvBkBbBMujUi3nVJuNpA7ebL2Sw+wldQEA2my2X8zuO9Vo
@@ -35808,7 +35808,7 @@ contributing to a rich and luxury stay for all guests.</value>
   <data name="btnViewAvailability.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAPwAAAAzCAYAAACzFWUGAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wgAADsIBFShKgAAAA0ZJREFUeF7t3VtPE0EYgGH+vhIUMaIGRWJCIl4o0QSNeEANGk2kBSoUWoKCHD3Q
+        wQAADsEBuJFr7QAAA0ZJREFUeF7t3VtPE0EYgGH+vhIUMaIGRWJCIl4o0QSNeEANGk2kBSoUWoKCHD3Q
         QjuzXH1mVo2wX7vdLaV0ynvx3Bhnd2/edJmd2e2pVosC4Hzoif4DgO5F8MA50lOpFOV0FQCkEm2odVr6
         C29KWbEbk2IL9+QwNyiHny4AaEZuUGxxTOzmpJjSnGqtWS0J3l1U8HlIXzSAlggWb4vZmlLtpXWi4O3m
         cwlmB9TFATgluetitl+rFpNqKnhTnhe7OKIvBkBbBMujUi3nVJuNpA7ebL2Sw+wldQEA2my2X8zuO9Vo
@@ -35828,7 +35828,7 @@ contributing to a rich and luxury stay for all guests.</value>
   <data name="btnMakeABooking.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAPwAAAAzCAYAAACzFWUGAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wgAADsIBFShKgAAAA0ZJREFUeF7t3VtPE0EYgGH+vhIUMaIGRWJCIl4o0QSNeEANGk2kBSoUWoKCHD3Q
+        wQAADsEBuJFr7QAAA0ZJREFUeF7t3VtPE0EYgGH+vhIUMaIGRWJCIl4o0QSNeEANGk2kBSoUWoKCHD3Q
         QjuzXH1mVo2wX7vdLaV0ynvx3Bhnd2/edJmd2e2pVosC4Hzoif4DgO5F8MA50lOpFOV0FQCkEm2odVr6
         C29KWbEbk2IL9+QwNyiHny4AaEZuUGxxTOzmpJjSnGqtWS0J3l1U8HlIXzSAlggWb4vZmlLtpXWi4O3m
         cwlmB9TFATgluetitl+rFpNqKnhTnhe7OKIvBkBbBMujUi3nVJuNpA7ebL2Sw+wldQEA2my2X8zuO9Vo

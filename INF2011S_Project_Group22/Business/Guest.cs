@@ -10,12 +10,18 @@ namespace INF2011S_Project_Group22
     {
         //Munta's part
         #region Data Members
+        public int guestID;
         private DateTime checkInDate;
         private DateTime checkOutDate;
         private int creditCardNumber;
         #endregion
 
         #region Property methods
+        public int GuestID
+        {
+            get { return guestID; }
+            set { guestID = value; }
+        }
         public DateTime CheckInDate 
         { 
             get { return checkInDate; }
@@ -34,14 +40,14 @@ namespace INF2011S_Project_Group22
         #endregion
 
         #region Constructors
-        public Guest()
+        public Guest():base() //default constructor
         {
             checkInDate = DateTime.MinValue;
             checkOutDate = DateTime.MinValue;
             creditCardNumber = 0;
         }
 
-        public Guest(DateTime newCheckInDate, DateTime newCheckOutDate, int newCreditCardNumber)
+        public Guest(DateTime newCheckInDate, DateTime newCheckOutDate, int newCreditCardNumber):base() //parameterized constructor
         {
             checkInDate = newCheckInDate;
             checkOutDate = newCheckOutDate;

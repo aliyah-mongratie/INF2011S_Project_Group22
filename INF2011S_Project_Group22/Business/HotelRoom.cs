@@ -15,6 +15,7 @@ namespace INF2011S_Project_Group22
         {
             Available = 0,
             Occupied = 1
+                
         }
         protected RoomStatus roomStat;
         private decimal roomPrice;
@@ -71,7 +72,15 @@ namespace INF2011S_Project_Group22
         #endregion
 
         #region Methods 
+        public void CheckIn()
+        {
+            roomStat = RoomStatus.Occupied;
+        }
 
+        public void CheckOut()
+        {
+            roomStat = RoomStatus.Available;
+        }
         #endregion
     }
 

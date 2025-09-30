@@ -17,7 +17,7 @@ namespace INF2011S_Project_Group22
         {
             InitializeComponent();
 
-            // hellooo
+           
 
            
 
@@ -40,6 +40,11 @@ namespace INF2011S_Project_Group22
         }
 
         private void btnBookingEnquiry_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
         {
 
         }
