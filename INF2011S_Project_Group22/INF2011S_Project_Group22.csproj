@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Business\TravelAgent.cs" />
     <Compile Include="Presentation\Phumla Kamnandi Homepage.cs">
       <SubType>Form</SubType>
     </Compile>
