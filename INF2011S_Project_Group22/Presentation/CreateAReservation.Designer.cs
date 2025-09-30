@@ -43,7 +43,6 @@
             this.lblEnd = new System.Windows.Forms.Label();
             this.lblSR = new System.Windows.Forms.Label();
             this.lblStart = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblEmail = new System.Windows.Forms.Label();
             this.txtGuestFullName = new System.Windows.Forms.TextBox();
             this.txtNumRooms = new System.Windows.Forms.TextBox();
@@ -52,6 +51,7 @@
             this.txtEndDate = new System.Windows.Forms.TextBox();
             this.txtSpecialReq = new System.Windows.Forms.TextBox();
             this.txtEmail = new System.Windows.Forms.TextBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -68,7 +68,7 @@
             this.lblCreateAReservation.BackColor = System.Drawing.Color.OldLace;
             this.lblCreateAReservation.Font = new System.Drawing.Font("Times New Roman", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCreateAReservation.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.lblCreateAReservation.Location = new System.Drawing.Point(12, 201);
+            this.lblCreateAReservation.Location = new System.Drawing.Point(12, 216);
             this.lblCreateAReservation.Name = "lblCreateAReservation";
             this.lblCreateAReservation.Size = new System.Drawing.Size(349, 46);
             this.lblCreateAReservation.TabIndex = 2;
@@ -77,6 +77,7 @@
             // btnCreateResExit
             // 
             this.btnCreateResExit.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnCreateResExit.BackgroundImage")));
+            this.btnCreateResExit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnCreateResExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCreateResExit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.btnCreateResExit.Location = new System.Drawing.Point(12, 639);
@@ -90,6 +91,7 @@
             // 
             this.btnCreateResNext.BackColor = System.Drawing.Color.OldLace;
             this.btnCreateResNext.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnCreateResNext.BackgroundImage")));
+            this.btnCreateResNext.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnCreateResNext.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCreateResNext.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.btnCreateResNext.Location = new System.Drawing.Point(826, 639);
@@ -102,6 +104,7 @@
             // btnCreateResClear
             // 
             this.btnCreateResClear.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnCreateResClear.BackgroundImage")));
+            this.btnCreateResClear.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnCreateResClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCreateResClear.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.btnCreateResClear.Location = new System.Drawing.Point(1085, 639);
@@ -117,7 +120,7 @@
             this.rbTravelAgencyBooking.BackColor = System.Drawing.Color.OldLace;
             this.rbTravelAgencyBooking.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rbTravelAgencyBooking.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.rbTravelAgencyBooking.Location = new System.Drawing.Point(323, 256);
+            this.rbTravelAgencyBooking.Location = new System.Drawing.Point(323, 265);
             this.rbTravelAgencyBooking.Name = "rbTravelAgencyBooking";
             this.rbTravelAgencyBooking.Size = new System.Drawing.Size(199, 28);
             this.rbTravelAgencyBooking.TabIndex = 17;
@@ -130,7 +133,7 @@
             this.rbPersonalBooking.AutoSize = true;
             this.rbPersonalBooking.BackColor = System.Drawing.Color.OldLace;
             this.rbPersonalBooking.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbPersonalBooking.Location = new System.Drawing.Point(772, 256);
+            this.rbPersonalBooking.Location = new System.Drawing.Point(772, 265);
             this.rbPersonalBooking.Name = "rbPersonalBooking";
             this.rbPersonalBooking.Size = new System.Drawing.Size(157, 28);
             this.rbPersonalBooking.TabIndex = 18;
@@ -222,17 +225,6 @@
             this.lblStart.TabIndex = 25;
             this.lblStart.Text = "Start:";
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(255)))), ((int)(((byte)(193)))));
-            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1351, 707);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
             // lblEmail
             // 
             this.lblEmail.AutoSize = true;
@@ -315,6 +307,17 @@
             this.txtEmail.Size = new System.Drawing.Size(496, 23);
             this.txtEmail.TabIndex = 33;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(255)))), ((int)(((byte)(193)))));
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(-5, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(1355, 707);
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
             // frmCreateReservation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -366,7 +369,6 @@
         private System.Windows.Forms.Label lblEnd;
         private System.Windows.Forms.Label lblSR;
         private System.Windows.Forms.Label lblStart;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label lblEmail;
         private System.Windows.Forms.TextBox txtGuestFullName;
         private System.Windows.Forms.TextBox txtNumRooms;
@@ -375,5 +377,6 @@
         private System.Windows.Forms.TextBox txtEndDate;
         private System.Windows.Forms.TextBox txtSpecialReq;
         private System.Windows.Forms.TextBox txtEmail;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
