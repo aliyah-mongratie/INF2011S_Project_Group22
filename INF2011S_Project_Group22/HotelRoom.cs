@@ -15,7 +15,7 @@ namespace INF2011S_Project_Group22
         {
             Available = 0,
             Occupied = 1
-                //should a third state be added like "UnderPreparation" 
+                
         }
         protected RoomStatus roomStat;
         private decimal roomPrice;
