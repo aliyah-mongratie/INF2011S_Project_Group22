@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace INF2011S_Project_Group22
+namespace INF2011S_Project_Group22.Business
 {
     internal class Booking
     {
