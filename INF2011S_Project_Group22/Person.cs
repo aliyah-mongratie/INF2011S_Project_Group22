@@ -13,30 +13,56 @@ namespace INF2011S_Project_Group22
 
 
         #region Data Members
-        public string firstName { get; set; }
-        public string lastName { get; set; }
-        public int phoneNumber { get; set; }
-        public string email { get; set; }
-        public string role { get; set; }
+        public string firstName;
+        public string lastName;
+        public string phoneNumber;
+        public string email;
+        public string role;
 
         #endregion
 
-        #region Default Constructor
+#region Property Methods
 
-        public Person()
+        public string FirstName
         {
-            firstName = " ";
-            lastName = " ";
-            phoneNumber =0;
-            email = " ";
-            role = " ";
+            get { return firstName; }
+            set { firstName = value; }
+        }
 
+        public string LastName
+        {
+            get { return lastName; }
+            set { lastName = value; }
+        }
+
+        public string PhoneNumber
+        {
+            get { return phoneNumber.ToString(); }
+            set { phoneNumber = value; }
+        }
+        public string Email
+        {
+            get { return email; }
+            set { email = value; }
+        }
+
+        public string Role
+        {
+            get { return role; }
+            set { role = value; }
         }
         #endregion
+        #region  Constructors
 
-        #region Parameterized Constructor
-
-        public Person(string firstName, string lastName, int phoneNumber, string email, string role)
+        public Person ()// Default constructor
+        {
+            firstName = "";
+            lastName = "";
+            phoneNumber = "";
+            email = "";
+            role = "";
+        }
+        public Person(string firstName, string lastName, string phoneNumber, string email, string role)// Parameterized constructor
         {
             this.firstName = firstName;
             this.lastName = lastName;
@@ -44,8 +70,8 @@ namespace INF2011S_Project_Group22
             this.email = email;
             this.role = role;
         }
-        #endregion
 
+        #endregion
 
 
     }

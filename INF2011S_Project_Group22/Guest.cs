@@ -21,7 +21,7 @@ namespace INF2011S_Project_Group22
             creditCardNumber = 0;
         }
 
-        public Guest(string firstName, string lastName, int phoneNumber, string email, string role, DateTime checkInDate, DateTime checkOutDate, int creditCardNumber) : base(firstName, lastName, phoneNumber, email, role)
+        public Guest(string firstName, string lastName, string phoneNumber, string email, string role, DateTime checkInDate, DateTime checkOutDate, int creditCardNumber) : base(firstName, lastName, phoneNumber, email, role)
         {
             this.checkInDate = checkInDate;
             this.checkOutDate = checkOutDate;
