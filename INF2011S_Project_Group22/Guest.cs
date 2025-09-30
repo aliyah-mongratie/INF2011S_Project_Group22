@@ -9,11 +9,31 @@ namespace INF2011S_Project_Group22
     internal class Guest : Person
     {
         //Munta's part
-        public DateTime checkInDate { get; set; }
-        public DateTime checkOutDate { get; set; }
-        public int creditCardNumber { get; set; }
+        #region Data Members
+        private DateTime checkInDate;
+        private DateTime checkOutDate;
+        private int creditCardNumber;
+        #endregion
 
+        #region Property methods
+        public DateTime CheckInDate 
+        { 
+            get { return checkInDate; }
+            set { checkInDate = value; }
+        }
+        public DateTime CheckOutDate
+        {
+            get { return checkOutDate; }
+            set { checkOutDate = value; }
+        }
+        public int CreditCardNumber
+        {
+            get { return creditCardNumber; }
+            set { creditCardNumber = value; }
+        }
+        #endregion
 
+        #region Constructors
         public Guest()
         {
             checkInDate = DateTime.MinValue;
@@ -21,12 +41,13 @@ namespace INF2011S_Project_Group22
             creditCardNumber = 0;
         }
 
-        public Guest(string firstName, string lastName, int phoneNumber, string email, string role, DateTime checkInDate, DateTime checkOutDate, int creditCardNumber) : base(firstName, lastName, phoneNumber, email, role)
+        public Guest(DateTime newCheckInDate, DateTime newCheckOutDate, int newCreditCardNumber)
         {
-            this.checkInDate = checkInDate;
-            this.checkOutDate = checkOutDate;
-            this.creditCardNumber = creditCardNumber;
+            checkInDate = newCheckInDate;
+            checkOutDate = newCheckOutDate;
+            creditCardNumber = newCreditCardNumber;
         }
+        #endregion
 
     }
 
