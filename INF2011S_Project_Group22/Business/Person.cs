@@ -15,7 +15,7 @@ namespace INF2011S_Project_Group22
         #region Data Members
         public string firstName;
         public string lastName;
-        public string phoneNumber;
+        public string phoneNumber; //phone numbers have a leading zero. If int is used, it removes the leading zero. Due to this, phoneNumber will be saved as datatype string
         public string email;
         public string role;
 
@@ -62,13 +62,13 @@ namespace INF2011S_Project_Group22
             email = "";
             role = "";
         }
-        public Person(string firstName, string lastName, string phoneNumber, string email, string role)// Parameterized constructor
+        public Person(string fstName, string lstName, string cellPhoneNumber, string newEmail, string newRole)// Parameterized constructor
         {
-            this.firstName = firstName;
-            this.lastName = lastName;
-            this.phoneNumber = phoneNumber;
-            this.email = email;
-            this.role = role;
+            firstName = fstName;
+            lastName = lstName;
+            phoneNumber = cellPhoneNumber;
+            email = newEmail;
+            role = newRole;
         }
 
         #endregion
