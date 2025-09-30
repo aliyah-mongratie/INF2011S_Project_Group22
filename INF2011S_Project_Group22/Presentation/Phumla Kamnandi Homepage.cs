@@ -17,6 +17,7 @@ namespace INF2011S_Project_Group22
         {
             InitializeComponent();
 
+
            
 
            
@@ -45,6 +46,11 @@ namespace INF2011S_Project_Group22
         }
 
         private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
         {
 
         }
