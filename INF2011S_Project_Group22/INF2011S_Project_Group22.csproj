@@ -55,6 +55,7 @@
     <Compile Include="Guest.cs" />
     <Compile Include="GuestAccount.cs" />
     <Compile Include="Hotel.cs" />
+    <Compile Include="HotelRoom.cs" />
     <Compile Include="Manager.cs" />
     <Compile Include="Person.cs" />
     <Compile Include="Program.cs" />
