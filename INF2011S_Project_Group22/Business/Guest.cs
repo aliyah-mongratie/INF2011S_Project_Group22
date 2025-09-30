@@ -10,6 +10,7 @@ namespace INF2011S_Project_Group22
     {
         //Munta's part
         #region Data Members
+        //TEST
         public int guestID;
         private DateTime checkInDate;
         private DateTime checkOutDate;
