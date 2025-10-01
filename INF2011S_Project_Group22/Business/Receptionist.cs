@@ -29,6 +29,6 @@ namespace INF2011S_Project_Group22.Business
             this.receptionistID = receptionistID;
         }
 
-
+        #endregion
     }
 }
