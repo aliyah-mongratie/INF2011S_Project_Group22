@@ -84,12 +84,12 @@ namespace INF2011S_Project_Group22.Business
             return true; // all rooms passed the check
         }
 
-         public void AddRoom(string roomID, int hotelID, )
+        /* public void AddRoom(string roomID, string hotelID, RoomStatus roomStat , )
     {
         Rooms.Add(new HotelRoom());
         MessageBox.Show($"Added Room {roomNumber} ({type})");
         MessageBox.Show($"Count: {Rooms.Count}, Capacity: {Rooms.Capacity}");
-    }
+    }*/
 
 
         #endregion
