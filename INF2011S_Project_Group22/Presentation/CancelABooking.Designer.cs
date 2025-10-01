@@ -31,14 +31,14 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCancelABooking));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.lblGuestLastName = new System.Windows.Forms.Label();
+            this.lblLastName = new System.Windows.Forms.Label();
             this.lblEnterResNumber = new System.Windows.Forms.Label();
-            this.txtGuestLatName = new System.Windows.Forms.TextBox();
+            this.txtLastName = new System.Windows.Forms.TextBox();
             this.txtEnterResNumber = new System.Windows.Forms.TextBox();
             this.btnExit = new System.Windows.Forms.Button();
             this.btnConfirm = new System.Windows.Forms.Button();
-            this.lblGuestFirstName = new System.Windows.Forms.Label();
-            this.txtGuestFirstName = new System.Windows.Forms.TextBox();
+            this.lblFirstName = new System.Windows.Forms.Label();
+            this.txtFirstName = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -64,17 +64,17 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Cancel a Booking";
             // 
-            // lblGuestLastName
+            // lblLastName
             // 
-            this.lblGuestLastName.AutoSize = true;
-            this.lblGuestLastName.BackColor = System.Drawing.Color.OldLace;
-            this.lblGuestLastName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGuestLastName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.lblGuestLastName.Location = new System.Drawing.Point(255, 418);
-            this.lblGuestLastName.Name = "lblGuestLastName";
-            this.lblGuestLastName.Size = new System.Drawing.Size(169, 25);
-            this.lblGuestLastName.TabIndex = 2;
-            this.lblGuestLastName.Text = "Guest Last Name:";
+            this.lblLastName.AutoSize = true;
+            this.lblLastName.BackColor = System.Drawing.Color.OldLace;
+            this.lblLastName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLastName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.lblLastName.Location = new System.Drawing.Point(271, 418);
+            this.lblLastName.Name = "lblLastName";
+            this.lblLastName.Size = new System.Drawing.Size(112, 25);
+            this.lblLastName.TabIndex = 2;
+            this.lblLastName.Text = "Last Name:";
             // 
             // lblEnterResNumber
             // 
@@ -88,14 +88,14 @@
             this.lblEnterResNumber.TabIndex = 3;
             this.lblEnterResNumber.Text = "Enter Booking Reservation Number:";
             // 
-            // txtGuestLatName
+            // txtLastName
             // 
-            this.txtGuestLatName.BackColor = System.Drawing.Color.Bisque;
-            this.txtGuestLatName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtGuestLatName.Location = new System.Drawing.Point(543, 415);
-            this.txtGuestLatName.Name = "txtGuestLatName";
-            this.txtGuestLatName.Size = new System.Drawing.Size(448, 30);
-            this.txtGuestLatName.TabIndex = 4;
+            this.txtLastName.BackColor = System.Drawing.Color.Bisque;
+            this.txtLastName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtLastName.Location = new System.Drawing.Point(543, 415);
+            this.txtLastName.Name = "txtLastName";
+            this.txtLastName.Size = new System.Drawing.Size(448, 30);
+            this.txtLastName.TabIndex = 4;
             // 
             // txtEnterResNumber
             // 
@@ -134,40 +134,40 @@
             this.btnConfirm.UseVisualStyleBackColor = true;
             this.btnConfirm.Click += new System.EventHandler(this.btnConfirm_Click);
             // 
-            // lblGuestFirstName
+            // lblFirstName
             // 
-            this.lblGuestFirstName.AutoSize = true;
-            this.lblGuestFirstName.BackColor = System.Drawing.Color.OldLace;
-            this.lblGuestFirstName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGuestFirstName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.lblGuestFirstName.Location = new System.Drawing.Point(255, 355);
-            this.lblGuestFirstName.Name = "lblGuestFirstName";
-            this.lblGuestFirstName.Size = new System.Drawing.Size(169, 25);
-            this.lblGuestFirstName.TabIndex = 9;
-            this.lblGuestFirstName.Text = "Guest First Name:";
+            this.lblFirstName.AutoSize = true;
+            this.lblFirstName.BackColor = System.Drawing.Color.OldLace;
+            this.lblFirstName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFirstName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.lblFirstName.Location = new System.Drawing.Point(271, 355);
+            this.lblFirstName.Name = "lblFirstName";
+            this.lblFirstName.Size = new System.Drawing.Size(112, 25);
+            this.lblFirstName.TabIndex = 9;
+            this.lblFirstName.Text = "First Name:";
             // 
-            // txtGuestFirstName
+            // txtFirstName
             // 
-            this.txtGuestFirstName.BackColor = System.Drawing.Color.Bisque;
-            this.txtGuestFirstName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtGuestFirstName.Location = new System.Drawing.Point(543, 352);
-            this.txtGuestFirstName.Name = "txtGuestFirstName";
-            this.txtGuestFirstName.Size = new System.Drawing.Size(448, 30);
-            this.txtGuestFirstName.TabIndex = 10;
+            this.txtFirstName.BackColor = System.Drawing.Color.Bisque;
+            this.txtFirstName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtFirstName.Location = new System.Drawing.Point(543, 352);
+            this.txtFirstName.Name = "txtFirstName";
+            this.txtFirstName.Size = new System.Drawing.Size(448, 30);
+            this.txtFirstName.TabIndex = 10;
             // 
             // frmCancelABooking
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1349, 706);
-            this.Controls.Add(this.txtGuestFirstName);
-            this.Controls.Add(this.lblGuestFirstName);
+            this.Controls.Add(this.txtFirstName);
+            this.Controls.Add(this.lblFirstName);
             this.Controls.Add(this.btnConfirm);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.txtEnterResNumber);
-            this.Controls.Add(this.txtGuestLatName);
+            this.Controls.Add(this.txtLastName);
             this.Controls.Add(this.lblEnterResNumber);
-            this.Controls.Add(this.lblGuestLastName);
+            this.Controls.Add(this.lblLastName);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
             this.Name = "frmCancelABooking";
@@ -182,13 +182,13 @@
 
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label lblGuestLastName;
+        private System.Windows.Forms.Label lblLastName;
         private System.Windows.Forms.Label lblEnterResNumber;
-        private System.Windows.Forms.TextBox txtGuestLatName;
+        private System.Windows.Forms.TextBox txtLastName;
         private System.Windows.Forms.TextBox txtEnterResNumber;
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Button btnConfirm;
-        private System.Windows.Forms.Label lblGuestFirstName;
-        private System.Windows.Forms.TextBox txtGuestFirstName;
+        private System.Windows.Forms.Label lblFirstName;
+        private System.Windows.Forms.TextBox txtFirstName;
     }
 }
