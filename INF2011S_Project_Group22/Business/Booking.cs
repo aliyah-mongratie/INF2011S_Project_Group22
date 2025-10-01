@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace INF2011S_Project_Group22.Business
 {
@@ -83,12 +84,12 @@ namespace INF2011S_Project_Group22.Business
             return true; // all rooms passed the check
         }
 
-         public void AddRoom(string roomNumber, string type)
+        /* public void AddRoom(string roomID, string hotelID, RoomStatus roomStat , )
     {
         Rooms.Add(new HotelRoom());
-        Console.WriteLine($"Added Room {roomNumber} ({type})");
-        Console.WriteLine($"Count: {Rooms.Count}, Capacity: {Rooms.Capacity}");
-    }
+        MessageBox.Show($"Added Room {roomNumber} ({type})");
+        MessageBox.Show($"Count: {Rooms.Count}, Capacity: {Rooms.Capacity}");
+    }*/
 
 
         #endregion
