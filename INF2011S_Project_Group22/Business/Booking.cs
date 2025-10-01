@@ -10,7 +10,7 @@ namespace INF2011S_Project_Group22.Business
     {
         #region data members
         //attributes
-        private int bookingResNumber { get; set; }//(alphanumeric, 8–12 chars)
+        public int bookingResNumber { get; set; }//(alphanumeric, 8–12 chars)
         public enum BookingStatus
         {
             Pending,
