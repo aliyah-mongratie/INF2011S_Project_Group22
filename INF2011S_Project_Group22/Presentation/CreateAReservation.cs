@@ -148,6 +148,11 @@ namespace INF2011S_Project_Group22
             this.Close();
         }
 
+        private void frmCreateReservation_Load(object sender, EventArgs e)
+        {
+
+        }
+
         /*if (booking.CheckRoomAvailability())
 {
     booking.Status = BookingStatus.Confirmed;
