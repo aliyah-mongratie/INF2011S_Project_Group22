@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static INF2011S_Project_Group22.HotelRoom;
 
 namespace INF2011S_Project_Group22.Business
 {
@@ -87,11 +88,16 @@ namespace INF2011S_Project_Group22.Business
 
          public void AddRoom(string newHotelRoomID, string newHotelID, decimal newRoomPrice, int newRoomCapacity)
          {
-            
-            Rooms.Add(new HotelRoom(newHotelRoomID, newHotelID,  newRoomPrice,  newRoomCapacity));
-            MessageBox.Show($"Added Room {newHotelRoomID} ({newHotelID}, {newRoomPrice} , {newRoomCapacity})");
+            var newRoom = new HotelRoom(newHotelRoomID, newHotelID, newRoomPrice, newRoomCapacity);
+
+            // Change status to Occupied right after creation
+            newRoom.roomStat = RoomStatus.Occupied;
+
+            Rooms.Add(newRoom);
+
+            MessageBox.Show($"Added Room {newHotelRoomID} ({newHotelID}, {newRoomPrice}, {newRoomCapacity}) - Status: {newRoom.roomStat}");
             MessageBox.Show($"Count: {Rooms.Count}, Capacity: {Rooms.Capacity}");
-         }
+        }
 
 
         #endregion
