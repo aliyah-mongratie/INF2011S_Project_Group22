@@ -115,6 +115,15 @@ namespace INF2011S_Project_Group22.Business
         {
             return Find(bookingResNumber);
         }
+        public void ConfirmBooking(int bookingResNumber)
+        {
+            Booking booking = Find(bookingResNumber);
+            if (booking == null)
+            {
+                MessageBox.Show("The booking cannot be found.", "Booking Not Found", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            booking.bookingStat = Booking.BookingStatus.Confirmed;
+        }
         #endregion
     }
 }
