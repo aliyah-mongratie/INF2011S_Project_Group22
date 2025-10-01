@@ -114,14 +114,12 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Data\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Business\HotelBookingDatabase.mdf">
+    <Content Include="Data\HotelBookingDatabase.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Business\HotelBookingDatabase_log.ldf">
+    <Content Include="Data\HotelBookingDatabase_log.ldf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>HotelBookingDatabase.mdf</DependentUpon>
     </Content>
