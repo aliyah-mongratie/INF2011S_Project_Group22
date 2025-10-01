@@ -91,7 +91,12 @@ namespace INF2011S_Project_Group22.Business
                 MessageBox.Show("The check in date must be before the check out date", "Invalid input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 
-            
+            booking.checkInDate = newCheckInDate;
+            booking.checkOutDate = newCheckOutDate;
+            booking.numOfRooms = newNumOfRooms;
+            booking.numOfPeople = newNumOfPeople;
+            booking.specialRequirements = newSpecialRequirements;
+
         }
         #endregion
     }
