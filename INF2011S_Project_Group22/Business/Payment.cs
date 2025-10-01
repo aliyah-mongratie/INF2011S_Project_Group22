@@ -8,19 +8,22 @@ namespace INF2011S_Project_Group22.Business
 {
     internal class Payment
     {
-        private int paymentID;
+        #region data members
+        private string paymentID;
         private string paymentStatus;
         private float paymentAmount;
 
         //foreign key
         public string BookingReservationNumber { get; set; }
-
-        public Payment(int payID, string payStatus, float payAmount)
+        #endregion
+        #region Constructors
+        public Payment(string payID, string payStatus, float payAmount)
         {
             paymentID = payID;
             paymentStatus = payStatus;
             paymentAmount = payAmount;
         }
+        #endregion
 
         #region Methods
 
