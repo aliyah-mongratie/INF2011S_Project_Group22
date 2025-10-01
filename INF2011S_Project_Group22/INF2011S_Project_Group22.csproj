@@ -79,6 +79,12 @@
     <Compile Include="Presentation\BookingConfirmation.Designer.cs">
       <DependentUpon>BookingConfirmation.cs</DependentUpon>
     </Compile>
+    <Compile Include="Presentation\CancelABooking.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\CancelABooking.Designer.cs">
+      <DependentUpon>CancelABooking.cs</DependentUpon>
+    </Compile>
     <Compile Include="Presentation\CreateAReservation.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -107,6 +113,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Presentation\BookingConfirmation.resx">
       <DependentUpon>BookingConfirmation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\CancelABooking.resx">
+      <DependentUpon>CancelABooking.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentation\CreateAReservation.resx">
       <DependentUpon>CreateAReservation.cs</DependentUpon>
