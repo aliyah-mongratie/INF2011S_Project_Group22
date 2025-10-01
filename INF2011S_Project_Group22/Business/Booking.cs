@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlTypes;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -84,13 +85,13 @@ namespace INF2011S_Project_Group22.Business
             return true; // all rooms passed the check
         }
 
-        /* public void AddRoom(string roomID, string hotelID, RoomStatus roomStat , )
+         public void AddRoom(string newHotelRoomID, string newHotelID, decimal newRoomPrice, int newRoomCapacity)
          {
             
-            Rooms.Add(new HotelRoom());
-            MessageBox.Show($"Added Room {roomNumber} ({type})");
+            Rooms.Add(new HotelRoom(newHotelRoomID, newHotelID,  newRoomPrice,  newRoomCapacity));
+            MessageBox.Show($"Added Room {newHotelRoomID} ({newHotelID}, {newRoomPrice} , {newRoomCapacity})");//why roomID and roomPrice
             MessageBox.Show($"Count: {Rooms.Count}, Capacity: {Rooms.Capacity}");
-         }*/
+         }
 
 
         #endregion

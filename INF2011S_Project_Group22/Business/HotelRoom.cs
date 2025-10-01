@@ -9,17 +9,17 @@ namespace INF2011S_Project_Group22
     class HotelRoom //aliyah
     {
         #region Data Members 
-        private string hotelRoomID;
-        private string hotelID;
+        public string hotelRoomID;
+        public string hotelID;
         public enum RoomStatus
         {
             Available = 0,
             Occupied = 1
                 
         }
-        protected RoomStatus roomStat;
-        private decimal roomPrice;
-        private int roomCapacity;
+        public RoomStatus roomStat;
+        public decimal roomPrice;
+        public int roomCapacity;
 
         #endregion
 
