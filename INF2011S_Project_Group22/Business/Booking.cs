@@ -19,16 +19,16 @@ namespace INF2011S_Project_Group22.Business
         }
         protected BookingStatus bookingStat;
         public List<HotelRoom> Rooms { get; private set; } = new List<HotelRoom>();
-        private string bookingType { get; set; } //Personal or Travel Agency
-        private int numOfPeople { get; set; } //max 6
-        private int numOfRooms { get; set; } //1–3 rooms
-        private DateTime checkInDate { get; set; }
-        private DateTime checkOutDate { get; set; }
-        private string specialRequirements { get; set; }
+        public string bookingType { get; set; } //Personal or Travel Agency
+        public int numOfPeople { get; set; } //max 6
+        public int numOfRooms { get; set; } //1–3 rooms
+        public DateTime checkInDate { get; set; }
+        public DateTime checkOutDate { get; set; }
+        public string specialRequirements { get; set; }
 
         // Foreign Keys
-        private Guest guest { get; set; }
-        private TravelAgent travelAgent { get; set; }
+        public Guest guest { get; set; }
+        public TravelAgent travelAgent { get; set; }
         #endregion
         #region Constructors
         public Booking()
