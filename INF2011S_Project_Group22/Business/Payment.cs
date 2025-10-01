@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static INF2011S_Project_Group22.Business.Booking;
 
 namespace INF2011S_Project_Group22.Business
 {
@@ -10,17 +11,23 @@ namespace INF2011S_Project_Group22.Business
     {
         #region data members
         private string paymentID;
-        private string paymentStatus;
+        public enum PaymentStatus
+        {
+            pending,
+            paid,
+            unpaid
+        }
+        public PaymentStatus paymentStat { get; set; }
         private float paymentAmount;
 
         //foreign key
         public string BookingReservationNumber { get; set; }
         #endregion
         #region Constructors
-        public Payment(string payID, string payStatus, float payAmount)
+        public Payment(string payID,  float payAmount)
         {
             paymentID = payID;
-            paymentStatus = payStatus;
+            paymentStat = Payment.PaymentStatus.unpaid;
             paymentAmount = payAmount;
         }
         #endregion
@@ -35,12 +42,12 @@ namespace INF2011S_Project_Group22.Business
 
         public string GetPaymentStatus()
         {
-            return paymentStatus;
+            return paymentStat.ToString();
         }
 
-        public void UpdatePaymentStatus(string newStatus)
+        public void UpdatePaymentStatus(PaymentStatus newStatus)
         {
-            paymentStatus = newStatus;
+            paymentStat = newStatus;
         }
 
 
