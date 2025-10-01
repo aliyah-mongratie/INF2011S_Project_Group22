@@ -17,6 +17,7 @@ namespace INF2011S_Project_Group22.Business
             Cancelled
         }
         protected BookingStatus bookingStat;
+        public List<HotelRoom> Rooms { get; private set; } = new List<HotelRoom>();
         private string bookingType { get; set; } //Personal or Travel Agency
         private int numOfPeople { get; set; } //max 6
         private int numOfRooms { get; set; } //1–3 rooms
@@ -67,8 +68,20 @@ namespace INF2011S_Project_Group22.Business
             return (checkOutDate - checkInDate).Days;
         }
 
-       
-      
+        public bool CheckRoomAvailability()
+        {
+            
+            
+            foreach (var room in Rooms)
+            {
+                if (room.getRoomStatus != HotelRoom.RoomStatus.Available)
+                {
+                    return false; // as soon as we find one unavailable room, stop
+                }
+            }
+            return true; // all rooms passed the check
+        }
+
 
         #endregion
     }
