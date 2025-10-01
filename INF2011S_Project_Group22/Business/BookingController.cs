@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -16,7 +17,7 @@ namespace INF2011S_Project_Group22.Business
 
         #region Property methods 
         public Collection<Booking> AllBookings
-        { 
+        {
             get { return bookings; }
         }
         #endregion
@@ -39,39 +40,39 @@ namespace INF2011S_Project_Group22.Business
             }
             return bookings[index];
         }
-        public Booking MakeBooking(int bookResNumber, Guest guest, List<HotelRoom> rooms,TravelAgent travelAgent,string bookingType,int numOfPeople, int numOfRooms, 
+        public Booking MakeBooking(int bookingResNumber, Guest guest, List<HotelRoom> rooms, TravelAgent travelAgent, string bookingType, int numOfPeople, int numOfRooms,
                         DateTime checkInDate, DateTime checkOutDate, string specialRequirements)
         {
 
-            
-            if(numOfPeople > 6)
+
+            if (numOfPeople > 6)
             {
                 MessageBox.Show("The number of people for a booking cannot exceed 6.", "Invalid input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-           
-            if(numOfRooms < 1 || numOfRooms >3)
+
+            if (numOfRooms < 1 || numOfRooms > 3)
             {
                 MessageBox.Show("The number of rooms for a booking must be between 1 and 3.", "Invalid input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             // 4 people in a room? 
 
-            if(checkInDate >= checkOutDate)
+            if (checkInDate >= checkOutDate)
             {
                 MessageBox.Show("The check in date must be before the check out date", "Invalid input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 
             // check if all rooms statuses are  RoomStatus.available before making boooking 
 
-            Booking booking = new Booking(bookResNumber, bookingType, numOfPeople, numOfRooms, checkInDate, checkOutDate, specialRequirements, guest, rooms, travelAgent);
+            Booking booking = new Booking(bookingResNumber, bookingType, numOfPeople, numOfRooms, checkInDate, checkOutDate, specialRequirements, guest, rooms, travelAgent);
             bookings.Add(booking);
             return booking;
-        } 
+        }
 
-        public void ChangeBooking(int bookResNumber, int newNumOfPeople, int newNumOfRooms,
+        public void ChangeBooking(int bookingResNumber, int newNumOfPeople, int newNumOfRooms,
                         DateTime newCheckInDate, DateTime newCheckOutDate, string newSpecialRequirements)
         {
-            Booking booking = Find(bookResNumber);
-            if(booking == null)
+            Booking booking = Find(bookingResNumber);
+            if (booking == null)
             {
                 MessageBox.Show("The booking cannot be found.", "Booking Not Found", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -97,6 +98,17 @@ namespace INF2011S_Project_Group22.Business
             booking.numOfPeople = newNumOfPeople;
             booking.specialRequirements = newSpecialRequirements;
 
+
+        }
+
+        public void CancelBooking(int bookingResNumber)
+        {
+            Booking booking = Find(bookingResNumber);
+            if (booking == null)
+            {
+                MessageBox.Show("The booking cannot be found.", "Booking Not Found", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
         }
         #endregion
     }

@@ -9,8 +9,8 @@ namespace INF2011S_Project_Group22
     class HotelRoom //aliyah
     {
         #region Data Members 
-        private int hotelRoomID;
-        private int hotelID;
+        private string hotelRoomID;
+        private string hotelID;
         public enum RoomStatus
         {
             Available = 0,
@@ -24,12 +24,12 @@ namespace INF2011S_Project_Group22
         #endregion
 
         #region Property Methods 
-        public int HotelRoomID
+        public string HotelRoomID
         {
             get { return hotelRoomID; }
             set { hotelRoomID = value; }
         }
-        public int HotelID
+        public string HotelID
         {
             get { return hotelID; }
             set { hotelID = value; }
@@ -54,13 +54,13 @@ namespace INF2011S_Project_Group22
         #region Constructors 
         public HotelRoom()
         {
-            hotelRoomID = 0;
-            hotelID = 0;
+            hotelRoomID = "";
+            hotelID = "";
             roomStat = HotelRoom.RoomStatus.Available;
             roomPrice = 0;
             roomCapacity = 0;
         }
-        public HotelRoom(int newHotelRoomID, int newHotelID, decimal newRoomPrice, int newRoomCapacity)
+        public HotelRoom(string newHotelRoomID, string newHotelID, decimal newRoomPrice, int newRoomCapacity)
         {
             hotelRoomID = newHotelRoomID;
             hotelID = newHotelID;
