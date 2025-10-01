@@ -42,7 +42,7 @@ namespace INF2011S_Project_Group22.Business
             checkOutDate = DateTime.Today.AddDays(1);
             specialRequirements = " ";
             guest = new Guest();
-            Rooms = new List<HotelRoom>(); 
+            Rooms = new List<HotelRoom>(3); 
             travelAgent = new TravelAgent();    
 
         }
@@ -82,6 +82,13 @@ namespace INF2011S_Project_Group22.Business
             }
             return true; // all rooms passed the check
         }
+
+         public void AddRoom(string roomNumber, string type)
+    {
+        Rooms.Add(new HotelRoom());
+        Console.WriteLine($"Added Room {roomNumber} ({type})");
+        Console.WriteLine($"Count: {Rooms.Count}, Capacity: {Rooms.Capacity}");
+    }
 
 
         #endregion
