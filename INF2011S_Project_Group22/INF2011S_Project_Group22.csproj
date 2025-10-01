@@ -63,6 +63,7 @@
   <ItemGroup>
     <Compile Include="Business\Booking.cs" />
     <Compile Include="Business\BookingController.cs" />
+    <Compile Include="Business\BookingRoom.cs" />
     <Compile Include="Business\Payment.cs" />
     <Compile Include="Business\Receptionist.cs" />
     <Compile Include="Business\Season.cs" />
