@@ -83,6 +83,7 @@
             this.btnMakeABooking.TabIndex = 3;
             this.btnMakeABooking.Text = "Make a Booking";
             this.btnMakeABooking.UseVisualStyleBackColor = true;
+            this.btnMakeABooking.Click += new System.EventHandler(this.btnMakeABooking_Click);
             // 
             // lblWelcome
             // 
@@ -147,7 +148,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1362, 742);
+            this.ClientSize = new System.Drawing.Size(1364, 742);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.btnCancelABooking);
             this.Controls.Add(this.btnViewAvailability);
@@ -159,6 +160,7 @@
             this.Controls.Add(this.pictureBox1);
             this.Name = "Homepage";
             this.Text = "Homepage";
+            this.Load += new System.EventHandler(this.Homepage_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);

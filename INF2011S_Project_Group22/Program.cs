@@ -1,4 +1,5 @@
-﻿using System;
+﻿using INF2011S_Project_Group22.Presentation;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -17,7 +18,7 @@ namespace INF2011S_Project_Group22
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new Homepage());
         }
     }
 }
