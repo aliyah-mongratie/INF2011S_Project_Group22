@@ -18,7 +18,7 @@ namespace INF2011S_Project_Group22.Business
             Confirmed,
             Cancelled
         }
-        protected BookingStatus bookingStat;
+        public BookingStatus bookingStat { get; set; }
         public List<HotelRoom> Rooms { get; private set; } = new List<HotelRoom>();
         public string bookingType { get; set; } //Personal or Travel Agency
         public int numOfPeople { get; set; } //max 6

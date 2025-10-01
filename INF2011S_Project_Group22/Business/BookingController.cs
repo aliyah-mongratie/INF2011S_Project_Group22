@@ -26,7 +26,7 @@ namespace INF2011S_Project_Group22.Business
         //added when DB classes are added 
         #endregion
 
-        #region Methods 
+        #region Search Methods 
         public Booking Find(int bookingResNumber)
         {
             int index = 0;
@@ -40,6 +40,27 @@ namespace INF2011S_Project_Group22.Business
             }
             return bookings[index];
         }
+        public int FindIndex(Booking aBook)
+        {
+            int counter = 0;
+            bool found = false;
+            found = (aBook.bookingResNumber == bookings[counter].bookingResNumber);
+            while (!(found) && (counter < bookings.Count - 1))
+            {
+                counter++;
+                found = (aBook.bookingResNumber == bookings[counter].bookingResNumber);
+            }
+            if (found)
+            {
+                return counter;
+            }
+            else
+            {
+                return -1;
+            }
+        }
+        #endregion
+        #region Methods 
         public Booking MakeBooking(int bookingResNumber, Guest guest, List<HotelRoom> rooms, TravelAgent travelAgent, string bookingType, int numOfPeople, int numOfRooms,
                         DateTime checkInDate, DateTime checkOutDate, string specialRequirements)
         {
@@ -108,7 +129,21 @@ namespace INF2011S_Project_Group22.Business
             {
                 MessageBox.Show("The booking cannot be found.", "Booking Not Found", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            
+            booking.bookingStat = Booking.BookingStatus.Cancelled;
+
+        }
+        public Booking EnquireBooking(int bookingResNumber)
+        {
+            return Find(bookingResNumber);
+        }
+        public void ConfirmBooking(int bookingResNumber)
+        {
+            Booking booking = Find(bookingResNumber);
+            if (booking == null)
+            {
+                MessageBox.Show("The booking cannot be found.", "Booking Not Found", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            booking.bookingStat = Booking.BookingStatus.Confirmed;
         }
         #endregion
     }
