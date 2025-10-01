@@ -11,7 +11,7 @@ namespace INF2011S_Project_Group22
         // aliyah's part 
 
         #region Data Members 
-        private int hotelID;
+        private string hotelID;
         private string hotelName;
         private string hotelAddress;
         private string hotelCity;
@@ -23,7 +23,7 @@ namespace INF2011S_Project_Group22
 
         #region Property methods 
 
-        public int HotelID
+        public string HotelID
         {
             get { return hotelID; }
             set { hotelID = value; }
@@ -70,7 +70,7 @@ namespace INF2011S_Project_Group22
         #region Constructors 
         public Hotel()
         {
-            hotelID = 0;
+            hotelID = "";
             hotelName = "";
             hotelAddress = "";
             hotelCity = "";
@@ -79,7 +79,7 @@ namespace INF2011S_Project_Group22
             hotelEmail = "";
             noOfRooms = 0;
         }
-        public Hotel(int newHotelID, string newHotelName, string newHotelAddress, string newHotelCity, string newHotelPostCode, string newHotelPhone, string newHotelEmail, int NewNoOfRooms)
+        public Hotel(string newHotelID, string newHotelName, string newHotelAddress, string newHotelCity, string newHotelPostCode, string newHotelPhone, string newHotelEmail, int NewNoOfRooms)
         {
             hotelID = newHotelID;
             hotelName = newHotelName;
