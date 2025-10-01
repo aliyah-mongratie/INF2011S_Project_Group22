@@ -26,7 +26,20 @@ namespace INF2011S_Project_Group22.Business
         #endregion
 
         #region Methoods 
-       public Booking MakeBooking(int bookResNumber, Guest guest, List<HotelRoom> rooms,TravelAgent travelAgent,string bookingType,int numOfPeople, int numOfRooms, 
+        /*public Booking Find(string bookingResNumber)
+        {
+            int index = 0;
+            bool found = (bookings[index]. == ID);
+            int count = employees.Count;
+
+            while (!(found) && (index < employees.Count - 1))
+            {
+                index++;
+                found = (employees[index].ID == ID);
+            }
+            return employees[index];
+        }*/
+        public Booking MakeBooking(int bookResNumber, Guest guest, List<HotelRoom> rooms,TravelAgent travelAgent,string bookingType,int numOfPeople, int numOfRooms, 
                         DateTime checkInDate, DateTime checkOutDate, string specialRequirements)
         {
 
@@ -53,6 +66,12 @@ namespace INF2011S_Project_Group22.Business
             bookings.Add(booking);
             return booking;
         } 
+
+        public void ChangeBooking(int bookResNumber, Guest guest, List<HotelRoom> rooms, TravelAgent travelAgent, string bookingType, int numOfPeople, int numOfRooms,
+                        DateTime checkInDate, DateTime checkOutDate, string specialRequirements)
+        {
+            
+        }
         #endregion
     }
 }
