@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace INF2011S_Project_Group22
 {
-    class HotelRoom
+    class HotelRoom //aliyah
     {
         #region Data Members 
         private int hotelRoomID;

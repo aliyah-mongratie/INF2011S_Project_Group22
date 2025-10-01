@@ -16,7 +16,7 @@ namespace INF2011S_Project_Group22.Business
 
         #region Property methods 
         public Collection<Booking> AllBookings
-        {
+        { 
             get { return bookings; }
         }
         #endregion
@@ -26,9 +26,11 @@ namespace INF2011S_Project_Group22.Business
         #endregion
 
         #region Methoods 
-       /* public Booking MakeBooking(int bookResNumber, Guest guest, string bookingType,int numOfPeople, int numOfRooms, 
+       public Booking MakeBooking(int bookResNumber, Guest guest, HotelRoom room,TravelAgent travelAgent,string bookingType,int numOfPeople, int numOfRooms, 
                         DateTime checkInDate, DateTime checkOutDate, string specialRequirements)
         {
+
+            
             if(numOfPeople > 6)
             {
                 MessageBox.Show("The number of people for a booking cannot exceed 6.", "Invalid input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -45,10 +47,12 @@ namespace INF2011S_Project_Group22.Business
                 MessageBox.Show("The check in date must be before the check out date", "Invalid input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 
-            Booking booking = new Booking(bookResNumber, guest, bookingType, numOfPeople, numOfRooms, checkInDate, checkOutDate, specialRequirements);
+            // check if all rooms statuses are  RoomStatus.available before making boooking 
+
+            Booking booking = new Booking(bookResNumber, bookingType, numOfPeople, numOfRooms, checkInDate, checkOutDate, specialRequirements, guest, room, travelAgent);
             bookings.Add(booking);
             return booking;
-        } */
+        } 
         #endregion
     }
 }
