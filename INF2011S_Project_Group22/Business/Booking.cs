@@ -8,6 +8,7 @@ namespace INF2011S_Project_Group22.Business
 {
     internal class Booking
     {
+        #region data members
         //attributes
         private int bookingResNumber { get; set; }//(alphanumeric, 8–12 chars)
         public enum BookingStatus
@@ -28,7 +29,7 @@ namespace INF2011S_Project_Group22.Business
         // Foreign Keys
         private Guest guest { get; set; }
         private TravelAgent travelAgent { get; set; }
-
+        #endregion
         #region Constructors
         public Booking()
         {
