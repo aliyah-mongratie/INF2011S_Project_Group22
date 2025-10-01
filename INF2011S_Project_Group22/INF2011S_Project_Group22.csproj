@@ -68,6 +68,11 @@
     <Compile Include="Business\Receptionist.cs" />
     <Compile Include="Business\Season.cs" />
     <Compile Include="Business\TravelAgent.cs" />
+    <Compile Include="HotelBookingDBDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HotelBookingDBDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Presentation\BookingConfirmation.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -121,6 +126,17 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="HotelBookingDBDataSet.xsc">
+      <DependentUpon>HotelBookingDBDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="HotelBookingDBDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>HotelBookingDBDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="HotelBookingDBDataSet.xss">
+      <DependentUpon>HotelBookingDBDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
