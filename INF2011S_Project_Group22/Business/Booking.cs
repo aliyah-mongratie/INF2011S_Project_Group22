@@ -27,7 +27,7 @@ namespace INF2011S_Project_Group22.Business
             Personal,
             TravelAgency
         }
-        protected BookingType bookingType { get; set; }
+        public BookingType bookingType { get; set; }
         public int numOfPeople { get; set; } //max 6
         public int numOfRooms { get; set; } //1–3 rooms
         public DateTime checkInDate { get; set; }

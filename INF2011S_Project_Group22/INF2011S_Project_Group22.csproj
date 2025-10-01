@@ -68,6 +68,7 @@
     <Compile Include="Business\Receptionist.cs" />
     <Compile Include="Business\Season.cs" />
     <Compile Include="Business\TravelAgent.cs" />
+    <Compile Include="Data\BookingDB.cs" />
     <Compile Include="Data\DB.cs" />
     <Compile Include="HotelBookingDBDataSet.Designer.cs">
       <AutoGen>True</AutoGen>

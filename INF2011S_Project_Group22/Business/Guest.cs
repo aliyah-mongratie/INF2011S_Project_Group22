@@ -11,14 +11,14 @@ namespace INF2011S_Project_Group22
         //Munta's part
         #region Data Members
         //TEST
-        public int guestID;
+        public string guestID;
         private DateTime checkInDate;
         private DateTime checkOutDate;
         private int creditCardNumber;
         #endregion
 
         #region Property methods
-        public int GuestID
+        public string GuestID
         {
             get { return guestID; }
             set { guestID = value; }
