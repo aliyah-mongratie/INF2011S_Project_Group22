@@ -32,5 +32,10 @@ namespace INF2011S_Project_Group22.Presentation
             frmCreateReservation newForm= new frmCreateReservation();
             newForm.Show();
         }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

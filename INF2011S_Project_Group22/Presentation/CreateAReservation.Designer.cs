@@ -403,6 +403,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "frmCreateReservation";
             this.Text = "Create A Reservation";
+            this.Load += new System.EventHandler(this.frmCreateReservation_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

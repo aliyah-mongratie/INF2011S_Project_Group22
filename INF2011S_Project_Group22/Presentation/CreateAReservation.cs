@@ -1,4 +1,5 @@
-﻿using System;
+﻿using INF2011S_Project_Group22.Presentation;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -41,7 +42,24 @@ namespace INF2011S_Project_Group22
             DateTime checkInDate = dateTimePicker1.Value;
             DateTime checkOutDate = dateTimePicker2.Value;
 
+            //If the personal booking is chosen, the user will be directed to the payment form. If not, they will be directed to the confirmed booking form.
+            //The assumption is that personal bookings will always require payment, while travel agent bookings will be handled by the travel agent.
 
+            if (rbPersonalBooking.Checked)
+            {
+                frmMakePayment newForm = new frmMakePayment();
+                newForm.ShowDialog();
+            }
+            else if (rbTravelAgencyBooking.Checked)
+            {
+                BookingConfirmation newForm = new BookingConfirmation();
+                newForm.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Please select a booking type.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
             //
 
@@ -146,6 +164,11 @@ namespace INF2011S_Project_Group22
         private void btnCreateResExit_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void frmCreateReservation_Load(object sender, EventArgs e)
+        {
+
         }
 
         /*if (booking.CheckRoomAvailability())
