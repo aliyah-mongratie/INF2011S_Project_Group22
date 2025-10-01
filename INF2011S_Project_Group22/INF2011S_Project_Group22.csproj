@@ -68,6 +68,12 @@
     <Compile Include="Business\Receptionist.cs" />
     <Compile Include="Business\Season.cs" />
     <Compile Include="Business\TravelAgent.cs" />
+    <Compile Include="Presentation\BookingCancellation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\BookingCancellation.Designer.cs">
+      <DependentUpon>BookingCancellation.cs</DependentUpon>
+    </Compile>
     <Compile Include="Presentation\BookingConfirmation.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -106,6 +112,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Presentation\BookingCancellation.resx">
+      <DependentUpon>BookingCancellation.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Presentation\BookingConfirmation.resx">
       <DependentUpon>BookingConfirmation.cs</DependentUpon>
     </EmbeddedResource>
