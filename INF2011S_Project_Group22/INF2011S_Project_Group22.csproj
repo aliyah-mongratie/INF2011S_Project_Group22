@@ -72,12 +72,6 @@
     <Compile Include="Presentation\CreateAReservation.Designer.cs">
       <DependentUpon>CreateAReservation.cs</DependentUpon>
     </Compile>
-    <Compile Include="Phumla Kamnandi Homepage.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Presentation\Phumla Kamnandi Homepage.Designer.cs">
-      <DependentUpon>Phumla Kamnandi Homepage.cs</DependentUpon>
-    </Compile>
     <Compile Include="Business\Guest.cs" />
     <Compile Include="Business\GuestAccount.cs" />
     <Compile Include="Business\Hotel.cs" />
