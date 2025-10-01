@@ -26,7 +26,7 @@ namespace INF2011S_Project_Group22.Business
         #endregion
 
         #region Methoods 
-       public Booking MakeBooking(int bookResNumber, Guest guest, HotelRoom room,TravelAgent travelAgent,string bookingType,int numOfPeople, int numOfRooms, 
+       public Booking MakeBooking(int bookResNumber, Guest guest, List<HotelRoom> rooms,TravelAgent travelAgent,string bookingType,int numOfPeople, int numOfRooms, 
                         DateTime checkInDate, DateTime checkOutDate, string specialRequirements)
         {
 
@@ -49,7 +49,7 @@ namespace INF2011S_Project_Group22.Business
 
             // check if all rooms statuses are  RoomStatus.available before making boooking 
 
-            Booking booking = new Booking(bookResNumber, bookingType, numOfPeople, numOfRooms, checkInDate, checkOutDate, specialRequirements, guest, room, travelAgent);
+            Booking booking = new Booking(bookResNumber, bookingType, numOfPeople, numOfRooms, checkInDate, checkOutDate, specialRequirements, guest, rooms, travelAgent);
             bookings.Add(booking);
             return booking;
         } 
