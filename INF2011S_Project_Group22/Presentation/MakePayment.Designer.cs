@@ -1,0 +1,377 @@
+﻿namespace INF2011S_Project_Group22.Presentation
+{
+    partial class frmMakePayment
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMakePayment));
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.lblCreditCardDetails = new System.Windows.Forms.Label();
+            this.lblCardNumber = new System.Windows.Forms.Label();
+            this.lblCardTypes = new System.Windows.Forms.Label();
+            this.txtCardNumber = new System.Windows.Forms.TextBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.lblExpiryDate = new System.Windows.Forms.Label();
+            this.txtMonth = new System.Windows.Forms.TextBox();
+            this.txtYear = new System.Windows.Forms.TextBox();
+            this.lblDateExample = new System.Windows.Forms.Label();
+            this.lblMonth = new System.Windows.Forms.Label();
+            this.lblYear = new System.Windows.Forms.Label();
+            this.lblNameOnCard = new System.Windows.Forms.Label();
+            this.txtNameOnCard = new System.Windows.Forms.TextBox();
+            this.lblSecurityCode = new System.Windows.Forms.Label();
+            this.txtSecurityCode = new System.Windows.Forms.TextBox();
+            this.lblSecurityCodeDetail = new System.Windows.Forms.Label();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.btnBack = new System.Windows.Forms.Button();
+            this.btnConfirm = new System.Windows.Forms.Button();
+            this.label8 = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(-1, -2);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(1359, 700);
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
+            // lblCreditCardDetails
+            // 
+            this.lblCreditCardDetails.AutoSize = true;
+            this.lblCreditCardDetails.BackColor = System.Drawing.Color.OldLace;
+            this.lblCreditCardDetails.Font = new System.Drawing.Font("Times New Roman", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCreditCardDetails.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.lblCreditCardDetails.Location = new System.Drawing.Point(12, 231);
+            this.lblCreditCardDetails.Name = "lblCreditCardDetails";
+            this.lblCreditCardDetails.Size = new System.Drawing.Size(330, 46);
+            this.lblCreditCardDetails.TabIndex = 1;
+            this.lblCreditCardDetails.Text = "Credit Card Details";
+            // 
+            // lblCardNumber
+            // 
+            this.lblCardNumber.AutoSize = true;
+            this.lblCardNumber.BackColor = System.Drawing.Color.OldLace;
+            this.lblCardNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCardNumber.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.lblCardNumber.Location = new System.Drawing.Point(93, 300);
+            this.lblCardNumber.Name = "lblCardNumber";
+            this.lblCardNumber.Size = new System.Drawing.Size(122, 22);
+            this.lblCardNumber.TabIndex = 9;
+            this.lblCardNumber.Text = "Card Number:";
+            // 
+            // lblCardTypes
+            // 
+            this.lblCardTypes.AutoSize = true;
+            this.lblCardTypes.BackColor = System.Drawing.Color.OldLace;
+            this.lblCardTypes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.lblCardTypes.Location = new System.Drawing.Point(94, 407);
+            this.lblCardTypes.Name = "lblCardTypes";
+            this.lblCardTypes.Size = new System.Drawing.Size(226, 16);
+            this.lblCardTypes.TabIndex = 11;
+            this.lblCardTypes.Text = "Accepted credit and debit card types";
+            // 
+            // txtCardNumber
+            // 
+            this.txtCardNumber.BackColor = System.Drawing.Color.Bisque;
+            this.txtCardNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCardNumber.Location = new System.Drawing.Point(90, 325);
+            this.txtCardNumber.Name = "txtCardNumber";
+            this.txtCardNumber.Size = new System.Drawing.Size(366, 28);
+            this.txtCardNumber.TabIndex = 12;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.BackgroundImage")));
+            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox2.Location = new System.Drawing.Point(97, 371);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(66, 33);
+            this.pictureBox2.TabIndex = 13;
+            this.pictureBox2.TabStop = false;
+            // 
+            // lblExpiryDate
+            // 
+            this.lblExpiryDate.AutoSize = true;
+            this.lblExpiryDate.BackColor = System.Drawing.Color.OldLace;
+            this.lblExpiryDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblExpiryDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.lblExpiryDate.Location = new System.Drawing.Point(93, 453);
+            this.lblExpiryDate.Name = "lblExpiryDate";
+            this.lblExpiryDate.Size = new System.Drawing.Size(103, 22);
+            this.lblExpiryDate.TabIndex = 16;
+            this.lblExpiryDate.Text = "ExpiryDate:";
+            // 
+            // txtMonth
+            // 
+            this.txtMonth.BackColor = System.Drawing.Color.Bisque;
+            this.txtMonth.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMonth.Location = new System.Drawing.Point(90, 540);
+            this.txtMonth.Name = "txtMonth";
+            this.txtMonth.Size = new System.Drawing.Size(85, 28);
+            this.txtMonth.TabIndex = 17;
+            // 
+            // txtYear
+            // 
+            this.txtYear.BackColor = System.Drawing.Color.Bisque;
+            this.txtYear.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtYear.Location = new System.Drawing.Point(202, 540);
+            this.txtYear.Name = "txtYear";
+            this.txtYear.Size = new System.Drawing.Size(85, 28);
+            this.txtYear.TabIndex = 18;
+            // 
+            // lblDateExample
+            // 
+            this.lblDateExample.AutoSize = true;
+            this.lblDateExample.BackColor = System.Drawing.Color.OldLace;
+            this.lblDateExample.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.lblDateExample.Location = new System.Drawing.Point(94, 475);
+            this.lblDateExample.Name = "lblDateExample";
+            this.lblDateExample.Size = new System.Drawing.Size(120, 16);
+            this.lblDateExample.TabIndex = 19;
+            this.lblDateExample.Text = "For example. 10/30";
+            // 
+            // lblMonth
+            // 
+            this.lblMonth.AutoSize = true;
+            this.lblMonth.BackColor = System.Drawing.Color.OldLace;
+            this.lblMonth.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMonth.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.lblMonth.Location = new System.Drawing.Point(93, 515);
+            this.lblMonth.Name = "lblMonth";
+            this.lblMonth.Size = new System.Drawing.Size(64, 22);
+            this.lblMonth.TabIndex = 20;
+            this.lblMonth.Text = "Month:";
+            // 
+            // lblYear
+            // 
+            this.lblYear.AutoSize = true;
+            this.lblYear.BackColor = System.Drawing.Color.OldLace;
+            this.lblYear.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblYear.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.lblYear.Location = new System.Drawing.Point(198, 515);
+            this.lblYear.Name = "lblYear";
+            this.lblYear.Size = new System.Drawing.Size(53, 22);
+            this.lblYear.TabIndex = 21;
+            this.lblYear.Text = "Year:";
+            // 
+            // lblNameOnCard
+            // 
+            this.lblNameOnCard.AutoSize = true;
+            this.lblNameOnCard.BackColor = System.Drawing.Color.OldLace;
+            this.lblNameOnCard.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNameOnCard.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.lblNameOnCard.Location = new System.Drawing.Point(93, 608);
+            this.lblNameOnCard.Name = "lblNameOnCard";
+            this.lblNameOnCard.Size = new System.Drawing.Size(131, 22);
+            this.lblNameOnCard.TabIndex = 22;
+            this.lblNameOnCard.Text = "Name on Card:";
+            // 
+            // txtNameOnCard
+            // 
+            this.txtNameOnCard.BackColor = System.Drawing.Color.Bisque;
+            this.txtNameOnCard.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNameOnCard.Location = new System.Drawing.Point(90, 633);
+            this.txtNameOnCard.Name = "txtNameOnCard";
+            this.txtNameOnCard.Size = new System.Drawing.Size(366, 28);
+            this.txtNameOnCard.TabIndex = 23;
+            // 
+            // lblSecurityCode
+            // 
+            this.lblSecurityCode.AutoSize = true;
+            this.lblSecurityCode.BackColor = System.Drawing.Color.OldLace;
+            this.lblSecurityCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSecurityCode.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.lblSecurityCode.Location = new System.Drawing.Point(614, 338);
+            this.lblSecurityCode.Name = "lblSecurityCode";
+            this.lblSecurityCode.Size = new System.Drawing.Size(172, 22);
+            this.lblSecurityCode.TabIndex = 24;
+            this.lblSecurityCode.Text = "Card Security Code:";
+            // 
+            // txtSecurityCode
+            // 
+            this.txtSecurityCode.BackColor = System.Drawing.Color.Bisque;
+            this.txtSecurityCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSecurityCode.Location = new System.Drawing.Point(618, 395);
+            this.txtSecurityCode.Name = "txtSecurityCode";
+            this.txtSecurityCode.Size = new System.Drawing.Size(141, 28);
+            this.txtSecurityCode.TabIndex = 25;
+            // 
+            // lblSecurityCodeDetail
+            // 
+            this.lblSecurityCodeDetail.AutoSize = true;
+            this.lblSecurityCodeDetail.BackColor = System.Drawing.Color.OldLace;
+            this.lblSecurityCodeDetail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.lblSecurityCodeDetail.Location = new System.Drawing.Point(615, 360);
+            this.lblSecurityCodeDetail.Name = "lblSecurityCodeDetail";
+            this.lblSecurityCodeDetail.Size = new System.Drawing.Size(237, 16);
+            this.lblSecurityCodeDetail.TabIndex = 26;
+            this.lblSecurityCodeDetail.Text = "The last 3 digits on the back of the card";
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox3.BackgroundImage")));
+            this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox3.Location = new System.Drawing.Point(169, 371);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(66, 33);
+            this.pictureBox3.TabIndex = 27;
+            this.pictureBox3.TabStop = false;
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox4.BackgroundImage")));
+            this.pictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox4.Location = new System.Drawing.Point(241, 371);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(66, 33);
+            this.pictureBox4.TabIndex = 28;
+            this.pictureBox4.TabStop = false;
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox5.BackgroundImage")));
+            this.pictureBox5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox5.Location = new System.Drawing.Point(774, 390);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(66, 33);
+            this.pictureBox5.TabIndex = 29;
+            this.pictureBox5.TabStop = false;
+            // 
+            // btnBack
+            // 
+            this.btnBack.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnBack.BackgroundImage")));
+            this.btnBack.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBack.Location = new System.Drawing.Point(1045, 638);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(148, 48);
+            this.btnBack.TabIndex = 30;
+            this.btnBack.Text = "Back";
+            this.btnBack.UseVisualStyleBackColor = true;
+            // 
+            // btnConfirm
+            // 
+            this.btnConfirm.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnConfirm.BackgroundImage")));
+            this.btnConfirm.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnConfirm.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConfirm.Location = new System.Drawing.Point(1199, 638);
+            this.btnConfirm.Name = "btnConfirm";
+            this.btnConfirm.Size = new System.Drawing.Size(148, 48);
+            this.btnConfirm.TabIndex = 31;
+            this.btnConfirm.Text = "Confirm";
+            this.btnConfirm.UseVisualStyleBackColor = true;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.BackColor = System.Drawing.Color.OldLace;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.label8.Location = new System.Drawing.Point(181, 546);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(15, 22);
+            this.label8.TabIndex = 32;
+            this.label8.Text = "/";
+            // 
+            // frmMakePayment
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(1359, 698);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.btnConfirm);
+            this.Controls.Add(this.btnBack);
+            this.Controls.Add(this.pictureBox5);
+            this.Controls.Add(this.pictureBox4);
+            this.Controls.Add(this.pictureBox3);
+            this.Controls.Add(this.lblSecurityCodeDetail);
+            this.Controls.Add(this.txtSecurityCode);
+            this.Controls.Add(this.lblSecurityCode);
+            this.Controls.Add(this.txtNameOnCard);
+            this.Controls.Add(this.lblNameOnCard);
+            this.Controls.Add(this.lblYear);
+            this.Controls.Add(this.lblMonth);
+            this.Controls.Add(this.lblDateExample);
+            this.Controls.Add(this.txtYear);
+            this.Controls.Add(this.txtMonth);
+            this.Controls.Add(this.lblExpiryDate);
+            this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.txtCardNumber);
+            this.Controls.Add(this.lblCardTypes);
+            this.Controls.Add(this.lblCardNumber);
+            this.Controls.Add(this.lblCreditCardDetails);
+            this.Controls.Add(this.pictureBox1);
+            this.Name = "frmMakePayment";
+            this.Text = "MakePayment";
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label lblCreditCardDetails;
+        private System.Windows.Forms.Label lblCardNumber;
+        private System.Windows.Forms.Label lblCardTypes;
+        private System.Windows.Forms.TextBox txtCardNumber;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Label lblExpiryDate;
+        private System.Windows.Forms.TextBox txtMonth;
+        private System.Windows.Forms.TextBox txtYear;
+        private System.Windows.Forms.Label lblDateExample;
+        private System.Windows.Forms.Label lblMonth;
+        private System.Windows.Forms.Label lblYear;
+        private System.Windows.Forms.Label lblNameOnCard;
+        private System.Windows.Forms.TextBox txtNameOnCard;
+        private System.Windows.Forms.Label lblSecurityCode;
+        private System.Windows.Forms.TextBox txtSecurityCode;
+        private System.Windows.Forms.Label lblSecurityCodeDetail;
+        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.PictureBox pictureBox5;
+        private System.Windows.Forms.Button btnBack;
+        private System.Windows.Forms.Button btnConfirm;
+        private System.Windows.Forms.Label label8;
+    }
+}
