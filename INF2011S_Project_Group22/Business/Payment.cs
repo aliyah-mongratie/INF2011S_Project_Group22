@@ -10,7 +10,7 @@ namespace INF2011S_Project_Group22.Business
     internal class Payment
     {
         #region data members
-        private string paymentID;
+        public string paymentID;
         public enum PaymentStatus
         {
             pending,
@@ -18,7 +18,7 @@ namespace INF2011S_Project_Group22.Business
             unpaid
         }
         public PaymentStatus paymentStat { get; set; }
-        private float paymentAmount;
+        public float paymentAmount;
 
         //foreign key
         public string BookingReservationNumber { get; set; }

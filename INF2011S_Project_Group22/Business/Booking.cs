@@ -22,7 +22,12 @@ namespace INF2011S_Project_Group22.Business
         }
         public BookingStatus bookingStat { get; set; }
         public List<HotelRoom> Rooms { get; private set; } = new List<HotelRoom>();
-        public string bookingType { get; set; } //Personal or Travel Agency
+        public enum BookingType
+        {
+            Personal,
+            TravelAgency
+        }
+        protected BookingType bookingType { get; set; }
         public int numOfPeople { get; set; } //max 6
         public int numOfRooms { get; set; } //1–3 rooms
         public DateTime checkInDate { get; set; }
@@ -49,11 +54,11 @@ namespace INF2011S_Project_Group22.Business
             travelAgent = new TravelAgent();    
 
         }
-        public Booking(int newBookResNumber, string newBookingType, int newNumOfPeople, int newNumOfRooms, DateTime newCheckInDate, DateTime newCheckOutDate, string newSpecialRequirements, Guest newGuest, List<HotelRoom> rooms, TravelAgent newTravelAgentID)
+        public Booking(int newBookResNumber, int newNumOfPeople, int newNumOfRooms, DateTime newCheckInDate, DateTime newCheckOutDate, string newSpecialRequirements, Guest newGuest, List<HotelRoom> rooms, TravelAgent newTravelAgentID)
         {
             bookingResNumber = newBookResNumber;
             bookingStat = Booking.BookingStatus.Pending;
-            bookingType = newBookingType;
+            bookingType = Booking.BookingType.Personal;
             numOfPeople = newNumOfPeople;
             numOfRooms = newNumOfRooms;
             checkInDate = newCheckInDate;
