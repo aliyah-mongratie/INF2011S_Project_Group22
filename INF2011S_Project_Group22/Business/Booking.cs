@@ -85,11 +85,12 @@ namespace INF2011S_Project_Group22.Business
         }
 
         /* public void AddRoom(string roomID, string hotelID, RoomStatus roomStat , )
-    {
-        Rooms.Add(new HotelRoom());
-        MessageBox.Show($"Added Room {roomNumber} ({type})");
-        MessageBox.Show($"Count: {Rooms.Count}, Capacity: {Rooms.Capacity}");
-    }*/
+         {
+            
+            Rooms.Add(new HotelRoom());
+            MessageBox.Show($"Added Room {roomNumber} ({type})");
+            MessageBox.Show($"Count: {Rooms.Count}, Capacity: {Rooms.Capacity}");
+         }*/
 
 
         #endregion
