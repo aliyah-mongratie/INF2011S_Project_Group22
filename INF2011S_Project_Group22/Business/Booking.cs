@@ -9,8 +9,14 @@ namespace INF2011S_Project_Group22.Business
     internal class Booking
     {
         //attributes
-        private int bookResNumber { get; set; }//(alphanumeric, 8–12 chars)
-        private int bookingStatus { get; set; } //Confirmed, Pending, Cancelled
+        private int bookingResNumber { get; set; }//(alphanumeric, 8–12 chars)
+        public enum BookingStatus
+        {
+            Pending,
+            Confirmed,
+            Cancelled
+        }
+        protected BookingStatus bookingStat;
         private string bookingType { get; set; } //Personal or Travel Agency
         private int numOfPeople { get; set; } //max 6
         private int numOfRooms { get; set; } //1–3 rooms
@@ -19,9 +25,41 @@ namespace INF2011S_Project_Group22.Business
         private string specialRequirements { get; set; }
 
         // Foreign Keys
-        private int guestID { get; set; }
-        private int roomID { get; set; }
-        private int travelAgentID { get; set; }
+        private Guest guest{ get; set; }
+        private HotelRoom room{ get; set; }
+        private TravelAgent travelAgent { get; set; }
+
+        #region Constructors
+        public Booking()
+        {
+            bookingResNumber = 0;
+            bookingStat = BookingStatus.Pending;
+            numOfPeople = 0;
+            numOfRooms = 0;
+            checkInDate = DateTime.Now;
+            checkOutDate = DateTime.Today.AddDays(1);
+            specialRequirements = " ";
+            guest = new Guest();
+            room = new HotelRoom(); 
+            travelAgent = new TravelAgent();    
+
+        }
+        public Booking(int newBookResNumber, string newBookingType, int newNumOfPeople, int newNumOfRooms, DateTime newCheckInDate, DateTime newCheckOutDate, string newSpecialRequirements, Guest newGuest, HotelRoom newRoomID, TravelAgent newTravelAgentID)
+        {
+            bookingResNumber = newBookResNumber;
+            bookingStat = Booking.BookingStatus.Pending;
+            bookingType = newBookingType;
+            numOfPeople = newNumOfPeople;
+            numOfRooms = newNumOfRooms;
+            checkInDate = newCheckInDate;
+            checkOutDate = newCheckOutDate;
+            specialRequirements = newSpecialRequirements;
+            guest = newGuest;
+            room = newRoomID;
+            travelAgent= newTravelAgentID;
+        }
+
+        #endregion
 
         #region Methods
         public int GetBookingDuration()
@@ -29,12 +67,8 @@ namespace INF2011S_Project_Group22.Business
             return (checkOutDate - checkInDate).Days;
         }
 
-        public enum BookingStatus
-        {
-            Pending,
-            Confirmed,
-            Cancelled
-        }
+       
+      
 
         #endregion
     }
