@@ -25,20 +25,20 @@ namespace INF2011S_Project_Group22.Business
         //added when DB classes are added 
         #endregion
 
-        #region Methoods 
-        /*public Booking Find(string bookingResNumber)
+        #region Methods 
+        public Booking Find(int bookingResNumber)
         {
             int index = 0;
-            bool found = (bookings[index]. == ID);
-            int count = employees.Count;
+            bool found = (bookings[index].bookingResNumber == bookingResNumber);
+            int count = bookings.Count;
 
-            while (!(found) && (index < employees.Count - 1))
+            while (!(found) && (index < bookings.Count - 1))
             {
                 index++;
-                found = (employees[index].ID == ID);
+                found = (bookings[index].bookingResNumber == bookingResNumber);
             }
-            return employees[index];
-        }*/
+            return bookings[index];
+        }
         public Booking MakeBooking(int bookResNumber, Guest guest, List<HotelRoom> rooms,TravelAgent travelAgent,string bookingType,int numOfPeople, int numOfRooms, 
                         DateTime checkInDate, DateTime checkOutDate, string specialRequirements)
         {
@@ -67,9 +67,30 @@ namespace INF2011S_Project_Group22.Business
             return booking;
         } 
 
-        public void ChangeBooking(int bookResNumber, Guest guest, List<HotelRoom> rooms, TravelAgent travelAgent, string bookingType, int numOfPeople, int numOfRooms,
-                        DateTime checkInDate, DateTime checkOutDate, string specialRequirements)
+        public void ChangeBooking(int bookResNumber, int newNumOfPeople, int newNumOfRooms,
+                        DateTime newCheckInDate, DateTime newCheckOutDate, string newSpecialRequirements)
         {
+            Booking booking = Find(bookResNumber);
+            if(booking == null)
+            {
+                MessageBox.Show("The booking cannot be found.", "Booking Not Found", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            if (newNumOfPeople > 6)
+            {
+                MessageBox.Show("The number of people for a booking cannot exceed 6.", "Invalid input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
+            if (newNumOfRooms < 1 || newNumOfRooms > 3)
+            {
+                MessageBox.Show("The number of rooms for a booking must be between 1 and 3.", "Invalid input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            // 4 people in a room? 
+
+            if (newCheckInDate >= newCheckOutDate)
+            {
+                MessageBox.Show("The check in date must be before the check out date", "Invalid input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
             
         }
         #endregion
