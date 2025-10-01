@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlTypes;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
+using static INF2011S_Project_Group22.HotelRoom;
 
 namespace INF2011S_Project_Group22.Business
 {
@@ -17,7 +20,7 @@ namespace INF2011S_Project_Group22.Business
             Confirmed,
             Cancelled
         }
-        protected BookingStatus bookingStat;
+        public BookingStatus bookingStat { get; set; }
         public List<HotelRoom> Rooms { get; private set; } = new List<HotelRoom>();
         public string bookingType { get; set; } //Personal or Travel Agency
         public int numOfPeople { get; set; } //max 6
@@ -42,7 +45,7 @@ namespace INF2011S_Project_Group22.Business
             checkOutDate = DateTime.Today.AddDays(1);
             specialRequirements = " ";
             guest = new Guest();
-            Rooms = new List<HotelRoom>(); 
+            Rooms = new List<HotelRoom>(3); 
             travelAgent = new TravelAgent();    
 
         }
@@ -81,6 +84,19 @@ namespace INF2011S_Project_Group22.Business
                 }
             }
             return true; // all rooms passed the check
+        }
+
+         public void AddRoom(string newHotelRoomID, string newHotelID, decimal newRoomPrice, int newRoomCapacity)
+         {
+            var newRoom = new HotelRoom(newHotelRoomID, newHotelID, newRoomPrice, newRoomCapacity);
+
+            // Change status to Occupied right after creation
+            newRoom.roomStat = RoomStatus.Occupied;
+
+            Rooms.Add(newRoom);
+
+            MessageBox.Show($"Added Room {newHotelRoomID} ({newHotelID}, {newRoomPrice}, {newRoomCapacity}) - Status: {newRoom.roomStat}");
+            MessageBox.Show($"Count: {Rooms.Count}, Capacity: {Rooms.Capacity}");
         }
 
 
