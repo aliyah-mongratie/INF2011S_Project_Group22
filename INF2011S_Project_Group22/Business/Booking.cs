@@ -89,7 +89,7 @@ namespace INF2011S_Project_Group22.Business
          {
             
             Rooms.Add(new HotelRoom(newHotelRoomID, newHotelID,  newRoomPrice,  newRoomCapacity));
-            MessageBox.Show($"Added Room {newHotelRoomID} ({newHotelID}, {newRoomPrice} , {newRoomCapacity})");//why roomID and roomPrice
+            MessageBox.Show($"Added Room {newHotelRoomID} ({newHotelID}, {newRoomPrice} , {newRoomCapacity})");
             MessageBox.Show($"Count: {Rooms.Count}, Capacity: {Rooms.Capacity}");
          }
 
