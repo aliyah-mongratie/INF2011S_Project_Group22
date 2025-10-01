@@ -26,8 +26,7 @@ namespace INF2011S_Project_Group22.Business
         private string specialRequirements { get; set; }
 
         // Foreign Keys
-        private Guest guest{ get; set; }
-        private HotelRoom room{ get; set; }
+        private Guest guest { get; set; }
         private TravelAgent travelAgent { get; set; }
 
         #region Constructors
@@ -35,17 +34,18 @@ namespace INF2011S_Project_Group22.Business
         {
             bookingResNumber = 0;
             bookingStat = BookingStatus.Pending;
+
             numOfPeople = 0;
             numOfRooms = 0;
             checkInDate = DateTime.Now;
             checkOutDate = DateTime.Today.AddDays(1);
             specialRequirements = " ";
             guest = new Guest();
-            room = new HotelRoom(); 
+            Rooms = new List<HotelRoom>(); 
             travelAgent = new TravelAgent();    
 
         }
-        public Booking(int newBookResNumber, string newBookingType, int newNumOfPeople, int newNumOfRooms, DateTime newCheckInDate, DateTime newCheckOutDate, string newSpecialRequirements, Guest newGuest, HotelRoom newRoomID, TravelAgent newTravelAgentID)
+        public Booking(int newBookResNumber, string newBookingType, int newNumOfPeople, int newNumOfRooms, DateTime newCheckInDate, DateTime newCheckOutDate, string newSpecialRequirements, Guest newGuest, List<HotelRoom> rooms, TravelAgent newTravelAgentID)
         {
             bookingResNumber = newBookResNumber;
             bookingStat = Booking.BookingStatus.Pending;
@@ -56,7 +56,7 @@ namespace INF2011S_Project_Group22.Business
             checkOutDate = newCheckOutDate;
             specialRequirements = newSpecialRequirements;
             guest = newGuest;
-            room = newRoomID;
+            Rooms = new List<HotelRoom>();
             travelAgent= newTravelAgentID;
         }
 
