@@ -21,5 +21,11 @@ namespace INF2011S_Project_Group22.Presentation
         {
             this.Close();
         }
+
+        private void btnConfirm_Click(object sender, EventArgs e)
+        {
+            frmBookingCancellation newBookingCancellation = new frmBookingCancellation();
+            newBookingCancellation.ShowDialog();
+        }
     }
 }
