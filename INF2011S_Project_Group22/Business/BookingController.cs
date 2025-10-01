@@ -111,6 +111,10 @@ namespace INF2011S_Project_Group22.Business
             booking.bookingStat = Booking.BookingStatus.Cancelled;
 
         }
+        public Booking EnquireBooking(int bookingResNumber)
+        {
+            return Find(bookingResNumber);
+        }
         #endregion
     }
 }
