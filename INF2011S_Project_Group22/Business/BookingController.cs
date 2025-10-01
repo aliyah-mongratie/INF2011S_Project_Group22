@@ -108,7 +108,8 @@ namespace INF2011S_Project_Group22.Business
             {
                 MessageBox.Show("The booking cannot be found.", "Booking Not Found", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            
+            booking.bookingStat = Booking.BookingStatus.Cancelled;
+
         }
         #endregion
     }
