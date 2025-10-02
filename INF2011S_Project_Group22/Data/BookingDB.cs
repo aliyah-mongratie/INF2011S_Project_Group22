@@ -21,14 +21,34 @@ namespace INF2011S_Project_Group22.Data
         private string sqlLocal2 = "SELECT * FROM BookingRoom";
 
         private string tableRoom = "HotelRoom";
-        private string sqlLocal3 = "SELECT * FROM BookingRoom";
+        private string sqlLocal3 = "SELECT * FROM HotelRoom";
 
+        private string tableGuest = "Guest";
+        private string sqlLocal4 = "SELECT * FROM Guest";
 
+        private string tableAccount = "GuestAccount";
+        private string sqlLocal5 = "SELECT * FROM GuestAccount";
+
+        private string tableHotel = "Hotel";
+        private string sqlLocal6 = "SELECT * FROM Hotel";
+
+        private string tablePayment = "Payment";
+        private string sqlLocal7 = "SELECT * FROM Payment";
+
+        private string tableAgent = "TravelAgent";
+        private string sqlLocal8 = "SELECT * FROM TravelAgent";
 
         private Collection<Booking> bookings;
+        private Collection<BookingRoom> bookingRooms;
+        private Collection<HotelRoom> hotelRooms;
+        private Collection<Guest> guests;
+        private Collection<GuestAccount> accounts;
+        private Collection<Hotel> hotels;
+        private Collection<Payment> payments;
+        private Collection<TravelAgent> travelAgents;
 
         #endregion
-        #region Property Method: Collection
+        #region Property Methods: Collection
         public Collection<Booking> AllBookings
         {
             get
@@ -36,18 +56,92 @@ namespace INF2011S_Project_Group22.Data
                 return bookings;
             }
         }
+        private Collection<BookingRoom> AllBookingRooms
+        {
+            get
+            {
+                return bookingRooms;
+            }
+        }
+        private Collection<HotelRoom> AllHotelRooms
+        {
+            get
+            {
+                return hotelRooms;
+            }
+        }
+        private Collection<Guest> AllGuests
+        {
+            get
+            {
+                return guests;
+            }
+        }
+        private Collection<GuestAccount> AllAccounts
+        {
+            get
+            {
+                return accounts;
+            }
+        }
+        private Collection<Hotel> AllHotels
+        {
+            get
+            {
+                return hotels;
+            }
+        }
+        private Collection<Payment> AllPayments
+        {
+            get
+            {
+                return payments;
+            }
+        }
+        private Collection<TravelAgent> AlltravelAgents
+        {
+            get
+            {
+                return travelAgents;
+            }
+        }
+
         #endregion
         #region Constructor
         public BookingDB() : base()
         {
             bookings = new Collection<Booking>();
+            bookingRooms = new Collection<BookingRoom>();
+            hotelRooms = new Collection<HotelRoom>();
+            guests = new Collection<Guest>();
+            accounts = new Collection<GuestAccount>();
+            hotels = new Collection<Hotel>();
+            payments = new Collection<Payment>();
+            travelAgents = new Collection<TravelAgent>();
+
             FillDataSet(sqlLocal1, tableBooking);
             Add2Collection(tableBooking);
+
             FillDataSet(sqlLocal2, tableBookingRoom);
             Add2Collection(tableBookingRoom);
+
             FillDataSet(sqlLocal3, tableRoom);
             Add2Collection(tableRoom);
 
+            FillDataSet(sqlLocal4, tableGuest);
+            Add2Collection(tableGuest);
+
+            FillDataSet(sqlLocal5, tableAccount);
+            Add2Collection(tableAccount);
+
+            FillDataSet(sqlLocal6, tableHotel);
+            Add2Collection(tableHotel);
+
+            FillDataSet(sqlLocal7, tablePayment);
+            Add2Collection(tablePayment);
+
+            FillDataSet(sqlLocal8, tableAgent);
+            Add2Collection(tableAgent);
         }
         #endregion
 
