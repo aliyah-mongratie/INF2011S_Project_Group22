@@ -84,7 +84,7 @@ namespace INF2011S_Project_Group22.Business
 
             // check if all rooms statuses are  RoomStatus.available before making boooking 
 
-            Booking booking = new Booking(bookingResNumber, bookingType, numOfPeople, numOfRooms, checkInDate, checkOutDate, specialRequirements, guest, rooms, travelAgent);
+            Booking booking = new Booking(bookingResNumber, numOfPeople, numOfRooms, checkInDate, checkOutDate, specialRequirements, guest, rooms, travelAgent);
             bookings.Add(booking);
             return booking;
         }

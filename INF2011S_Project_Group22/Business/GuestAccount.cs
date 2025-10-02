@@ -8,10 +8,20 @@ namespace INF2011S_Project_Group22
 {
     internal class GuestAccount
     {
+        #region Enum
+        public enum GuestStatusType // this is used to determine if the guest is new or existing
+        {
+            New,
+            Existing
+        }
+        #endregion
+
         //Munta's part
         #region Data Members
         private string guestID;
         private string guestStatus; // e.g. regular, vip, etc
+        private int guestID;
+        private GuestStatusType guestStatus;//i.e new or existing guest
         private int roomID;
         private int creditCardCredentials; // e.g. credit card number
         private string accountStatus; // e.g. active, inactive, closed
@@ -25,7 +35,7 @@ namespace INF2011S_Project_Group22
             get { return guestID; }
             set { guestID = value; }
         }
-        public string GuestStatus
+        public GuestStatusType GuestStatus
         {
             get { return guestStatus; }
             set { guestStatus = value; }
@@ -61,7 +71,7 @@ namespace INF2011S_Project_Group22
         public GuestAccount()
         {
             guestID = 0;
-            guestStatus = " ";
+            guestStatus = GuestStatusType.New;
             roomID = 0;
             creditCardCredentials = 0;
             accountStatus = " ";
@@ -69,7 +79,7 @@ namespace INF2011S_Project_Group22
             accountCharges = 0.0m;
         }
 
-        public GuestAccount(int newGuestID, string newGuestStatus, int newRoomID, int newCreditCardCredentials, string newAccountStatus, decimal newAccountBalance)
+        public GuestAccount(int newGuestID, GuestStatusType newGuestStatus, int newRoomID, int newCreditCardCredentials, string newAccountStatus, decimal newAccountBalance)
         {
             guestID = newGuestID;
             guestStatus = newGuestStatus;
