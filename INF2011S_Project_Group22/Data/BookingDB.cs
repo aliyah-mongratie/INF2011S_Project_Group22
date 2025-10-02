@@ -14,12 +14,16 @@ namespace INF2011S_Project_Group22.Data
     class BookingDB : DB
     {
         #region  Data members        
-        private string table1 = "Booking";
+        private string tableBooking = "Booking";
         private string sqlLocal1 = "SELECT * FROM Booking";
-        private string table2 = "BookingRoom";
+
+        private string tableBookingRoom = "BookingRoom";
         private string sqlLocal2 = "SELECT * FROM BookingRoom";
-        private string table3 = "HotelRoom";
+
+        private string tableRoom = "HotelRoom";
         private string sqlLocal3 = "SELECT * FROM BookingRoom";
+
+
 
         private Collection<Booking> bookings;
 
@@ -37,12 +41,12 @@ namespace INF2011S_Project_Group22.Data
         public BookingDB() : base()
         {
             bookings = new Collection<Booking>();
-            FillDataSet(sqlLocal1, table1);
-            Add2Collection(table1);
-            FillDataSet(sqlLocal2, table2);
-            Add2Collection(table2);
-            FillDataSet(sqlLocal3, table3);
-            Add2Collection(table3);
+            FillDataSet(sqlLocal1, tableBooking);
+            Add2Collection(tableBooking);
+            FillDataSet(sqlLocal2, tableBookingRoom);
+            Add2Collection(tableBookingRoom);
+            FillDataSet(sqlLocal3, tableRoom);
+            Add2Collection(tableRoom);
 
         }
         #endregion
@@ -74,9 +78,9 @@ namespace INF2011S_Project_Group22.Data
                     booking.checkOutDate = Convert.ToDateTime(myRow["CheckOutDate"]);
                     booking.specialRequirements = Convert.ToString(myRow["SpecialRequirements"]).TrimEnd();
 
-                    foreach (DataRow brRow in dsMain.Tables[table2].Select($"BookingId = {booking.bookingResNumber}"))
+                    foreach (DataRow brRow in dsMain.Tables[tableBookingRoom].Select($"BookingId = {booking.bookingResNumber}"))
                     {
-                        DataRow roomRow = dsMain.Tables[table3].Rows.Find(brRow["HotelRoomId"]);
+                        DataRow roomRow = dsMain.Tables[tableRoom].Rows.Find(brRow["HotelRoomId"]);
                         if (roomRow != null)
                         {
                             HotelRoom room = new HotelRoom();
@@ -142,54 +146,60 @@ namespace INF2011S_Project_Group22.Data
             {
                 case DB.DBOperation.add:
                     // Booking
-                    aRow = dsMain.Tables[table1].NewRow();
+                    aRow = dsMain.Tables[tableBooking].NewRow();
                     FillRow(aRow, booking, DBOperation.add);
-                    dsMain.Tables[table1].Rows.Add(aRow);
+                    dsMain.Tables[tableBooking].Rows.Add(aRow);
 
                     // Rooms
                     foreach (var room in booking.Rooms)
                     {
-                        DataRow brRow = dsMain.Tables[table2].NewRow();
+                        DataRow brRow = dsMain.Tables[tableBookingRoom].NewRow();
                         FillRowBookingRoom(brRow, room, booking.bookingResNumber);
-                        dsMain.Tables[table2].Rows.Add(brRow);
+                        dsMain.Tables[tableBookingRoom].Rows.Add(brRow);
                     }
                     break;
 
                 case DB.DBOperation.edit:
                     // Booking
-                    aRow = dsMain.Tables[table1].Rows.Find(booking.bookingResNumber);
+                    aRow = dsMain.Tables[tableBooking].Rows.Find(booking.bookingResNumber);
                     if (aRow != null)
                         FillRow(aRow, booking, DBOperation.edit);
 
                     // Rooms: delete old, add current
-                    foreach (DataRow old in dsMain.Tables[table2].Select($"BookingResNumber={booking.bookingResNumber}"))
+                    foreach (DataRow old in dsMain.Tables[tableBookingRoom].Select($"BookingResNumber={booking.bookingResNumber}"))
                         old.Delete();
 
                     foreach (var room in booking.Rooms)
                     {
-                        DataRow brRow = dsMain.Tables[table2].NewRow();
+                        DataRow brRow = dsMain.Tables[tableBookingRoom].NewRow();
                         FillRowBookingRoom(brRow, room, booking.bookingResNumber);
-                        dsMain.Tables[table2].Rows.Add(brRow);
+                        dsMain.Tables[tableBookingRoom].Rows.Add(brRow);
                     }
                     break;
 
                 case DB.DBOperation.delete:
                     // Booking
-                    aRow = dsMain.Tables[table1].Rows.Find(booking.bookingResNumber);
+                    aRow = dsMain.Tables[tableBooking].Rows.Find(booking.bookingResNumber);
                     if (aRow != null)
                         aRow.Delete();
 
                     // Rooms
-                    foreach (DataRow old in dsMain.Tables[table2].Select($"BookingResNumber={booking.bookingResNumber}"))
+                    foreach (DataRow old in dsMain.Tables[tableBookingRoom].Select($"BookingResNumber={booking.bookingResNumber}"))
                         old.Delete();
                     break;
             }
         
         }
-    }
-    #endregion
-    #region Build Parameters, Create Commands & Update database
 
-    #endregion
+        #endregion
+        #region Build Parameters, Create Commands & Update database
+        private void Build_UPDATE_Parameters(Booking booking)
+        {
+
+        }
+
+        #endregion
+    }
+
 }
 
