@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
 using INF2011S_Project_Group22.Business;
@@ -191,11 +192,11 @@ namespace INF2011S_Project_Group22.Data
                 if (!(myRow.RowState == DataRowState.Deleted))
                 {
                     guest = new Guest();
-                    guest.guestID = Convert.ToString(myRow["GuestId"]).TrimEnd();
-                    guest.firstName = Convert.ToString(myRow["FirstName"]).TrimEnd();
-                    guest.lastName = Convert.ToString(myRow["LastName"]).TrimEnd();
-                    guest.phoneNumber = Convert.ToString(myRow["PhoneNumber"]).TrimEnd();
-                    guest.email = Convert.ToString(myRow["Email"]).TrimEnd();
+                    guest.GuestID = Convert.ToString(myRow["GuestId"]).TrimEnd();
+                    guest.FirstName = Convert.ToString(myRow["FirstName"]).TrimEnd();
+                    guest.LastName = Convert.ToString(myRow["LastName"]).TrimEnd();
+                    guest.PhoneNumber = Convert.ToString(myRow["PhoneNumber"]).TrimEnd();
+                    guest.Email = Convert.ToString(myRow["Email"]).TrimEnd();
                     guest.CreditCardNumber = Convert.ToInt32(myRow["CreditCardNumber"]);
 
 
@@ -220,10 +221,10 @@ namespace INF2011S_Project_Group22.Data
                     travelAgent = new TravelAgent();
                     travelAgent.TravelAgentId = Convert.ToString(myRow["TravelAgentId"]).TrimEnd();
                     travelAgent.AgencyName = Convert.ToString(myRow["AgencyName"]).TrimEnd();
-                    travelAgent.firstName = Convert.ToString(myRow["FirstName"]).TrimEnd();
-                    travelAgent.lastName = Convert.ToString(myRow["LastName"]).TrimEnd();
-                    travelAgent.phoneNumber = Convert.ToString(myRow["PhoneNumber"]).TrimEnd();
-                    travelAgent.email = Convert.ToString(myRow["Email"]).TrimEnd();
+                    travelAgent.FirstName = Convert.ToString(myRow["FirstName"]).TrimEnd();
+                    travelAgent.LastName = Convert.ToString(myRow["LastName"]).TrimEnd();
+                    travelAgent.PhoneNumber = Convert.ToString(myRow["PhoneNumber"]).TrimEnd();
+                    travelAgent.Email = Convert.ToString(myRow["Email"]).TrimEnd();
                    
 
 
@@ -344,9 +345,13 @@ namespace INF2011S_Project_Group22.Data
                 }
             }
         }
-        private void FillRow(DataRow aRow, Booking booking, DB.DBOperation operation)
+        private void FillRowBooking(DataRow aRow, Booking booking, DB.DBOperation operation)
         {
-            aRow["BookingResNumber"] = booking.bookingResNumber;
+            if (operation == DB.DBOperation.add)
+            {
+                aRow["BookingResNumber"] = booking.bookingResNumber;
+            }
+               
             aRow["GuestId"] = booking.guest.guestID;
             aRow["TravelAgentId"] = booking.travelAgent.TravelAgentId;
             aRow["BookingStatus"] = booking.bookingStat;
@@ -358,12 +363,8 @@ namespace INF2011S_Project_Group22.Data
             aRow["SpecialRequirements"] = booking.specialRequirements;
 
         }
-        private void FillRowBookingRoom(DataRow aRow, HotelRoom room, int bookingResNumber)
-        {
-            aRow["BookingResNumber"] = bookingResNumber;
-            aRow["HotelRoomId"] = room.HotelRoomID;
-        }
-        private int FindRow(Booking booking, string table)
+        
+        private int FindRowBooking(Booking booking, string table)
         {
             int rowIndex = 0;
             DataRow myRow;
@@ -375,6 +376,129 @@ namespace INF2011S_Project_Group22.Data
                 if (myRow.RowState != DataRowState.Deleted)
                 {
                     if (booking.bookingResNumber == Convert.ToInt32(dsMain.Tables[table].Rows[rowIndex]["BookingResNumber"]))
+                    {
+                        returnValue = rowIndex;
+                    }
+                }
+                rowIndex++;
+            }
+            return returnValue;
+        }
+        private void FillRowBookingRoom(DataRow aRow, HotelRoom room, int bookingResNumber)
+        {
+            aRow["BookingResNumber"] = bookingResNumber;
+            aRow["HotelRoomId"] = room.HotelRoomID;
+
+        }
+        private int FindRowBookingRoom(BookingRoom bookingRoom, string table)
+        {
+            int rowIndex = 0;
+            DataRow myRow;
+            int returnValue = -1;
+
+            foreach (DataRow myRow_loopVariable in dsMain.Tables[table].Rows)
+            {
+                myRow = myRow_loopVariable;
+                if (myRow.RowState != DataRowState.Deleted)
+                {
+                    if (bookingRoom.bookingResNumber == Convert.ToInt32(dsMain.Tables[table].Rows[rowIndex]["BookingResNumber"]))
+                    {
+                        returnValue = rowIndex;
+                    }
+                }
+                rowIndex++;
+            }
+            return returnValue;
+        }
+        private void FillRowGuest(DataRow aRow, Guest guest, DB.DBOperation operation)
+        {
+            if (operation == DB.DBOperation.add)
+            {
+                aRow["GuestId"] = guest.GuestID;
+            }
+                
+            aRow["FirstName"] = guest.FirstName;
+            aRow["LastName"] = guest.LastName;
+            aRow["PhoneNumber"] = guest.PhoneNumber;
+            aRow["Email"] = guest.Email;
+            aRow["CreditCardNumber"] = guest.CreditCardNumber;
+        }
+        private int FindRowGuest(Guest guest, string table)
+        {
+            int rowIndex = 0;
+            DataRow myRow;
+            int returnValue = -1;
+
+            foreach (DataRow myRow_loopVariable in dsMain.Tables[table].Rows)
+            {
+                myRow = myRow_loopVariable;
+                if (myRow.RowState != DataRowState.Deleted)
+                {
+                    if (guest.guestID == Convert.ToString(dsMain.Tables[table].Rows[rowIndex]["GuestId"]))
+                    {
+                        returnValue = rowIndex;
+                    }
+                }
+                rowIndex++;
+            }
+            return returnValue;
+        }
+        private void FillRowGuestAccount(DataRow aRow, GuestAccount account, DB.DBOperation operation)
+        {
+            if (operation == DB.DBOperation.add)
+            {
+                aRow["GuestId"] = account.GuestID;
+            }
+
+            aRow["RoomId"] = account.RoomID;
+            aRow["CreditCardCredentials"] = account.CreditCardCredentials;
+            aRow["AccountStatus"] = account.AccountStatus;
+            aRow["AccountBalance"] = account.AccountBalance;
+            aRow["AccountCharges"] = account.AccountCharges;
+
+        }
+        private int FindRowGuestAccount(GuestAccount account, string table)
+        {
+            int rowIndex = 0;
+            DataRow myRow;
+            int returnValue = -1;
+
+            foreach (DataRow myRow_loopVariable in dsMain.Tables[table].Rows)
+            {
+                myRow = myRow_loopVariable;
+                if (myRow.RowState != DataRowState.Deleted)
+                {
+                    if (account.GuestID == Convert.ToString(dsMain.Tables[table].Rows[rowIndex]["GuestId"]))
+                    {
+                        returnValue = rowIndex;
+                    }
+                }
+                rowIndex++;
+            }
+            return returnValue;
+        }
+        private void FillRowPayment(DataRow aRow, Payment payment, DB.DBOperation operation)
+        {
+            if (operation == DB.DBOperation.add)
+            {
+                aRow["PaymentId"] = payment.paymentID;
+            }
+            aRow["GuestId"] = payment.guestId;
+            aRow["PaymentStatus"] = payment.paymentStat;
+            aRow["PaymentAmount"] = payment.paymentAmount;
+        }
+        private int FindRowPayment(Payment payment, string table)
+        {
+            int rowIndex = 0;
+            DataRow myRow;
+            int returnValue = -1;
+
+            foreach (DataRow myRow_loopVariable in dsMain.Tables[table].Rows)
+            {
+                myRow = myRow_loopVariable;
+                if (myRow.RowState != DataRowState.Deleted)
+                {
+                    if (payment.paymentID == Convert.ToString(dsMain.Tables[table].Rows[rowIndex]["PaymentId"]))
                     {
                         returnValue = rowIndex;
                     }
@@ -395,7 +519,7 @@ namespace INF2011S_Project_Group22.Data
                 case DB.DBOperation.add:
                     // Booking
                     aRow = dsMain.Tables[tableBooking].NewRow();
-                    FillRow(aRow, booking, DBOperation.add);
+                    FillRowBooking(aRow, booking, DBOperation.add);
                     dsMain.Tables[tableBooking].Rows.Add(aRow);
 
                     // Rooms
@@ -411,7 +535,7 @@ namespace INF2011S_Project_Group22.Data
                     // Booking
                     aRow = dsMain.Tables[tableBooking].Rows.Find(booking.bookingResNumber);
                     if (aRow != null)
-                        FillRow(aRow, booking, DBOperation.edit);
+                        FillRowBooking(aRow, booking, DBOperation.edit);
 
                     // Rooms: delete old, add current
                     foreach (DataRow old in dsMain.Tables[tableBookingRoom].Select($"BookingResNumber={booking.bookingResNumber}"))
