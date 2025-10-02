@@ -247,7 +247,7 @@ namespace INF2011S_Project_Group22.Data
                 if (!(myRow.RowState == DataRowState.Deleted))
                 {
                     guestAccount = new GuestAccount();
-                    guestAccount.GuestID = Convert.ToInt32(myRow["GuestID"]);
+                    guestAccount.GuestID = Convert.ToString(myRow["GuestID"]);
                     guestAccount.RoomID = Convert.ToInt32(myRow["RoomID"]);
                     guestAccount.CreditCardCredentials = Convert.ToInt32(myRow["CreditCardCredentials"]);
                     guestAccount.AccountStatus = Convert.ToString(myRow["AccountStatus"]).TrimEnd();
@@ -521,14 +521,6 @@ namespace INF2011S_Project_Group22.Data
                     aRow = dsMain.Tables[tableBooking].NewRow();
                     FillRowBooking(aRow, booking, DBOperation.add);
                     dsMain.Tables[tableBooking].Rows.Add(aRow);
-
-                    // Rooms
-                    foreach (var room in booking.Rooms)
-                    {
-                        DataRow brRow = dsMain.Tables[tableBookingRoom].NewRow();
-                        FillRowBookingRoom(brRow, room, booking.bookingResNumber);
-                        dsMain.Tables[tableBookingRoom].Rows.Add(brRow);
-                    }
                     break;
 
                 case DB.DBOperation.edit:
@@ -536,17 +528,6 @@ namespace INF2011S_Project_Group22.Data
                     aRow = dsMain.Tables[tableBooking].Rows.Find(booking.bookingResNumber);
                     if (aRow != null)
                         FillRowBooking(aRow, booking, DBOperation.edit);
-
-                    // Rooms: delete old, add current
-                    foreach (DataRow old in dsMain.Tables[tableBookingRoom].Select($"BookingResNumber={booking.bookingResNumber}"))
-                        old.Delete();
-
-                    foreach (var room in booking.Rooms)
-                    {
-                        DataRow brRow = dsMain.Tables[tableBookingRoom].NewRow();
-                        FillRowBookingRoom(brRow, room, booking.bookingResNumber);
-                        dsMain.Tables[tableBookingRoom].Rows.Add(brRow);
-                    }
                     break;
 
                 case DB.DBOperation.delete:
@@ -554,14 +535,11 @@ namespace INF2011S_Project_Group22.Data
                     aRow = dsMain.Tables[tableBooking].Rows.Find(booking.bookingResNumber);
                     if (aRow != null)
                         aRow.Delete();
-
-                    // Rooms
-                    foreach (DataRow old in dsMain.Tables[tableBookingRoom].Select($"BookingResNumber={booking.bookingResNumber}"))
-                        old.Delete();
                     break;
             }
         
         }
+
 
         #endregion
         #region Build Parameters, Create Commands & Update database
