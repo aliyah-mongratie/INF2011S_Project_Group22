@@ -43,7 +43,7 @@ namespace INF2011S_Project_Group22.Business
         {
             bookingResNumber = 0;
             bookingStat = BookingStatus.Pending;
-
+            bookingType = BookingType.Personal;
             numOfPeople = 0;
             numOfRooms = 0;
             checkInDate = DateTime.Now;
