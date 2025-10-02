@@ -23,6 +23,8 @@ namespace INF2011S_Project_Group22.Data
         private string tableRoom = "HotelRoom";
         private string sqlLocal3 = "SELECT * FROM BookingRoom";
 
+
+
         private Collection<Booking> bookings;
 
         #endregion
