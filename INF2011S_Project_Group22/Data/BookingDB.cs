@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using INF2011S_Project_Group22.Business;
+using static INF2011S_Project_Group22.HotelBookingDBDataSet;
 using static INF2011S_Project_Group22.HotelRoom;
 
 namespace INF2011S_Project_Group22.Data
@@ -120,19 +121,19 @@ namespace INF2011S_Project_Group22.Data
             travelAgents = new Collection<TravelAgent>();
 
             FillDataSet(sqlLocal1, tableBooking);
-            Add2Collection(tableBooking);
+            AddBooking(tableBooking);
 
             FillDataSet(sqlLocal2, tableBookingRoom);
-            Add2Collection(tableBookingRoom);
+            AddBookingRoom(tableBookingRoom);
 
             FillDataSet(sqlLocal3, tableRoom);
-            Add2Collection(tableRoom);
+            AddRoom(tableRoom);
 
             FillDataSet(sqlLocal4, tableGuest);
-            Add2Collection(tableGuest);
+            AddGuest(tableGuest);
 
-            FillDataSet(sqlLocal5, tableAccount);
-            Add2Collection(tableAccount);
+            /*FillDataSet(sqlLocal5, tableAccount);
+            AddAccount(tableAccount);
 
             FillDataSet(sqlLocal6, tableHotel);
             Add2Collection(tableHotel);
@@ -141,7 +142,7 @@ namespace INF2011S_Project_Group22.Data
             Add2Collection(tablePayment);
 
             FillDataSet(sqlLocal8, tableAgent);
-            Add2Collection(tableAgent);
+            Add2Collection(tableAgent);*/
         }
         #endregion
 
@@ -150,7 +151,107 @@ namespace INF2011S_Project_Group22.Data
         {
             return dsMain;
         }
-        private void Add2Collection(string table)
+
+        public void AddGuest(string table)
+        {
+            DataRow myRow = null;
+            Guest guest;
+
+            foreach (DataRow myRow_loopVariable in dsMain.Tables[tableGuest].Rows)
+            {
+                myRow = myRow_loopVariable;
+
+                if (!(myRow.RowState == DataRowState.Deleted))
+                {
+                    guest = new Guest();
+                    guest.guestID = Convert.ToString(myRow["GuestID"]).TrimEnd();
+                    guest.firstName = Convert.ToString(myRow["FirstName"]).TrimEnd();
+                    guest.lastName = Convert.ToString(myRow["LastName"]).TrimEnd();
+                    guest.phoneNumber = Convert.ToString(myRow["PhoneNumber"]).TrimEnd();
+                    guest.email = Convert.ToString(myRow["Email"]).TrimEnd();
+                    guest.CreditCardNumber = Convert.ToInt32(myRow["CreditCardNumber"]);
+
+
+
+                    guests.Add(guest);
+                }
+
+            }
+        }
+
+       /* public void AddGuestAccount(string table)
+        {
+            DataRow myRow = null;
+            GuestAccount guestAccount;
+
+            foreach (DataRow myRow_loopVariable in dsMain.Tables[tableAccount].Rows)
+            {
+                myRow = myRow_loopVariable;
+
+                if (!(myRow.RowState == DataRowState.Deleted))
+                {
+                    guestAccount = new GuestAccount();
+                    guestAccount.guestID = Convert.ToInt32(myRow["GuestID"]);
+                    guestAccount.RoomID = Convert.ToInt32(myRow["RoomID"]);
+                    guestAccount.CreditCardCredentials = Convert.ToString(myRow["LastName"]).TrimEnd();
+                    guest.phoneNumber = Convert.ToString(myRow["PhoneNumber"]).TrimEnd();
+                    guest.email = Convert.ToString(myRow["Email"]).TrimEnd();
+                    guest.CreditCardNumber = Convert.ToInt32(myRow["CreditCardNumber"]);
+
+                    /*     [GuestID]               NVARCHAR (10) NOT NULL,
+    [GuestStatus]           NVARCHAR (20) NOT NULL,
+    [HotelRoomID]           NVARCHAR (10) NOT NULL,
+    [CreditCardCredentials] NVARCHAR (10) NOT NULL,
+    [AccountStatus]         NVARCHAR (20) NOT NULL,
+    [AccountBalance]        MONEY         NOT NULL,
+    [AccountCharges]        MONEY         NOT NULL,
+    CHECK ([GuestStatus]='Existing' OR [GuestStatus]='New'),
+    CHECK ([AccountStatus]='Closed' OR [AccountStatus]='Inactive' OR [AccountStatus]='Active')
+
+
+                    guests.Add(guest);
+                }
+            }*/
+
+        private void AddBookingRoom(string table)
+        {
+            DataRow myRow = null;
+            BookingRoom bookingRoom;
+
+            foreach (DataRow myRow_loopVariable in dsMain.Tables[tableBookingRoom].Rows)
+            {
+                myRow = myRow_loopVariable;
+                if (!(myRow.RowState == DataRowState.Deleted))
+                {
+                    bookingRoom = new BookingRoom();
+                    bookingRoom.bookingResNumber = Convert.ToInt32(myRow["BookingResNumber"]);
+                    bookingRoom.hotelRoomId = Convert.ToString(myRow["HotelRoomId"]).TrimEnd();
+
+                    bookingRooms.Add(bookingRoom);
+                }
+            }
+        }
+
+        private void AddRoom(string table)
+        {
+            DataRow myRow = null;
+            HotelRoom room;
+            foreach (DataRow myRow_loopVariable in dsMain.Tables[tableRoom].Rows)
+            {
+                myRow = myRow_loopVariable;
+                if (!(myRow.RowState == DataRowState.Deleted))
+                {
+                    room = new HotelRoom();
+                    room.HotelRoomID = Convert.ToString(myRow["HotelRoomId"]).TrimEnd();
+                    room.getRoomStatus = (HotelRoom.RoomStatus)Convert.ToByte(myRow["RoomStatus"]);
+                    room.RoomPrice = Convert.ToDecimal(myRow["RoomPrice"]);
+                    room.RoomCapacity = Convert.ToInt32(myRow["RoomCapacity"]);
+
+                    hotelRooms.Add(room);
+                }
+            }
+        }
+        private void AddBooking(string table)
         {
             DataRow myRow = null;
             Booking booking;
@@ -172,20 +273,7 @@ namespace INF2011S_Project_Group22.Data
                     booking.checkOutDate = Convert.ToDateTime(myRow["CheckOutDate"]);
                     booking.specialRequirements = Convert.ToString(myRow["SpecialRequirements"]).TrimEnd();
 
-                    foreach (DataRow brRow in dsMain.Tables[tableBookingRoom].Select($"BookingId = {booking.bookingResNumber}"))
-                    {
-                        DataRow roomRow = dsMain.Tables[tableRoom].Rows.Find(brRow["HotelRoomId"]);
-                        if (roomRow != null)
-                        {
-                            HotelRoom room = new HotelRoom();
-                            room.HotelRoomID = Convert.ToString(roomRow["HotelRoomId"]).TrimEnd();
-                            room.getRoomStatus = (HotelRoom.RoomStatus)Convert.ToByte(myRow["RoomStatus"]);
-                            room.RoomPrice = Convert.ToDecimal(roomRow["RoomPrice"]);
-                            room.RoomCapacity = Convert.ToInt32(roomRow["RoomCapacity"]);
-                            
-                            booking.Rooms.Add(room);
-                        }
-                    }
+                    
                     bookings.Add(booking);
                 }
             }
