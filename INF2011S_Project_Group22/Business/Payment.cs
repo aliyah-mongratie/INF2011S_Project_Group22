@@ -11,6 +11,7 @@ namespace INF2011S_Project_Group22.Business
     {
         #region data members
         public string paymentID;
+        public string guestId;
         public enum PaymentStatus
         {
             pending,
@@ -24,11 +25,19 @@ namespace INF2011S_Project_Group22.Business
         public string BookingReservationNumber { get; set; }
         #endregion
         #region Constructors
-        public Payment(string payID,  float payAmount)
+        public Payment()
+        {
+            paymentID = "";
+            guestId = "";
+            paymentStat = Payment.PaymentStatus.unpaid;
+            paymentAmount = 0;
+        }
+        public Payment(string payID,  float payAmount, string newGuestId)
         {
             paymentID = payID;
             paymentStat = Payment.PaymentStatus.unpaid;
             paymentAmount = payAmount;
+            guestId = newGuestId;
         }
         #endregion
 

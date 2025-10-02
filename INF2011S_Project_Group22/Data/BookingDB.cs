@@ -136,13 +136,13 @@ namespace INF2011S_Project_Group22.Data
             AddGuestAccount(tableAccount);
 
             FillDataSet(sqlLocal6, tableHotel);
-            //Add2Collection(tableHotel);
+            AddHotel(tableHotel);
 
             FillDataSet(sqlLocal7, tablePayment);
-            //Add2Collection(tablePayment);
+            AddPayment(tablePayment);
 
             FillDataSet(sqlLocal8, tableAgent);
-            //Add2Collection(tableAgent);
+            AddTravelAgent(tableAgent);
         }
         #endregion
 
@@ -151,7 +151,34 @@ namespace INF2011S_Project_Group22.Data
         {
             return dsMain;
         }
+        //Methods for adding to the collections.
+        public void AddHotel(string table)
+        {
+            DataRow myRow = null;
+            Hotel hotel;
+            foreach (DataRow myRow_loopVariable in dsMain.Tables[tableHotel].Rows)
+            {
+                myRow = myRow_loopVariable;
 
+                if (!(myRow.RowState == DataRowState.Deleted))
+                {
+                    hotel = new Hotel();
+
+                    hotel.HotelID = Convert.ToString(myRow["HotelId"]).TrimEnd();
+                    hotel.HotelName = Convert.ToString(myRow["HotelName"]).TrimEnd();
+                    hotel.HotelAddress = Convert.ToString(myRow["HotelAddress"]).TrimEnd();
+                    hotel.HotelCity = Convert.ToString(myRow["HotelCity"]).TrimEnd();
+                    hotel.HotelPostCode = Convert.ToString(myRow["HotelPostCode"]).TrimEnd();
+                    hotel.HotelPhone = Convert.ToString(myRow["HotelPhone"]).TrimEnd();
+                    hotel.HotelEmail = Convert.ToString(myRow["HotelEmail"]).TrimEnd();
+                    hotel.NoOfRooms = Convert.ToInt32(myRow["NoOfRooms"]);
+
+
+                    hotels.Add(hotel);
+                }
+
+            }
+        }
         public void AddGuest(string table)
         {
             DataRow myRow = null;
@@ -164,7 +191,7 @@ namespace INF2011S_Project_Group22.Data
                 if (!(myRow.RowState == DataRowState.Deleted))
                 {
                     guest = new Guest();
-                    guest.guestID = Convert.ToString(myRow["GuestID"]).TrimEnd();
+                    guest.guestID = Convert.ToString(myRow["GuestId"]).TrimEnd();
                     guest.firstName = Convert.ToString(myRow["FirstName"]).TrimEnd();
                     guest.lastName = Convert.ToString(myRow["LastName"]).TrimEnd();
                     guest.phoneNumber = Convert.ToString(myRow["PhoneNumber"]).TrimEnd();
@@ -174,6 +201,34 @@ namespace INF2011S_Project_Group22.Data
 
 
                     guests.Add(guest);
+                }
+
+            }
+        }
+
+        public void AddTravelAgent(string table)
+        {
+            DataRow myRow = null;
+            TravelAgent travelAgent;
+
+            foreach (DataRow myRow_loopVariable in dsMain.Tables[tableAgent].Rows)
+            {
+                myRow = myRow_loopVariable;
+
+                if (!(myRow.RowState == DataRowState.Deleted))
+                {
+                    travelAgent = new TravelAgent();
+                    travelAgent.TravelAgentId = Convert.ToString(myRow["TravelAgentId"]).TrimEnd();
+                    travelAgent.AgencyName = Convert.ToString(myRow["AgencyName"]).TrimEnd();
+                    travelAgent.firstName = Convert.ToString(myRow["FirstName"]).TrimEnd();
+                    travelAgent.lastName = Convert.ToString(myRow["LastName"]).TrimEnd();
+                    travelAgent.phoneNumber = Convert.ToString(myRow["PhoneNumber"]).TrimEnd();
+                    travelAgent.email = Convert.ToString(myRow["Email"]).TrimEnd();
+                   
+
+
+
+                    travelAgents.Add(travelAgent);
                 }
 
             }
@@ -200,6 +255,26 @@ namespace INF2011S_Project_Group22.Data
 
 
                     accounts.Add(guestAccount);
+                }
+            }
+        }
+        private void AddPayment(string table)
+        {
+            DataRow myRow = null;
+            Payment payment;
+
+            foreach (DataRow myRow_loopVariable in dsMain.Tables[tablePayment].Rows)
+            {
+                myRow = myRow_loopVariable;
+                if (!(myRow.RowState == DataRowState.Deleted))
+                {
+                    payment = new Payment();
+                    payment.paymentID = Convert.ToString(myRow["PaymentId"]).TrimEnd();
+                    payment.guestId = Convert.ToString(myRow["GuestId"]).TrimEnd();
+                    payment.paymentStat = (Payment.PaymentStatus)Convert.ToByte(myRow["PaymentStatus"]);
+                    payment.paymentAmount = Convert.ToSingle(myRow["PaymentAmount"]);
+
+                    payments.Add(payment);
                 }
             }
         }
