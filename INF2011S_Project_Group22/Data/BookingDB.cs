@@ -132,17 +132,17 @@ namespace INF2011S_Project_Group22.Data
             FillDataSet(sqlLocal4, tableGuest);
             AddGuest(tableGuest);
 
-            /*FillDataSet(sqlLocal5, tableAccount);
-            AddAccount(tableAccount);
+            FillDataSet(sqlLocal5, tableAccount);
+            AddGuestAccount(tableAccount);
 
             FillDataSet(sqlLocal6, tableHotel);
-            Add2Collection(tableHotel);
+            //Add2Collection(tableHotel);
 
             FillDataSet(sqlLocal7, tablePayment);
-            Add2Collection(tablePayment);
+            //Add2Collection(tablePayment);
 
             FillDataSet(sqlLocal8, tableAgent);
-            Add2Collection(tableAgent);*/
+            //Add2Collection(tableAgent);
         }
         #endregion
 
@@ -179,7 +179,7 @@ namespace INF2011S_Project_Group22.Data
             }
         }
 
-       /* public void AddGuestAccount(string table)
+        public void AddGuestAccount(string table)
         {
             DataRow myRow = null;
             GuestAccount guestAccount;
@@ -191,27 +191,18 @@ namespace INF2011S_Project_Group22.Data
                 if (!(myRow.RowState == DataRowState.Deleted))
                 {
                     guestAccount = new GuestAccount();
-                    guestAccount.guestID = Convert.ToInt32(myRow["GuestID"]);
+                    guestAccount.GuestID = Convert.ToInt32(myRow["GuestID"]);
                     guestAccount.RoomID = Convert.ToInt32(myRow["RoomID"]);
-                    guestAccount.CreditCardCredentials = Convert.ToString(myRow["LastName"]).TrimEnd();
-                    guest.phoneNumber = Convert.ToString(myRow["PhoneNumber"]).TrimEnd();
-                    guest.email = Convert.ToString(myRow["Email"]).TrimEnd();
-                    guest.CreditCardNumber = Convert.ToInt32(myRow["CreditCardNumber"]);
-
-                    /*     [GuestID]               NVARCHAR (10) NOT NULL,
-    [GuestStatus]           NVARCHAR (20) NOT NULL,
-    [HotelRoomID]           NVARCHAR (10) NOT NULL,
-    [CreditCardCredentials] NVARCHAR (10) NOT NULL,
-    [AccountStatus]         NVARCHAR (20) NOT NULL,
-    [AccountBalance]        MONEY         NOT NULL,
-    [AccountCharges]        MONEY         NOT NULL,
-    CHECK ([GuestStatus]='Existing' OR [GuestStatus]='New'),
-    CHECK ([AccountStatus]='Closed' OR [AccountStatus]='Inactive' OR [AccountStatus]='Active')
+                    guestAccount.CreditCardCredentials = Convert.ToInt32(myRow["CreditCardCredentials"]);
+                    guestAccount.AccountStatus = Convert.ToString(myRow["AccountStatus"]).TrimEnd();
+                    guestAccount.AccountBalance = Convert.ToDecimal(myRow["Email"]);
+                    guestAccount.AccountCharges = Convert.ToInt32(myRow["CreditCardNumber"]);
 
 
-                    guests.Add(guest);
+                    accounts.Add(guestAccount);
                 }
-            }*/
+            }
+        }
 
         private void AddBookingRoom(string table)
         {
