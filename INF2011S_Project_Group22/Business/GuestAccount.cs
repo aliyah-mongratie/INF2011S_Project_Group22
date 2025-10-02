@@ -10,7 +10,7 @@ namespace INF2011S_Project_Group22
     {
         //Munta's part
         #region Data Members
-        private int guestID;
+        private string guestID;
         private string guestStatus; // e.g. regular, vip, etc
         private int roomID;
         private int creditCardCredentials; // e.g. credit card number

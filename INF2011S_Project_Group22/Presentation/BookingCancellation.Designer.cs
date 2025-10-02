@@ -47,6 +47,7 @@
             this.pictureBox1.Size = new System.Drawing.Size(1349, 710);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // pictureBox2
             // 
@@ -78,9 +79,10 @@
             this.lblBookingNumberRemoved.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.lblBookingNumberRemoved.Location = new System.Drawing.Point(442, 553);
             this.lblBookingNumberRemoved.Name = "lblBookingNumberRemoved";
-            this.lblBookingNumberRemoved.Size = new System.Drawing.Size(485, 36);
+            this.lblBookingNumberRemoved.Size = new System.Drawing.Size(353, 36);
             this.lblBookingNumberRemoved.TabIndex = 3;
-            this.lblBookingNumberRemoved.Text = "Booking Number XXXXX Removed";
+            this.lblBookingNumberRemoved.Text = "bookingNumberRemoved";
+            this.lblBookingNumberRemoved.Click += new System.EventHandler(this.lblBookingNumberRemoved_Click);
             // 
             // btnReturn
             // 

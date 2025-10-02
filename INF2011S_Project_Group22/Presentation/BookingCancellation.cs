@@ -15,6 +15,18 @@ namespace INF2011S_Project_Group22.Presentation
         public frmBookingCancellation()
         {
             InitializeComponent();
+            //get bookingReservationNumber from database once bookingController is done
+            lblBookingNumberRemoved.Text = "The Booking Reservation Number is: $"; //add the booking reservation number here
+        }
+
+        private void lblBookingNumberRemoved_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

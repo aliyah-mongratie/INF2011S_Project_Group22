@@ -105,6 +105,12 @@
     <Compile Include="Business\HotelRoom.cs" />
     <Compile Include="Business\Manager.cs" />
     <Compile Include="Business\Person.cs" />
+    <Compile Include="Presentation\ReservationEnquiry.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\ReservationEnquiry.Designer.cs">
+      <DependentUpon>ReservationEnquiry.cs</DependentUpon>
+    </Compile>
     <Compile Include="Presentation\Homepage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -116,6 +122,12 @@
     </Compile>
     <Compile Include="Presentation\MakePayment.Designer.cs">
       <DependentUpon>MakePayment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\ViewAvailability.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\ViewAvailability.Designer.cs">
+      <DependentUpon>ViewAvailability.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -131,11 +143,17 @@
     <EmbeddedResource Include="Presentation\CreateAReservation.resx">
       <DependentUpon>CreateAReservation.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\ReservationEnquiry.resx">
+      <DependentUpon>ReservationEnquiry.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Presentation\Homepage.resx">
       <DependentUpon>Homepage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentation\MakePayment.resx">
       <DependentUpon>MakePayment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\ViewAvailability.resx">
+      <DependentUpon>ViewAvailability.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
