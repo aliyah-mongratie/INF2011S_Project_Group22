@@ -384,10 +384,14 @@ namespace INF2011S_Project_Group22.Data
             }
             return returnValue;
         }
-        private void FillRowBookingRoom(DataRow aRow, HotelRoom room, int bookingResNumber)
+        private void FillRowBookingRoom(DataRow aRow, BookingRoom bookingRoom, DB.DBOperation operation)
         {
-            aRow["BookingResNumber"] = bookingResNumber;
-            aRow["HotelRoomId"] = room.HotelRoomID;
+            if (operation == DB.DBOperation.add)
+            {
+                aRow["BookingResNumber"] = bookingRoom.bookingResNumber;
+                aRow["HotelRoomId"] = bookingRoom.hotelRoomId;
+            }
+           
 
         }
         private int FindRowBookingRoom(BookingRoom bookingRoom, string table)
@@ -507,10 +511,74 @@ namespace INF2011S_Project_Group22.Data
             }
             return returnValue;
         }
+        private void FillRowTravelAgent(DataRow aRow, TravelAgent agent, DB.DBOperation operation)
+        {
+            if (operation == DB.DBOperation.add)
+            {
+                aRow["TravelAgentId"] = agent.TravelAgentId;
+            }
+            aRow["AgencyName"] = agent.AgencyName;
+            aRow["FirstName"] = agent.FirstName;
+            aRow["LastName"] = agent.LastName;
+            aRow["PhoneNumber"] = agent.PhoneNumber;
+            aRow["Email"] = agent.Email;
+        }
+        private int FindRowTravelAgent(TravelAgent agent, string table)
+        {
+            int rowIndex = 0;
+            DataRow myRow;
+            int returnValue = -1;
+
+            foreach (DataRow myRow_loopVariable in dsMain.Tables[table].Rows)
+            {
+                myRow = myRow_loopVariable;
+                if (myRow.RowState != DataRowState.Deleted)
+                {
+                    if (agent.TravelAgentId == Convert.ToString(dsMain.Tables[table].Rows[rowIndex]["TravelAgentId"]))
+                    {
+                        returnValue = rowIndex;
+                    }
+                }
+                rowIndex++;
+            }
+            return returnValue;
+        }
+        private void FillRowRoom(DataRow aRow, HotelRoom room, DB.DBOperation operation)
+        {
+            if (operation == DB.DBOperation.add)
+            {
+                aRow["HotelRoomId"] = room.HotelRoomID;
+            }
+           
+            aRow["RoomStatus"] = room.getRoomStatus;
+            aRow["RoomPrice"] = room.RoomPrice;
+            aRow["RoomCapacity"] = room.RoomCapacity;
+            
+        }
+        private int FindRowRoom(HotelRoom room, string table)
+        {
+            int rowIndex = 0;
+            DataRow myRow;
+            int returnValue = -1;
+
+            foreach (DataRow myRow_loopVariable in dsMain.Tables[table].Rows)
+            {
+                myRow = myRow_loopVariable;
+                if (myRow.RowState != DataRowState.Deleted)
+                {
+                    if (room.HotelRoomID == Convert.ToString(dsMain.Tables[table].Rows[rowIndex]["HotelRoomId"]))
+                    {
+                        returnValue = rowIndex;
+                    }
+                }
+                rowIndex++;
+            }
+            return returnValue;
+        }
         #endregion
 
         #region Database operations CRUD
-        public void DataSetChange(Booking booking, DB.DBOperation operation)
+        public void DataSetChangeBooking(Booking booking, DB.DBOperation operation)
         {
             DataRow aRow = null;
 
@@ -540,7 +608,162 @@ namespace INF2011S_Project_Group22.Data
         
         }
 
+        public void DataSetChangeBookingRoom(BookingRoom bookingRoom, DB.DBOperation operation)
+        {
+            DataRow aRow = null;
 
+            switch (operation)
+            {
+                case DB.DBOperation.add:
+                    aRow = dsMain.Tables[tableBookingRoom].NewRow();
+                    FillRowBookingRoom(aRow, bookingRoom, DBOperation.add);
+                    dsMain.Tables[tableBookingRoom].Rows.Add(aRow);
+                    break;
+
+                case DB.DBOperation.edit:
+                    aRow = dsMain.Tables[tableBookingRoom].Rows.Find(bookingRoom.bookingResNumber);
+                    if (aRow != null)
+                        FillRowBookingRoom(aRow, bookingRoom, DBOperation.edit);
+                    break;
+
+                case DB.DBOperation.delete:
+                    aRow = dsMain.Tables[tableBookingRoom].Rows.Find(bookingRoom.bookingResNumber);
+                    if (aRow != null)
+                        aRow.Delete();
+                    break;
+            }
+
+        }
+        public void DataSetChangeGuest(Guest guest, DB.DBOperation operation)
+        {
+            DataRow aRow = null;
+
+            switch (operation)
+            {
+                case DB.DBOperation.add:
+                    aRow = dsMain.Tables[tableGuest].NewRow();
+                    FillRowGuest(aRow, guest, DBOperation.add);
+                    dsMain.Tables[tableGuest].Rows.Add(aRow);
+                    break;
+
+                case DB.DBOperation.edit:
+                    aRow = dsMain.Tables[tableGuest].Rows.Find(guest.GuestID);
+                    if (aRow != null)
+                        FillRowGuest(aRow, guest, DBOperation.edit);
+                    break;
+
+                case DB.DBOperation.delete:
+                    aRow = dsMain.Tables[tableGuest].Rows.Find(guest.GuestID);
+                    if (aRow != null)
+                        aRow.Delete();
+                    break;
+            }
+
+        }
+        public void DataSetChangeGuestAccount(GuestAccount account, DB.DBOperation operation)
+        {
+            DataRow aRow = null;
+
+            switch (operation)
+            {
+                case DB.DBOperation.add:
+                    aRow = dsMain.Tables[tableAccount].NewRow();
+                    FillRowGuestAccount(aRow, account, DBOperation.add);
+                    dsMain.Tables[tableAccount].Rows.Add(aRow);
+                    break;
+
+                case DB.DBOperation.edit:
+                    aRow = dsMain.Tables[tableAccount].Rows.Find(account.GuestID);
+                    if (aRow != null)
+                        FillRowGuestAccount(aRow, account, DBOperation.edit);
+                    break;
+
+                case DB.DBOperation.delete:
+                    aRow = dsMain.Tables[tableAccount].Rows.Find(account.GuestID);
+                    if (aRow != null)
+                        aRow.Delete();
+                    break;
+            }
+
+        }
+        public void DataSetChangeHotelRoom(HotelRoom room, DB.DBOperation operation)
+        {
+            DataRow aRow = null;
+
+            switch (operation)
+            {
+                case DB.DBOperation.add:
+                    aRow = dsMain.Tables[tableRoom].NewRow();
+                    FillRowRoom(aRow, room, DBOperation.add);
+                    dsMain.Tables[tableRoom].Rows.Add(aRow);
+                    break;
+
+                case DB.DBOperation.edit:
+                    aRow = dsMain.Tables[tableRoom].Rows.Find(room.HotelRoomID);
+                    if (aRow != null)
+                        FillRowRoom(aRow, room, DBOperation.edit);
+                    break;
+
+                case DB.DBOperation.delete:
+                    aRow = dsMain.Tables[tableRoom].Rows.Find(room.HotelRoomID);
+                    if (aRow != null)
+                        aRow.Delete();
+                    break;
+            }
+
+        }
+        public void DataSetChangePayment(Payment payment, DB.DBOperation operation)
+        {
+            DataRow aRow = null;
+
+            switch (operation)
+            {
+                case DB.DBOperation.add:
+                    aRow = dsMain.Tables[tablePayment].NewRow();
+                    FillRowPayment(aRow, payment, DBOperation.add);
+                    dsMain.Tables[tablePayment].Rows.Add(aRow);
+                    break;
+
+                case DB.DBOperation.edit:
+                    aRow = dsMain.Tables[tablePayment].Rows.Find(payment.paymentID);
+                    if (aRow != null)
+                        FillRowPayment(aRow, payment, DBOperation.edit);
+                    break;
+
+                case DB.DBOperation.delete:
+                    aRow = dsMain.Tables[tablePayment].Rows.Find(payment.paymentID);
+                    if (aRow != null)
+                        aRow.Delete();
+                    break;
+            }
+
+        }
+        public void DataSetChangeTravelAgent(TravelAgent agent, DB.DBOperation operation)
+        {
+            DataRow aRow = null;
+
+            switch (operation)
+            {
+                case DB.DBOperation.add:
+                    aRow = dsMain.Tables[tableAgent].NewRow();
+                    FillRowTravelAgent(aRow, agent, DBOperation.add);
+                    dsMain.Tables[tableAgent].Rows.Add(aRow);
+                    break;
+
+                case DB.DBOperation.edit:
+                    aRow = dsMain.Tables[tableAgent].Rows.Find(agent.TravelAgentId);
+                    if (aRow != null)
+                        FillRowTravelAgent(aRow, agent, DBOperation.edit);
+                    break;
+
+                case DB.DBOperation.delete:
+                    aRow = dsMain.Tables[tableAgent].Rows.Find(agent.TravelAgentId);
+                    if (aRow != null)
+                        aRow.Delete();
+                    break;
+            }
+
+        }
         #endregion
         #region Build Parameters, Create Commands & Update database
         private void Build_UPDATE_Parameters(Booking booking)
