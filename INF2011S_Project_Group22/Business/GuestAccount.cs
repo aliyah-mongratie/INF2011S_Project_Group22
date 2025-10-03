@@ -71,7 +71,7 @@ namespace INF2011S_Project_Group22
         #region Constructors
         public GuestAccount()
         {
-            guestID = 0;
+            guestID = " ";
             guestStat = GuestStatus.New;
             roomID = 0;
             creditCardCredentials = 0;

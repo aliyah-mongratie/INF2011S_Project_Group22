@@ -19,7 +19,7 @@ namespace INF2011S_Project_Group22.Business
             unpaid
         }
         public PaymentStatus paymentStat { get; set; }//various statuses for payment to be in
-        public decimal paymentAmount;//is it the same ad 
+        public float paymentAmount;//is it the same ad 
 
         //foreign key
         public string BookingReservationNumber { get; set; }
