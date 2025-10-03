@@ -19,22 +19,22 @@ namespace INF2011S_Project_Group22
         //Munta's part
         #region Data Members
         private string guestID;
-        private enum GuestStatus
+        public enum GuestStatus
         {
             New,
             Existing
         }
 
-        private GuestStatus guestStat { get; set; }//i.e new or existing guest
+        public GuestStatus guestStat { get; set; }//i.e new or existing guest
         private int roomID;
         private int creditCardCredentials; // e.g. credit card number
-        private enum AccountStatus
+        public enum AccountStatus
         {
             Active,
             Inactive,
             Closed
         }
-        private AccountStatus accountStat { get; set; } // e.g. active, inactive, closed
+        public AccountStatus accountStat { get; set; } // e.g. active, inactive, closed
         private decimal accountBalance; // e.g. current balance
         private decimal accountCharges; // e.g. charges incurred
         #endregion
