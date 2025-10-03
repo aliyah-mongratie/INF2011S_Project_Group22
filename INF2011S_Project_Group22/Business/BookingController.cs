@@ -1,4 +1,5 @@
-﻿using System;
+﻿using INF2011S_Project_Group22.Data;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -12,6 +13,7 @@ namespace INF2011S_Project_Group22.Business
     class BookingController //aliyah 
     {
         #region Data Members 
+        BookingDB bookingDB;
         Collection<Booking> bookings;
         #endregion
 
@@ -23,6 +25,11 @@ namespace INF2011S_Project_Group22.Business
         #endregion
 
         #region Constructor
+        public BookingController()
+        {
+            bookingDB = new BookingDB();
+            bookings = bookingDB.AllBookings;
+        }
         //added when DB classes are added 
         #endregion
 
