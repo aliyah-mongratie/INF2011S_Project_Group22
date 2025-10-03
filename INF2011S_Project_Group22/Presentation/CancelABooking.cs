@@ -24,6 +24,7 @@ namespace INF2011S_Project_Group22.Presentation
 
         private void btnConfirm_Click(object sender, EventArgs e)
         {
+            //Once bookingController is done, we will use the first name, last name and booking number to find the booking in the database and cancel/delete it.
             string firstName = txtFirstName.Text;
             string lastName = txtLastName.Text;
 
@@ -60,6 +61,11 @@ namespace INF2011S_Project_Group22.Presentation
         }
 
         private void frmCancelABooking_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
         {
 
         }

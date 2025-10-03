@@ -10,7 +10,7 @@ namespace INF2011S_Project_Group22
     {
         #region Data Members
          
-        public int managerID;
+        public string managerID;
         #endregion
 
         #region Property Methods

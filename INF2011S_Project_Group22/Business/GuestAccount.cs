@@ -18,26 +18,28 @@ namespace INF2011S_Project_Group22
 
         //Munta's part
         #region Data Members
-        private int guestID;
-        private GuestStatusType guestStatus;//i.e new or existing guest
+        private string guestID;
+        
         private int roomID;
         private int creditCardCredentials; // e.g. credit card number
-        private string accountStatus; // e.g. active, inactive, closed
+        public enum AccountStatus
+        {
+            Active,
+            Inactive,
+            Closed
+        }
+        public AccountStatus accountStat { get; set; } // e.g. active, inactive, closed
         private decimal accountBalance; // e.g. current balance
         private decimal accountCharges; // e.g. charges incurred
         #endregion
 
         #region Property methods
-        public int GuestID
+        public string GuestID
         {
             get { return guestID; }
             set { guestID = value; }
         }
-        public GuestStatusType GuestStatus
-        {
-            get { return guestStatus; }
-            set { guestStatus = value; }
-        }
+      
         public int RoomID
         {
             get { return roomID; }
@@ -47,11 +49,6 @@ namespace INF2011S_Project_Group22
         {
             get { return creditCardCredentials; }
             set { creditCardCredentials = value; }
-        }
-        public string AccountStatus
-        {
-            get { return accountStatus; }
-            set { accountStatus = value; }
         }
         public decimal AccountBalance
         {
@@ -68,22 +65,19 @@ namespace INF2011S_Project_Group22
         #region Constructors
         public GuestAccount()
         {
-            guestID = 0;
-            guestStatus = GuestStatusType.New;
+            guestID = " ";
             roomID = 0;
             creditCardCredentials = 0;
-            accountStatus = " ";
+            accountStat = AccountStatus.Active;//default?
             accountBalance = 0.0m;
             accountCharges = 0.0m;
         }
 
-        public GuestAccount(int newGuestID, GuestStatusType newGuestStatus, int newRoomID, int newCreditCardCredentials, string newAccountStatus, decimal newAccountBalance)
+        public GuestAccount(string newGuestID,  int newRoomID, int newCreditCardCredentials,  decimal newAccountBalance)
         {
             guestID = newGuestID;
-            guestStatus = newGuestStatus;
             roomID = newRoomID;
             creditCardCredentials = newCreditCardCredentials;
-            accountStatus = newAccountStatus;
             accountBalance = newAccountBalance;
         }
         #endregion
