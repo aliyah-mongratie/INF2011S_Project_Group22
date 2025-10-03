@@ -10,16 +10,16 @@ namespace INF2011S_Project_Group22.Business
     internal class Payment
     {
         #region data members
-        public string paymentID;
-        public string guestId;
+        public string paymentID;//uniquely identifies payment
+        public string guestId;//need guestID for payment /slip
         public enum PaymentStatus
         {
             pending,
             paid,
             unpaid
         }
-        public PaymentStatus paymentStat { get; set; }
-        public float paymentAmount;
+        public PaymentStatus paymentStat { get; set; }//various statuses for payment to be in
+        public decimal paymentAmount;//is it the same ad 
 
         //foreign key
         public string BookingReservationNumber { get; set; }
