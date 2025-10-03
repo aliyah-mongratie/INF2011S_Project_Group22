@@ -117,6 +117,12 @@
     <Compile Include="Presentation\MakePayment.Designer.cs">
       <DependentUpon>MakePayment.cs</DependentUpon>
     </Compile>
+    <Compile Include="Presentation\ReservationDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\ReservationDetails.Designer.cs">
+      <DependentUpon>ReservationDetails.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Presentation\BookingCancellation.resx">
@@ -136,6 +142,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Presentation\MakePayment.resx">
       <DependentUpon>MakePayment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\ReservationDetails.resx">
+      <DependentUpon>ReservationDetails.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -74,13 +74,13 @@
             // 
             this.lblBookingNumberRemoved.AutoSize = true;
             this.lblBookingNumberRemoved.BackColor = System.Drawing.Color.OldLace;
-            this.lblBookingNumberRemoved.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBookingNumberRemoved.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblBookingNumberRemoved.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.lblBookingNumberRemoved.Location = new System.Drawing.Point(442, 553);
             this.lblBookingNumberRemoved.Name = "lblBookingNumberRemoved";
-            this.lblBookingNumberRemoved.Size = new System.Drawing.Size(485, 36);
+            this.lblBookingNumberRemoved.Size = new System.Drawing.Size(28, 16);
             this.lblBookingNumberRemoved.TabIndex = 3;
-            this.lblBookingNumberRemoved.Text = "Booking Number XXXXX Removed";
+            this.lblBookingNumberRemoved.Text = "lbl2";
             // 
             // btnReturn
             // 
