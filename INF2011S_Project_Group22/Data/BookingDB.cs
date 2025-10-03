@@ -803,15 +803,7 @@ namespace INF2011S_Project_Group22.Data
             param = new SqlParameter("@SpecialRequirements", SqlDbType.NVarChar, 500, "SpecialRequirements");
             daMain.InsertCommand.Parameters.Add(param);
         }
-        private void Build_UPDATE_Parameters_BookRoom(BookingRoom bookingRoom)
-        {
-            SqlParameter param = default(SqlParameter);
-            param = new SqlParameter("@BookingResNumber", SqlDbType.NVarChar, 10, "BookingResNumber");
-            daMain.InsertCommand.Parameters.Add(param);
-
-            param = new SqlParameter("@HotelRoomId", SqlDbType.NVarChar, 10, "HotelRoomId");
-            daMain.InsertCommand.Parameters.Add(param);
-        }
+        
         private void Build_UPDATE_Parameters_Guest(Guest guest)
         {
             SqlParameter param = default(SqlParameter);
@@ -915,7 +907,37 @@ namespace INF2011S_Project_Group22.Data
             daMain.InsertCommand.Parameters.Add(param);
 
         }
-        // For Tylor 
+        private void Create_UPDATE_Command_Book(Booking booking)
+        {
+            daMain.UpdateCommand = new SqlCommand("UPDATE Booking SET GuestId =@GuestId, HotelId = @Hotelid, TravelAgentId =@TravelAgentId, BookingStatus =@BookingStatus, bookingType =@bookingType, numOfPeople =@numOfPeople, numOfRooms =@numOfRooms, CheckInDate =@CheckInDate, CheckOutDate =@CheckOutDate, SpecialRequirements =@SpecialRequirements " + "WHERE BookingResNumber = @Original_BookingResNumber", cnMain);
+            Build_UPDATE_Parameters_Book(booking);
+        }
+        private void Create_UPDATE_Command_Guest(Guest guest)
+        {
+            daMain.UpdateCommand = new SqlCommand("UPDATE Booking SET GuestStatus =@GuestStatus, FirstName = @FirstName, LastName =@LastName, PhoneNumber =@PhoneNumber, Email =@Email, CreditCardNumber =@CreditCardNumber" + "WHERE GuestId = @Original_GuestId", cnMain);
+            Build_UPDATE_Parameters_Guest(guest);
+        }
+        private void Create_UPDATE_Command_Account(GuestAccount account)
+        {
+            daMain.UpdateCommand = new SqlCommand("UPDATE Booking SET HotelRoomId =@HotelRoomId, CreditCardCredentials = @CreditCardCredentials, AccountStatus =@AccountStatus, AccountBalance =@AccountBalance, AccountCharges =@AccountCharges" + "WHERE GuestId = @Original_GuestId", cnMain);
+            Build_UPDATE_Parameters_Account(account);
+        }
+        private void Create_UPDATE_Command_Room(HotelRoom room)
+        {
+            daMain.UpdateCommand = new SqlCommand("UPDATE Booking SET HotelId =@HotelId, RoomStatus = @RoomStatus, RoomPrice =@RoomPrice, RoomCapacity =@RoomCapacity" + "WHERE HotelRoomId = @Original_HotelRoomId", cnMain);
+            Build_UPDATE_Parameters_Room(room);
+        }
+        private void Create_UPDATE_Command_Payment(Payment payment)
+        {
+            daMain.UpdateCommand = new SqlCommand("UPDATE Booking SET GuestId =@GuestId, PaymentStatus = @PaymentStatus, PaymentAmount =@PaymentAmount" + "WHERE PaymentId = @Original_PaymentId", cnMain);
+            Build_UPDATE_Parameters_Payment(payment);
+        }
+        private void Create_UPDATE_Command_Agent(TravelAgent agent)
+        {
+            daMain.UpdateCommand = new SqlCommand("UPDATE Booking SET TravelAgency =@TravelAgency, FirstName = @FirstName, LastName =@LastName, PhoneNumber =@PhoneNumber, Email =@Email" + "WHERE TravelAgentId = @Original_TravelAgentId", cnMain);
+            Build_UPDATE_Parameters_Agent(agent);
+        }
+        // For Tylor. Do for each table except Hotel
         /* private void Build_INSERT_Parameters(Employee anEmp)
         {
             //Create Parameters to communicate with SQL INSERT...add the input parameter and set its properties.
@@ -977,6 +999,25 @@ namespace INF2011S_Project_Group22.Data
                     break;
             }
             Build_INSERT_Parameters(anEmp);
+        } 
+        public bool UpdateDataSource(Employee anEmp)
+        {
+            bool success = true;
+            Create_INSERT_Command(anEmp);
+            Create_UPDATE_Command(anEmp);
+            switch (anEmp.role.getRoleValue)
+            {
+                case Role.RoleType.Headwaiter:
+                    success = UpdateDataSource(sqlLocal1, table1);
+                    break;
+                case Role.RoleType.Waiter:
+                    success = UpdateDataSource(sqlLocal2, table2);
+                    break;
+                case Role.RoleType.Runner:
+                    success = UpdateDataSource(sqlLocal3, table3);
+                    break;
+            }
+            return success;
         }*/
         #endregion
     }
