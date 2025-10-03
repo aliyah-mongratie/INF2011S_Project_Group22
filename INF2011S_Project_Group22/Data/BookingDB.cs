@@ -193,6 +193,7 @@ namespace INF2011S_Project_Group22.Data
                 {
                     guest = new Guest();
                     guest.GuestID = Convert.ToString(myRow["GuestId"]).TrimEnd();
+                    guest.guestStat = (Guest.GuestStatus)Convert.ToByte(myRow["GuestStatus"]);
                     guest.FirstName = Convert.ToString(myRow["FirstName"]).TrimEnd();
                     guest.LastName = Convert.ToString(myRow["LastName"]).TrimEnd();
                     guest.PhoneNumber = Convert.ToString(myRow["PhoneNumber"]).TrimEnd();
@@ -248,7 +249,6 @@ namespace INF2011S_Project_Group22.Data
                 {
                     guestAccount = new GuestAccount();
                     guestAccount.GuestID = Convert.ToString(myRow["GuestID"]);
-                    guestAccount.guestStat = (GuestAccount.GuestStatus)Convert.ToByte(myRow["GuestStatus"]);
                     guestAccount.RoomID = Convert.ToInt32(myRow["RoomID"]);
                     guestAccount.CreditCardCredentials = Convert.ToInt32(myRow["CreditCardCredentials"]);
                     guestAccount.accountStat = (GuestAccount.AccountStatus)Convert.ToByte(myRow["AccountStatus"]);
@@ -421,7 +421,7 @@ namespace INF2011S_Project_Group22.Data
             {
                 aRow["GuestId"] = guest.GuestID;
             }
-                
+            aRow["GuestStatus"] = guest.getGuestStatus;
             aRow["FirstName"] = guest.FirstName;
             aRow["LastName"] = guest.LastName;
             aRow["PhoneNumber"] = guest.PhoneNumber;
@@ -818,6 +818,9 @@ namespace INF2011S_Project_Group22.Data
             param = new SqlParameter("@GuestId", SqlDbType.NVarChar, 10, "GuestId");
             daMain.InsertCommand.Parameters.Add(param);
 
+            param = new SqlParameter("@GuestStatus", SqlDbType.NVarChar, 20, "GuestStatus");
+            daMain.InsertCommand.Parameters.Add(param);
+
             param = new SqlParameter("@FirstName", SqlDbType.NVarChar, 50, "FirstName");
             daMain.InsertCommand.Parameters.Add(param);
 
@@ -837,9 +840,6 @@ namespace INF2011S_Project_Group22.Data
         {
             SqlParameter param = default(SqlParameter);
             param = new SqlParameter("@GuestId", SqlDbType.NVarChar, 10, "GuestId");
-            daMain.InsertCommand.Parameters.Add(param);
-
-            param = new SqlParameter("@GuestStatus", SqlDbType.NVarChar, 20, "GuestStatus");
             daMain.InsertCommand.Parameters.Add(param);
 
             param = new SqlParameter("@HotelRoomId", SqlDbType.NVarChar, 10, "HotelRoomId");
