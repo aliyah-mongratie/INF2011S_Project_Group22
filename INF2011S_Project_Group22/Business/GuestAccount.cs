@@ -18,7 +18,9 @@ namespace INF2011S_Project_Group22
 
         //Munta's part
         #region Data Members
-        private int guestID;
+        private string guestID;
+        private string guestStatus; // e.g. regular, vip, etc
+        
         private GuestStatusType guestStatus;//i.e new or existing guest
         private int roomID;
         private int creditCardCredentials; // e.g. credit card number
@@ -28,7 +30,7 @@ namespace INF2011S_Project_Group22
         #endregion
 
         #region Property methods
-        public int GuestID
+        public string GuestID
         {
             get { return guestID; }
             set { guestID = value; }
