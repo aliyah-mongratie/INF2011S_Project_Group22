@@ -29,13 +29,13 @@ namespace INF2011S_Project_Group22.Business
         {
             paymentID = "";
             guestId = "";
-            paymentStat = Payment.PaymentStatus.unpaid;
+            paymentStat = Payment.PaymentStatus.unpaid;//default status
             paymentAmount = 0;
         }
         public Payment(string payID,  float payAmount, string newGuestId)
         {
             paymentID = payID;
-            paymentStat = Payment.PaymentStatus.unpaid;
+            paymentStat = Payment.PaymentStatus.unpaid;//defualt status
             paymentAmount = payAmount;
             guestId = newGuestId;
         }
@@ -46,17 +46,17 @@ namespace INF2011S_Project_Group22.Business
         public string GetCreditCardCredentials()
         {
             // retrieved from secure bank provider via verification
-            return "**** **** **** 1234";
+            return "**** **** **** 1234";//default
         }
 
         public string GetPaymentStatus()
         {
-            return paymentStat.ToString();
+            return paymentStat.ToString();//fetches the oayment status, defualt
         }
 
         public void UpdatePaymentStatus(PaymentStatus newStatus)
         {
-            paymentStat = newStatus;
+            paymentStat = newStatus;//fetches the new status according to the booking /guest account statuses
         }
 
 
