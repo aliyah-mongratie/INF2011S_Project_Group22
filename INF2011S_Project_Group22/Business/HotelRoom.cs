@@ -9,17 +9,20 @@ namespace INF2011S_Project_Group22
     class HotelRoom //aliyah
     {
         #region Data Members 
-        public string hotelRoomID;
-        public string hotelID;
+        public string hotelRoomID; //assume room number
+      
+
+        public string hotelID;//unique id of hotel in system
         public enum RoomStatus
         {
             Available = 0,
             Occupied = 1
                 
         }
-        public RoomStatus roomStat;
-        public decimal roomPrice;
-        public int roomCapacity;
+        public RoomStatus roomStat;//various statuses that a room can be in
+        public decimal roomPrice;//price of room
+        public int roomCapacity;//capacity the room is allowed to have
+        //should be linked to the UI when calculatin how many people per booking
 
         #endregion
 

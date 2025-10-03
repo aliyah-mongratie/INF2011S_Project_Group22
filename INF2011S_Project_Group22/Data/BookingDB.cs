@@ -248,9 +248,10 @@ namespace INF2011S_Project_Group22.Data
                 {
                     guestAccount = new GuestAccount();
                     guestAccount.GuestID = Convert.ToString(myRow["GuestID"]);
+                    guestAccount.guestStat = (GuestAccount.GuestStatus)Convert.ToByte(myRow["GuestStatus"]);
                     guestAccount.RoomID = Convert.ToInt32(myRow["RoomID"]);
                     guestAccount.CreditCardCredentials = Convert.ToInt32(myRow["CreditCardCredentials"]);
-                    guestAccount.AccountStatus = Convert.ToString(myRow["AccountStatus"]).TrimEnd();
+                    guestAccount.accountStat = (GuestAccount.AccountStatus)Convert.ToByte(myRow["AccountStatus"]);
                     guestAccount.AccountBalance = Convert.ToDecimal(myRow["Email"]);
                     guestAccount.AccountCharges = Convert.ToInt32(myRow["CreditCardNumber"]);
 
@@ -456,7 +457,7 @@ namespace INF2011S_Project_Group22.Data
 
             aRow["RoomId"] = account.RoomID;
             aRow["CreditCardCredentials"] = account.CreditCardCredentials;
-            aRow["AccountStatus"] = account.AccountStatus;
+            aRow["AccountStatus"] = account.accountStat;
             aRow["AccountBalance"] = account.AccountBalance;
             aRow["AccountCharges"] = account.AccountCharges;
 

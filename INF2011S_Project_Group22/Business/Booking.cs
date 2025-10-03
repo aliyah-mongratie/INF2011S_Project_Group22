@@ -20,19 +20,19 @@ namespace INF2011S_Project_Group22.Business
             Confirmed,
             Cancelled
         }
-        public BookingStatus bookingStat { get; set; }
-        public List<HotelRoom> Rooms { get; private set; } = new List<HotelRoom>();
+        public BookingStatus bookingStat { get; set; }//various statuses the booking can be in
+        public List<HotelRoom> Rooms { get; private set; } = new List<HotelRoom>();//list of rooms chosen by guest
         public enum BookingType
         {
             Personal,
             TravelAgency
         }
-        public BookingType bookingType { get; set; }
+        public BookingType bookingType { get; set; }//types of booking that can be made
         public int numOfPeople { get; set; } //max 6
         public int numOfRooms { get; set; } //1–3 rooms
-        public DateTime checkInDate { get; set; }
-        public DateTime checkOutDate { get; set; }
-        public string specialRequirements { get; set; }
+        public DateTime checkInDate { get; set; }//checkin date chosen by guest
+        public DateTime checkOutDate { get; set; }//checkout date chosen by guest
+        public string specialRequirements { get; set; }//null??
 
         // Foreign Keys
         public Guest guest { get; set; }
@@ -74,7 +74,7 @@ namespace INF2011S_Project_Group22.Business
         #region Methods
         public int GetBookingDuration()
         {
-            return (checkOutDate - checkInDate).Days;
+            return (checkOutDate - checkInDate).Days;//calculates amount of days/nights stay for booking
         }
 
         public bool CheckRoomAvailability()
