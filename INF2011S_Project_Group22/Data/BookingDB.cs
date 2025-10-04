@@ -981,6 +981,19 @@ namespace INF2011S_Project_Group22.Data
            
         }
 
+        private void Build_INSERT_Parameters_BookRoom(BookingRoom bookingRoom)
+        {
+            //Create Parameters to communicate with SQL INSERT...add the input parameter and set its properties.
+            SqlParameter param = default(SqlParameter);
+
+            param = new SqlParameter("@BookingResNumber", SqlDbType.NVarChar, 10, "BookingResNumber");
+            daMain.InsertCommand.Parameters.Add(param);//Add the parameter to the Parameters collection.
+
+            param = new SqlParameter("@HotelRoomId", SqlDbType.NVarChar, 10, "HotelRoomId");
+            daMain.InsertCommand.Parameters.Add(param);
+
+        }
+
         private void Build_INSERT_Parameters_Guest(Guest guest)
         {
             SqlParameter param = default(SqlParameter);
@@ -1096,6 +1109,13 @@ namespace INF2011S_Project_Group22.Data
             daMain.InsertCommand = new SqlCommand("UPDATE Booking SET GuestId =@GuestId, HotelId = @Hotelid, TravelAgentId =@TravelAgentId, BookingStatus =@BookingStatus, bookingType =@bookingType, numOfPeople =@numOfPeople, numOfRooms =@numOfRooms, CheckInDate =@CheckInDate, CheckOutDate =@CheckOutDate, SpecialRequirements =@SpecialRequirements " + "WHERE BookingResNumber = @Original_BookingResNumber", cnMain);
             Create_INSERT_Command_Book(booking);
         }
+
+        private void Create_INSERT_Command_BookRoom(BookingRoom bookingRoom)
+        {
+            daMain.InsertCommand = new SqlCommand("UPDATE Booking SET BookingResNumber = @BookingResNumber , HotelRoomId = @HotelRoomId" + "WHERE BookingResNumber = @Original_BookingResNumber", cnMain);
+            Create_INSERT_Command_BookRoom(bookingRoom);
+        }
+
         private void Create_INSERT_Command_Guest(Guest guest)
         {
             daMain.InsertCommand = new SqlCommand("UPDATE Booking SET GuestStatus =@GuestStatus, FirstName = @FirstName, LastName =@LastName, PhoneNumber =@PhoneNumber, Email =@Email, CreditCardNumber =@CreditCardNumber" + "WHERE GuestId = @Original_GuestId", cnMain);
@@ -1128,6 +1148,16 @@ namespace INF2011S_Project_Group22.Data
             Create_UPDATE_Command_Book(booking);
 
           
+            return success;
+        }
+
+        public bool UpdateDataSource_BookRoom(BookingRoom bookingRoom)
+        {
+            bool success = true;
+            Create_INSERT_Command_BookRoom(bookingRoom);
+            Create_UPDATE_Command_BookRoom(bookingRoom);
+
+
             return success;
         }
 
