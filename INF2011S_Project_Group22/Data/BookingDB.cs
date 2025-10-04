@@ -938,88 +938,248 @@ namespace INF2011S_Project_Group22.Data
             daMain.UpdateCommand = new SqlCommand("UPDATE Booking SET TravelAgency =@TravelAgency, FirstName = @FirstName, LastName =@LastName, PhoneNumber =@PhoneNumber, Email =@Email" + "WHERE TravelAgentId = @Original_TravelAgentId", cnMain);
             Build_UPDATE_Parameters_Agent(agent);
         }
-        // For Tylor. Do for each table except Hotel
-        /* private void Build_INSERT_Parameters(Employee anEmp)
+        
+        private void Build_INSERT_Parameters_Book(Booking booking)
         {
             //Create Parameters to communicate with SQL INSERT...add the input parameter and set its properties.
             SqlParameter param = default(SqlParameter);
-            param = new SqlParameter("@ID", SqlDbType.NVarChar, 15, "ID");
+
+            param = new SqlParameter("@BookingResNumber", SqlDbType.NVarChar, 10, "BookingResNumber");
             daMain.InsertCommand.Parameters.Add(param);//Add the parameter to the Parameters collection.
 
-            param = new SqlParameter("@EMPID", SqlDbType.NVarChar, 10, "EMPID");
+            param = new SqlParameter("@GuestId", SqlDbType.NVarChar, 10, "GuestId");
             daMain.InsertCommand.Parameters.Add(param);
 
             //Do the same for Description & answer -ensure that you choose the right size
-            param = new SqlParameter("@Name", SqlDbType.NVarChar, 100, "Name");
+            param = new SqlParameter("@HotelId", SqlDbType.NVarChar, 10, "HotelId");
             daMain.InsertCommand.Parameters.Add(param);
 
-            param = new SqlParameter("@Phone", SqlDbType.NVarChar, 15, "Phone");
+            param = new SqlParameter("@TravelAgentId", SqlDbType.NVarChar, 10, "TravelAgentId");
             daMain.InsertCommand.Parameters.Add(param);
 
-            param = new SqlParameter("@Role", SqlDbType.TinyInt, 1, "Role");
+            param = new SqlParameter("@BookingStatus", SqlDbType.NVarChar, 20, "BookingStatus");
             daMain.InsertCommand.Parameters.Add(param);
-            switch (anEmp.role.getRoleValue)
-            {
-                case Role.RoleType.Headwaiter:
-                    param = new SqlParameter("@Salary", SqlDbType.Money, 8, "Salary");
-                    daMain.InsertCommand.Parameters.Add(param);
-                    break;
-                case Role.RoleType.Waiter:
-                    param = new SqlParameter("@Tips", SqlDbType.Money, 8, "Tips");
-                    daMain.InsertCommand.Parameters.Add(param);
 
-                    param = new SqlParameter("@DayRate", SqlDbType.Money, 8, "DayRate");
-                    daMain.InsertCommand.Parameters.Add(param);
+            param = new SqlParameter("@bookingType", SqlDbType.NVarChar, 50, "bookingType");
+            daMain.InsertCommand.Parameters.Add(param);
 
-                    param = new SqlParameter("@NoOfShifts", SqlDbType.SmallInt, 4, "NoOfShifts");
-                    daMain.InsertCommand.Parameters.Add(param);
-                    break;
-                case Role.RoleType.Runner:
-                    param = new SqlParameter("@DayRate", SqlDbType.Money, 8, "DayRate");
-                    daMain.InsertCommand.Parameters.Add(param);
+            param = new SqlParameter("@numOfPeople", SqlDbType.Int, 0, "numOfPeople");
+            daMain.InsertCommand.Parameters.Add(param);
 
-                    param = new SqlParameter("@NoOfShifts", SqlDbType.SmallInt, 4, "NoOfShifts");
-                    daMain.InsertCommand.Parameters.Add(param);
-                    break;
-            }
-            //***https://msdn.microsoft.com/en-za/library/ms179882.aspx
+            param = new SqlParameter("@numOfRooms", SqlDbType.Int, 0, "numOfRooms");
+            daMain.InsertCommand.Parameters.Add(param);
+
+            param = new SqlParameter("@CheckInDate", SqlDbType.DateTime, 0, "CheckInDate");
+            daMain.InsertCommand.Parameters.Add(param);
+
+            param = new SqlParameter("@CheckOutDate", SqlDbType.DateTime, 0, "CheckOutDate");
+            daMain.InsertCommand.Parameters.Add(param);
+
+            param = new SqlParameter("@SpecialRequirements", SqlDbType.NVarChar, 500, "SpecialRequirements");
+            daMain.InsertCommand.Parameters.Add(param);
+
+           
         }
-        private void Create_INSERT_Command(Employee anEmp) // one for each table
+
+        private void Build_INSERT_Parameters_Guest(Guest guest)
         {
-            //Create the command that must be used to insert values into the Books table..
-            switch (anEmp.role.getRoleValue)
-            {
-                case Role.RoleType.Headwaiter:
-                    daMain.InsertCommand = new SqlCommand("INSERT into HeadWaiter (ID, EMPID, Name, Phone, Role, Salary) VALUES (@ID, @EmpID, @Name, @Phone, @Role, @Salary)", cnMain);
-                    break;
-                case Role.RoleType.Waiter:
-                    daMain.InsertCommand = new SqlCommand("INSERT into Waiter (ID, EMPID, Name, Phone, Role, Tips, DayRate, NoOfShifts) VALUES (@ID, @EmpID, @Name, @Phone, @Role, @Tips, @DayRate, @NoOfShifts)", cnMain);
-                    break;
-                case Role.RoleType.Runner:
-                    daMain.InsertCommand = new SqlCommand("INSERT into Runner (ID, EMPID, Name, Phone, Role, DayRate, NoOfShifts) VALUES (@ID, @EmpID, @Name, @Phone, @Role, @DayRate, @NoOfShifts)", cnMain);
-                    break;
-            }
-            Build_INSERT_Parameters(anEmp);
-        } 
-        public bool UpdateDataSource(Employee anEmp) // one for each table
+            SqlParameter param = default(SqlParameter);
+            param = new SqlParameter("@GuestId", SqlDbType.NVarChar, 10, "GuestId");
+            daMain.InsertCommand.Parameters.Add(param);
+
+            param = new SqlParameter("@GuestStatus", SqlDbType.NVarChar, 20, "GuestStatus");
+            daMain.InsertCommand.Parameters.Add(param);
+
+            param = new SqlParameter("@FirstName", SqlDbType.NVarChar, 50, "FirstName");
+            daMain.InsertCommand.Parameters.Add(param);
+
+            param = new SqlParameter("@LastName", SqlDbType.NVarChar, 50, "LastName");
+            daMain.InsertCommand.Parameters.Add(param);
+
+            param = new SqlParameter("@PhoneNumber", SqlDbType.NVarChar, 15, "PhoneNumber");
+            daMain.InsertCommand.Parameters.Add(param);
+
+            param = new SqlParameter("@Email", SqlDbType.NVarChar, 100, "Email");
+            daMain.InsertCommand.Parameters.Add(param);
+
+            param = new SqlParameter("@CreditCardNumber", SqlDbType.NVarChar, 19, "CreditCardNumber");
+            daMain.InsertCommand.Parameters.Add(param);
+
+        }
+
+        private void Build_INSERT_Parameters_Account(GuestAccount account)
+        {
+      
+            SqlParameter param = default(SqlParameter);
+            param = new SqlParameter("@GuestId", SqlDbType.NVarChar, 10, "GuestId");
+            daMain.InsertCommand.Parameters.Add(param);
+
+            param = new SqlParameter("@HotelRoomId", SqlDbType.NVarChar, 10, "HotelRoomId");
+            daMain.InsertCommand.Parameters.Add(param);
+
+            param = new SqlParameter("@CreditCardCredentials", SqlDbType.NVarChar, 10, "CreditCardCredentials");
+            daMain.InsertCommand.Parameters.Add(param);
+
+            param = new SqlParameter("@AccountStatus", SqlDbType.NVarChar, 20, "AccountStatus");
+            daMain.InsertCommand.Parameters.Add(param);
+
+            param = new SqlParameter("@AccountBalance", SqlDbType.Money, 8, "AccountBalance");
+            daMain.InsertCommand.Parameters.Add(param);
+
+            param = new SqlParameter("@AccountCharges", SqlDbType.Money, 8, "AccountCharges");
+            daMain.InsertCommand.Parameters.Add(param);
+        }
+
+        private void Build_INSERT_Parameters_Room(HotelRoom room)
+        {
+            SqlParameter param = default(SqlParameter);
+            param = new SqlParameter("@HotelRoomId", SqlDbType.NVarChar, 10, "HotelRoomId");
+            daMain.InsertCommand.Parameters.Add(param);
+
+            param = new SqlParameter("@HotelId", SqlDbType.NVarChar, 10, "HotelId");
+            daMain.InsertCommand.Parameters.Add(param);
+
+            param = new SqlParameter("@RoomStatus", SqlDbType.NVarChar, 20, "RoomStatus");
+            daMain.InsertCommand.Parameters.Add(param);
+
+            param = new SqlParameter("@RoomPrice", SqlDbType.Money, 8, "RoomPrice");
+            daMain.InsertCommand.Parameters.Add(param);
+
+            param = new SqlParameter("@RoomCapacity", SqlDbType.Int, 0, "RoomCapacity");
+            daMain.InsertCommand.Parameters.Add(param);
+
+        }
+
+        private void Build_INSERT_Parameters_Payment(Payment payment)
+        {
+
+            SqlParameter param = default(SqlParameter);
+            param = new SqlParameter("@PaymentId", SqlDbType.NVarChar, 10, "PaymentId");
+            daMain.InsertCommand.Parameters.Add(param);
+
+            param = new SqlParameter("@GuestId", SqlDbType.NVarChar, 10, "GuestId");
+            daMain.InsertCommand.Parameters.Add(param);
+
+            param = new SqlParameter("@PaymentStatus", SqlDbType.NVarChar, 20, "PaymentStatus");
+            daMain.InsertCommand.Parameters.Add(param);
+
+            param = new SqlParameter("@PaymentAmount", SqlDbType.Money, 8, "PaymentAmount");
+            daMain.InsertCommand.Parameters.Add(param);
+
+        }
+        private void Build_INSERT_Parameters_Agent(TravelAgent agent)
+        {
+            SqlParameter param = default(SqlParameter);
+            param = new SqlParameter("@TravelAgentId", SqlDbType.NVarChar, 10, "TravelAgentId");
+            daMain.InsertCommand.Parameters.Add(param);
+
+            param = new SqlParameter("@TravelAgency", SqlDbType.NVarChar, 50, "TravelAgency");
+            daMain.InsertCommand.Parameters.Add(param);
+
+            param = new SqlParameter("@FirstName", SqlDbType.NVarChar, 50, "FirstName");
+            daMain.InsertCommand.Parameters.Add(param);
+
+            param = new SqlParameter("@LastName", SqlDbType.NVarChar, 50, "LastName");
+            daMain.InsertCommand.Parameters.Add(param);
+
+            param = new SqlParameter("@PhoneNumber", SqlDbType.NVarChar, 15, "PhoneNumber");
+            daMain.InsertCommand.Parameters.Add(param);
+
+            param = new SqlParameter("@Email", SqlDbType.NVarChar, 100, "Email");
+            daMain.InsertCommand.Parameters.Add(param);
+
+        }
+
+
+        private void Create_INSERT_Command_Book(Booking booking)
+        {
+            daMain.UpdateCommand = new SqlCommand("UPDATE Booking SET GuestId =@GuestId, HotelId = @Hotelid, TravelAgentId =@TravelAgentId, BookingStatus =@BookingStatus, bookingType =@bookingType, numOfPeople =@numOfPeople, numOfRooms =@numOfRooms, CheckInDate =@CheckInDate, CheckOutDate =@CheckOutDate, SpecialRequirements =@SpecialRequirements " + "WHERE BookingResNumber = @Original_BookingResNumber", cnMain);
+            Build_UPDATE_Parameters_Book(booking);
+        }
+        private void Create_INSERT_Command_Guest(Guest guest)
+        {
+            daMain.UpdateCommand = new SqlCommand("UPDATE Booking SET GuestStatus =@GuestStatus, FirstName = @FirstName, LastName =@LastName, PhoneNumber =@PhoneNumber, Email =@Email, CreditCardNumber =@CreditCardNumber" + "WHERE GuestId = @Original_GuestId", cnMain);
+            Build_UPDATE_Parameters_Guest(guest);
+        }
+        private void Create_INSERT_Command_Account(GuestAccount account)
+        {
+            daMain.UpdateCommand = new SqlCommand("UPDATE Booking SET HotelRoomId =@HotelRoomId, CreditCardCredentials = @CreditCardCredentials, AccountStatus =@AccountStatus, AccountBalance =@AccountBalance, AccountCharges =@AccountCharges" + "WHERE GuestId = @Original_GuestId", cnMain);
+            Build_UPDATE_Parameters_Account(account);
+        }
+        private void Create_INSERT_Command_Room(HotelRoom room)
+        {
+            daMain.UpdateCommand = new SqlCommand("UPDATE Booking SET HotelId =@HotelId, RoomStatus = @RoomStatus, RoomPrice =@RoomPrice, RoomCapacity =@RoomCapacity" + "WHERE HotelRoomId = @Original_HotelRoomId", cnMain);
+            Build_UPDATE_Parameters_Room(room);
+        }
+        private void Create_INSERT_Command_Payment(Payment payment)
+        {
+            daMain.UpdateCommand = new SqlCommand("UPDATE Booking SET GuestId =@GuestId, PaymentStatus = @PaymentStatus, PaymentAmount =@PaymentAmount" + "WHERE PaymentId = @Original_PaymentId", cnMain);
+            Build_UPDATE_Parameters_Payment(payment);
+        }
+        private void Create_INSERT_Command_Agent(TravelAgent agent)
+        {
+            daMain.UpdateCommand = new SqlCommand("UPDATE Booking SET TravelAgency =@TravelAgency, FirstName = @FirstName, LastName =@LastName, PhoneNumber =@PhoneNumber, Email =@Email" + "WHERE TravelAgentId = @Original_TravelAgentId", cnMain);
+            Build_UPDATE_Parameters_Agent(agent);
+        }
+        public bool UpdateDataSource_Book(Booking booking) 
         {
             bool success = true;
-            Create_INSERT_Command(anEmp);
-            Create_UPDATE_Command(anEmp);
-            switch (anEmp.role.getRoleValue)
-            {
-                case Role.RoleType.Headwaiter:
-                    success = UpdateDataSource(sqlLocal1, table1);
-                    break;
-                case Role.RoleType.Waiter:
-                    success = UpdateDataSource(sqlLocal2, table2);
-                    break;
-                case Role.RoleType.Runner:
-                    success = UpdateDataSource(sqlLocal3, table3);
-                    break;
-            }
+            Create_INSERT_Command_Book(booking);
+            Create_UPDATE_Command_Book(booking);
+
+          
             return success;
-        }*/
+        }
+
+        public bool UpdateDataSource_Guest(Guest guest)
+        {
+            bool success = true;
+            Create_INSERT_Command_Guest(guest);
+            Create_UPDATE_Command_Guest(guest);
+
+
+            return success;
+        }
+
+        public bool UpdateDataSource_Account(GuestAccount account)
+        {
+            bool success = true;
+            Create_INSERT_Command_Account(account);
+            Create_UPDATE_Command_Account(account);
+
+
+            return success;
+        }
+
+        public bool UpdateDataSource_Room(HotelRoom room)
+        {
+            bool success = true;
+            Create_INSERT_Command_Room(room);
+            Create_UPDATE_Command_Room(room);
+
+
+            return success;
+        }
+
+        public bool UpdateDataSource_Payment(Payment payment)
+        {
+            bool success = true;
+            Create_INSERT_Command_Payment(payment);
+            Create_UPDATE_Command_Payment(payment);
+
+
+            return success;
+        }
+
+        public bool UpdateDataSource_Agent(TravelAgent agent)
+        {
+            bool success = true;
+            Create_INSERT_Command_Agent(agent);
+            Create_UPDATE_Command_Agent(agent);
+
+
+            return success;
+        }
         #endregion
     }
 
