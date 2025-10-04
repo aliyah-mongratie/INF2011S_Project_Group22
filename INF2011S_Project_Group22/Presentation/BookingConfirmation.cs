@@ -1,4 +1,5 @@
-﻿using System;
+﻿using INF2011S_Project_Group22.Business;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,8 +16,13 @@ namespace INF2011S_Project_Group22.Presentation
         public BookingConfirmation()
         {
             InitializeComponent();
+
+            Booking booking = new Booking();
+
+            int bookingResNumber = booking.bookingResNumber;
+
             //string BookingReservationNumber =;//get booking reservation number from database once bookingController is done
-            lblBookingReservation.Text= "$The Booking Reservation Number is:" //add the booking reservation number here
+            lblBookingReservation.Text= "$The Booking Reservation Number is: {booking.bookingResNumber}" //add the booking reservation number here
             ;
         }
 
