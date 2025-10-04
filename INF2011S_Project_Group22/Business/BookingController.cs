@@ -472,11 +472,41 @@ namespace INF2011S_Project_Group22.Business
             agents.Add(agent);
         }
         //***Commit the changes to the database
-        /*public bool FinalizeChangesBooking(Booking bookng)
+        public bool FinalizeChangesBooking(Booking booking)
         {
             
-           return bookingDB.UpdateDataSourceBook(booking);
+           return bookingDB.UpdateDataSource_Book(booking);
+        }
+        /*public bool FinalizeChangesBookingRoom(BookingRoom bookingRoom)
+        {
+
+            return bookingDB.UpdateDataSource_Book(booking);
         }*/
+        public bool FinalizeChangesGuest(Guest guest)
+        {
+
+            return bookingDB.UpdateDataSource_Guest(guest);
+        }
+        public bool FinalizeChangesAccount(GuestAccount account)
+        {
+
+            return bookingDB.UpdateDataSource_Account(account);
+        }
+        public bool FinalizeChangesRoom(HotelRoom room)
+        {
+
+            return bookingDB.UpdateDataSource_Room(room);
+        }
+        public bool FinalizeChangesPayment(Payment payment)
+        {
+
+            return bookingDB.UpdateDataSource_Payment(payment);
+        }
+        public bool FinalizeChangesTravelAgent(TravelAgent agent)
+        {
+
+            return bookingDB.UpdateDataSource_Agent(agent);
+        }
         #endregion
         #region Methods 
         public Booking MakeBooking(int bookingResNumber, Guest guest, List<HotelRoom> rooms, TravelAgent travelAgent, string bookingType, int numOfPeople, int numOfRooms,
