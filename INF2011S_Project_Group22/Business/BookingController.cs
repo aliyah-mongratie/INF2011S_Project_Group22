@@ -92,7 +92,7 @@ namespace INF2011S_Project_Group22.Business
             accounts = bookingDB.AllAccounts;
             rooms = bookingDB.AllHotelRooms;
             agents = bookingDB.AlltravelAgents;
-
+            hotels = bookingDB.AllHotels;
         }
         
         #endregion
