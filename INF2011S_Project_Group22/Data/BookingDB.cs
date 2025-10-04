@@ -1093,33 +1093,33 @@ namespace INF2011S_Project_Group22.Data
 
         private void Create_INSERT_Command_Book(Booking booking)
         {
-            daMain.UpdateCommand = new SqlCommand("UPDATE Booking SET GuestId =@GuestId, HotelId = @Hotelid, TravelAgentId =@TravelAgentId, BookingStatus =@BookingStatus, bookingType =@bookingType, numOfPeople =@numOfPeople, numOfRooms =@numOfRooms, CheckInDate =@CheckInDate, CheckOutDate =@CheckOutDate, SpecialRequirements =@SpecialRequirements " + "WHERE BookingResNumber = @Original_BookingResNumber", cnMain);
-            Build_UPDATE_Parameters_Book(booking);
+            daMain.InsertCommand = new SqlCommand("UPDATE Booking SET GuestId =@GuestId, HotelId = @Hotelid, TravelAgentId =@TravelAgentId, BookingStatus =@BookingStatus, bookingType =@bookingType, numOfPeople =@numOfPeople, numOfRooms =@numOfRooms, CheckInDate =@CheckInDate, CheckOutDate =@CheckOutDate, SpecialRequirements =@SpecialRequirements " + "WHERE BookingResNumber = @Original_BookingResNumber", cnMain);
+            Create_INSERT_Command_Book(booking);
         }
         private void Create_INSERT_Command_Guest(Guest guest)
         {
-            daMain.UpdateCommand = new SqlCommand("UPDATE Booking SET GuestStatus =@GuestStatus, FirstName = @FirstName, LastName =@LastName, PhoneNumber =@PhoneNumber, Email =@Email, CreditCardNumber =@CreditCardNumber" + "WHERE GuestId = @Original_GuestId", cnMain);
-            Build_UPDATE_Parameters_Guest(guest);
+            daMain.InsertCommand = new SqlCommand("UPDATE Booking SET GuestStatus =@GuestStatus, FirstName = @FirstName, LastName =@LastName, PhoneNumber =@PhoneNumber, Email =@Email, CreditCardNumber =@CreditCardNumber" + "WHERE GuestId = @Original_GuestId", cnMain);
+            Create_INSERT_Command_Guest(guest);
         }
         private void Create_INSERT_Command_Account(GuestAccount account)
         {
-            daMain.UpdateCommand = new SqlCommand("UPDATE Booking SET HotelRoomId =@HotelRoomId, CreditCardCredentials = @CreditCardCredentials, AccountStatus =@AccountStatus, AccountBalance =@AccountBalance, AccountCharges =@AccountCharges" + "WHERE GuestId = @Original_GuestId", cnMain);
-            Build_UPDATE_Parameters_Account(account);
+            daMain.InsertCommand = new SqlCommand("UPDATE Booking SET HotelRoomId =@HotelRoomId, CreditCardCredentials = @CreditCardCredentials, AccountStatus =@AccountStatus, AccountBalance =@AccountBalance, AccountCharges =@AccountCharges" + "WHERE GuestId = @Original_GuestId", cnMain);
+            Create_INSERT_Command_Account(account);
         }
         private void Create_INSERT_Command_Room(HotelRoom room)
         {
-            daMain.UpdateCommand = new SqlCommand("UPDATE Booking SET HotelId =@HotelId, RoomStatus = @RoomStatus, RoomPrice =@RoomPrice, RoomCapacity =@RoomCapacity" + "WHERE HotelRoomId = @Original_HotelRoomId", cnMain);
-            Build_UPDATE_Parameters_Room(room);
+            daMain.InsertCommand = new SqlCommand("UPDATE Booking SET HotelId =@HotelId, RoomStatus = @RoomStatus, RoomPrice =@RoomPrice, RoomCapacity =@RoomCapacity" + "WHERE HotelRoomId = @Original_HotelRoomId", cnMain);
+            Create_INSERT_Command_Room(room);
         }
         private void Create_INSERT_Command_Payment(Payment payment)
         {
-            daMain.UpdateCommand = new SqlCommand("UPDATE Booking SET GuestId =@GuestId, PaymentStatus = @PaymentStatus, PaymentAmount =@PaymentAmount" + "WHERE PaymentId = @Original_PaymentId", cnMain);
-            Build_UPDATE_Parameters_Payment(payment);
+            daMain.InsertCommand = new SqlCommand("UPDATE Booking SET GuestId =@GuestId, PaymentStatus = @PaymentStatus, PaymentAmount =@PaymentAmount" + "WHERE PaymentId = @Original_PaymentId", cnMain);
+            Create_INSERT_Command_Payment(payment);
         }
         private void Create_INSERT_Command_Agent(TravelAgent agent)
         {
-            daMain.UpdateCommand = new SqlCommand("UPDATE Booking SET TravelAgency =@TravelAgency, FirstName = @FirstName, LastName =@LastName, PhoneNumber =@PhoneNumber, Email =@Email" + "WHERE TravelAgentId = @Original_TravelAgentId", cnMain);
-            Build_UPDATE_Parameters_Agent(agent);
+            daMain.InsertCommand = new SqlCommand("UPDATE Booking SET TravelAgency =@TravelAgency, FirstName = @FirstName, LastName =@LastName, PhoneNumber =@PhoneNumber, Email =@Email" + "WHERE TravelAgentId = @Original_TravelAgentId", cnMain);
+            Create_INSERT_Command_Agent(agent);
         }
         public bool UpdateDataSource_Book(Booking booking) 
         {
