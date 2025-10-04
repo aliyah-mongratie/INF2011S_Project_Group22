@@ -38,13 +38,14 @@ namespace INF2011S_Project_Group22
             int numberOfRooms = int.Parse(txtNumRooms.Text);
             DateTime checkInDate = dateTimePicker1.Value;
             DateTime checkOutDate = dateTimePicker2.Value;
-
+           
+            
             //If the personal booking is chosen, the user will be directed to the payment form. If not, they will be directed to the confirmed booking form.
             //The assumption is that personal bookings will always require payment, while travel agent bookings will be handled by the travel agent.
 
             if (rbPersonalBooking.Checked)
             {
-                BookingType bookingType = BookingType.Personal;
+                BookingType bookingType =BookingType.Personal;
                 frmMakePayment newForm = new frmMakePayment();
                 newForm.ShowDialog();
             }
@@ -175,21 +176,31 @@ namespace INF2011S_Project_Group22
             EnterDetailsValidation(); //Call the method to validate the input fields
             
             int bookingResNumber = 0; //Initialize the booking reservation number to 0, it will be generated in the BookingController class
-            Guest guest = new Guest(txtFirstName.Text,txtLastName.Text,txtEmail.Text,txtCheckInDate.Text,txtCheckOutDate.Text,newCreditCardNumber.txt); //Create a new guest object with the details entered in the textboxes
+                                      // Replace this line:
+           
+
+            // With the following, using the available Guest constructor and setting properties:
+            Guest guest = new Guest();
+            guest.FirstName = txtFirstName.Text;
+            guest.LastName = txtLastName.Text;
+            guest.Email = txtEmail.Text;
+            DateTime checkInDate, checkOutDate;
+            DateTime.TryParse(txtCheckInDate.Text, out checkInDate);
+            DateTime.TryParse(txtCheckOutDate.Text, out checkOutDate);
+            guest.CheckInDate = checkInDate;
+            guest.CheckOutDate = checkOutDate;
             List<HotelRoom> rooms = new List<HotelRoom>(); //Create a new list to store the rooms that will be booked
             TravelAgent travelAgent = new TravelAgent(); //Create a new travel agent object, it will be populated if the booking type is travel agent
            
             int numOfPeople = int.Parse(txtNumPeople.Text); //Parse the number of people from the textbox
             BookingType bookingType= (rbPersonalBooking.Checked) ? BookingType.Personal : BookingType.TravelAgency; //Determine the booking type based on the selected radio button
             int numOfRooms = int.Parse(txtNumRooms.Text); //Parse the number of rooms from the textbox
-            DateTime checkInDate = dateTimePicker1.Value; //Get the check-in date from the date picker
-            DateTime checkOutDate = dateTimePicker2.Value; //Get the check-out date from the date picker
+            
             string specialRequirements = txtSpecialReq.Text; //Get the special requirements from the textbox
 
             // Change the type of 'bookingType' argument to string when calling MakeBooking
-           
-            BookingController.MakeBooking(bookingResNumber,guest, rooms,travelAgent,bookingType.ToString(),numOfPeople,numOfRooms,
-                        checkInDate,checkOutDate,specialRequirements); //Call the makeBooking method from the BookingController class to create a new booking in the database
+            BookingController bookingController = new BookingController();
+            bookingController.MakeBooking(bookingResNumber,guest, rooms,travelAgent,bookingType.ToString(),numOfPeople,numOfRooms,checkInDate,checkOutDate,specialRequirements); //Call the makeBooking method from the BookingController class to create a new booking in the database
 
 
 
