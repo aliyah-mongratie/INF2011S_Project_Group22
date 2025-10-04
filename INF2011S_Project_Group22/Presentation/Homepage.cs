@@ -37,5 +37,11 @@ namespace INF2011S_Project_Group22.Presentation
         {
 
         }
+
+        private void btnViewAvailability_Click(object sender, EventArgs e)
+        {
+            ViewAvailability newForm = new ViewAvailability();
+            newForm.ShowDialog();
+        }
     }
 }

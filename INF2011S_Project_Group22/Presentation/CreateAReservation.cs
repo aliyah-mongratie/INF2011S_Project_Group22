@@ -18,22 +18,8 @@ namespace INF2011S_Project_Group22
             InitializeComponent();
             
         }
-
-
-
-        
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void btnCreateResNext_Click(object sender, EventArgs e)
+        #region Validation Method
+        private void EnterDetailsValidation()
         {
             string firstName = txtFirstName.Text;
             string lastName = txtLastName.Text;
@@ -105,7 +91,7 @@ namespace INF2011S_Project_Group22
             }
 
             //Validation for check-in and check-out dates
-            
+
             //Make sure the dates are valid
             dateTimePicker1.CustomFormat = "dd/MM/yyyy";
             dateTimePicker1.Format = DateTimePickerFormat.Custom;
@@ -126,7 +112,7 @@ namespace INF2011S_Project_Group22
             {
                 MessageBox.Show($"Check-in date: {dateTimePicker1.Value}, Check-out date: {dateTimePicker2.Value}");
             }
-             
+
             //Special Requirements validation
             string specialRequirements = txtSpecialReq.Text;
             if (specialRequirements.Length > 200) // if the special requirements field is longer than 200 characters, a messagebox will pop up telling the user there is an error.
@@ -144,6 +130,41 @@ namespace INF2011S_Project_Group22
             }
 
             // If all validations pass, proceed with reservation creation
+        }
+        #endregion
+
+
+
+
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void btnCreateResNext_Click(object sender, EventArgs e)
+        {
+            //Show a message box if any of the required fields are empty when the next button is clicked
+            if (string.IsNullOrWhiteSpace(txtFirstName.Text) ||
+                string.IsNullOrWhiteSpace(txtLastName.Text) ||
+                string.IsNullOrWhiteSpace(txtNumPeople.Text) ||
+                string.IsNullOrWhiteSpace(txtNumRooms.Text) ||
+                string.IsNullOrWhiteSpace(txtEmail.Text))
+            {
+                MessageBox.Show("Please fill in all required fields.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            EnterDetailsValidation(); //Call the method to validate the input fields
+            
+            BookingConfirmation newForm = new BookingConfirmation(); //Open the booking confirmation form once the details have been entered and validated
+            newForm.ShowDialog();
+
+
         }
 
         private void btnCreateResClear_Click(object sender, EventArgs e)
