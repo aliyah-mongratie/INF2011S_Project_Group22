@@ -16,5 +16,21 @@ namespace INF2011S_Project_Group22.Presentation
         {
             InitializeComponent();
         }
+
+        private void ReservationEnquiry_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnViewDetails_Click(object sender, EventArgs e)
+        {
+            ReservationDetails newForm= new ReservationDetails();
+            newForm.ShowDialog();
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            new Homepage().Show();
+        }
     }
 }

@@ -121,7 +121,7 @@
   <data name="pictureBox1.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAABVYAAAMACAIAAABAXKuVAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wQAADsEBuJFr7QAAytlJREFUeF7s/Xd0VXe2J/ry1x33vHG6x73d/e7t7ndv93tvvPe6b+tUnaqyKx+f
+        wAAADsABataJCQAAytlJREFUeF7s/Xd0VXe2J/ry1x33vHG6x73d/e7t7ndv93tvvPe6b+tUnaqyKx+f
         OiW7Cseyy6E2JplgbGwMBowNBowDjmCMAYNQQAFlgQISQSIokIRAEkI5kUROEkJSndNVXcUba8+1f/u3
         fmGt3w4S2Pvb4zN+YyFtbQmsOqPnnN8117iRkV4AAAAAAAAA+M4bJ38IAAAAAAAAAL570AIAAAAAAAAA
         iAloAQAAAAAAAADEBLQAAAAAAAAAAGICWgAAAAAAAAAAMQEtAAAAAAAAAICYgBYAAAAAAAAAQExACwAA
@@ -990,7 +990,7 @@
         QmCC
 </value>
   </data>
-  <data name="btnExit.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnBack.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         /9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAMCAgICAgMCAgIDAwMDBAYEBAQEBAgGBgUGCQgKCgkICQkK
         DA8MCgsOCwkJDRENDg8QEBEQCgwSExIQEw8QEBD/2wBDAQMDAwQDBAgEBAgQCwkLEBAQEBAQEBAQEBAQ

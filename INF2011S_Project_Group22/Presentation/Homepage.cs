@@ -29,8 +29,8 @@ namespace INF2011S_Project_Group22.Presentation
 
         private void btnMakeABooking_Click(object sender, EventArgs e)
         {
-            frmCreateReservation newForm= new frmCreateReservation();
-            newForm.Show();
+            ViewAvailability newForm = new ViewAvailability(); //Open the availability form when the make a booking button is clicked
+            newForm.ShowDialog();
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -40,7 +40,19 @@ namespace INF2011S_Project_Group22.Presentation
 
         private void btnViewAvailability_Click(object sender, EventArgs e)
         {
-            ViewAvailability newForm = new ViewAvailability();
+           
+        }
+
+        private void btnCancelABooking_Click(object sender, EventArgs e)
+        {
+            frmCancelABooking newForm = new frmCancelABooking();
+            newForm.ShowDialog();
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            ReservationEnquiry newForm = new ReservationEnquiry();
             newForm.ShowDialog();
         }
 

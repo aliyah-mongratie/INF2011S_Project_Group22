@@ -35,9 +35,8 @@
             this.btnMakeABooking = new System.Windows.Forms.Button();
             this.lblWelcome = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.btnViewAvailability = new System.Windows.Forms.Button();
             this.btnCancelABooking = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.btnBookingEnquiry = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
@@ -109,19 +108,6 @@
             this.label3.TabIndex = 5;
             this.label3.Text = "What would you like to do?";
             // 
-            // btnViewAvailability
-            // 
-            this.btnViewAvailability.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnViewAvailability.BackgroundImage")));
-            this.btnViewAvailability.Font = new System.Drawing.Font("Segoe UI Emoji", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnViewAvailability.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.btnViewAvailability.Location = new System.Drawing.Point(1012, 559);
-            this.btnViewAvailability.Name = "btnViewAvailability";
-            this.btnViewAvailability.Size = new System.Drawing.Size(252, 52);
-            this.btnViewAvailability.TabIndex = 6;
-            this.btnViewAvailability.Text = "View Availability";
-            this.btnViewAvailability.UseVisualStyleBackColor = true;
-            this.btnViewAvailability.Click += new System.EventHandler(this.btnViewAvailability_Click);
-            // 
             // btnCancelABooking
             // 
             this.btnCancelABooking.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnCancelABooking.BackgroundImage")));
@@ -135,26 +121,26 @@
             this.btnCancelABooking.UseVisualStyleBackColor = true;
             this.btnCancelABooking.Click += new System.EventHandler(this.btnCancelABooking_Click);
             // 
-            // button4
+            // btnBookingEnquiry
             // 
-            this.button4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button4.BackgroundImage")));
-            this.button4.Font = new System.Drawing.Font("Segoe UI Emoji", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.button4.Location = new System.Drawing.Point(1009, 482);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(255, 57);
-            this.button4.TabIndex = 8;
-            this.button4.Text = "Booking Enquiry";
-            this.button4.UseVisualStyleBackColor = true;
+            this.btnBookingEnquiry.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnBookingEnquiry.BackgroundImage")));
+            this.btnBookingEnquiry.Font = new System.Drawing.Font("Segoe UI Emoji", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBookingEnquiry.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.btnBookingEnquiry.Location = new System.Drawing.Point(1009, 482);
+            this.btnBookingEnquiry.Name = "btnBookingEnquiry";
+            this.btnBookingEnquiry.Size = new System.Drawing.Size(255, 57);
+            this.btnBookingEnquiry.TabIndex = 8;
+            this.btnBookingEnquiry.Text = "Booking Enquiry";
+            this.btnBookingEnquiry.UseVisualStyleBackColor = true;
+            this.btnBookingEnquiry.Click += new System.EventHandler(this.button4_Click);
             // 
             // Homepage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1364, 742);
-            this.Controls.Add(this.button4);
+            this.Controls.Add(this.btnBookingEnquiry);
             this.Controls.Add(this.btnCancelABooking);
-            this.Controls.Add(this.btnViewAvailability);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.lblWelcome);
             this.Controls.Add(this.btnMakeABooking);
@@ -179,8 +165,7 @@
         private System.Windows.Forms.Button btnMakeABooking;
         private System.Windows.Forms.Label lblWelcome;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button btnViewAvailability;
         private System.Windows.Forms.Button btnCancelABooking;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btnBookingEnquiry;
     }
 }
