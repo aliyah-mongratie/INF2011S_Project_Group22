@@ -120,6 +120,7 @@
             this.btnViewAvailability.TabIndex = 6;
             this.btnViewAvailability.Text = "View Availability";
             this.btnViewAvailability.UseVisualStyleBackColor = true;
+            this.btnViewAvailability.Click += new System.EventHandler(this.btnViewAvailability_Click);
             // 
             // btnCancelABooking
             // 

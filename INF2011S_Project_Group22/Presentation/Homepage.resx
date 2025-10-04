@@ -121,7 +121,7 @@
   <data name="pictureBox1.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAABVYAAAMACAIAAABAXKuVAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wQAADsEBuJFr7QAAytlJREFUeF7s/Xd0VXe2J/ry1x33vHG6x73d/e7t7ndv93tvvPe6b+tUnaqyKx+f
+        wAAADsABataJCQAAytlJREFUeF7s/Xd0VXe2J/ry1x33vHG6x73d/e7t7ndv93tvvPe6b+tUnaqyKx+f
         OiW7Cseyy6E2JplgbGwMBowNBowDjmCMAYNQQAFlgQISQSIokIRAEkI5kUROEkJSndNVXcUba8+1f/u3
         fmGt3w4S2Pvb4zN+YyFtbQmsOqPnnN8117iRkV4AAAAAAAAA+M4bJ38IAAAAAAAAAL570AIAAAAAAAAA
         iAloAQAAAAAAAADEBLQAAAAAAAAAAGICWgAAAAAAAAAAMQEtAAAAAAAAAICYgBYAAAAAAAAAQExACwAA
@@ -1000,7 +1000,7 @@ The group emphasizes perfect customer care and satisfaction,
   <data name="pictureBox2.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAr4AAAFuCAYAAABnURvHAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wQAADsEBuJFr7QAA/7JJREFUeF6k/WV3XFm2tYvW3pVpZmZmZssoy7LAtsyyZFnMzMzMzMzMLDMnM3Nm
+        wAAADsABataJCQAA/7JJREFUeF6k/WV3XFm2tYvW3pVpZmZmZssoy7LAtsyyZFnMzMzMzMzMLDMnM3Nm
         JRRtfOH+gOe2MZdClrNqn/PhfBhtBUgRS7Ei08/ss48+/vDJi0Y+eFLFW3eLeTyQyVhnPAPNoXTV+tBW
         6U5TmRN1xXbUFFlTW2xJbdF1KvMuUZZlSE6yHrHhe/D1WoONzXwsLGcR6Lua6nwD7nda83zQlQc9DjRX
         mBETfoBbVou4eHkKdrbzSI7aTlWuAc2lJjSVGFNfYkRdkRFVBecoSD9JXPhO7O0WYWgyleOn/xW9E/+K
@@ -11938,7 +11938,7 @@ The group emphasizes perfect customer care and satisfaction,
   <data name="btnMakeABooking.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAPwAAAAzCAYAAACzFWUGAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wQAADsEBuJFr7QAAA0ZJREFUeF7t3VtPE0EYgGH+vhIUMaIGRWJCIl4o0QSNeEANGk2kBSoUWoKCHD3Q
+        wAAADsABataJCQAAA0ZJREFUeF7t3VtPE0EYgGH+vhIUMaIGRWJCIl4o0QSNeEANGk2kBSoUWoKCHD3Q
         QjuzXH1mVo2wX7vdLaV0ynvx3Bhnd2/edJmd2e2pVosC4Hzoif4DgO5F8MA50lOpFOV0FQCkEm2odVr6
         C29KWbEbk2IL9+QwNyiHny4AaEZuUGxxTOzmpJjSnGqtWS0J3l1U8HlIXzSAlggWb4vZmlLtpXWi4O3m
         cwlmB9TFATgluetitl+rFpNqKnhTnhe7OKIvBkBbBMujUi3nVJuNpA7ebL2Sw+wldQEA2my2X8zuO9Vo
@@ -11958,7 +11958,7 @@ The group emphasizes perfect customer care and satisfaction,
   <data name="btnViewAvailability.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAPwAAAAzCAYAAACzFWUGAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wQAADsEBuJFr7QAAA0ZJREFUeF7t3VtPE0EYgGH+vhIUMaIGRWJCIl4o0QSNeEANGk2kBSoUWoKCHD3Q
+        wAAADsABataJCQAAA0ZJREFUeF7t3VtPE0EYgGH+vhIUMaIGRWJCIl4o0QSNeEANGk2kBSoUWoKCHD3Q
         QjuzXH1mVo2wX7vdLaV0ynvx3Bhnd2/edJmd2e2pVosC4Hzoif4DgO5F8MA50lOpFOV0FQCkEm2odVr6
         C29KWbEbk2IL9+QwNyiHny4AaEZuUGxxTOzmpJjSnGqtWS0J3l1U8HlIXzSAlggWb4vZmlLtpXWi4O3m
         cwlmB9TFATgluetitl+rFpNqKnhTnhe7OKIvBkBbBMujUi3nVJuNpA7ebL2Sw+wldQEA2my2X8zuO9Vo
@@ -11978,7 +11978,7 @@ The group emphasizes perfect customer care and satisfaction,
   <data name="btnCancelABooking.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAPwAAAAzCAYAAACzFWUGAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wQAADsEBuJFr7QAAA0ZJREFUeF7t3VtPE0EYgGH+vhIUMaIGRWJCIl4o0QSNeEANGk2kBSoUWoKCHD3Q
+        wAAADsABataJCQAAA0ZJREFUeF7t3VtPE0EYgGH+vhIUMaIGRWJCIl4o0QSNeEANGk2kBSoUWoKCHD3Q
         QjuzXH1mVo2wX7vdLaV0ynvx3Bhnd2/edJmd2e2pVosC4Hzoif4DgO5F8MA50lOpFOV0FQCkEm2odVr6
         C29KWbEbk2IL9+QwNyiHny4AaEZuUGxxTOzmpJjSnGqtWS0J3l1U8HlIXzSAlggWb4vZmlLtpXWi4O3m
         cwlmB9TFATgluetitl+rFpNqKnhTnhe7OKIvBkBbBMujUi3nVJuNpA7ebL2Sw+wldQEA2my2X8zuO9Vo
@@ -11998,7 +11998,7 @@ The group emphasizes perfect customer care and satisfaction,
   <data name="button4.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAPwAAAAzCAYAAACzFWUGAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wQAADsEBuJFr7QAAA0ZJREFUeF7t3VtPE0EYgGH+vhIUMaIGRWJCIl4o0QSNeEANGk2kBSoUWoKCHD3Q
+        wAAADsABataJCQAAA0ZJREFUeF7t3VtPE0EYgGH+vhIUMaIGRWJCIl4o0QSNeEANGk2kBSoUWoKCHD3Q
         QjuzXH1mVo2wX7vdLaV0ynvx3Bhnd2/edJmd2e2pVosC4Hzoif4DgO5F8MA50lOpFOV0FQCkEm2odVr6
         C29KWbEbk2IL9+QwNyiHny4AaEZuUGxxTOzmpJjSnGqtWS0J3l1U8HlIXzSAlggWb4vZmlLtpXWi4O3m
         cwlmB9TFATgluetitl+rFpNqKnhTnhe7OKIvBkBbBMujUi3nVJuNpA7ebL2Sw+wldQEA2my2X8zuO9Vo
