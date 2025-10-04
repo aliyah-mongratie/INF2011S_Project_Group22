@@ -18,14 +18,8 @@ namespace INF2011S_Project_Group22
 
         //Munta's part
         #region Data Members
-        private string guestID;
-        public enum GuestStatus
-        {
-            New,
-            Existing
-        }
-
-        public GuestStatus guestStat { get; set; }//i.e new or existing guest
+        public string guestID;
+        
         private int roomID;
         private int creditCardCredentials; // e.g. credit card number
         public enum AccountStatus
@@ -72,7 +66,6 @@ namespace INF2011S_Project_Group22
         public GuestAccount()
         {
             guestID = " ";
-            guestStat = GuestStatus.New;
             roomID = 0;
             creditCardCredentials = 0;
             accountStat = AccountStatus.Active;//default?

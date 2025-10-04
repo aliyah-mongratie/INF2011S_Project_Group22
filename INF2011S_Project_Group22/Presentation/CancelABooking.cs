@@ -24,12 +24,50 @@ namespace INF2011S_Project_Group22.Presentation
 
         private void btnConfirm_Click(object sender, EventArgs e)
         {
+            //Once bookingController is done, we will use the first name, last name and booking number to find the booking in the database and cancel/delete it.
             string firstName = txtFirstName.Text;
             string lastName = txtLastName.Text;
-            int bookingNumber = int.Parse(txtEnterResNumber.Text);
 
             frmBookingCancellation newBookingCancellation = new frmBookingCancellation();
             newBookingCancellation.ShowDialog();
+
+            //Validation for First Name and Last Name
+            if (string.IsNullOrWhiteSpace(firstName) || string.IsNullOrEmpty(lastName))
+            {
+                MessageBox.Show("Fist Name and Last Name are required fields.","Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            if (firstName.Any(char.IsDigit) || lastName.Any(char.IsDigit))
+            {
+                MessageBox.Show("First and Last Name cannot contain numbers.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            if (firstName.Length > 50 || lastName.Length > 50)
+            {
+                MessageBox.Show("First Name and Last Name cannot exceed 50 characters.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            //Validation for Booking Number
+            if (string.IsNullOrWhiteSpace(txtEnterResNumber.Text))
+            {
+                MessageBox.Show("Booking Number is a required field.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            if (!int.TryParse(txtEnterResNumber.Text, out int bookingNumber)) // out int bookingNumber will store the parsed integer if successful, the out keyword allows the method to return this value.
+            {
+                MessageBox.Show("Booking Number must contain digits only.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            if (bookingNumber <= 0)
+            {
+                MessageBox.Show("Booking Number must be a positive number.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void frmCancelABooking_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

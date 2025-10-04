@@ -51,6 +51,7 @@
             this.pictureBox1.Size = new System.Drawing.Size(1348, 707);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // label1
             // 
@@ -172,6 +173,7 @@
             this.Controls.Add(this.pictureBox1);
             this.Name = "frmCancelABooking";
             this.Text = "CancelABooking";
+            this.Load += new System.EventHandler(this.frmCancelABooking_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

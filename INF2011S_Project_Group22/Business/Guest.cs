@@ -12,6 +12,13 @@ namespace INF2011S_Project_Group22
         #region Data Members
         //TEST
         public string guestID;
+        public enum GuestStatus
+        {
+            New,
+            Existing
+        }
+
+        public GuestStatus guestStat { get; set; }//i.e new or existing guest
         private DateTime checkInDate;
         private DateTime checkOutDate;
         private int creditCardNumber;
@@ -22,6 +29,11 @@ namespace INF2011S_Project_Group22
         {
             get { return guestID; }
             set { guestID = value; }
+        }
+        public GuestStatus getGuestStatus
+        {
+            get { return guestStat; }
+            set { guestStat = value; }
         }
         public DateTime CheckInDate 
         { 
@@ -45,6 +57,7 @@ namespace INF2011S_Project_Group22
         {
             checkInDate = DateTime.MinValue;
             checkOutDate = DateTime.MinValue;
+            guestStat = GuestStatus.New;
             creditCardNumber = 0;
         }
 
@@ -53,6 +66,7 @@ namespace INF2011S_Project_Group22
             checkInDate = newCheckInDate;
             checkOutDate = newCheckOutDate;
             creditCardNumber = newCreditCardNumber;
+            guestStat = GuestStatus.New;
         }
         #endregion
 
