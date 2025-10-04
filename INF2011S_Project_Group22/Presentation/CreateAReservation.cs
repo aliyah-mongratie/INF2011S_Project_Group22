@@ -171,15 +171,5 @@ namespace INF2011S_Project_Group22
 
         }
 
-        /*if (booking.CheckRoomAvailability())
-{
-    booking.Status = BookingStatus.Confirmed;
-    Console.WriteLine("✅ Booking confirmed. All rooms are available.");
-}
-else
-{
-    booking.Status = BookingStatus.Pending;
-    Console.WriteLine("⚠️ Booking pending. One or more rooms are unavailable.");
-}*/
     }
 }

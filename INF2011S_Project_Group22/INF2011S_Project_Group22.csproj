@@ -123,6 +123,12 @@
     <Compile Include="Presentation\MakePayment.Designer.cs">
       <DependentUpon>MakePayment.cs</DependentUpon>
     </Compile>
+    <Compile Include="Presentation\ReservationDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\ReservationDetails.Designer.cs">
+      <DependentUpon>ReservationDetails.cs</DependentUpon>
+    </Compile>
     <Compile Include="Presentation\ViewAvailability.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -151,6 +157,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Presentation\MakePayment.resx">
       <DependentUpon>MakePayment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\ReservationDetails.resx">
+      <DependentUpon>ReservationDetails.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentation\ViewAvailability.resx">
       <DependentUpon>ViewAvailability.cs</DependentUpon>

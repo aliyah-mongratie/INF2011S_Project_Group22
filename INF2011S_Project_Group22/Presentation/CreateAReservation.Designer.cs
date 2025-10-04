@@ -51,16 +51,14 @@
             this.txtCheckOutDate = new System.Windows.Forms.TextBox();
             this.txtSpecialReq = new System.Windows.Forms.TextBox();
             this.txtEmail = new System.Windows.Forms.TextBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.txtLastName = new System.Windows.Forms.TextBox();
             this.lblLastName = new System.Windows.Forms.Label();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(211, 0);
+            this.dateTimePicker1.Location = new System.Drawing.Point(701, 487);
             this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(200, 22);
@@ -298,7 +296,7 @@
             this.txtCheckOutDate.BackColor = System.Drawing.Color.Bisque;
             this.txtCheckOutDate.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtCheckOutDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCheckOutDate.Location = new System.Drawing.Point(1085, 484);
+            this.txtCheckOutDate.Location = new System.Drawing.Point(1086, 480);
             this.txtCheckOutDate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtCheckOutDate.Name = "txtCheckOutDate";
             this.txtCheckOutDate.Size = new System.Drawing.Size(216, 23);
@@ -326,19 +324,6 @@
             this.txtEmail.Size = new System.Drawing.Size(496, 23);
             this.txtEmail.TabIndex = 33;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(255)))), ((int)(((byte)(193)))));
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(-5, 0);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1355, 706);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
-            // 
             // txtLastName
             // 
             this.txtLastName.BackColor = System.Drawing.Color.Bisque;
@@ -364,7 +349,7 @@
             // 
             // dateTimePicker2
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(160, 89);
+            this.dateTimePicker2.Location = new System.Drawing.Point(1086, 482);
             this.dateTimePicker2.Name = "dateTimePicker2";
             this.dateTimePicker2.Size = new System.Drawing.Size(200, 22);
             this.dateTimePicker2.TabIndex = 36;
@@ -373,6 +358,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1349, 706);
             this.Controls.Add(this.lblLastName);
             this.Controls.Add(this.txtLastName);
@@ -397,14 +383,12 @@
             this.Controls.Add(this.btnCreateResNext);
             this.Controls.Add(this.btnCreateResExit);
             this.Controls.Add(this.lblCreateAReservation);
-            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.dateTimePicker2);
             this.Controls.Add(this.dateTimePicker1);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "frmCreateReservation";
             this.Text = "Create A Reservation";
             this.Load += new System.EventHandler(this.frmCreateReservation_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -433,7 +417,6 @@
         private System.Windows.Forms.TextBox txtCheckOutDate;
         private System.Windows.Forms.TextBox txtSpecialReq;
         private System.Windows.Forms.TextBox txtEmail;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.TextBox txtLastName;
         private System.Windows.Forms.Label lblLastName;
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
