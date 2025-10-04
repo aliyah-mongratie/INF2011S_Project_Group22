@@ -58,49 +58,49 @@ namespace INF2011S_Project_Group22.Data
                 return bookings;
             }
         }
-        private Collection<BookingRoom> AllBookingRooms
+        public Collection<BookingRoom> AllBookingRooms
         {
             get
             {
                 return bookingRooms;
             }
         }
-        private Collection<HotelRoom> AllHotelRooms
+        public Collection<HotelRoom> AllHotelRooms
         {
             get
             {
                 return hotelRooms;
             }
         }
-        private Collection<Guest> AllGuests
+        public Collection<Guest> AllGuests
         {
             get
             {
                 return guests;
             }
         }
-        private Collection<GuestAccount> AllAccounts
+        public Collection<GuestAccount> AllAccounts
         {
             get
             {
                 return accounts;
             }
         }
-        private Collection<Hotel> AllHotels
+        public Collection<Hotel> AllHotels
         {
             get
             {
                 return hotels;
             }
         }
-        private Collection<Payment> AllPayments
+        public Collection<Payment> AllPayments
         {
             get
             {
                 return payments;
             }
         }
-        private Collection<TravelAgent> AlltravelAgents
+        public Collection<TravelAgent> AlltravelAgents
         {
             get
             {
@@ -983,7 +983,7 @@ namespace INF2011S_Project_Group22.Data
             }
             //***https://msdn.microsoft.com/en-za/library/ms179882.aspx
         }
-        private void Create_INSERT_Command(Employee anEmp)
+        private void Create_INSERT_Command(Employee anEmp) // one for each table
         {
             //Create the command that must be used to insert values into the Books table..
             switch (anEmp.role.getRoleValue)
@@ -1000,7 +1000,7 @@ namespace INF2011S_Project_Group22.Data
             }
             Build_INSERT_Parameters(anEmp);
         } 
-        public bool UpdateDataSource(Employee anEmp)
+        public bool UpdateDataSource(Employee anEmp) // one for each table
         {
             bool success = true;
             Create_INSERT_Command(anEmp);

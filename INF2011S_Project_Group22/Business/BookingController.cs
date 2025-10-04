@@ -14,6 +14,13 @@ namespace INF2011S_Project_Group22.Business
     {
         #region Data Members 
         BookingDB bookingDB;
+        Collection<BookingRoom> bookingRooms;
+        Collection<HotelRoom> rooms;
+        Collection<Guest> guests;
+        Collection<GuestAccount> accounts;
+        Collection<Hotel> hotels;
+        Collection<Payment> payments;
+        Collection<TravelAgent> agents;
         Collection<Booking> bookings;
         #endregion
 
@@ -22,6 +29,55 @@ namespace INF2011S_Project_Group22.Business
         {
             get { return bookings; }
         }
+        private Collection<BookingRoom> AllBookingRooms
+        {
+            get
+            {
+                return bookingRooms;
+            }
+        }
+        private Collection<HotelRoom> AllHotelRooms
+        {
+            get
+            {
+                return rooms;
+            }
+        }
+        private Collection<Guest> AllGuests
+        {
+            get
+            {
+                return guests;
+            }
+        }
+        private Collection<GuestAccount> AllAccounts
+        {
+            get
+            {
+                return accounts;
+            }
+        }
+        private Collection<Hotel> AllHotels
+        {
+            get
+            {
+                return hotels;
+            }
+        }
+        private Collection<Payment> AllPayments
+        {
+            get
+            {
+                return payments;
+            }
+        }
+        private Collection<TravelAgent> AlltravelAgents
+        {
+            get
+            {
+                return agents;
+            }
+        }
         #endregion
 
         #region Constructor
@@ -29,8 +85,15 @@ namespace INF2011S_Project_Group22.Business
         {
             bookingDB = new BookingDB();
             bookings = bookingDB.AllBookings;
+            bookingRooms = bookingDB.AllBookingRooms;
+            guests = bookingDB.AllGuests;
+            payments = bookingDB.AllPayments;
+            accounts = bookingDB.AllAccounts;
+            rooms = bookingDB.AllHotelRooms;
+            agents = bookingDB.AlltravelAgents;
+
         }
-        //added when DB classes are added 
+        
         #endregion
 
         #region Search Methods 
@@ -46,6 +109,84 @@ namespace INF2011S_Project_Group22.Business
                 found = (bookings[index].bookingResNumber == bookingResNumber);
             }
             return bookings[index];
+        }
+        public BookingRoom FindBookRoom(int bookingResNumber)
+        {
+            int index = 0;
+            bool found = (bookingRooms[index].bookingResNumber == bookingResNumber);
+            int count = bookingRooms.Count;
+
+            while (!(found) && (index < bookingRooms.Count - 1))
+            {
+                index++;
+                found = (bookingRooms[index].bookingResNumber == bookingResNumber);
+            }
+            return bookingRooms[index];
+        }
+        public Guest FindGuest(string guestID)
+        {
+            int index = 0;
+            bool found = (guests[index].guestID == guestID);
+            int count = guests.Count;
+
+            while (!(found) && (index < guests.Count - 1))
+            {
+                index++;
+                found = (guests[index].guestID == guestID);
+            }
+            return guests[index];
+        }
+        public GuestAccount FindAccount(string guestId)
+        {
+            int index = 0;
+            bool found = (accounts[index].guestID == guestId);
+            int count = accounts.Count;
+
+            while (!(found) && (index < accounts.Count - 1))
+            {
+                index++;
+                found = (accounts[index].guestID == guestId);
+            }
+            return accounts[index];
+        }
+        public HotelRoom FindRoom(string hotelRoomId)
+        {
+            int index = 0;
+            bool found = (rooms[index].hotelRoomID == hotelRoomId);
+            int count = rooms.Count;
+
+            while (!(found) && (index < rooms.Count - 1))
+            {
+                index++;
+                found = (rooms[index].hotelRoomID == hotelRoomId);
+            }
+            return rooms[index];
+        }
+        public Payment FindPayment(string paymentId)
+        {
+            int index = 0;
+            bool found = (payments[index].paymentID == paymentId);
+            int count = payments.Count;
+
+            while (!(found) && (index < payments.Count - 1))
+            {
+                index++;
+                found = (payments[index].paymentID == paymentId);
+            }
+            return payments[index];
+        }
+        public TravelAgent FindAgent(string travelAgentId)
+        {
+            int index = 0;
+            bool found = (agents[index].TravelAgentId == travelAgentId);
+            int count = agents.Count;
+
+            while (!(found) && (index < agents.Count - 1))
+            {
+                index++;
+                found = (agents[index].TravelAgentId == travelAgentId);
+            }
+            return agents[index];
         }
         public int FindIndex(Booking aBook)
         {
@@ -66,6 +207,276 @@ namespace INF2011S_Project_Group22.Business
                 return -1;
             }
         }
+        public int FindIndexBookRoom(BookingRoom bookingRoom)
+        {
+            int counter = 0;
+            bool found = false;
+            found = (bookingRoom.bookingResNumber == bookingRooms[counter].bookingResNumber);
+            while (!(found) && (counter < bookingRooms.Count - 1))
+            {
+                counter++;
+                found = (bookingRoom.bookingResNumber == bookingRooms[counter].bookingResNumber);
+            }
+            if (found)
+            {
+                return counter;
+            }
+            else
+            {
+                return -1;
+            }
+        }
+        public int FindIndexGuest(Guest guest)
+        {
+            int counter = 0;
+            bool found = false;
+            found = (guest.guestID == guests[counter].guestID);
+            while (!(found) && (counter < bookings.Count - 1))
+            {
+                counter++;
+                found = (guest.guestID == guests[counter].guestID);
+            }
+            if (found)
+            {
+                return counter;
+            }
+            else
+            {
+                return -1;
+            }
+        }
+        public int FindIndexAccount(GuestAccount account)
+        {
+            int counter = 0;
+            bool found = false;
+            found = (account.guestID == accounts[counter].guestID);
+            while (!(found) && (counter < accounts.Count - 1))
+            {
+                counter++;
+                found = (account.guestID == accounts[counter].guestID);
+            }
+            if (found)
+            {
+                return counter;
+            }
+            else
+            {
+                return -1;
+            }
+        }
+        public int FindIndexRoom(HotelRoom room)
+        {
+            int counter = 0;
+            bool found = false;
+            found = (room.hotelRoomID == rooms[counter].hotelRoomID);
+            while (!(found) && (counter < rooms.Count - 1))
+            {
+                counter++;
+                found = (room.hotelRoomID == rooms[counter].hotelRoomID);
+            }
+            if (found)
+            {
+                return counter;
+            }
+            else
+            {
+                return -1;
+            }
+        }
+        public int FindIndexPayment(Payment payment)
+        {
+            int counter = 0;
+            bool found = false;
+            found = (payment.paymentID == payments[counter].paymentID);
+            while (!(found) && (counter < payments.Count - 1))
+            {
+                counter++;
+                found = (payment.paymentID == payments[counter].paymentID);
+            }
+            if (found)
+            {
+                return counter;
+            }
+            else
+            {
+                return -1;
+            }
+        }
+        public int FindIndexAgent(TravelAgent agent)
+        {
+            int counter = 0;
+            bool found = false;
+            found = (agent.TravelAgentId == agents[counter].TravelAgentId);
+            while (!(found) && (counter < agents.Count - 1))
+            {
+                counter++;
+                found = (agent.TravelAgentId == agents[counter].TravelAgentId);
+            }
+            if (found)
+            {
+                return counter;
+            }
+            else
+            {
+                return -1;
+            }
+        }
+        #endregion
+
+        #region Database Communication
+        public void DataMaintenanceBooking(Booking booking, DB.DBOperation operation)
+        {
+            int index = 0;
+            //perform a given database operation to the dataset in memory; 
+            bookingDB.DataSetChangeBooking(booking, operation);
+            switch (operation)
+            {
+                case DB.DBOperation.add:
+                    bookings.Add(booking); // Add the employee to the Collection
+                    break;
+                case DB.DBOperation.edit:
+                    index = FindIndex(booking);
+                    bookings[index] = booking;
+                    break;
+                case DB.DBOperation.delete:
+                    index = FindIndex(booking);
+                    bookings.RemoveAt(index);
+                    break;
+            }
+            bookings.Add(booking);
+        }
+        public void DataMaintenanceBookRoom(BookingRoom bookingRoom, DB.DBOperation operation)
+        {
+            int index = 0;
+           
+            bookingDB.DataSetChangeBookingRoom(bookingRoom, operation);
+            switch (operation)
+            {
+                case DB.DBOperation.add:
+                    bookingRooms.Add(bookingRoom); 
+                    break;
+                case DB.DBOperation.edit:
+                    index = FindIndexBookRoom(bookingRoom);
+                    bookingRooms[index] = bookingRoom;
+                    break;
+                case DB.DBOperation.delete:
+                    index = FindIndexBookRoom(bookingRoom);
+                    bookingRooms.RemoveAt(index);
+                    break;
+            }
+            bookingRooms.Add(bookingRoom);
+        }
+        public void DataMaintenanceGuest(Guest guest, DB.DBOperation operation)
+        {
+            int index = 0;
+           
+            bookingDB.DataSetChangeGuest(guest, operation);
+            switch (operation)
+            {
+                case DB.DBOperation.add:
+                    guests.Add(guest); 
+                    break;
+                case DB.DBOperation.edit:
+                    index = FindIndexGuest(guest);
+                    guests[index] = guest;
+                    break;
+                case DB.DBOperation.delete:
+                    index = FindIndexGuest(guest);
+                    guests.RemoveAt(index);
+                    break;
+            }
+            guests.Add(guest);
+        }
+        public void DataMaintenanceAccount(GuestAccount account, DB.DBOperation operation)
+        {
+            int index = 0;
+
+            bookingDB.DataSetChangeGuestAccount(account, operation);
+            switch (operation)
+            {
+                case DB.DBOperation.add:
+                    accounts.Add(account);
+                    break;
+                case DB.DBOperation.edit:
+                    index = FindIndexAccount(account);
+                    accounts[index] = account;
+                    break;
+                case DB.DBOperation.delete:
+                    index = FindIndexAccount(account);
+                    accounts.RemoveAt(index);
+                    break;
+            }
+            accounts.Add(account);
+        }
+        public void DataMaintenanceRoom(HotelRoom room, DB.DBOperation operation)
+        {
+            int index = 0;
+
+            bookingDB.DataSetChangeHotelRoom(room, operation);
+            switch (operation)
+            {
+                case DB.DBOperation.add:
+                    rooms.Add(room);
+                    break;
+                case DB.DBOperation.edit:
+                    index = FindIndexRoom(room);
+                    rooms[index] = room;
+                    break;
+                case DB.DBOperation.delete:
+                    index = FindIndexRoom(room);
+                    rooms.RemoveAt(index);
+                    break;
+            }
+            rooms.Add(room);
+        }
+        public void DataMaintenancePayment(Payment payment, DB.DBOperation operation)
+        {
+            int index = 0;
+
+            bookingDB.DataSetChangePayment(payment, operation);
+            switch (operation)
+            {
+                case DB.DBOperation.add:
+                    payments.Add(payment);
+                    break;
+                case DB.DBOperation.edit:
+                    index = FindIndexPayment(payment);
+                    payments[index] = payment;
+                    break;
+                case DB.DBOperation.delete:
+                    index = FindIndexPayment(payment);
+                    payments.RemoveAt(index);
+                    break;
+            }
+            payments.Add(payment);
+        }
+        public void DataMaintenanceAgent(TravelAgent agent, DB.DBOperation operation)
+        {
+            int index = 0;
+
+            bookingDB.DataSetChangeTravelAgent(agent, operation);
+            switch (operation)
+            {
+                case DB.DBOperation.add:
+                    agents.Add(agent);
+                    break;
+                case DB.DBOperation.edit:
+                    index = FindIndexAgent(agent);
+                    agents[index] = agent;
+                    break;
+                case DB.DBOperation.delete:
+                    index = FindIndexAgent(agent);
+                    agents.RemoveAt(index);
+                    break;
+            }
+            agents.Add(agent);
+        }
+        //***Commit the changes to the database
+        /*public bool FinalizeChangesBooking(Booking bookng)
+        {
+            
+           return bookingDB.UpdateDataSourceBook(booking);
+        }*/
         #endregion
         #region Methods 
         public Booking MakeBooking(int bookingResNumber, Guest guest, List<HotelRoom> rooms, TravelAgent travelAgent, string bookingType, int numOfPeople, int numOfRooms,
@@ -93,11 +504,25 @@ namespace INF2011S_Project_Group22.Business
 
             Booking booking = new Booking(bookingResNumber, numOfPeople, numOfRooms, checkInDate, checkOutDate, specialRequirements, guest, rooms, travelAgent);
             bookings.Add(booking);
+            DataMaintenanceBooking(booking, DB.DBOperation.add);
+            //FinalizeChangesBooking(booking);
+
+            foreach (HotelRoom room in rooms)
+            {
+                room.CheckIn();
+
+                BookingRoom bookingRoom = new BookingRoom(bookingResNumber, room.HotelRoomID);
+                bookingDB.DataSetChangeBookingRoom(bookingRoom, DB.DBOperation.add);
+                //bookingDB.UpdateDataSourceBookingRoom(bookingRoom);
+
+                bookingDB.DataSetChangeHotelRoom(room, DB.DBOperation.edit);
+                //bookingDB.UpdateDataSourceHotelRoom(room);
+            }
             return booking;
         }
 
         public void ChangeBooking(int bookingResNumber, int newNumOfPeople, int newNumOfRooms,
-                        DateTime newCheckInDate, DateTime newCheckOutDate, string newSpecialRequirements)
+                        DateTime newCheckInDate, DateTime newCheckOutDate, string newSpecialRequirements, List<HotelRoom> newRooms)
         {
             Booking booking = Find(bookingResNumber);
             if (booking == null)
@@ -125,8 +550,21 @@ namespace INF2011S_Project_Group22.Business
             booking.numOfRooms = newNumOfRooms;
             booking.numOfPeople = newNumOfPeople;
             booking.specialRequirements = newSpecialRequirements;
+            booking.Rooms = newRooms;
 
+            foreach (HotelRoom newRoom in newRooms)
+            {
+                newRoom.CheckIn();
+                bookingDB.DataSetChangeHotelRoom(newRoom, DB.DBOperation.edit);
+                //bookingDB.UpdateDataSourceHotelRoom(newRoom);
 
+                BookingRoom newLink = new BookingRoom(booking.bookingResNumber, newRoom.HotelRoomID);
+                bookingDB.DataSetChangeBookingRoom(newLink, DB.DBOperation.add);
+                //bookingDB.UpdateDataSourceBookingRoom(newLink);
+            }
+
+            DataMaintenanceBooking(booking, DB.DBOperation.edit);
+           // FinalizeChangesBooking(booking);
         }
 
         public void CancelBooking(int bookingResNumber)
@@ -138,6 +576,21 @@ namespace INF2011S_Project_Group22.Business
             }
             booking.bookingStat = Booking.BookingStatus.Cancelled;
 
+            foreach (HotelRoom room in booking.Rooms)
+            {
+                
+                room.CheckOut();
+                BookingRoom bookingRoom = new BookingRoom(booking.bookingResNumber, room.HotelRoomID);
+                bookingDB.DataSetChangeBookingRoom(bookingRoom, DB.DBOperation.delete);
+                //bookingDB.UpdateDataSourceBookingRoom(bookingRoom);
+
+               
+                bookingDB.DataSetChangeHotelRoom(room, DB.DBOperation.edit);
+               // bookingDB.UpdateDataSourceHotelRoom(room);
+            }
+
+            DataMaintenanceBooking(booking, DB.DBOperation.edit);
+            //FinalizeChangesBooking(booking);
         }
         public Booking EnquireBooking(int bookingResNumber)
         {
@@ -151,6 +604,8 @@ namespace INF2011S_Project_Group22.Business
                 MessageBox.Show("The booking cannot be found.", "Booking Not Found", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             booking.bookingStat = Booking.BookingStatus.Confirmed;
+            DataMaintenanceBooking(booking, DB.DBOperation.edit);
+            //FinalizeChangesBooking(booking);
         }
         #endregion
     }

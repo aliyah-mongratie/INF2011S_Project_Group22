@@ -21,7 +21,7 @@ namespace INF2011S_Project_Group22.Business
             Cancelled
         }
         public BookingStatus bookingStat { get; set; }//various statuses the booking can be in
-        public List<HotelRoom> Rooms { get; private set; } = new List<HotelRoom>();//list of rooms chosen by guest
+        public List<HotelRoom> Rooms { get;  set; } = new List<HotelRoom>();//list of rooms chosen by guest
         public enum BookingType
         {
             Personal,

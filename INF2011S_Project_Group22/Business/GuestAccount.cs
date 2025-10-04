@@ -18,7 +18,7 @@ namespace INF2011S_Project_Group22
 
         //Munta's part
         #region Data Members
-        private string guestID;
+        public string guestID;
         
         private int roomID;
         private int creditCardCredentials; // e.g. credit card number
