@@ -62,7 +62,7 @@
             this.lblCreditCardDetails.AutoSize = true;
             this.lblCreditCardDetails.BackColor = System.Drawing.Color.OldLace;
             this.lblCreditCardDetails.Font = new System.Drawing.Font("Times New Roman", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCreditCardDetails.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.lblCreditCardDetails.ForeColor = System.Drawing.Color.DarkSlateGray;
             this.lblCreditCardDetails.Location = new System.Drawing.Point(12, 231);
             this.lblCreditCardDetails.Name = "lblCreditCardDetails";
             this.lblCreditCardDetails.Size = new System.Drawing.Size(330, 46);
@@ -263,7 +263,8 @@
             // 
             this.btnBack.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnBack.BackgroundImage")));
             this.btnBack.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBack.Font = new System.Drawing.Font("Segoe UI Emoji", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBack.ForeColor = System.Drawing.Color.DarkSlateGray;
             this.btnBack.Location = new System.Drawing.Point(1045, 638);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(148, 48);
@@ -276,7 +277,8 @@
             // 
             this.btnConfirm.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnConfirm.BackgroundImage")));
             this.btnConfirm.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnConfirm.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConfirm.Font = new System.Drawing.Font("Segoe UI Emoji", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConfirm.ForeColor = System.Drawing.Color.DarkSlateGray;
             this.btnConfirm.Location = new System.Drawing.Point(1199, 638);
             this.btnConfirm.Name = "btnConfirm";
             this.btnConfirm.Size = new System.Drawing.Size(148, 48);

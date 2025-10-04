@@ -32,7 +32,7 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.lblBookingCancelled = new System.Windows.Forms.Label();
             this.lblBookingNumberRemoved = new System.Windows.Forms.Label();
-            this.btnReturn = new System.Windows.Forms.Button();
+            this.btnBack = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
@@ -62,32 +62,26 @@
             // 
             this.lblBookingNumberRemoved.AutoSize = true;
             this.lblBookingNumberRemoved.BackColor = System.Drawing.Color.OldLace;
-            this.lblBookingNumberRemoved.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBookingNumberRemoved.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.lblBookingNumberRemoved.Location = new System.Drawing.Point(481, 522);
             this.lblBookingNumberRemoved.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblBookingNumberRemoved.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.lblBookingNumberRemoved.Location = new System.Drawing.Point(442, 553);
             this.lblBookingNumberRemoved.Name = "lblBookingNumberRemoved";
-            this.lblBookingNumberRemoved.Size = new System.Drawing.Size(353, 36);
             this.lblBookingNumberRemoved.Size = new System.Drawing.Size(28, 16);
             this.lblBookingNumberRemoved.TabIndex = 3;
-            this.lblBookingNumberRemoved.Text = "bookingNumberRemoved";
-            this.lblBookingNumberRemoved.Click += new System.EventHandler(this.lblBookingNumberRemoved_Click);
             this.lblBookingNumberRemoved.Text = "lbl2";
+            this.lblBookingNumberRemoved.Click += new System.EventHandler(this.lblBookingNumberRemoved_Click);
             // 
-            // btnReturn
+            // btnBack
             // 
-            this.btnReturn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnReturn.BackgroundImage")));
-            this.btnReturn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnReturn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReturn.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.btnReturn.Location = new System.Drawing.Point(12, 642);
-            this.btnReturn.Name = "btnReturn";
-            this.btnReturn.Size = new System.Drawing.Size(223, 52);
-            this.btnReturn.TabIndex = 4;
-            this.btnReturn.Text = "Return";
-            this.btnReturn.UseVisualStyleBackColor = true;
+            this.btnBack.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnBack.BackgroundImage")));
+            this.btnBack.Font = new System.Drawing.Font("Segoe UI Emoji", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBack.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.btnBack.Location = new System.Drawing.Point(55, 609);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(256, 55);
+            this.btnBack.TabIndex = 4;
+            this.btnBack.Text = "Back";
+            this.btnBack.UseVisualStyleBackColor = true;
             // 
             // frmBookingCancellation
             // 
@@ -95,7 +89,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1349, 706);
-            this.Controls.Add(this.btnReturn);
+            this.Controls.Add(this.btnBack);
             this.Controls.Add(this.lblBookingNumberRemoved);
             this.Controls.Add(this.lblBookingCancelled);
             this.Controls.Add(this.pictureBox2);
@@ -111,6 +105,6 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label lblBookingCancelled;
         private System.Windows.Forms.Label lblBookingNumberRemoved;
-        private System.Windows.Forms.Button btnReturn;
+        private System.Windows.Forms.Button btnBack;
     }
 }

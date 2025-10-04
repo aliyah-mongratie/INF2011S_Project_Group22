@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ReservationDetails));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblBookingEnquiry = new System.Windows.Forms.Label();
             this.lblFirstName = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtFirstName = new System.Windows.Forms.TextBox();
@@ -48,7 +48,7 @@
             this.txtSQ = new System.Windows.Forms.TextBox();
             this.lblEmail = new System.Windows.Forms.Label();
             this.txtEmail = new System.Windows.Forms.TextBox();
-            this.btnReturn = new System.Windows.Forms.Button();
+            this.btnBack = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -62,17 +62,17 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // label1
+            // lblBookingEnquiry
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.OldLace;
-            this.label1.Font = new System.Drawing.Font("Times New Roman", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.label1.Location = new System.Drawing.Point(12, 234);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(344, 46);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Reservation Enquiry";
+            this.lblBookingEnquiry.AutoSize = true;
+            this.lblBookingEnquiry.BackColor = System.Drawing.Color.OldLace;
+            this.lblBookingEnquiry.Font = new System.Drawing.Font("Times New Roman", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBookingEnquiry.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.lblBookingEnquiry.Location = new System.Drawing.Point(12, 234);
+            this.lblBookingEnquiry.Name = "lblBookingEnquiry";
+            this.lblBookingEnquiry.Size = new System.Drawing.Size(278, 46);
+            this.lblBookingEnquiry.TabIndex = 1;
+            this.lblBookingEnquiry.Text = "Booking Details";
             // 
             // lblFirstName
             // 
@@ -262,24 +262,24 @@
             this.txtEmail.Size = new System.Drawing.Size(434, 30);
             this.txtEmail.TabIndex = 18;
             // 
-            // btnReturn
+            // btnBack
             // 
-            this.btnReturn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnReturn.BackgroundImage")));
-            this.btnReturn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnReturn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReturn.Location = new System.Drawing.Point(12, 649);
-            this.btnReturn.Name = "btnReturn";
-            this.btnReturn.Size = new System.Drawing.Size(232, 57);
-            this.btnReturn.TabIndex = 19;
-            this.btnReturn.Text = "Return";
-            this.btnReturn.UseVisualStyleBackColor = true;
+            this.btnBack.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnBack.BackgroundImage")));
+            this.btnBack.Font = new System.Drawing.Font("Segoe UI Emoji", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBack.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.btnBack.Location = new System.Drawing.Point(33, 658);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(257, 60);
+            this.btnBack.TabIndex = 19;
+            this.btnBack.Text = "Back";
+            this.btnBack.UseVisualStyleBackColor = true;
             // 
             // ReservationDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1364, 718);
-            this.Controls.Add(this.btnReturn);
+            this.Controls.Add(this.btnBack);
             this.Controls.Add(this.txtEmail);
             this.Controls.Add(this.lblEmail);
             this.Controls.Add(this.txtSQ);
@@ -297,7 +297,7 @@
             this.Controls.Add(this.txtFirstName);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lblFirstName);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblBookingEnquiry);
             this.Controls.Add(this.pictureBox1);
             this.Name = "ReservationDetails";
             this.Text = "ReservationDetails";
@@ -310,7 +310,7 @@
         #endregion
 
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblBookingEnquiry;
         private System.Windows.Forms.Label lblFirstName;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtFirstName;
@@ -328,6 +328,6 @@
         private System.Windows.Forms.TextBox txtSQ;
         private System.Windows.Forms.Label lblEmail;
         private System.Windows.Forms.TextBox txtEmail;
-        private System.Windows.Forms.Button btnReturn;
+        private System.Windows.Forms.Button btnBack;
     }
 }

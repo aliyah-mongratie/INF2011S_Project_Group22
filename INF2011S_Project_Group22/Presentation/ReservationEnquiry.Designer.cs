@@ -47,9 +47,9 @@
             this.lblReservationEnquiry.ForeColor = System.Drawing.Color.DarkSlateGray;
             this.lblReservationEnquiry.Location = new System.Drawing.Point(13, 206);
             this.lblReservationEnquiry.Name = "lblReservationEnquiry";
-            this.lblReservationEnquiry.Size = new System.Drawing.Size(344, 46);
+            this.lblReservationEnquiry.Size = new System.Drawing.Size(291, 46);
             this.lblReservationEnquiry.TabIndex = 0;
-            this.lblReservationEnquiry.Text = "Reservation Enquiry";
+            this.lblReservationEnquiry.Text = "Booking Enquiry";
             // 
             // lblFirstName
             // 
@@ -116,6 +116,7 @@
             this.btnBack.TabIndex = 7;
             this.btnBack.Text = "Back";
             this.btnBack.UseVisualStyleBackColor = true;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // btnViewDetails
             // 
@@ -128,6 +129,7 @@
             this.btnViewDetails.TabIndex = 8;
             this.btnViewDetails.Text = "View Details";
             this.btnViewDetails.UseVisualStyleBackColor = true;
+            this.btnViewDetails.Click += new System.EventHandler(this.btnViewDetails_Click);
             // 
             // ReservationEnquiry
             // 
@@ -147,6 +149,7 @@
             this.Controls.Add(this.lblReservationEnquiry);
             this.Name = "ReservationEnquiry";
             this.Text = "Reservation Enquiry";
+            this.Load += new System.EventHandler(this.ReservationEnquiry_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

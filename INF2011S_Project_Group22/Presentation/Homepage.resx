@@ -11955,26 +11955,6 @@ The group emphasizes perfect customer care and satisfaction,
         8Vu0sZNoefAAOtdv9duYQdb2PzEAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="btnViewAvailability.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAAPwAAAAzCAYAAACzFWUGAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wAAADsABataJCQAAA0ZJREFUeF7t3VtPE0EYgGH+vhIUMaIGRWJCIl4o0QSNeEANGk2kBSoUWoKCHD3Q
-        QjuzXH1mVo2wX7vdLaV0ynvx3Bhnd2/edJmd2e2pVosC4Hzoif4DgO5F8MA50lOpFOV0FQCkEm2odVr6
-        C29KWbEbk2IL9+QwNyiHny4AaEZuUGxxTOzmpJjSnGqtWS0J3l1U8HlIXzSAlggWb4vZmlLtpXWi4O3m
-        cwlmB9TFATgluetitl+rFpNqKnhTnhe7OKIvBkBbBMujUi3nVJuNpA7ebL2Sw+wldQEA2my2X8zuO9Vo
-        nFTB27XH+qQAzpRZm1Ct1pM4eLsypk4EoDPY1Qeq2VoSBW/Wn6gTAOgsbhI92m5Uw+DN9pQ6MIBO1Ctm
-        d1o1nDh498CfCTrAH8HcVanuL6qWEwUfLNxSBwTQ2YKlu6rlhsHbjWfqQAD8YLbfqKbrB19ZkiB7RR0E
-        gCfmr0m1uqzarhk8s/KA/9wiuWjbNYMPcjfUYAB+sfkR1bYO/teMGgjAQzO9YvaPr7dXwXM7D3SP6GIc
-        Fbyb0o8OAuAn9zKa2ODdDpzoIACeCmfr6wZf0AMAeOxiTPCVpRoDAPisWvn/PJ7ggS7nuq4d/EFe/WcA
-        fiN44BypHzy39EDXIXjgHDm6iYbHckBXi3ssx8IboLvEL7wpSlAY1YMAeMmu3I8P3m6+UIMA+MnsHH/z
-        jQrebadz2+qiAwF4JtMn1YPjL7RUwYe/8nm+Gwf4LrpTrm7w7gV40cEA/GK+v1dt1wzeCXI31QEA+CFY
-        HFZNxwZvd6fVQQD4wfz4oJqODT6Mnr/lAe+4R+vRlhMFb0qzfGoK8Ej4qany8RdXJg4+jH6HCTzAC+4t
-        tT8/qoZTBR9Gzxdkgc420xvOu0XbjUoUvGM2X+qTADh7mT4xO29Vs7UkDt4Jb+8zffqEAM5G9nLD2/ij
-        UgXvmFJWgoUhfWIAbRXk74gpz6lG46QO/o+C2PUJ1twDZ8Hdwn97WqPLxpoM/q+9DNtpgTZy211NKd2v
-        +lEnC/6fvYzY1XEJZgfUBQI4oflBsV8fiSnP6/ZSak3wR5i9rJitKbGrD8P1vEG2H0Aa+WGxX8bDx+Fu
-        8Vu0sZNoefAAOtdv9duYQdb2PzEAAAAASUVORK5CYII=
-</value>
-  </data>
   <data name="btnCancelABooking.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAPwAAAAzCAYAAACzFWUGAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
@@ -11995,7 +11975,7 @@ The group emphasizes perfect customer care and satisfaction,
         8Vu0sZNoefAAOtdv9duYQdb2PzEAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="button4.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnBookingEnquiry.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAPwAAAAzCAYAAACzFWUGAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
         wAAADsABataJCQAAA0ZJREFUeF7t3VtPE0EYgGH+vhIUMaIGRWJCIl4o0QSNeEANGk2kBSoUWoKCHD3Q

@@ -34,12 +34,20 @@ namespace INF2011S_Project_Group22.Presentation
             //List for the amount of people in each room
             List<int> peopleInRoom = new List<int>();
 
+            //The textboxes will be invisible until the user selects the corresponding room checkbox
+
+            txtRoom101.Visible = cbRoom101.Checked;
+            txtRoom102.Visible = cbRoom102.Checked;
+            txtRoom103.Visible = cbRoom103.Checked;
+            txtRoom104.Visible = cbRoom104.Checked;
+            txtRoom105.Visible = cbRoom105.Checked;
+
             //Check which rooms are selected first
-            if (rb101.Checked) rooms.Add(1);
-            if (rb102.Checked) rooms.Add(2);
-            if (rb103.Checked) rooms.Add(3);
-            if (rb104.Checked) rooms.Add(4);
-            if (rb105.Checked) rooms.Add(5);
+            if (cbRoom101.Checked) rooms.Add(1);
+            if (cbRoom102.Checked) rooms.Add(2);
+            if (cbRoom103.Checked) rooms.Add(3);
+            if (cbRoom104.Checked) rooms.Add(4);
+            if (cbRoom105.Checked) rooms.Add(5);
 
             //Validation for the amount of rooms booked
             if (rooms.Count==0)
