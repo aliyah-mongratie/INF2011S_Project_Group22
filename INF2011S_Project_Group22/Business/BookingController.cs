@@ -13,7 +13,8 @@ namespace INF2011S_Project_Group22.Business
     class BookingController //aliyah 
     {
         #region Data Members 
-        BookingDB bookingDB;
+        BookingDB bookingDB; // references the BookingDB class which communicates with the database 
+        //Collections for each class 
         Collection<BookingRoom> bookingRooms;
         Collection<HotelRoom> rooms;
         Collection<Guest> guests;
@@ -97,6 +98,7 @@ namespace INF2011S_Project_Group22.Business
         #endregion
 
         #region Search Methods 
+        // These methods search through the collections and returns a matching object.  
         public Booking Find(int bookingResNumber)
         {
             int index = 0;
@@ -324,6 +326,7 @@ namespace INF2011S_Project_Group22.Business
         #endregion
 
         #region Database Communication
+        // Data Maintenance methods: makes changes to the collections in terms of adding, editing, or deleting an object.
         public void DataMaintenanceBooking(Booking booking, DB.DBOperation operation)
         {
             int index = 0;
@@ -471,7 +474,7 @@ namespace INF2011S_Project_Group22.Business
             }
             agents.Add(agent);
         }
-        //***Commit the changes to the database
+        // Finalize changes methods: Commit the changes to the database
         public bool FinalizeChangesBooking(Booking booking)
         {
             
@@ -512,7 +515,7 @@ namespace INF2011S_Project_Group22.Business
         public Booking MakeBooking(int bookingResNumber, Guest guest, List<HotelRoom> rooms, TravelAgent travelAgent, string bookingType, int numOfPeople, int numOfRooms,
                         DateTime checkInDate, DateTime checkOutDate, string specialRequirements)
         {
-
+            // For the receptionist to make a new booking. It ensures that the booking abides by the business rules. 
 
             if (numOfPeople > 6)
             {
@@ -523,30 +526,36 @@ namespace INF2011S_Project_Group22.Business
             {
                 MessageBox.Show("The number of rooms for a booking must be between 1 and 3.", "Invalid input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-            // 4 people in a room? 
+
 
             if (checkInDate >= checkOutDate)
             {
                 MessageBox.Show("The check in date must be before the check out date", "Invalid input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 
-            // check if all rooms statuses are  RoomStatus.available before making boooking 
-
             Booking booking = new Booking(bookingResNumber, numOfPeople, numOfRooms, checkInDate, checkOutDate, specialRequirements, guest, rooms, travelAgent);
-            bookings.Add(booking);
+            bookings.Add(booking); 
             DataMaintenanceBooking(booking, DB.DBOperation.add);
-            FinalizeChangesBooking(booking);
+            FinalizeChangesBooking(booking);           // adding booking to the database 
 
-            foreach (HotelRoom room in rooms)
+            foreach (HotelRoom room in rooms) // loop for each room that the guest is booking 
             {
-                room.CheckIn();
+                if(room.getRoomStatus == HotelRoom.RoomStatus.Available) //make sure that the room is available before it can be added to the booking
+                {
+                    room.CheckIn(); // Change the status of the room to Occupied 
 
-                BookingRoom bookingRoom = new BookingRoom(bookingResNumber, room.HotelRoomID);
-                bookingDB.DataSetChangeBookingRoom(bookingRoom, DB.DBOperation.add);
-                bookingDB.UpdateDataSource_BookRoom(bookingRoom);
+                    BookingRoom bookingRoom = new BookingRoom(bookingResNumber, room.HotelRoomID);
+                    bookingDB.DataSetChangeBookingRoom(bookingRoom, DB.DBOperation.add);
+                    bookingDB.UpdateDataSource_BookRoom(bookingRoom);
 
-                bookingDB.DataSetChangeHotelRoom(room, DB.DBOperation.edit);
-                bookingDB.UpdateDataSource_Room(room);
+                    bookingDB.DataSetChangeHotelRoom(room, DB.DBOperation.edit);
+                    bookingDB.UpdateDataSource_Room(room);
+                }
+                else
+                {
+                    MessageBox.Show("This room is currently occupied. Please select a new room.", "Room Occupied", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                
             }
             return booking;
         }
@@ -554,6 +563,7 @@ namespace INF2011S_Project_Group22.Business
         public void ChangeBooking(int bookingResNumber, int newNumOfPeople, int newNumOfRooms,
                         DateTime newCheckInDate, DateTime newCheckOutDate, string newSpecialRequirements, List<HotelRoom> newRooms)
         {
+            //For the receptionist to change the booking details as per the guest's request.
             Booking booking = Find(bookingResNumber);
             if (booking == null)
             {
@@ -582,9 +592,9 @@ namespace INF2011S_Project_Group22.Business
             booking.specialRequirements = newSpecialRequirements;
             booking.Rooms = newRooms;
 
-            foreach (HotelRoom newRoom in newRooms)
+            foreach (HotelRoom newRoom in newRooms) //for each room in the booking
             {
-                newRoom.CheckIn();
+                newRoom.CheckIn(); // change the status of the new room to "occupied"
                 bookingDB.DataSetChangeHotelRoom(newRoom, DB.DBOperation.edit);
                 bookingDB.UpdateDataSource_Room(newRoom);
 
@@ -594,17 +604,18 @@ namespace INF2011S_Project_Group22.Business
             }
 
             DataMaintenanceBooking(booking, DB.DBOperation.edit);
-           FinalizeChangesBooking(booking);
+           FinalizeChangesBooking(booking); 
+            //the new booking is now added to the database 
         }
 
         public void CancelBooking(int bookingResNumber)
         {
-            Booking booking = Find(bookingResNumber);
+            Booking booking = Find(bookingResNumber); // find the booking reference number for the booking
             if (booking == null)
             {
                 MessageBox.Show("The booking cannot be found.", "Booking Not Found", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            booking.bookingStat = Booking.BookingStatus.Cancelled;
+            booking.bookingStat = Booking.BookingStatus.Cancelled; // change the status of the booking to "cancelled".
 
             foreach (HotelRoom room in booking.Rooms)
             {
@@ -624,7 +635,7 @@ namespace INF2011S_Project_Group22.Business
         }
         public Booking EnquireBooking(int bookingResNumber)
         {
-            return Find(bookingResNumber);
+            return Find(bookingResNumber); // Find the booking details so that the receptionist can view it 
         }
         public void ConfirmBooking(int bookingResNumber)
         {
@@ -633,7 +644,7 @@ namespace INF2011S_Project_Group22.Business
             {
                 MessageBox.Show("The booking cannot be found.", "Booking Not Found", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            booking.bookingStat = Booking.BookingStatus.Confirmed;
+            booking.bookingStat = Booking.BookingStatus.Confirmed; // change the booking status to "confirmed". 
             DataMaintenanceBooking(booking, DB.DBOperation.edit);
             FinalizeChangesBooking(booking);
         }
