@@ -477,11 +477,11 @@ namespace INF2011S_Project_Group22.Business
             
            return bookingDB.UpdateDataSource_Book(booking);
         }
-        /*public bool FinalizeChangesBookingRoom(BookingRoom bookingRoom)
+        public bool FinalizeChangesBookingRoom(BookingRoom bookingRoom)
         {
 
-            return bookingDB.UpdateDataSource_Book(booking);
-        }*/
+            return bookingDB.UpdateDataSource_BookRoom(bookingRoom);
+        }
         public bool FinalizeChangesGuest(Guest guest)
         {
 
@@ -535,7 +535,7 @@ namespace INF2011S_Project_Group22.Business
             Booking booking = new Booking(bookingResNumber, numOfPeople, numOfRooms, checkInDate, checkOutDate, specialRequirements, guest, rooms, travelAgent);
             bookings.Add(booking);
             DataMaintenanceBooking(booking, DB.DBOperation.add);
-            //FinalizeChangesBooking(booking);
+            FinalizeChangesBooking(booking);
 
             foreach (HotelRoom room in rooms)
             {
@@ -543,10 +543,10 @@ namespace INF2011S_Project_Group22.Business
 
                 BookingRoom bookingRoom = new BookingRoom(bookingResNumber, room.HotelRoomID);
                 bookingDB.DataSetChangeBookingRoom(bookingRoom, DB.DBOperation.add);
-                //bookingDB.UpdateDataSourceBookingRoom(bookingRoom);
+                bookingDB.UpdateDataSource_BookRoom(bookingRoom);
 
                 bookingDB.DataSetChangeHotelRoom(room, DB.DBOperation.edit);
-                //bookingDB.UpdateDataSourceHotelRoom(room);
+                bookingDB.UpdateDataSource_Room(room);
             }
             return booking;
         }
@@ -586,15 +586,15 @@ namespace INF2011S_Project_Group22.Business
             {
                 newRoom.CheckIn();
                 bookingDB.DataSetChangeHotelRoom(newRoom, DB.DBOperation.edit);
-                //bookingDB.UpdateDataSourceHotelRoom(newRoom);
+                bookingDB.UpdateDataSource_Room(newRoom);
 
                 BookingRoom newLink = new BookingRoom(booking.bookingResNumber, newRoom.HotelRoomID);
                 bookingDB.DataSetChangeBookingRoom(newLink, DB.DBOperation.add);
-                //bookingDB.UpdateDataSourceBookingRoom(newLink);
+                bookingDB.UpdateDataSource_BookRoom(newLink);
             }
 
             DataMaintenanceBooking(booking, DB.DBOperation.edit);
-           // FinalizeChangesBooking(booking);
+           FinalizeChangesBooking(booking);
         }
 
         public void CancelBooking(int bookingResNumber)
@@ -612,15 +612,15 @@ namespace INF2011S_Project_Group22.Business
                 room.CheckOut();
                 BookingRoom bookingRoom = new BookingRoom(booking.bookingResNumber, room.HotelRoomID);
                 bookingDB.DataSetChangeBookingRoom(bookingRoom, DB.DBOperation.delete);
-                //bookingDB.UpdateDataSourceBookingRoom(bookingRoom);
+                bookingDB.UpdateDataSource_BookRoom(bookingRoom);
 
                
                 bookingDB.DataSetChangeHotelRoom(room, DB.DBOperation.edit);
-               // bookingDB.UpdateDataSourceHotelRoom(room);
+                bookingDB.UpdateDataSource_Room(room);
             }
 
             DataMaintenanceBooking(booking, DB.DBOperation.edit);
-            //FinalizeChangesBooking(booking);
+            FinalizeChangesBooking(booking);
         }
         public Booking EnquireBooking(int bookingResNumber)
         {
@@ -635,7 +635,7 @@ namespace INF2011S_Project_Group22.Business
             }
             booking.bookingStat = Booking.BookingStatus.Confirmed;
             DataMaintenanceBooking(booking, DB.DBOperation.edit);
-            //FinalizeChangesBooking(booking);
+            FinalizeChangesBooking(booking);
         }
         #endregion
     }

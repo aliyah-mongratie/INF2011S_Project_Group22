@@ -772,146 +772,162 @@ namespace INF2011S_Project_Group22.Data
         {
             SqlParameter param = default(SqlParameter);
             param = new SqlParameter("@BookingResNumber", SqlDbType.NVarChar, 10, "BookingResNumber");
-            daMain.InsertCommand.Parameters.Add(param);
+            daMain.UpdateCommand.Parameters.Add(param);
 
             param = new SqlParameter("@GuestId", SqlDbType.NVarChar, 10, "GuestId");
-            daMain.InsertCommand.Parameters.Add(param);
+            daMain.UpdateCommand.Parameters.Add(param);
 
             param = new SqlParameter("@HotelId", SqlDbType.NVarChar, 10, "HotelId");
-            daMain.InsertCommand.Parameters.Add(param);
+            daMain.UpdateCommand.Parameters.Add(param);
 
             param = new SqlParameter("@TravelAgentId", SqlDbType.NVarChar, 10, "TravelAgentId");
-            daMain.InsertCommand.Parameters.Add(param);
+            daMain.UpdateCommand.Parameters.Add(param);
 
             param = new SqlParameter("@BookingStatus", SqlDbType.NVarChar, 20, "BookingStatus");
-            daMain.InsertCommand.Parameters.Add(param);
+            daMain.UpdateCommand.Parameters.Add(param);
 
             param = new SqlParameter("@bookingType", SqlDbType.NVarChar, 50, "bookingType");
-            daMain.InsertCommand.Parameters.Add(param);
+            daMain.UpdateCommand.Parameters.Add(param);
 
             param = new SqlParameter("@numOfPeople", SqlDbType.Int, 0, "numOfPeople");
-            daMain.InsertCommand.Parameters.Add(param);
+            daMain.UpdateCommand.Parameters.Add(param);
 
             param = new SqlParameter("@numOfRooms", SqlDbType.Int, 0, "numOfRooms");
-            daMain.InsertCommand.Parameters.Add(param);
+            daMain.UpdateCommand.Parameters.Add(param);
 
             param = new SqlParameter("@CheckInDate", SqlDbType.DateTime, 0, "CheckInDate");
-            daMain.InsertCommand.Parameters.Add(param);
+            daMain.UpdateCommand.Parameters.Add(param);
 
             param = new SqlParameter("@CheckOutDate", SqlDbType.DateTime, 0, "CheckOutDate");
-            daMain.InsertCommand.Parameters.Add(param);
+            daMain.UpdateCommand.Parameters.Add(param);
 
             param = new SqlParameter("@SpecialRequirements", SqlDbType.NVarChar, 500, "SpecialRequirements");
-            daMain.InsertCommand.Parameters.Add(param);
+            daMain.UpdateCommand.Parameters.Add(param);
         }
-        
+        private void Build_UPDATE_Parameters_BookRoom(BookingRoom bookingRoom)
+        {
+            
+            SqlParameter param = default(SqlParameter);
+
+            param = new SqlParameter("@BookingResNumber", SqlDbType.NVarChar, 10, "BookingResNumber");
+            daMain.UpdateCommand.Parameters.Add(param);//Add the parameter to the Parameters collection.
+
+            param = new SqlParameter("@HotelRoomId", SqlDbType.NVarChar, 10, "HotelRoomId");
+            daMain.UpdateCommand.Parameters.Add(param);
+
+        }
         private void Build_UPDATE_Parameters_Guest(Guest guest)
         {
             SqlParameter param = default(SqlParameter);
             param = new SqlParameter("@GuestId", SqlDbType.NVarChar, 10, "GuestId");
-            daMain.InsertCommand.Parameters.Add(param);
+            daMain.UpdateCommand.Parameters.Add(param);
 
             param = new SqlParameter("@GuestStatus", SqlDbType.NVarChar, 20, "GuestStatus");
-            daMain.InsertCommand.Parameters.Add(param);
+            daMain.UpdateCommand.Parameters.Add(param);
 
             param = new SqlParameter("@FirstName", SqlDbType.NVarChar, 50, "FirstName");
-            daMain.InsertCommand.Parameters.Add(param);
+            daMain.UpdateCommand.Parameters.Add(param);
 
             param = new SqlParameter("@LastName", SqlDbType.NVarChar, 50, "LastName");
-            daMain.InsertCommand.Parameters.Add(param);
+            daMain.UpdateCommand.Parameters.Add(param);
 
             param = new SqlParameter("@PhoneNumber", SqlDbType.NVarChar, 15, "PhoneNumber");
-            daMain.InsertCommand.Parameters.Add(param);
+            daMain.UpdateCommand.Parameters.Add(param);
 
             param = new SqlParameter("@Email", SqlDbType.NVarChar, 100, "Email");
-            daMain.InsertCommand.Parameters.Add(param);
+            daMain.UpdateCommand.Parameters.Add(param);
 
             param = new SqlParameter("@CreditCardNumber", SqlDbType.NVarChar, 19, "CreditCardNumber");
-            daMain.InsertCommand.Parameters.Add(param);
+            daMain.UpdateCommand.Parameters.Add(param);
         }
         private void Build_UPDATE_Parameters_Account(GuestAccount account)
         {
             SqlParameter param = default(SqlParameter);
             param = new SqlParameter("@GuestId", SqlDbType.NVarChar, 10, "GuestId");
-            daMain.InsertCommand.Parameters.Add(param);
+            daMain.UpdateCommand.Parameters.Add(param);
 
             param = new SqlParameter("@HotelRoomId", SqlDbType.NVarChar, 10, "HotelRoomId");
-            daMain.InsertCommand.Parameters.Add(param);
+            daMain.UpdateCommand.Parameters.Add(param);
 
             param = new SqlParameter("@CreditCardCredentials", SqlDbType.NVarChar, 10, "CreditCardCredentials");
-            daMain.InsertCommand.Parameters.Add(param);
+            daMain.UpdateCommand.Parameters.Add(param);
 
             param = new SqlParameter("@AccountStatus", SqlDbType.NVarChar, 20, "AccountStatus");
-            daMain.InsertCommand.Parameters.Add(param);
+            daMain.UpdateCommand.Parameters.Add(param);
 
             param = new SqlParameter("@AccountBalance", SqlDbType.Money, 8, "AccountBalance");
-            daMain.InsertCommand.Parameters.Add(param);
+            daMain.UpdateCommand.Parameters.Add(param);
 
             param = new SqlParameter("@AccountCharges", SqlDbType.Money, 8, "AccountCharges");
-            daMain.InsertCommand.Parameters.Add(param);
+            daMain.UpdateCommand.Parameters.Add(param);
         }
 
         private void Build_UPDATE_Parameters_Room(HotelRoom room)
         {
             SqlParameter param = default(SqlParameter);
             param = new SqlParameter("@HotelRoomId", SqlDbType.NVarChar, 10, "HotelRoomId");
-            daMain.InsertCommand.Parameters.Add(param);
+            daMain.UpdateCommand.Parameters.Add(param);
 
             param = new SqlParameter("@HotelId", SqlDbType.NVarChar, 10, "HotelId");
-            daMain.InsertCommand.Parameters.Add(param);
+            daMain.UpdateCommand.Parameters.Add(param);
 
             param = new SqlParameter("@RoomStatus", SqlDbType.NVarChar, 20, "RoomStatus");
-            daMain.InsertCommand.Parameters.Add(param);
+            daMain.UpdateCommand.Parameters.Add(param);
 
             param = new SqlParameter("@RoomPrice", SqlDbType.Money, 8, "RoomPrice");
-            daMain.InsertCommand.Parameters.Add(param);
+            daMain.UpdateCommand.Parameters.Add(param);
 
             param = new SqlParameter("@RoomCapacity", SqlDbType.Int, 0, "RoomCapacity");
-            daMain.InsertCommand.Parameters.Add(param);
+            daMain.UpdateCommand.Parameters.Add(param);
         }
 
         private void Build_UPDATE_Parameters_Payment(Payment payment)
         {
             SqlParameter param = default(SqlParameter);
             param = new SqlParameter("@PaymentId", SqlDbType.NVarChar, 10, "PaymentId");
-            daMain.InsertCommand.Parameters.Add(param);
+            daMain.UpdateCommand.Parameters.Add(param);
 
             param = new SqlParameter("@GuestId", SqlDbType.NVarChar, 10, "GuestId");
-            daMain.InsertCommand.Parameters.Add(param);
+            daMain.UpdateCommand.Parameters.Add(param);
 
             param = new SqlParameter("@PaymentStatus", SqlDbType.NVarChar, 20, "PaymentStatus");
-            daMain.InsertCommand.Parameters.Add(param);
+            daMain.UpdateCommand.Parameters.Add(param);
 
             param = new SqlParameter("@PaymentAmount", SqlDbType.Money, 8, "PaymentAmount");
-            daMain.InsertCommand.Parameters.Add(param);
+            daMain.UpdateCommand.Parameters.Add(param);
 
         }
         private void Build_UPDATE_Parameters_Agent(TravelAgent agent)
         {
             SqlParameter param = default(SqlParameter);
             param = new SqlParameter("@TravelAgentId", SqlDbType.NVarChar, 10, "TravelAgentId");
-            daMain.InsertCommand.Parameters.Add(param);
+            daMain.UpdateCommand.Parameters.Add(param);
 
             param = new SqlParameter("@TravelAgency", SqlDbType.NVarChar, 50, "TravelAgency");
-            daMain.InsertCommand.Parameters.Add(param);
+            daMain.UpdateCommand.Parameters.Add(param);
 
             param = new SqlParameter("@FirstName", SqlDbType.NVarChar, 50, "FirstName");
-            daMain.InsertCommand.Parameters.Add(param);
+            daMain.UpdateCommand.Parameters.Add(param);
 
             param = new SqlParameter("@LastName", SqlDbType.NVarChar, 50, "LastName");
-            daMain.InsertCommand.Parameters.Add(param);
+            daMain.UpdateCommand.Parameters.Add(param);
 
             param = new SqlParameter("@PhoneNumber", SqlDbType.NVarChar, 15, "PhoneNumber");
-            daMain.InsertCommand.Parameters.Add(param);
+            daMain.UpdateCommand.Parameters.Add(param);
 
             param = new SqlParameter("@Email", SqlDbType.NVarChar, 100, "Email");
-            daMain.InsertCommand.Parameters.Add(param);
+            daMain.UpdateCommand.Parameters.Add(param);
 
         }
         private void Create_UPDATE_Command_Book(Booking booking)
         {
             daMain.UpdateCommand = new SqlCommand("UPDATE Booking SET GuestId =@GuestId, HotelId = @Hotelid, TravelAgentId =@TravelAgentId, BookingStatus =@BookingStatus, bookingType =@bookingType, numOfPeople =@numOfPeople, numOfRooms =@numOfRooms, CheckInDate =@CheckInDate, CheckOutDate =@CheckOutDate, SpecialRequirements =@SpecialRequirements " + "WHERE BookingResNumber = @Original_BookingResNumber", cnMain);
             Build_UPDATE_Parameters_Book(booking);
+        }
+        private void Create_UPDATE_Command_BookRoom(BookingRoom bookingRoom)
+        {
+            daMain.UpdateCommand = new SqlCommand("UPDATE Booking SET BookingResNumber = @BookingResNumber , HotelRoomId = @HotelRoomId" + "WHERE BookingResNumber = @Original_BookingResNumber", cnMain);
+            Create_UPDATE_Command_BookRoom(bookingRoom);
         }
         private void Create_UPDATE_Command_Guest(Guest guest)
         {
