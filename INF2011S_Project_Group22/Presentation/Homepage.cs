@@ -56,10 +56,6 @@ namespace INF2011S_Project_Group22.Presentation
             newForm.ShowDialog();
         }
 
-        private void btnCancelABooking_Click(object sender, EventArgs e)
-        {
-            frmCancelABooking newForm = new frmCancelABooking();
-            newForm.ShowDialog();
-        }
+       
     }
 }
