@@ -44,6 +44,7 @@ namespace INF2011S_Project_Group22.Business
             bookingResNumber = 0;
             bookingStat = BookingStatus.Pending;
             bookingType = BookingType.Personal;
+          
             numOfPeople = 0;
             numOfRooms = 0;
             checkInDate = DateTime.Now;
@@ -59,6 +60,7 @@ namespace INF2011S_Project_Group22.Business
             bookingResNumber = newBookResNumber;
             bookingStat = Booking.BookingStatus.Pending;
             bookingType = Booking.BookingType.Personal;
+           
             numOfPeople = newNumOfPeople;
             numOfRooms = newNumOfRooms;
             checkInDate = newCheckInDate;
@@ -72,6 +74,12 @@ namespace INF2011S_Project_Group22.Business
         #endregion
 
         #region Methods
+
+        public int generateBookingResNumber()
+        {
+            Random rand = new Random();
+            return rand.Next(10000, 100000); // generates a random number between 10000 and 100000
+        }
         public int GetBookingDuration()
         {
             return (checkOutDate - checkInDate).Days;//calculates amount of days/nights stay for booking

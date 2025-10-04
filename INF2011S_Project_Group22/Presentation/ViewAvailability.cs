@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -34,13 +35,7 @@ namespace INF2011S_Project_Group22.Presentation
             //List for the amount of people in each room
             List<int> peopleInRoom = new List<int>();
 
-            //The textboxes will be invisible until the user selects the corresponding room checkbox
-
-            txtRoom101.Visible = cbRoom101.Checked;
-            txtRoom102.Visible = cbRoom102.Checked;
-            txtRoom103.Visible = cbRoom103.Checked;
-            txtRoom104.Visible = cbRoom104.Checked;
-            txtRoom105.Visible = cbRoom105.Checked;
+            
 
             //Check which rooms are selected first
             if (cbRoom101.Checked) rooms.Add(1);
@@ -49,12 +44,60 @@ namespace INF2011S_Project_Group22.Presentation
             if (cbRoom104.Checked) rooms.Add(4);
             if (cbRoom105.Checked) rooms.Add(5);
 
-            //Validation for the amount of rooms booked
-            if (rooms.Count==0)
+            //The textboxes will be invisible until the user selects the corresponding room checkbox
+
+            if (cbRoom101.Checked)
+            {
+                txtRoom101.Visible = true;
+            }
+            else
+            {
+                txtRoom101.Visible = false;
+            }
+
+            if (cbRoom102.Checked)
+            {
+                txtRoom102.Visible = true;
+            }
+            else  
+            {
+                txtRoom102.Visible = false;
+            }
+
+            if (cbRoom103.Checked)
+            {
+                txtRoom103.Visible = true;
+            }
+            else
+            {
+                txtRoom103.Visible = false;
+            }
+
+            if (cbRoom104.Checked)
+            {
+                txtRoom104.Visible = true;
+            }
+            else
+            {
+                txtRoom104.Visible = false;
+            }
+
+            if (cbRoom105.Checked)
+            {
+                txtRoom105.Visible = true;
+            }
+            else
+            {
+                txtRoom105.Visible = false;
+            }
+
+
+                //Validation for the amount of rooms booked
+            if (rooms.Count == 0)
             {
                 MessageBox.Show("Please select at least one room");
             }
-            else if (rooms.Count>3)
+            else if (rooms.Count > 3)
             {
                 MessageBox.Show("There is a maximum of 3 rooms that can be booked at once");
             }
@@ -110,8 +153,7 @@ namespace INF2011S_Project_Group22.Presentation
         private void btnBack_Click(object sender, EventArgs e)
         {
             //if the user wants to carry out a different functionality, the back button directs them back to the homepage.
-            Homepage newForm = new Homepage();
-            newForm.ShowDialog();
+            this.Close();// close is used, since the homepage is already open in the background.
         }
     }
 }

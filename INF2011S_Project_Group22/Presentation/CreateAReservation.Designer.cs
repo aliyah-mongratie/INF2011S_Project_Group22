@@ -32,7 +32,7 @@
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.lblCreateAReservation = new System.Windows.Forms.Label();
             this.btnBack = new System.Windows.Forms.Button();
-            this.btnCreateResNext = new System.Windows.Forms.Button();
+            this.btnConfirm = new System.Windows.Forms.Button();
             this.btnCreateResClear = new System.Windows.Forms.Button();
             this.rbTravelAgencyBooking = new System.Windows.Forms.RadioButton();
             this.rbPersonalBooking = new System.Windows.Forms.RadioButton();
@@ -91,21 +91,21 @@
             this.btnBack.UseVisualStyleBackColor = true;
             this.btnBack.Click += new System.EventHandler(this.btnCreateResExit_Click);
             // 
-            // btnCreateResNext
+            // btnConfirm
             // 
-            this.btnCreateResNext.BackColor = System.Drawing.Color.OldLace;
-            this.btnCreateResNext.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnCreateResNext.BackgroundImage")));
-            this.btnCreateResNext.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnCreateResNext.Font = new System.Drawing.Font("Segoe UI Emoji", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCreateResNext.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.btnCreateResNext.Location = new System.Drawing.Point(827, 639);
-            this.btnCreateResNext.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnCreateResNext.Name = "btnCreateResNext";
-            this.btnCreateResNext.Size = new System.Drawing.Size(253, 55);
-            this.btnCreateResNext.TabIndex = 15;
-            this.btnCreateResNext.Text = "Next";
-            this.btnCreateResNext.UseVisualStyleBackColor = false;
-            this.btnCreateResNext.Click += new System.EventHandler(this.btnCreateResNext_Click);
+            this.btnConfirm.BackColor = System.Drawing.Color.OldLace;
+            this.btnConfirm.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnConfirm.BackgroundImage")));
+            this.btnConfirm.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnConfirm.Font = new System.Drawing.Font("Segoe UI Emoji", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConfirm.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.btnConfirm.Location = new System.Drawing.Point(827, 639);
+            this.btnConfirm.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnConfirm.Name = "btnConfirm";
+            this.btnConfirm.Size = new System.Drawing.Size(253, 55);
+            this.btnConfirm.TabIndex = 15;
+            this.btnConfirm.Text = "Confirm";
+            this.btnConfirm.UseVisualStyleBackColor = false;
+            this.btnConfirm.Click += new System.EventHandler(this.btnCreateResNext_Click);
             // 
             // btnCreateResClear
             // 
@@ -380,7 +380,7 @@
             this.Controls.Add(this.rbPersonalBooking);
             this.Controls.Add(this.rbTravelAgencyBooking);
             this.Controls.Add(this.btnCreateResClear);
-            this.Controls.Add(this.btnCreateResNext);
+            this.Controls.Add(this.btnConfirm);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.lblCreateAReservation);
             this.Controls.Add(this.dateTimePicker2);
@@ -398,7 +398,7 @@
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Label lblCreateAReservation;
         private System.Windows.Forms.Button btnBack;
-        private System.Windows.Forms.Button btnCreateResNext;
+        private System.Windows.Forms.Button btnConfirm;
         private System.Windows.Forms.Button btnCreateResClear;
         private System.Windows.Forms.RadioButton rbTravelAgencyBooking;
         private System.Windows.Forms.RadioButton rbPersonalBooking;
