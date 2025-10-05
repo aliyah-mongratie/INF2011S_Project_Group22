@@ -177,6 +177,7 @@ namespace INF2011S_Project_Group22
                 MessageBox.Show("Please fill in all required fields.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+            
             EnterDetailsValidation(); //Call the method to validate the input fields
 
 
@@ -229,6 +230,7 @@ namespace INF2011S_Project_Group22
 
         private void btnCreateResClear_Click(object sender, EventArgs e)
         {
+
             //Clearing all textboxes after clicking the clear button
             txtFirstName.Clear();
             txtLastName.Clear();

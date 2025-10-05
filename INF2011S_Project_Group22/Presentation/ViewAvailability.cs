@@ -41,13 +41,14 @@ namespace INF2011S_Project_Group22.Presentation
             //Loop through the checkboxes and textboxes to ensure that the user selects at least one room and enters the number of people for each selected room.
 
             int selectedRooms = 0;
-           for (int i=0; i<roomCheckBoxes.Length; i++)
+            int noOfPeople= txtRoom101.Text.Length + txtRoom102.Text.Length + txtRoom103.Text.Length + txtRoom104.Text.Length + txtRoom105.Text.Length;
+            for (int i=0; i<roomCheckBoxes.Length; i++)
            {
                 if (roomCheckBoxes[i].Checked)
                 {
                     selectedRooms++;
 
-                        //Validation for number of people in each room
+                        //Validation for number of rooms available for selection
                     
                     if (selectedRooms>3 )
                     {
@@ -61,6 +62,11 @@ namespace INF2011S_Project_Group22.Presentation
                         if (noOfpeople < 1 || noOfpeople > 4)
                         {
                             MessageBox.Show("Please enter a valid number of people (1-4) for " + roomCheckBoxes[i].Text);
+                            txtRoom101.Clear();
+                            txtRoom102.Clear();
+                            txtRoom103.Clear();
+                            txtRoom104.Clear();
+                            txtRoom105.Clear();
                             return;
                         }
                     }
@@ -91,6 +97,7 @@ namespace INF2011S_Project_Group22.Presentation
 
         private void button1_Click(object sender, EventArgs e)
         {
+            
             roomSelection();
             //If the user is satisfied with the room selection, they can proceed to the reservation form
             frmCreateReservation newForm = new frmCreateReservation();
