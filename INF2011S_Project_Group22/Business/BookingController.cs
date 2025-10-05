@@ -512,7 +512,7 @@ namespace INF2011S_Project_Group22.Business
         }
         #endregion
         #region Methods 
-        public Booking MakeBooking(int bookingResNumber, Guest guest, List<HotelRoom> rooms, TravelAgent travelAgent, string bookingType, int numOfPeople, int numOfRooms,
+        public Booking MakeBooking(Guest guest, List<HotelRoom> rooms, TravelAgent travelAgent, string bookingType, int numOfPeople, int numOfRooms,
                         DateTime checkInDate, DateTime checkOutDate, string specialRequirements)
         {
             // For the receptionist to make a new booking. It ensures that the booking abides by the business rules. 
@@ -532,6 +532,8 @@ namespace INF2011S_Project_Group22.Business
             {
                 MessageBox.Show("The check in date must be before the check out date", "Invalid input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+
+            int bookingResNumber = Booking.generateBookingResNumber();
 
             Booking booking = new Booking(bookingResNumber, numOfPeople, numOfRooms, checkInDate, checkOutDate, specialRequirements, guest, rooms, travelAgent);
             bookings.Add(booking); 
