@@ -32,5 +32,10 @@ namespace INF2011S_Project_Group22.Presentation
         {
             this.Close();
         }
+
+        private void frmMakePayment_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

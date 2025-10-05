@@ -539,6 +539,7 @@ namespace INF2011S_Project_Group22.Business
             bookings.Add(booking); 
             DataMaintenanceBooking(booking, DB.DBOperation.add);
             FinalizeChangesBooking(booking);           // adding booking to the database 
+            
 
             foreach (HotelRoom room in rooms) // loop for each room that the guest is booking 
             {
@@ -560,6 +561,7 @@ namespace INF2011S_Project_Group22.Business
                 
             }
             return booking;
+
         }
 
         public void ChangeBooking(int bookingResNumber, int newNumOfPeople, int newNumOfRooms,

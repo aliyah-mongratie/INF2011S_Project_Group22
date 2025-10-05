@@ -95,6 +95,7 @@
             this.Controls.Add(this.pictureBox2);
             this.Name = "frmBookingCancellation";
             this.Text = "BookingCancellation";
+            this.Load += new System.EventHandler(this.frmBookingCancellation_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

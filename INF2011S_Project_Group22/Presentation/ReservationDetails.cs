@@ -16,5 +16,10 @@ namespace INF2011S_Project_Group22.Presentation
         {
             InitializeComponent();
         }
+
+        private void ReservationDetails_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
