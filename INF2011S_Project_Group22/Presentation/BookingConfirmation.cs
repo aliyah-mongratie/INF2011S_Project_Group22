@@ -18,11 +18,12 @@ namespace INF2011S_Project_Group22.Presentation
             InitializeComponent();
 
             Booking booking = new Booking();
+            
 
             int bookingResNumber = booking.bookingResNumber;
 
             //string BookingReservationNumber =;//get booking reservation number from database once bookingController is done
-            lblBookingReservation.Text= "$The Booking Reservation Number is: {booking.bookingResNumber}" //add the booking reservation number here
+            lblBookingReservation.Text= "$The Booking Reservation Number is:"+bookingResNumber //add the booking reservation number here
             ;
         }
 

@@ -174,12 +174,11 @@ namespace INF2011S_Project_Group22
                 return;
             }
             EnterDetailsValidation(); //Call the method to validate the input fields
-            
-            int bookingResNumber = 0; //Initialize the booking reservation number to 0, it will be generated in the BookingController class
-                                      // Replace this line:
-           
 
-            // With the following, using the available Guest constructor and setting properties:
+
+
+
+            // initiate the objects so it can be passed to the MakeBooking method
             Guest guest = new Guest();
             guest.FirstName = txtFirstName.Text;
             guest.LastName = txtLastName.Text;
@@ -198,9 +197,21 @@ namespace INF2011S_Project_Group22
             
             string specialRequirements = txtSpecialReq.Text; //Get the special requirements from the textbox
 
-            // Change the type of 'bookingType' argument to string when calling MakeBooking
+
+            //Call the MakeBooking method from the BookingController class to create a new booking
             BookingController bookingController = new BookingController();
-            bookingController.MakeBooking(bookingResNumber,guest, rooms,travelAgent,bookingType.ToString(),numOfPeople,numOfRooms,checkInDate,checkOutDate,specialRequirements); //Call the makeBooking method from the BookingController class to create a new booking in the database
+            Booking booking = bookingController.MakeBooking(
+                guest,
+                rooms,
+                travelAgent,
+                numOfPeople.ToString(),
+                (int)bookingType, // Convert BookingType enum to int
+                numOfRooms,
+                checkInDate,      // Pass checkInDate as DateTime
+                checkOutDate,
+                specialRequirements // Pass checkOutDate as DateTime
+                                
+            );
 
 
 
