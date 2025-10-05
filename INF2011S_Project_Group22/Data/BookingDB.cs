@@ -165,7 +165,7 @@ namespace INF2011S_Project_Group22.Data
             {
                 throw new Exception($"Table '{table}' was not loaded into the DataSet."); //if the table is not loaded, throw an exception to remind the user.
             }
-            foreach (DataRow myRow_loopVariable in dsMain.Tables[table].Rows) //for each row in the Hotel table
+            foreach (DataRow myRow_loopVariable in dsMain.Tables[tableHotel].Rows) //for each row in the Hotel table
             {
                 myRow = myRow_loopVariable;
 
@@ -192,7 +192,10 @@ namespace INF2011S_Project_Group22.Data
         {
             DataRow myRow = null;
             Guest guest;
-
+            if (dsMain.Tables[table] == null)
+            {
+                throw new Exception($"Table '{table}' was not loaded into the DataSet."); //if the table is not loaded, throw an exception to remind the user.
+            }
             foreach (DataRow myRow_loopVariable in dsMain.Tables[tableGuest].Rows)
             {
                 myRow = myRow_loopVariable;
@@ -220,7 +223,10 @@ namespace INF2011S_Project_Group22.Data
         {
             DataRow myRow = null;
             TravelAgent travelAgent;
-
+            if (dsMain.Tables[table] == null)
+            {
+                throw new Exception($"Table '{table}' was not loaded into the DataSet."); //if the table is not loaded, throw an exception to remind the user.
+            }
             foreach (DataRow myRow_loopVariable in dsMain.Tables[tableAgent].Rows)
             {
                 myRow = myRow_loopVariable;
@@ -248,7 +254,10 @@ namespace INF2011S_Project_Group22.Data
         {
             DataRow myRow = null;
             GuestAccount guestAccount;
-
+            if (dsMain.Tables[table] == null)
+            {
+                throw new Exception($"Table '{table}' was not loaded into the DataSet."); //if the table is not loaded, throw an exception to remind the user.
+            }
             foreach (DataRow myRow_loopVariable in dsMain.Tables[tableAccount].Rows)
             {
                 myRow = myRow_loopVariable;
@@ -272,7 +281,10 @@ namespace INF2011S_Project_Group22.Data
         {
             DataRow myRow = null;
             Payment payment;
-
+            if (dsMain.Tables[table] == null)
+            {
+                throw new Exception($"Table '{table}' was not loaded into the DataSet."); //if the table is not loaded, throw an exception to remind the user.
+            }
             foreach (DataRow myRow_loopVariable in dsMain.Tables[tablePayment].Rows)
             {
                 myRow = myRow_loopVariable;
@@ -293,7 +305,10 @@ namespace INF2011S_Project_Group22.Data
         {
             DataRow myRow = null;
             BookingRoom bookingRoom;
-
+            if (dsMain.Tables[table] == null)
+            {
+                throw new Exception($"Table '{table}' was not loaded into the DataSet."); //if the table is not loaded, throw an exception to remind the user.
+            }
             foreach (DataRow myRow_loopVariable in dsMain.Tables[tableBookingRoom].Rows)
             {
                 myRow = myRow_loopVariable;
@@ -312,6 +327,10 @@ namespace INF2011S_Project_Group22.Data
         {
             DataRow myRow = null;
             HotelRoom room;
+            if (dsMain.Tables[table] == null)
+            {
+                throw new Exception($"Table '{table}' was not loaded into the DataSet."); //if the table is not loaded, throw an exception to remind the user.
+            }
             foreach (DataRow myRow_loopVariable in dsMain.Tables[tableRoom].Rows)
             {
                 myRow = myRow_loopVariable;
@@ -331,8 +350,11 @@ namespace INF2011S_Project_Group22.Data
         {
             DataRow myRow = null;
             Booking booking;
-
-            foreach (DataRow myRow_loopVariable in dsMain.Tables[table].Rows)
+            if (dsMain.Tables[table] == null)
+            {
+                throw new Exception($"Table '{table}' was not loaded into the DataSet."); //if the table is not loaded, throw an exception to remind the user.
+            }
+            foreach (DataRow myRow_loopVariable in dsMain.Tables[tableBooking].Rows)
             {
                 myRow = myRow_loopVariable;
                 if (!(myRow.RowState == DataRowState.Deleted))
