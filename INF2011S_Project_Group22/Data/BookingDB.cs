@@ -125,28 +125,28 @@ namespace INF2011S_Project_Group22.Data
             travelAgents = new Collection<TravelAgent>();
 
             FillDataSet(sqlLocal1, tableBooking);
-            AddBooking(tableBooking);
+            AddBooking();
 
             FillDataSet(sqlLocal2, tableBookingRoom);
-            AddBookingRoom(tableBookingRoom);
+            AddBookingRoom();
 
             FillDataSet(sqlLocal3, tableRoom);
-            AddRoom(tableRoom);
+            AddRoom();
 
             FillDataSet(sqlLocal4, tableGuest);
-            AddGuest(tableGuest);
+            AddGuest();
 
             FillDataSet(sqlLocal5, tableAccount);
-            AddGuestAccount(tableAccount);
+            AddGuestAccount();
 
             FillDataSet(sqlLocal6, tableHotel);
-            AddHotel(tableHotel);
+            AddHotel();
 
             FillDataSet(sqlLocal7, tablePayment);
-            AddPayment(tablePayment);
+            AddPayment();
 
             FillDataSet(sqlLocal8, tableAgent);
-            AddTravelAgent(tableAgent);
+            AddTravelAgent();
         }
         #endregion
 
@@ -157,13 +157,13 @@ namespace INF2011S_Project_Group22.Data
             return dsMain;
         }
         //Methods for adding to the collections for each table.
-        public void AddHotel(string table)
+        public void AddHotel()
         {
             DataRow myRow = null; // row in a table 
             Hotel hotel; //The hotel class
-            if (dsMain.Tables[table] == null)
+            if (dsMain.Tables[tableHotel] == null)
             {
-                throw new Exception($"Table '{table}' was not loaded into the DataSet."); //if the table is not loaded, throw an exception to remind the user.
+                throw new Exception($"Table '{tableHotel}' was not loaded into the DataSet."); //if the table is not loaded, throw an exception to remind the user.
             }
             foreach (DataRow myRow_loopVariable in dsMain.Tables[tableHotel].Rows) //for each row in the Hotel table
             {
@@ -188,13 +188,13 @@ namespace INF2011S_Project_Group22.Data
 
             }
         }
-        public void AddGuest(string table)
+        public void AddGuest()
         {
             DataRow myRow = null;
             Guest guest;
-            if (dsMain.Tables[table] == null)
+            if (dsMain.Tables[tableGuest] == null)
             {
-                throw new Exception($"Table '{table}' was not loaded into the DataSet."); //if the table is not loaded, throw an exception to remind the user.
+                throw new Exception($"Table '{tableGuest}' was not loaded into the DataSet."); //if the table is not loaded, throw an exception to remind the user.
             }
             foreach (DataRow myRow_loopVariable in dsMain.Tables[tableGuest].Rows)
             {
@@ -219,13 +219,13 @@ namespace INF2011S_Project_Group22.Data
             }
         }
 
-        public void AddTravelAgent(string table)
+        public void AddTravelAgent()
         {
             DataRow myRow = null;
             TravelAgent travelAgent;
-            if (dsMain.Tables[table] == null)
+            if (dsMain.Tables[tableAgent] == null)
             {
-                throw new Exception($"Table '{table}' was not loaded into the DataSet."); //if the table is not loaded, throw an exception to remind the user.
+                throw new Exception($"Table '{tableAgent}' was not loaded into the DataSet."); //if the table is not loaded, throw an exception to remind the user.
             }
             foreach (DataRow myRow_loopVariable in dsMain.Tables[tableAgent].Rows)
             {
@@ -250,13 +250,13 @@ namespace INF2011S_Project_Group22.Data
             }
         }
 
-        public void AddGuestAccount(string table)
+        public void AddGuestAccount()
         {
             DataRow myRow = null;
             GuestAccount guestAccount;
-            if (dsMain.Tables[table] == null)
+            if (dsMain.Tables[tableAccount] == null)
             {
-                throw new Exception($"Table '{table}' was not loaded into the DataSet."); //if the table is not loaded, throw an exception to remind the user.
+                throw new Exception($"Table '{tableAccount}' was not loaded into the DataSet."); //if the table is not loaded, throw an exception to remind the user.
             }
             foreach (DataRow myRow_loopVariable in dsMain.Tables[tableAccount].Rows)
             {
@@ -277,13 +277,13 @@ namespace INF2011S_Project_Group22.Data
                 }
             }
         }
-        private void AddPayment(string table)
+        private void AddPayment()
         {
             DataRow myRow = null;
             Payment payment;
-            if (dsMain.Tables[table] == null)
+            if (dsMain.Tables[tablePayment] == null)
             {
-                throw new Exception($"Table '{table}' was not loaded into the DataSet."); //if the table is not loaded, throw an exception to remind the user.
+                throw new Exception($"Table '{tablePayment}' was not loaded into the DataSet."); //if the table is not loaded, throw an exception to remind the user.
             }
             foreach (DataRow myRow_loopVariable in dsMain.Tables[tablePayment].Rows)
             {
@@ -301,13 +301,13 @@ namespace INF2011S_Project_Group22.Data
             }
         }
 
-        private void AddBookingRoom(string table)
+        private void AddBookingRoom()
         {
             DataRow myRow = null;
             BookingRoom bookingRoom;
-            if (dsMain.Tables[table] == null)
+            if (dsMain.Tables[tableBookingRoom] == null)
             {
-                throw new Exception($"Table '{table}' was not loaded into the DataSet."); //if the table is not loaded, throw an exception to remind the user.
+                throw new Exception($"Table '{tableBookingRoom}' was not loaded into the DataSet."); //if the table is not loaded, throw an exception to remind the user.
             }
             foreach (DataRow myRow_loopVariable in dsMain.Tables[tableBookingRoom].Rows)
             {
@@ -323,13 +323,13 @@ namespace INF2011S_Project_Group22.Data
             }
         }
 
-        private void AddRoom(string table)
+        private void AddRoom()
         {
             DataRow myRow = null;
             HotelRoom room;
-            if (dsMain.Tables[table] == null)
+            if (dsMain.Tables[tableRoom] == null)
             {
-                throw new Exception($"Table '{table}' was not loaded into the DataSet."); //if the table is not loaded, throw an exception to remind the user.
+                throw new Exception($"Table '{tableRoom}' was not loaded into the DataSet."); //if the table is not loaded, throw an exception to remind the user.
             }
             foreach (DataRow myRow_loopVariable in dsMain.Tables[tableRoom].Rows)
             {
@@ -346,13 +346,13 @@ namespace INF2011S_Project_Group22.Data
                 }
             }
         }
-        private void AddBooking(string table) 
+        private void AddBooking() 
         {
             DataRow myRow = null;
             Booking booking;
-            if (dsMain.Tables[table] == null)
+            if (dsMain.Tables[tableBooking] == null)
             {
-                throw new Exception($"Table '{table}' was not loaded into the DataSet."); //if the table is not loaded, throw an exception to remind the user.
+                throw new Exception($"Table '{tableBooking}' was not loaded into the DataSet."); //if the table is not loaded, throw an exception to remind the user.
             }
             foreach (DataRow myRow_loopVariable in dsMain.Tables[tableBooking].Rows)
             {
