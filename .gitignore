@@ -363,3 +363,5 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+/INF2011S_Project_Group22/HotelBookingDB.mdf
+/INF2011S_Project_Group22/HotelBookingDB_log.ldf
