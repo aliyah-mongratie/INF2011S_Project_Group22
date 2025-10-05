@@ -327,7 +327,7 @@ namespace INF2011S_Project_Group22.Data
                 }
             }
         }
-        private void AddBooking(string table)
+        private void AddBooking(string table) 
         {
             DataRow myRow = null;
             Booking booking;

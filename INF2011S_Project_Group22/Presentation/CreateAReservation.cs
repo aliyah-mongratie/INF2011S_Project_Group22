@@ -1,4 +1,5 @@
 ﻿using INF2011S_Project_Group22.Business;
+using INF2011S_Project_Group22.Data;
 using INF2011S_Project_Group22.Presentation;
 using System;
 using System.Collections.Generic;
@@ -163,6 +164,9 @@ namespace INF2011S_Project_Group22
 
         private void btnCreateResNext_Click(object sender, EventArgs e)
         {
+            
+
+
             //Show a message box if any of the required fields are empty when the next button is clicked
             if (string.IsNullOrWhiteSpace(txtFirstName.Text) ||
                 string.IsNullOrWhiteSpace(txtLastName.Text) ||
@@ -212,7 +216,9 @@ namespace INF2011S_Project_Group22
                 specialRequirements // Pass checkOutDate as DateTime
                                 
             );
-
+            /* BookingDB bookingDB = new BookingDB();
+             bookingDB.AddBooking(); //Add the booking to the database*/
+            //Should I be passing the booking object to the AddBooking method? so it can be added to the database or what
 
 
 
