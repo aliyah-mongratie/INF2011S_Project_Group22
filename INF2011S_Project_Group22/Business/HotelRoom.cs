@@ -9,11 +9,11 @@ namespace INF2011S_Project_Group22
     class HotelRoom //aliyah
     {
         #region Data Members 
-        public string hotelRoomID; //assume room number
+        public string hotelRoomID; // room number
       
 
         public string hotelID;//unique id of hotel in system
-        public enum RoomStatus
+        public enum RoomStatus 
         {
             Available = 0,
             Occupied = 1
@@ -59,7 +59,7 @@ namespace INF2011S_Project_Group22
         {
             hotelRoomID = "";
             hotelID = "";
-            roomStat = HotelRoom.RoomStatus.Available;
+            roomStat = HotelRoom.RoomStatus.Available; //the default state of a room
             roomPrice = 0;
             roomCapacity = 0;
         }
@@ -75,6 +75,7 @@ namespace INF2011S_Project_Group22
         #endregion
 
         #region Methods 
+        // To change the state of the room 
         public void CheckIn()
         {
             roomStat = RoomStatus.Occupied;

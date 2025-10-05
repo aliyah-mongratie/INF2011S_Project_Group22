@@ -301,6 +301,7 @@
             this.Controls.Add(this.pictureBox1);
             this.Name = "ReservationDetails";
             this.Text = "ReservationDetails";
+            this.Load += new System.EventHandler(this.ReservationDetails_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

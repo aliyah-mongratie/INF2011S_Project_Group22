@@ -16,7 +16,6 @@ namespace INF2011S_Project_Group22.Presentation
         public BookingConfirmation()
         {
             InitializeComponent();
-
             Booking booking = new Booking();
             
 

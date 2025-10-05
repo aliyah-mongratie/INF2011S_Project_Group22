@@ -329,6 +329,7 @@
             this.Controls.Add(this.lblCreditCardDetails);
             this.Name = "frmMakePayment";
             this.Text = "MakePayment";
+            this.Load += new System.EventHandler(this.frmMakePayment_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();

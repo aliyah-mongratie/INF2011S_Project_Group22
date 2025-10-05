@@ -94,11 +94,13 @@ namespace INF2011S_Project_Group22.Business
             agents = bookingDB.AlltravelAgents;
             hotels = bookingDB.AllHotels;
         }
-        
+
         #endregion
 
         #region Search Methods 
         // These methods search through the collections and returns a matching object.  
+
+        // Each Find method has a corresponding FindIndex method that returns the index of the object in the collection, and more specifically, the index of the object that is to be edited or deleted.
         public Booking Find(int bookingResNumber)
         {
             int index = 0;
@@ -112,6 +114,8 @@ namespace INF2011S_Project_Group22.Business
             }
             return bookings[index];
         }
+
+        // this method finds a booking room based on the booking reference number, and returns the booking room object
         public BookingRoom FindBookRoom(int bookingResNumber)
         {
             int index = 0;
@@ -125,6 +129,8 @@ namespace INF2011S_Project_Group22.Business
             }
             return bookingRooms[index];
         }
+
+        // this method finds a guest based on the guest ID, and returns the guest object
         public Guest FindGuest(string guestID)
         {
             int index = 0;
@@ -138,6 +144,8 @@ namespace INF2011S_Project_Group22.Business
             }
             return guests[index];
         }
+
+        // this method finds a guest account based on the guest ID, and returns the guest account object
         public GuestAccount FindAccount(string guestId)
         {
             int index = 0;
@@ -151,6 +159,8 @@ namespace INF2011S_Project_Group22.Business
             }
             return accounts[index];
         }
+
+        // this method finds a hotel room based on the room ID, and returns the hotel room object
         public HotelRoom FindRoom(string hotelRoomId)
         {
             int index = 0;
@@ -164,6 +174,8 @@ namespace INF2011S_Project_Group22.Business
             }
             return rooms[index];
         }
+
+        // this method finds a payment based on the payment ID, and returns the payment object
         public Payment FindPayment(string paymentId)
         {
             int index = 0;
@@ -177,6 +189,8 @@ namespace INF2011S_Project_Group22.Business
             }
             return payments[index];
         }
+
+        // this method finds a travel agent based on the travel agent ID, and returns the travel agent object
         public TravelAgent FindAgent(string travelAgentId)
         {
             int index = 0;
@@ -190,6 +204,8 @@ namespace INF2011S_Project_Group22.Business
             }
             return agents[index];
         }
+
+        // FindIndex methods: return the index of the object in the collection, or -1 if the object is not found, in simple terms, it returns the position of the object in the collection.
         public int FindIndex(Booking aBook)
         {
             int counter = 0;
@@ -209,6 +225,8 @@ namespace INF2011S_Project_Group22.Business
                 return -1;
             }
         }
+
+        // FindIndex method for BookingRoom, what it does is it finds the index of the booking room in the collection, based on the booking reference number.
         public int FindIndexBookRoom(BookingRoom bookingRoom)
         {
             int counter = 0;
@@ -228,6 +246,8 @@ namespace INF2011S_Project_Group22.Business
                 return -1;
             }
         }
+
+        // FindIndex method for Guest, what it does is it finds the index of the guest in the collection, based on the guest ID.
         public int FindIndexGuest(Guest guest)
         {
             int counter = 0;
@@ -247,6 +267,8 @@ namespace INF2011S_Project_Group22.Business
                 return -1;
             }
         }
+
+        // FindIndex method for GuestAccount, what it does is it finds the index of the guest account in the collection, based on the guest ID.
         public int FindIndexAccount(GuestAccount account)
         {
             int counter = 0;
@@ -266,6 +288,8 @@ namespace INF2011S_Project_Group22.Business
                 return -1;
             }
         }
+
+        // FindIndex method for HotelRoom, what it does is it finds the index of the hotel room in the collection, based on the room ID.
         public int FindIndexRoom(HotelRoom room)
         {
             int counter = 0;
@@ -285,6 +309,8 @@ namespace INF2011S_Project_Group22.Business
                 return -1;
             }
         }
+
+        // FindIndex method for Payment, what it does is it finds the index of the payment in the collection, based on the payment ID.
         public int FindIndexPayment(Payment payment)
         {
             int counter = 0;
@@ -304,12 +330,14 @@ namespace INF2011S_Project_Group22.Business
                 return -1;
             }
         }
+
+        // FindIndex method for TravelAgent, what it does is it finds the index of the travel agent in the collection, based on the travel agent ID.
         public int FindIndexAgent(TravelAgent agent)
         {
             int counter = 0;
             bool found = false;
-            found = (agent.TravelAgentId == agents[counter].TravelAgentId);
-            while (!(found) && (counter < agents.Count - 1))
+            found = (agent.TravelAgentId == agents[counter].TravelAgentId); //in simple terms, it checks if the travel agent ID of the agent passed in is equal to the travel agent ID of the agent at the current index of the collection
+            while (!(found) && (counter < agents.Count - 1)) 
             {
                 counter++;
                 found = (agent.TravelAgentId == agents[counter].TravelAgentId);
@@ -322,7 +350,7 @@ namespace INF2011S_Project_Group22.Business
             {
                 return -1;
             }
-        }
+        } 
         #endregion
 
         #region Database Communication
@@ -512,6 +540,8 @@ namespace INF2011S_Project_Group22.Business
         }
         #endregion
         #region Methods 
+
+        //This methods allow the receptionist to manage bookings according to the business rules, and communicate with the database through the BookingDB class.
         public Booking MakeBooking(Guest guest, List<HotelRoom> rooms, TravelAgent travelAgent, string bookingType, int numOfPeople, int numOfRooms,
                         DateTime checkInDate, DateTime checkOutDate, string specialRequirements)
         {
@@ -547,6 +577,7 @@ namespace INF2011S_Project_Group22.Business
             bookings.Add(booking);
             DataMaintenanceBooking(booking, DB.DBOperation.add);
             FinalizeChangesBooking(booking);           // adding booking to the database 
+            
 
             foreach (HotelRoom room in rooms) // loop for each room that the guest is booking 
             {
@@ -562,8 +593,10 @@ namespace INF2011S_Project_Group22.Business
             }
            
             return booking;
+
         }
 
+        // ChangeBooking method: allows the receptionist to change the details of an existing booking, and ensures that the changes abide by the business rules.
         public void ChangeBooking(int bookingResNumber, int newNumOfPeople, int newNumOfRooms,
                         DateTime newCheckInDate, DateTime newCheckOutDate, string newSpecialRequirements, List<HotelRoom> newRooms)
         {
@@ -612,6 +645,7 @@ namespace INF2011S_Project_Group22.Business
             //the new booking is now added to the database 
         }
 
+        // CancelBooking method: allows the receptionist to cancel an existing booking, and changes the status of the booking to "cancelled".
         public void CancelBooking(int bookingResNumber)
         {
             Booking booking = Find(bookingResNumber); // find the booking reference number for the booking
@@ -637,10 +671,14 @@ namespace INF2011S_Project_Group22.Business
             DataMaintenanceBooking(booking, DB.DBOperation.edit);
             FinalizeChangesBooking(booking);
         }
+
+        // EnquireBooking method: allows the receptionist to view the details of an existing booking, given the booking reservation number.
         public Booking EnquireBooking(int bookingResNumber)
         {
             return Find(bookingResNumber); // Find the booking details so that the receptionist can view it 
         }
+
+        // ConfirmBooking method: allows the receptionist to confirm an existing booking, and changes the status of the booking to "confirmed".
         public void ConfirmBooking(int bookingResNumber)
         {
             Booking booking = Find(bookingResNumber);
