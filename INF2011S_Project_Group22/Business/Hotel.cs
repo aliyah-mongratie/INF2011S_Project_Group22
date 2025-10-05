@@ -8,17 +8,17 @@ namespace INF2011S_Project_Group22
 {
     class Hotel
     {
-        // aliyah's part 
+        // Class to represent the hotels in the Phumla Kamnandi hotel group 
 
         #region Data Members 
-        private string hotelID;
+        private string hotelID; // to uniquely identify each hotel
         private string hotelName;
-        private string hotelAddress;
+        private string hotelAddress; //  e.g. 10 Apple Street, Rondebosch 
         private string hotelCity;
         private string hotelPostCode;
         private string hotelPhone;
         private string hotelEmail;
-        private int noOfRooms;
+        private int noOfRooms; // number of rooms in each hotel
         #endregion
 
         #region Property methods 

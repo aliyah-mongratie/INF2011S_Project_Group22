@@ -7,10 +7,11 @@ using System.Threading.Tasks;
 namespace INF2011S_Project_Group22.Business
 {
     class BookingRoom
+        // Class that represents a room that is including in a booking 
     {
         #region Data Members
-        public int bookingResNumber { get; set; }
-        public string hotelRoomId { get; set; }
+        public int bookingResNumber { get; set; } // To identify the booking that the room is a part of.
+        public string hotelRoomId { get; set; } // To identify the details about the room
 
         public Booking booking { get; set; }
         public HotelRoom room { get; set; }

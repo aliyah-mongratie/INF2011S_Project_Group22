@@ -13,12 +13,12 @@ namespace INF2011S_Project_Group22.Data
     class DB
     {
         #region Variable declaration
-        //***Once the database is created you can find the correct connection string by using the Settings.Default object to select the correct connection string
-        private string strConn = Settings.Default.HotelBookingDBConnectionString;
-        protected SqlConnection cnMain;
-        protected DataSet dsMain;
-        protected SqlDataAdapter daMain;
-        public enum DBOperation
+       
+        private string strConn = Settings.Default.HotelBookingDBConnectionString; //connection string used to connect to the HotelBookingDB
+        protected SqlConnection cnMain; //represents a connection in the database 
+        protected DataSet dsMain; //An in-memory collection of the data
+        protected SqlDataAdapter daMain; // delivers data from the database to the dataset
+        public enum DBOperation //The three operations that will be performed on the database 
         {
             add,
             edit,
@@ -52,7 +52,6 @@ namespace INF2011S_Project_Group22.Data
             {
                 daMain = new SqlDataAdapter(aSQLstring, cnMain);
                 cnMain.Open();
-                //dsMain.Clear();
                 daMain.Fill(dsMain, aTable);
                 cnMain.Close();
             }
@@ -72,9 +71,9 @@ namespace INF2011S_Project_Group22.Data
             {
                 //open the connection
                 cnMain.Open();
-                //***update the database table via the data adapter
+                //update the database table via the data adapter
                 daMain.Update(dsMain, table);
-                //---close the connection
+                //close the connection
                 cnMain.Close();
                 //refresh the dataset
                 FillDataSet(sqlLocal, table);
