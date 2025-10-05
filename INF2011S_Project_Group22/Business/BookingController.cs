@@ -533,32 +533,34 @@ namespace INF2011S_Project_Group22.Business
                 MessageBox.Show("The check in date must be before the check out date", "Invalid input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 
-            int bookingResNumber = Booking.generateBookingResNumber();
+            int bookingResNumber = Booking.generateBookingResNumber(); //generate a booking reservation number 
 
             Booking booking = new Booking(bookingResNumber, numOfPeople, numOfRooms, checkInDate, checkOutDate, specialRequirements, guest, rooms, travelAgent);
-            bookings.Add(booking); 
+
+            string unavailableRoomID = booking.CheckRoomAvailability(); // the roomId that is unavailable 
+            if (unavailableRoomID != null)
+            {
+                MessageBox.Show("The room " + unavailableRoomID + " is currently occupied. Please select a new room.", "Room Occupied", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }
+
+            bookings.Add(booking);
             DataMaintenanceBooking(booking, DB.DBOperation.add);
             FinalizeChangesBooking(booking);           // adding booking to the database 
 
             foreach (HotelRoom room in rooms) // loop for each room that the guest is booking 
             {
-                if(room.getRoomStatus == HotelRoom.RoomStatus.Available) //make sure that the room is available before it can be added to the booking
-                {
-                    room.CheckIn(); // Change the status of the room to Occupied 
+                booking.AddRoom(room.HotelRoomID, room.HotelID, room.RoomPrice, room.RoomCapacity); // add the room to the booking
+                room.CheckIn(); //change the room status to "occupied"
 
-                    BookingRoom bookingRoom = new BookingRoom(bookingResNumber, room.HotelRoomID);
-                    bookingDB.DataSetChangeBookingRoom(bookingRoom, DB.DBOperation.add);
-                    bookingDB.UpdateDataSource_BookRoom(bookingRoom);
+                BookingRoom bookingRoom = new BookingRoom(bookingResNumber, room.HotelRoomID);
 
-                    bookingDB.DataSetChangeHotelRoom(room, DB.DBOperation.edit);
-                    bookingDB.UpdateDataSource_Room(room);
-                }
-                else
-                {
-                    MessageBox.Show("This room is currently occupied. Please select a new room.", "Room Occupied", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                
+                bookingDB.DataSetChangeBookingRoom(bookingRoom, DB.DBOperation.add);
+                bookingDB.UpdateDataSource_BookRoom(bookingRoom);
+                bookingDB.DataSetChangeHotelRoom(room, DB.DBOperation.edit);
+                bookingDB.UpdateDataSource_Room(room);
             }
+           
             return booking;
         }
 

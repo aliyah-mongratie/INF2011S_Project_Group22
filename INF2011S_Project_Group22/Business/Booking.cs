@@ -85,7 +85,7 @@ namespace INF2011S_Project_Group22.Business
             return (checkOutDate - checkInDate).Days;//calculates amount of days/nights stay for booking
         }
 
-        public bool CheckRoomAvailability()
+        public string CheckRoomAvailability()
         {
             
             
@@ -93,13 +93,13 @@ namespace INF2011S_Project_Group22.Business
             {
                 if (room.getRoomStatus != HotelRoom.RoomStatus.Available)
                 {
-                    return false; // as soon as we find one unavailable room, stop
+                    return room.HotelRoomID; // as soon as we find one unavailable room, stop and return its Id
                 }
             }
-            return true; // all rooms passed the check
+            return null; // all rooms passed the check
         }
 
-         public void AddRoom(string newHotelRoomID, string newHotelID, decimal newRoomPrice, int newRoomCapacity)
+         public void AddRoom(string newHotelRoomID, string newHotelID, decimal newRoomPrice, int newRoomCapacity) //add a room to teh booking
          {
             var newRoom = new HotelRoom(newHotelRoomID, newHotelID, newRoomPrice, newRoomCapacity);
 
