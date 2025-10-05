@@ -23,62 +23,64 @@ namespace INF2011S_Project_Group22.Presentation
         private void ViewAvailability_Load(object sender, EventArgs e)
         {
             
-           roomSelection();
+           
 
 
         }
         private void roomSelection()
         {
-            
 
+            CheckBox[] roomCheckBoxes = { cbRoom101, cbRoom102, cbRoom103, cbRoom104, cbRoom105 }; //Array of checkboxes for room selection
+
+            TextBox[] roomTextBoxes = { txtRoom101, txtRoom102, txtRoom103, txtRoom104, txtRoom105 }; //Array of textboxes for number of people in each room
 
 
             //Textboxes are made visible based on the rooms selected by the user.
-            if (cbRoom101.Checked)
-           {
-                txtRoom101.Visible = true;  
-           }
-           else
-           {
-                 txtRoom101.Visible = false;
-           }
+          
 
-           if (cbRoom102.Checked)
-           {
-                 txtRoom102.Visible = true;
-           }
-           else
-           {
-                 txtRoom102.Visible = false;
-           }
+            //Loop through the checkboxes and textboxes to ensure that the user selects at least one room and enters the number of people for each selected room.
 
-           if (cbRoom103.Checked)
+            int selectedRooms = 0;
+           for (int i=0; i<roomCheckBoxes.Length; i++)
            {
-                    txtRoom103.Visible = true;
-           }
-           else
-           {
-                    txtRoom103.Visible = false;
+                if (roomCheckBoxes[i].Checked)
+                {
+                    selectedRooms++;
 
-           }
-           if (cbRoom104.Checked)
-           {
-                      txtRoom104.Visible = true;
-           }
-           else
-           {
-                      txtRoom104.Visible = false;
-           }
-           if (cbRoom105.Checked)
-           {
-                         txtRoom105.Visible = true;
-           }
-           else
-           {
-                         txtRoom105.Visible = false;
-           }
+                        //Validation for number of people in each room
+                    
+                    if (selectedRooms>3 )
+                    {
+                         MessageBox.Show("You can select a maximum of 3 rooms.");
+                         return;
+                    }
+                    //Validation for number of people in each room
 
-           //the textboxes will retrieve the number of people in each room from the user.
+                    if (int.TryParse(roomTextBoxes[i].Text, out int noOfpeople)) 
+                    {
+                        if (noOfpeople < 1 || noOfpeople > 4)
+                        {
+                            MessageBox.Show("Please enter a valid number of people (1-4) for " + roomCheckBoxes[i].Text);
+                            return;
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Please enter a valid number of people for " + roomCheckBoxes[i].Text);
+                        return;
+
+                    }
+                    //Check room availability from the database
+                    Booking booking = new Booking();
+
+                    booking.CheckRoomAvailability();
+
+
+                }
+
+            }
+           
+
 
 
 
@@ -89,6 +91,7 @@ namespace INF2011S_Project_Group22.Presentation
 
         private void button1_Click(object sender, EventArgs e)
         {
+            roomSelection();
             //If the user is satisfied with the room selection, they can proceed to the reservation form
             frmCreateReservation newForm = new frmCreateReservation();
             newForm.ShowDialog();

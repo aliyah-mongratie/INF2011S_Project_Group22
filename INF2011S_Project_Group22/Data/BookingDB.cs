@@ -161,7 +161,11 @@ namespace INF2011S_Project_Group22.Data
         {
             DataRow myRow = null; // row in a table 
             Hotel hotel; //The hotel class
-            foreach (DataRow myRow_loopVariable in dsMain.Tables[tableHotel].Rows) //for each row in the Hotel table
+            if (dsMain.Tables[table] == null)
+            {
+                throw new Exception($"Table '{table}' was not loaded into the DataSet."); //if the table is not loaded, throw an exception to remind the user.
+            }
+            foreach (DataRow myRow_loopVariable in dsMain.Tables[table].Rows) //for each row in the Hotel table
             {
                 myRow = myRow_loopVariable;
 
