@@ -75,7 +75,7 @@ namespace INF2011S_Project_Group22.Business
 
         #region Methods
 
-        public static int generateBookingResNumber()
+        public static int generateBookingResNumber() //generates a random booking/reservation number
         {
             Random rand = new Random();
             return rand.Next(10000, 100000); // generates a random number between 10000 and 100000
@@ -85,13 +85,13 @@ namespace INF2011S_Project_Group22.Business
             return (checkOutDate - checkInDate).Days;//calculates amount of days/nights stay for booking
         }
 
-        public string CheckRoomAvailability()
+        public string CheckRoomAvailability() //checks if all rooms in the booking are available
         {
             
             
-            foreach (var room in Rooms)
+            foreach (var room in Rooms) // iterate through each room in the booking
             {
-                if (room.getRoomStatus != HotelRoom.RoomStatus.Available)
+                if (room.getRoomStatus != HotelRoom.RoomStatus.Available) // check if the room is not available
                 {
                     return room.HotelRoomID; // as soon as we find one unavailable room, stop and return its Id
                 }
@@ -99,14 +99,15 @@ namespace INF2011S_Project_Group22.Business
             return null; // all rooms passed the check
         }
 
-         public void AddRoom(string newHotelRoomID, string newHotelID, decimal newRoomPrice, int newRoomCapacity) //add a room to teh booking
+        //This method is used to add a room to the booking
+        public void AddRoom(string newHotelRoomID, string newHotelID, decimal newRoomPrice, int newRoomCapacity) //add a room to teh booking
          {
-            var newRoom = new HotelRoom(newHotelRoomID, newHotelID, newRoomPrice, newRoomCapacity);
+            var newRoom = new HotelRoom(newHotelRoomID, newHotelID, newRoomPrice, newRoomCapacity); //create a new room object
 
             // Change status to Occupied right after creation
             newRoom.roomStat = RoomStatus.Occupied;
 
-            Rooms.Add(newRoom);
+            Rooms.Add(newRoom); //add the new room to the list of rooms in the booking
 
             MessageBox.Show($"Added Room {newHotelRoomID} ({newHotelID}, {newRoomPrice}, {newRoomCapacity}) - Status: {newRoom.roomStat}");
             MessageBox.Show($"Count: {Rooms.Count}, Capacity: {Rooms.Capacity}");
