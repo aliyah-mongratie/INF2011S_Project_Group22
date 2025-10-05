@@ -119,7 +119,7 @@ namespace INF2011S_Project_Group22
                 MessageBox.Show("The check-in date cannot be in the past.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            else if (checkOutDate >= checkInDate)
+            else if (checkOutDate <= checkInDate)
             {
                 MessageBox.Show("The check-out date must be after the check-in date.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
