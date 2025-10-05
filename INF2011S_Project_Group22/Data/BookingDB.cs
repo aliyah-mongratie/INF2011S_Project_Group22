@@ -15,7 +15,8 @@ namespace INF2011S_Project_Group22.Data
 {
     class BookingDB : DB
     {
-        #region  Data members        
+        #region  Data members   
+        // Tables in the database and SQL queries associated with each table
         private string tableBooking = "Booking";
         private string sqlLocal1 = "SELECT * FROM Booking";
 
@@ -40,6 +41,7 @@ namespace INF2011S_Project_Group22.Data
         private string tableAgent = "TravelAgent";
         private string sqlLocal8 = "SELECT * FROM TravelAgent";
 
+        // Collections to store a list of objects
         private Collection<Booking> bookings;
         private Collection<BookingRoom> bookingRooms;
         private Collection<HotelRoom> hotelRooms;
@@ -51,6 +53,7 @@ namespace INF2011S_Project_Group22.Data
 
         #endregion
         #region Property Methods: Collection
+        // The collections have no set accessors so that they cannot be replaced entirely 
         public Collection<Booking> AllBookings
         {
             get
@@ -150,20 +153,21 @@ namespace INF2011S_Project_Group22.Data
         #region Utility Methods
         public DataSet GetDataSet()
         {
+            //Returns the dsMain object which stores the database tables so that they can be read, displayed, or changed
             return dsMain;
         }
-        //Methods for adding to the collections.
+        //Methods for adding to the collections for each table.
         public void AddHotel(string table)
         {
-            DataRow myRow = null;
-            Hotel hotel;
-            foreach (DataRow myRow_loopVariable in dsMain.Tables[tableHotel].Rows)
+            DataRow myRow = null; // row in a table 
+            Hotel hotel; //The hotel class
+            foreach (DataRow myRow_loopVariable in dsMain.Tables[tableHotel].Rows) //for each row in the Hotel table
             {
                 myRow = myRow_loopVariable;
 
-                if (!(myRow.RowState == DataRowState.Deleted))
+                if (!(myRow.RowState == DataRowState.Deleted)) //skips rows that have been deleted 
                 {
-                    hotel = new Hotel();
+                    hotel = new Hotel(); //create a new Hotel object
 
                     hotel.HotelID = Convert.ToString(myRow["HotelId"]).TrimEnd();
                     hotel.HotelName = Convert.ToString(myRow["HotelName"]).TrimEnd();
@@ -175,7 +179,7 @@ namespace INF2011S_Project_Group22.Data
                     hotel.NoOfRooms = Convert.ToInt32(myRow["NoOfRooms"]);
 
 
-                    hotels.Add(hotel);
+                    hotels.Add(hotel); //add the hotel object to the collection 
                 }
 
             }
@@ -348,9 +352,10 @@ namespace INF2011S_Project_Group22.Data
         }
         private void FillRowBooking(DataRow aRow, Booking booking, DB.DBOperation operation)
         {
+            // Fill a row with specific Booking data 
             if (operation == DB.DBOperation.add)
             {
-                aRow["BookingResNumber"] = booking.bookingResNumber;
+                aRow["BookingResNumber"] = booking.bookingResNumber; //Set the row's primary key if a new row is being added 
             }
                
             aRow["GuestId"] = booking.guest.guestID;
@@ -367,6 +372,7 @@ namespace INF2011S_Project_Group22.Data
         
         private int FindRowBooking(Booking booking, string table)
         {
+            //Find the index of the row in the table which represents a specific object. In this case a booking.
             int rowIndex = 0;
             DataRow myRow;
             int returnValue = -1;
@@ -397,6 +403,7 @@ namespace INF2011S_Project_Group22.Data
         }
         private int FindRowBookingRoom(BookingRoom bookingRoom, string table)
         {
+            //Find the index of the row in the table which represents a specific object. In this case a room in a booking.
             int rowIndex = 0;
             DataRow myRow;
             int returnValue = -1;
@@ -430,6 +437,7 @@ namespace INF2011S_Project_Group22.Data
         }
         private int FindRowGuest(Guest guest, string table)
         {
+            //Find the index of the row in the table which represents a specific object. In this case a guest.
             int rowIndex = 0;
             DataRow myRow;
             int returnValue = -1;
@@ -464,6 +472,7 @@ namespace INF2011S_Project_Group22.Data
         }
         private int FindRowGuestAccount(GuestAccount account, string table)
         {
+            //Find the index of the row in the table which represents a specific object. In this case a guest account.
             int rowIndex = 0;
             DataRow myRow;
             int returnValue = -1;
@@ -494,6 +503,7 @@ namespace INF2011S_Project_Group22.Data
         }
         private int FindRowPayment(Payment payment, string table)
         {
+            //Find the index of the row in the table which represents a specific object. In this case a payment.
             int rowIndex = 0;
             DataRow myRow;
             int returnValue = -1;
@@ -526,6 +536,7 @@ namespace INF2011S_Project_Group22.Data
         }
         private int FindRowTravelAgent(TravelAgent agent, string table)
         {
+            //Find the index of the row in the table which represents a specific object. In this case a travel agent.
             int rowIndex = 0;
             DataRow myRow;
             int returnValue = -1;
@@ -558,6 +569,7 @@ namespace INF2011S_Project_Group22.Data
         }
         private int FindRowRoom(HotelRoom room, string table)
         {
+            //Find the index of the row in the table which represents a specific object. In this case a hotel room.
             int rowIndex = 0;
             DataRow myRow;
             int returnValue = -1;
@@ -579,34 +591,32 @@ namespace INF2011S_Project_Group22.Data
         #endregion
 
         #region Database operations CRUD
+        // Data set change methods: take an object and apply a specific operation to the data
         public void DataSetChangeBooking(Booking booking, DB.DBOperation operation)
         {
             DataRow aRow = null;
 
             switch (operation)
             {
-                case DB.DBOperation.add:
-                    // Booking
+                case DB.DBOperation.add: //creates a row, fills the row, and it adds it to the dataset
                     aRow = dsMain.Tables[tableBooking].NewRow();
                     FillRowBooking(aRow, booking, DBOperation.add);
                     dsMain.Tables[tableBooking].Rows.Add(aRow);
                     break;
 
-                case DB.DBOperation.edit:
-                    // Booking
-                    aRow = dsMain.Tables[tableBooking].Rows.Find(booking.bookingResNumber);
+                case DB.DBOperation.edit: //Finds a row and edits the data 
+                    aRow = dsMain.Tables[tableBooking].Rows[FindRowBooking(booking, tableBooking)];
                     if (aRow != null)
                         FillRowBooking(aRow, booking, DBOperation.edit);
                     break;
 
-                case DB.DBOperation.delete:
-                    // Booking
-                    aRow = dsMain.Tables[tableBooking].Rows.Find(booking.bookingResNumber);
+                case DB.DBOperation.delete: //Finds a row and marks it as deleted 
+                    aRow = dsMain.Tables[tableBooking].Rows[FindRowBooking(booking, tableBooking)];
                     if (aRow != null)
                         aRow.Delete();
                     break;
             }
-        
+           
         }
 
         public void DataSetChangeBookingRoom(BookingRoom bookingRoom, DB.DBOperation operation)
@@ -622,13 +632,13 @@ namespace INF2011S_Project_Group22.Data
                     break;
 
                 case DB.DBOperation.edit:
-                    aRow = dsMain.Tables[tableBookingRoom].Rows.Find(bookingRoom.bookingResNumber);
+                    aRow = dsMain.Tables[tableBookingRoom].Rows[FindRowBookingRoom(bookingRoom, tableBookingRoom)];
                     if (aRow != null)
                         FillRowBookingRoom(aRow, bookingRoom, DBOperation.edit);
                     break;
 
                 case DB.DBOperation.delete:
-                    aRow = dsMain.Tables[tableBookingRoom].Rows.Find(bookingRoom.bookingResNumber);
+                    aRow = dsMain.Tables[tableBookingRoom].Rows[FindRowBookingRoom(bookingRoom, tableBookingRoom)];
                     if (aRow != null)
                         aRow.Delete();
                     break;
@@ -649,13 +659,13 @@ namespace INF2011S_Project_Group22.Data
                     break;
 
                 case DB.DBOperation.edit:
-                    aRow = dsMain.Tables[tableGuest].Rows.Find(guest.GuestID);
+                    aRow = dsMain.Tables[tableGuest].Rows[FindRowGuest(guest, tableGuest)];
                     if (aRow != null)
                         FillRowGuest(aRow, guest, DBOperation.edit);
                     break;
 
                 case DB.DBOperation.delete:
-                    aRow = dsMain.Tables[tableGuest].Rows.Find(guest.GuestID);
+                    aRow = dsMain.Tables[tableGuest].Rows[FindRowGuest(guest, tableGuest)];
                     if (aRow != null)
                         aRow.Delete();
                     break;
@@ -675,13 +685,13 @@ namespace INF2011S_Project_Group22.Data
                     break;
 
                 case DB.DBOperation.edit:
-                    aRow = dsMain.Tables[tableAccount].Rows.Find(account.GuestID);
+                    aRow = dsMain.Tables[tableAccount].Rows[FindRowGuestAccount(account, tableAccount)];
                     if (aRow != null)
                         FillRowGuestAccount(aRow, account, DBOperation.edit);
                     break;
 
                 case DB.DBOperation.delete:
-                    aRow = dsMain.Tables[tableAccount].Rows.Find(account.GuestID);
+                    aRow = dsMain.Tables[tableAccount].Rows[FindRowGuestAccount(account, tableAccount)];
                     if (aRow != null)
                         aRow.Delete();
                     break;
@@ -701,13 +711,13 @@ namespace INF2011S_Project_Group22.Data
                     break;
 
                 case DB.DBOperation.edit:
-                    aRow = dsMain.Tables[tableRoom].Rows.Find(room.HotelRoomID);
+                    aRow = dsMain.Tables[tableRoom].Rows[FindRowRoom(room, tableRoom)];
                     if (aRow != null)
                         FillRowRoom(aRow, room, DBOperation.edit);
                     break;
 
                 case DB.DBOperation.delete:
-                    aRow = dsMain.Tables[tableRoom].Rows.Find(room.HotelRoomID);
+                    aRow = dsMain.Tables[tableRoom].Rows[FindRowRoom(room, tableRoom)];
                     if (aRow != null)
                         aRow.Delete();
                     break;
@@ -727,13 +737,13 @@ namespace INF2011S_Project_Group22.Data
                     break;
 
                 case DB.DBOperation.edit:
-                    aRow = dsMain.Tables[tablePayment].Rows.Find(payment.paymentID);
+                    aRow = dsMain.Tables[tablePayment].Rows[FindRowPayment(payment, tablePayment)];
                     if (aRow != null)
                         FillRowPayment(aRow, payment, DBOperation.edit);
                     break;
 
                 case DB.DBOperation.delete:
-                    aRow = dsMain.Tables[tablePayment].Rows.Find(payment.paymentID);
+                    aRow = dsMain.Tables[tablePayment].Rows[FindRowPayment(payment, tablePayment)];
                     if (aRow != null)
                         aRow.Delete();
                     break;
@@ -753,13 +763,13 @@ namespace INF2011S_Project_Group22.Data
                     break;
 
                 case DB.DBOperation.edit:
-                    aRow = dsMain.Tables[tableAgent].Rows.Find(agent.TravelAgentId);
+                    aRow = dsMain.Tables[tableAgent].Rows[FindRowTravelAgent(agent, tableAgent)];
                     if (aRow != null)
                         FillRowTravelAgent(aRow, agent, DBOperation.edit);
                     break;
 
                 case DB.DBOperation.delete:
-                    aRow = dsMain.Tables[tableAgent].Rows.Find(agent.TravelAgentId);
+                    aRow = dsMain.Tables[tableAgent].Rows[FindRowTravelAgent(agent, tableAgent)];
                     if (aRow != null)
                         aRow.Delete();
                     break;
@@ -770,6 +780,7 @@ namespace INF2011S_Project_Group22.Data
         #region Build Parameters, Create Commands & Update database
         private void Build_UPDATE_Parameters_Book(Booking booking)
         {
+            //Create Parameters to communicate with SQL UPDATE...add the input parameter and set its properties.
             SqlParameter param = default(SqlParameter);
             param = new SqlParameter("@BookingResNumber", SqlDbType.NVarChar, 10, "BookingResNumber");
             daMain.UpdateCommand.Parameters.Add(param);
@@ -927,7 +938,7 @@ namespace INF2011S_Project_Group22.Data
         private void Create_UPDATE_Command_BookRoom(BookingRoom bookingRoom)
         {
             daMain.UpdateCommand = new SqlCommand("UPDATE Booking SET BookingResNumber = @BookingResNumber , HotelRoomId = @HotelRoomId" + "WHERE BookingResNumber = @Original_BookingResNumber", cnMain);
-            Create_UPDATE_Command_BookRoom(bookingRoom);
+            Build_UPDATE_Parameters_BookRoom(bookingRoom);
         }
         private void Create_UPDATE_Command_Guest(Guest guest)
         {
@@ -1122,47 +1133,49 @@ namespace INF2011S_Project_Group22.Data
 
         private void Create_INSERT_Command_Book(Booking booking)
         {
+            //Create the command that must be used to insert values into the table
             daMain.InsertCommand = new SqlCommand("UPDATE Booking SET GuestId =@GuestId, HotelId = @Hotelid, TravelAgentId =@TravelAgentId, BookingStatus =@BookingStatus, bookingType =@bookingType, numOfPeople =@numOfPeople, numOfRooms =@numOfRooms, CheckInDate =@CheckInDate, CheckOutDate =@CheckOutDate, SpecialRequirements =@SpecialRequirements " + "WHERE BookingResNumber = @Original_BookingResNumber", cnMain);
-            Create_INSERT_Command_Book(booking);
+            Build_INSERT_Parameters_Book(booking);
         }
 
         private void Create_INSERT_Command_BookRoom(BookingRoom bookingRoom)
         {
             daMain.InsertCommand = new SqlCommand("UPDATE Booking SET BookingResNumber = @BookingResNumber , HotelRoomId = @HotelRoomId" + "WHERE BookingResNumber = @Original_BookingResNumber", cnMain);
-            Create_INSERT_Command_BookRoom(bookingRoom);
+            Build_INSERT_Parameters_BookRoom(bookingRoom);
         }
 
         private void Create_INSERT_Command_Guest(Guest guest)
         {
             daMain.InsertCommand = new SqlCommand("UPDATE Booking SET GuestStatus =@GuestStatus, FirstName = @FirstName, LastName =@LastName, PhoneNumber =@PhoneNumber, Email =@Email, CreditCardNumber =@CreditCardNumber" + "WHERE GuestId = @Original_GuestId", cnMain);
-            Create_INSERT_Command_Guest(guest);
+            Build_INSERT_Parameters_Guest(guest);
         }
         private void Create_INSERT_Command_Account(GuestAccount account)
         {
             daMain.InsertCommand = new SqlCommand("UPDATE Booking SET HotelRoomId =@HotelRoomId, CreditCardCredentials = @CreditCardCredentials, AccountStatus =@AccountStatus, AccountBalance =@AccountBalance, AccountCharges =@AccountCharges" + "WHERE GuestId = @Original_GuestId", cnMain);
-            Create_INSERT_Command_Account(account);
+            Build_INSERT_Parameters_Account(account);
         }
         private void Create_INSERT_Command_Room(HotelRoom room)
         {
             daMain.InsertCommand = new SqlCommand("UPDATE Booking SET HotelId =@HotelId, RoomStatus = @RoomStatus, RoomPrice =@RoomPrice, RoomCapacity =@RoomCapacity" + "WHERE HotelRoomId = @Original_HotelRoomId", cnMain);
-            Create_INSERT_Command_Room(room);
+            Build_INSERT_Parameters_Room(room);
         }
         private void Create_INSERT_Command_Payment(Payment payment)
         {
             daMain.InsertCommand = new SqlCommand("UPDATE Booking SET GuestId =@GuestId, PaymentStatus = @PaymentStatus, PaymentAmount =@PaymentAmount" + "WHERE PaymentId = @Original_PaymentId", cnMain);
-            Create_INSERT_Command_Payment(payment);
+            Build_INSERT_Parameters_Payment(payment);
         }
         private void Create_INSERT_Command_Agent(TravelAgent agent)
         {
             daMain.InsertCommand = new SqlCommand("UPDATE Booking SET TravelAgency =@TravelAgency, FirstName = @FirstName, LastName =@LastName, PhoneNumber =@PhoneNumber, Email =@Email" + "WHERE TravelAgentId = @Original_TravelAgentId", cnMain);
-            Create_INSERT_Command_Agent(agent);
+            Build_INSERT_Parameters_Agent(agent);
         }
         public bool UpdateDataSource_Book(Booking booking) 
         {
-            bool success = true;
+            bool success = true; //Tells you if the update succeeded or not 
             Create_INSERT_Command_Book(booking);
             Create_UPDATE_Command_Book(booking);
 
+            success = UpdateDataSource(sqlLocal1, tableBooking);
           
             return success;
         }
@@ -1172,7 +1185,7 @@ namespace INF2011S_Project_Group22.Data
             bool success = true;
             Create_INSERT_Command_BookRoom(bookingRoom);
             Create_UPDATE_Command_BookRoom(bookingRoom);
-
+            success = UpdateDataSource(sqlLocal2, tableBookingRoom);
 
             return success;
         }
@@ -1182,7 +1195,7 @@ namespace INF2011S_Project_Group22.Data
             bool success = true;
             Create_INSERT_Command_Guest(guest);
             Create_UPDATE_Command_Guest(guest);
-
+            success = UpdateDataSource(sqlLocal4, tableGuest);
 
             return success;
         }
@@ -1192,7 +1205,7 @@ namespace INF2011S_Project_Group22.Data
             bool success = true;
             Create_INSERT_Command_Account(account);
             Create_UPDATE_Command_Account(account);
-
+            success = UpdateDataSource(sqlLocal5, tableAccount);
 
             return success;
         }
@@ -1202,7 +1215,7 @@ namespace INF2011S_Project_Group22.Data
             bool success = true;
             Create_INSERT_Command_Room(room);
             Create_UPDATE_Command_Room(room);
-
+            success = UpdateDataSource(sqlLocal3, tableRoom);
 
             return success;
         }
@@ -1212,7 +1225,7 @@ namespace INF2011S_Project_Group22.Data
             bool success = true;
             Create_INSERT_Command_Payment(payment);
             Create_UPDATE_Command_Payment(payment);
-
+            success = UpdateDataSource(sqlLocal7, tablePayment);
 
             return success;
         }
@@ -1222,7 +1235,7 @@ namespace INF2011S_Project_Group22.Data
             bool success = true;
             Create_INSERT_Command_Agent(agent);
             Create_UPDATE_Command_Agent(agent);
-
+            success = UpdateDataSource(sqlLocal8, tableAgent);
 
             return success;
         }
