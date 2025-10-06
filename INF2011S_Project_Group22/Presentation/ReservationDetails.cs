@@ -16,6 +16,9 @@ namespace INF2011S_Project_Group22.Presentation
 {
     public partial class ReservationDetails : Form
     {
+        private int totRoomPeople = 0;
+        BookingController controller = new BookingController();
+
         public ReservationDetails()
         {
 
@@ -23,17 +26,116 @@ namespace INF2011S_Project_Group22.Presentation
 
             FillReservationDetails();
 
+            
+
         }
 
         private void ReservationDetails_Load(object sender, EventArgs e)
         {
-
+            DisplayAvailableRooms();
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
 
         }
+
+        public void getTotalRoomPeople()
+        {
+            int numberOfPeople = Convert.ToInt32(txtNoPeople.Text);
+
+            
+
+            while (txtNoPeople != null)
+            {
+              
+
+                if (numberOfPeople > 0 && numberOfPeople < 7 )
+                {
+                    /*  if the number of people entered is < 7 then the room capacities added together
+                    must also be < 7*/
+                    while (totRoomPeople < 7)
+                    {
+                        DisplayAvailableRooms();
+                    }
+                    
+                   
+                }
+                else
+                {
+                    // ❌ Conversion failed (user didn’t type a number)
+                    MessageBox.Show("Please enter a valid number for guests.");
+                }
+            }
+       
+        }
+
+        public void DisplayAvailableRooms()
+        {
+            //displays the textboxes and checkboxes of only available rooms
+
+            //  Get available rooms from the controller
+            BookingController controller = new BookingController();
+            List<HotelRoom> availableRooms = controller.GetAvailableRooms();
+
+            //  Hide all room checkboxes first
+            foreach (Control ctrl in this.Controls)
+            {
+                if (ctrl is CheckBox cb && cb.Name.StartsWith("chkRoom"))
+                {
+                    cb.Visible = false;//chk links the checkbox to a specific hotel room ID
+                    cb.Enabled = false;
+                }
+            }
+
+            //  Show only available room checkboxes
+            foreach (HotelRoom room in availableRooms)
+            {
+                string checkBoxName = "chk" + room.HotelRoomID; // e.g. "chkRoom101"
+                CheckBox roomCheckBox = this.Controls.Find(checkBoxName, true).FirstOrDefault() as CheckBox;
+
+                if (roomCheckBox != null)
+                {
+                    roomCheckBox.Visible = true;
+                    roomCheckBox.Enabled = true;
+                }
+            }
+
+            //  Handle case when no rooms are available
+            if (availableRooms.Count == 0)
+            {
+                MessageBox.Show("No rooms are currently available.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private List<HotelRoom> GetSelectedRooms()
+        {
+            // adds the checked rooms to a list and stores it for the booking by collecting user input and storing it
+            List<HotelRoom> selectedRooms = new List<HotelRoom>();
+
+            foreach (Control ctrl in this.Controls)
+            {
+                if (ctrl is CheckBox cb && cb.Checked && cb.Tag is HotelRoom room)
+                {
+                    selectedRooms.Add(room);
+                }
+            }
+
+            return selectedRooms;
+
+           /* CheckBox chk = ctrl as CheckBox;
+
+            if (chk != null && chk.Checked && chk.Tag is HotelRoom)
+            {
+                HotelRoom room = chk.Tag as HotelRoom;
+                if (room != null)
+                {
+                    selectedRooms.Add(room);
+                }
+            }*/
+        }
+
+
 
         public void FillReservationDetails()
         {

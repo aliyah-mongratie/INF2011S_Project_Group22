@@ -337,7 +337,7 @@
             this.gbBackground.Controls.Add(this.pictureBox6);
             this.gbBackground.Location = new System.Drawing.Point(23, 185);
             this.gbBackground.Name = "gbBackground";
-            this.gbBackground.Size = new System.Drawing.Size(902, 260);
+            this.gbBackground.Size = new System.Drawing.Size(915, 260);
             this.gbBackground.TabIndex = 22;
             this.gbBackground.TabStop = false;
             // 
