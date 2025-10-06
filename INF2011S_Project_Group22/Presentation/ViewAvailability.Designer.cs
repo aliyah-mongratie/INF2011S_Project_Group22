@@ -70,7 +70,7 @@
             this.btnBack.Font = new System.Drawing.Font("Segoe UI Emoji", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBack.ForeColor = System.Drawing.Color.DarkSlateGray;
             this.btnBack.Location = new System.Drawing.Point(747, 593);
-            this.btnBack.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnBack.Margin = new System.Windows.Forms.Padding(4);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(274, 59);
             this.btnBack.TabIndex = 0;
@@ -87,7 +87,7 @@
             this.btnResDetails.Font = new System.Drawing.Font("Segoe UI Emoji", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnResDetails.ForeColor = System.Drawing.Color.DarkSlateGray;
             this.btnResDetails.Location = new System.Drawing.Point(1041, 593);
-            this.btnResDetails.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnResDetails.Margin = new System.Windows.Forms.Padding(4);
             this.btnResDetails.Name = "btnResDetails";
             this.btnResDetails.Size = new System.Drawing.Size(289, 59);
             this.btnResDetails.TabIndex = 1;
@@ -99,7 +99,7 @@
             this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox1.Location = new System.Drawing.Point(174, 37);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(92, 64);
             this.pictureBox1.TabIndex = 2;
@@ -110,7 +110,7 @@
             this.pictureBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.BackgroundImage")));
             this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox2.Location = new System.Drawing.Point(541, 37);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(92, 64);
             this.pictureBox2.TabIndex = 3;
@@ -121,7 +121,7 @@
             this.pictureBox3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox3.BackgroundImage")));
             this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox3.Location = new System.Drawing.Point(742, 182);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(92, 64);
             this.pictureBox3.TabIndex = 4;
@@ -132,7 +132,7 @@
             this.pictureBox5.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox5.BackgroundImage")));
             this.pictureBox5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox5.Location = new System.Drawing.Point(362, 182);
-            this.pictureBox5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox5.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(92, 64);
             this.pictureBox5.TabIndex = 6;
@@ -143,7 +143,7 @@
             this.pictureBox6.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox6.BackgroundImage")));
             this.pictureBox6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox6.Location = new System.Drawing.Point(914, 37);
-            this.pictureBox6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox6.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.Size = new System.Drawing.Size(92, 64);
             this.pictureBox6.TabIndex = 7;
@@ -355,9 +355,9 @@
             this.gbBackground.Controls.Add(this.lbl105);
             this.gbBackground.Controls.Add(this.pictureBox6);
             this.gbBackground.Location = new System.Drawing.Point(31, 228);
-            this.gbBackground.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbBackground.Margin = new System.Windows.Forms.Padding(4);
             this.gbBackground.Name = "gbBackground";
-            this.gbBackground.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbBackground.Padding = new System.Windows.Forms.Padding(4);
             this.gbBackground.Size = new System.Drawing.Size(1202, 320);
             this.gbBackground.TabIndex = 22;
             this.gbBackground.TabStop = false;
@@ -386,10 +386,10 @@
             this.Controls.Add(this.btnResDetails);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.gbBackground);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ViewAvailability";
             this.Text = "ViewAvailability";
-            
+            this.Load += new System.EventHandler(this.ViewAvailability_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();

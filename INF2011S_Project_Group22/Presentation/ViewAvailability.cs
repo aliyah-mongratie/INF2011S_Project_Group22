@@ -48,5 +48,10 @@ namespace INF2011S_Project_Group22.Presentation
         {
 
         }
+
+        private void ViewAvailability_Load_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }
