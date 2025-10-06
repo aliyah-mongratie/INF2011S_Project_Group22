@@ -80,7 +80,7 @@
             this.lblBookingEnquiry.BackColor = System.Drawing.Color.OldLace;
             this.lblBookingEnquiry.Font = new System.Drawing.Font("Times New Roman", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblBookingEnquiry.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.lblBookingEnquiry.Location = new System.Drawing.Point(15, 145);
+            this.lblBookingEnquiry.Location = new System.Drawing.Point(12, 217);
             this.lblBookingEnquiry.Name = "lblBookingEnquiry";
             this.lblBookingEnquiry.Size = new System.Drawing.Size(278, 46);
             this.lblBookingEnquiry.TabIndex = 1;
@@ -287,7 +287,7 @@
             this.btnBack.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnBack.BackgroundImage")));
             this.btnBack.Font = new System.Drawing.Font("Segoe UI Emoji", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBack.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.btnBack.Location = new System.Drawing.Point(1015, 644);
+            this.btnBack.Location = new System.Drawing.Point(1081, 644);
             this.btnBack.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(257, 60);

@@ -73,5 +73,10 @@ namespace INF2011S_Project_Group22.Presentation
         {
             this.Close();
         }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
