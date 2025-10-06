@@ -30,49 +30,49 @@ namespace INF2011S_Project_Group22.Business
         {
             get { return bookings; }
         }
-        private Collection<BookingRoom> AllBookingRooms
+        public Collection<BookingRoom> AllBookingRooms
         {
             get
             {
                 return bookingRooms;
             }
         }
-        private Collection<HotelRoom> AllHotelRooms
+        public Collection<HotelRoom> AllHotelRooms
         {
             get
             {
                 return rooms;
             }
         }
-        private Collection<Guest> AllGuests
+        public Collection<Guest> AllGuests
         {
             get
             {
                 return guests;
             }
         }
-        private Collection<GuestAccount> AllAccounts
+        public Collection<GuestAccount> AllAccounts
         {
             get
             {
                 return accounts;
             }
         }
-        private Collection<Hotel> AllHotels
+        public Collection<Hotel> AllHotels
         {
             get
             {
                 return hotels;
             }
         }
-        private Collection<Payment> AllPayments
+        public Collection<Payment> AllPayments
         {
             get
             {
                 return payments;
             }
         }
-        private Collection<TravelAgent> AllTravelAgents
+        public Collection<TravelAgent> AllTravelAgents
         {
             get
             {
