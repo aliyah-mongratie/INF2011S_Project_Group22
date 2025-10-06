@@ -32,6 +32,15 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ViewAvailability));
             this.lblViewAvailability = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lblAvailable = new System.Windows.Forms.Label();
+            this.lblUnavailable = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.lblStatus105 = new System.Windows.Forms.Label();
+            this.lblStatus102 = new System.Windows.Forms.Label();
+            this.lblStatus103 = new System.Windows.Forms.Label();
+            this.lblStatus104 = new System.Windows.Forms.Label();
+            this.lblStatus101 = new System.Windows.Forms.Label();
             this.lblRoom105 = new System.Windows.Forms.Label();
             this.lblRoom104 = new System.Windows.Forms.Label();
             this.lblRoom103 = new System.Windows.Forms.Label();
@@ -47,15 +56,6 @@
             this.hotelBookingDBDataSet = new INF2011S_Project_Group22.HotelBookingDBDataSet();
             this.hotelRoomBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.hotelRoomTableAdapter = new INF2011S_Project_Group22.HotelBookingDBDataSetTableAdapters.HotelRoomTableAdapter();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.lblUnavailable = new System.Windows.Forms.Label();
-            this.lblAvailable = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picRoom104)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picRoom105)).BeginInit();
@@ -86,11 +86,11 @@
             this.groupBox1.Controls.Add(this.lblUnavailable);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.lblStatus105);
+            this.groupBox1.Controls.Add(this.lblStatus102);
+            this.groupBox1.Controls.Add(this.lblStatus103);
+            this.groupBox1.Controls.Add(this.lblStatus104);
+            this.groupBox1.Controls.Add(this.lblStatus101);
             this.groupBox1.Controls.Add(this.lblRoom105);
             this.groupBox1.Controls.Add(this.lblRoom104);
             this.groupBox1.Controls.Add(this.lblRoom103);
@@ -108,6 +108,102 @@
             this.groupBox1.Size = new System.Drawing.Size(844, 286);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
+            // 
+            // lblAvailable
+            // 
+            this.lblAvailable.AutoSize = true;
+            this.lblAvailable.Location = new System.Drawing.Point(769, 242);
+            this.lblAvailable.Name = "lblAvailable";
+            this.lblAvailable.Size = new System.Drawing.Size(50, 13);
+            this.lblAvailable.TabIndex = 19;
+            this.lblAvailable.Text = "Available";
+            // 
+            // lblUnavailable
+            // 
+            this.lblUnavailable.AutoSize = true;
+            this.lblUnavailable.Location = new System.Drawing.Point(769, 183);
+            this.lblUnavailable.Name = "lblUnavailable";
+            this.lblUnavailable.Size = new System.Drawing.Size(63, 13);
+            this.lblUnavailable.TabIndex = 18;
+            this.lblUnavailable.Text = "Unavailable";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.Crimson;
+            this.label7.Location = new System.Drawing.Point(719, 106);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(72, 108);
+            this.label7.TabIndex = 17;
+            this.label7.Text = ".";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.YellowGreen;
+            this.label6.Location = new System.Drawing.Point(719, 165);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(72, 108);
+            this.label6.TabIndex = 13;
+            this.label6.Text = ".";
+            // 
+            // lblStatus105
+            // 
+            this.lblStatus105.AutoSize = true;
+            this.lblStatus105.Font = new System.Drawing.Font("Microsoft Sans Serif", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStatus105.ForeColor = System.Drawing.Color.YellowGreen;
+            this.lblStatus105.Location = new System.Drawing.Point(455, 126);
+            this.lblStatus105.Name = "lblStatus105";
+            this.lblStatus105.Size = new System.Drawing.Size(72, 108);
+            this.lblStatus105.TabIndex = 16;
+            this.lblStatus105.Text = ".";
+            // 
+            // lblStatus102
+            // 
+            this.lblStatus102.AutoSize = true;
+            this.lblStatus102.Font = new System.Drawing.Font("Microsoft Sans Serif", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStatus102.ForeColor = System.Drawing.Color.YellowGreen;
+            this.lblStatus102.Location = new System.Drawing.Point(288, 29);
+            this.lblStatus102.Name = "lblStatus102";
+            this.lblStatus102.Size = new System.Drawing.Size(72, 108);
+            this.lblStatus102.TabIndex = 15;
+            this.lblStatus102.Text = ".";
+            // 
+            // lblStatus103
+            // 
+            this.lblStatus103.AutoSize = true;
+            this.lblStatus103.Font = new System.Drawing.Font("Microsoft Sans Serif", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStatus103.ForeColor = System.Drawing.Color.YellowGreen;
+            this.lblStatus103.Location = new System.Drawing.Point(579, 29);
+            this.lblStatus103.Name = "lblStatus103";
+            this.lblStatus103.Size = new System.Drawing.Size(72, 108);
+            this.lblStatus103.TabIndex = 14;
+            this.lblStatus103.Text = ".";
+            // 
+            // lblStatus104
+            // 
+            this.lblStatus104.AutoSize = true;
+            this.lblStatus104.Font = new System.Drawing.Font("Microsoft Sans Serif", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStatus104.ForeColor = System.Drawing.Color.YellowGreen;
+            this.lblStatus104.Location = new System.Drawing.Point(109, 126);
+            this.lblStatus104.Name = "lblStatus104";
+            this.lblStatus104.Size = new System.Drawing.Size(72, 108);
+            this.lblStatus104.TabIndex = 13;
+            this.lblStatus104.Text = ".";
+            // 
+            // lblStatus101
+            // 
+            this.lblStatus101.AutoSize = true;
+            this.lblStatus101.Font = new System.Drawing.Font("Microsoft Sans Serif", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStatus101.ForeColor = System.Drawing.Color.YellowGreen;
+            this.lblStatus101.Location = new System.Drawing.Point(31, 29);
+            this.lblStatus101.Name = "lblStatus101";
+            this.lblStatus101.Size = new System.Drawing.Size(72, 108);
+            this.lblStatus101.TabIndex = 12;
+            this.lblStatus101.Text = ".";
+            this.lblStatus101.Click += new System.EventHandler(this.label1_Click_2);
             // 
             // lblRoom105
             // 
@@ -246,102 +342,6 @@
             // 
             this.hotelRoomTableAdapter.ClearBeforeFill = true;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.YellowGreen;
-            this.label1.Location = new System.Drawing.Point(31, 29);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(72, 108);
-            this.label1.TabIndex = 12;
-            this.label1.Text = ".";
-            this.label1.Click += new System.EventHandler(this.label1_Click_2);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.YellowGreen;
-            this.label2.Location = new System.Drawing.Point(109, 126);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(72, 108);
-            this.label2.TabIndex = 13;
-            this.label2.Text = ".";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.YellowGreen;
-            this.label3.Location = new System.Drawing.Point(579, 29);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(72, 108);
-            this.label3.TabIndex = 14;
-            this.label3.Text = ".";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.YellowGreen;
-            this.label4.Location = new System.Drawing.Point(288, 29);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(72, 108);
-            this.label4.TabIndex = 15;
-            this.label4.Text = ".";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.YellowGreen;
-            this.label5.Location = new System.Drawing.Point(455, 126);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(72, 108);
-            this.label5.TabIndex = 16;
-            this.label5.Text = ".";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.YellowGreen;
-            this.label6.Location = new System.Drawing.Point(719, 165);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(72, 108);
-            this.label6.TabIndex = 13;
-            this.label6.Text = ".";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.Crimson;
-            this.label7.Location = new System.Drawing.Point(719, 106);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(72, 108);
-            this.label7.TabIndex = 17;
-            this.label7.Text = ".";
-            // 
-            // lblUnavailable
-            // 
-            this.lblUnavailable.AutoSize = true;
-            this.lblUnavailable.Location = new System.Drawing.Point(769, 183);
-            this.lblUnavailable.Name = "lblUnavailable";
-            this.lblUnavailable.Size = new System.Drawing.Size(63, 13);
-            this.lblUnavailable.TabIndex = 18;
-            this.lblUnavailable.Text = "Unavailable";
-            // 
-            // lblAvailable
-            // 
-            this.lblAvailable.AutoSize = true;
-            this.lblAvailable.Location = new System.Drawing.Point(769, 242);
-            this.lblAvailable.Name = "lblAvailable";
-            this.lblAvailable.Size = new System.Drawing.Size(50, 13);
-            this.lblAvailable.TabIndex = 19;
-            this.lblAvailable.Text = "Available";
-            // 
             // ViewAvailability
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -390,14 +390,14 @@
         private HotelBookingDBDataSet hotelBookingDBDataSet;
         private System.Windows.Forms.BindingSource hotelRoomBindingSource;
         private HotelBookingDBDataSetTableAdapters.HotelRoomTableAdapter hotelRoomTableAdapter;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblStatus101;
         private System.Windows.Forms.Label lblUnavailable;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblStatus105;
+        private System.Windows.Forms.Label lblStatus102;
+        private System.Windows.Forms.Label lblStatus103;
+        private System.Windows.Forms.Label lblStatus104;
         private System.Windows.Forms.Label lblAvailable;
     }
 }
