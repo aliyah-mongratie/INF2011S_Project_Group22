@@ -25,23 +25,10 @@ namespace INF2011S_Project_Group22.Presentation
 
         }
 
-        #region Enquiry Validation Method
-        public void EnquiryValidation()
-        {
-            
-
-           
-
-            #endregion
-
-
-
-
-
-        }
 
         private void btnViewDetails_Click(object sender, EventArgs e)
         {
+            
             
             ReservationDetails newform= new ReservationDetails();
             newform.ShowDialog();
