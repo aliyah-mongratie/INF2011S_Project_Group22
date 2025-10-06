@@ -43,7 +43,7 @@ namespace INF2011S_Project_Group22.Presentation
         private void button1_Click(object sender, EventArgs e)
         {
             
-            roomSelection();
+            
             //If the user is satisfied with the room selection, they can proceed to the reservation form
             frmCreateReservation newForm = new frmCreateReservation();
             newForm.ShowDialog();

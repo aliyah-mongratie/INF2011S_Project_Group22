@@ -1,4 +1,5 @@
-﻿using System;
+﻿using INF2011S_Project_Group22.Business;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -76,7 +77,15 @@ namespace INF2011S_Project_Group22.Presentation
                 MessageBox.Show("Please fill in all required fields.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            CancelBookingDetailsValidation();    
+            CancelBookingDetailsValidation();
+
+            //Cancelling and deleting the booking from the database e
+
+            BookingController bookingController = new BookingController();
+            Booking booking = new Booking(); //instantiate a booking object so that we can use the bookingResNumber property
+            
+            int bookingResNumber = booking.bookingResNumber;    
+
 
         }
 

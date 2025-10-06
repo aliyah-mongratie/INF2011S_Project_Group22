@@ -1,4 +1,5 @@
-﻿using System;
+﻿using INF2011S_Project_Group22.Business;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,6 +8,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
+
 
 namespace INF2011S_Project_Group22.Presentation
 {
@@ -15,8 +18,19 @@ namespace INF2011S_Project_Group22.Presentation
         public frmBookingCancellation()
         {
             InitializeComponent();
+
+
+           
+            Booking booking = new Booking(); //instantiate a booking object so that we can use the bookingResNumber property
+
+            int bookingResNumber = booking.bookingResNumber;
+
             //get bookingReservationNumber from database once bookingController is done
-            lblBookingNumberRemoved.Text = "The Booking Reservation Number is: $"; //add the booking reservation number here
+
+            lblBookingNumberRemoved.Text = "The Booking Reservation Number is: $"+bookingResNumber; //add the booking reservation number here
+
+            
+
         }
 
         private void lblBookingNumberRemoved_Click(object sender, EventArgs e)
