@@ -16,6 +16,7 @@ namespace INF2011S_Project_Group22.Presentation
         public frmCancelABooking()
         {
             InitializeComponent();
+            //Can you guys see this comment? @Aliyah
         }
 
         private void btnExit_Click(object sender, EventArgs e)
