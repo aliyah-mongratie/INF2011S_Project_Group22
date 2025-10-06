@@ -56,11 +56,7 @@
             this.lblRoom103 = new System.Windows.Forms.Label();
             this.lblRoom102 = new System.Windows.Forms.Label();
             this.lblRoom101 = new System.Windows.Forms.Label();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+
             this.btnEnterReservationDetails = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
