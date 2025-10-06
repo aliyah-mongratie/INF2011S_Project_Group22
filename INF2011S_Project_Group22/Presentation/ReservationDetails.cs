@@ -16,8 +16,8 @@ namespace INF2011S_Project_Group22.Presentation
 {
     public partial class ReservationDetails : Form
     {
-        private int totRoomPeople = 0;
-        BookingController controller = new BookingController();
+        private int totRoomPeople = 0;//variable to hold initial value of the total number of people input in all textboxes 
+        BookingController controller = new BookingController();//instance of controller class
 
         public ReservationDetails()
         {
@@ -39,7 +39,7 @@ namespace INF2011S_Project_Group22.Presentation
         {
 
         }
-
+        #region Methods
         public void getTotalRoomPeople()
         {
             int numberOfPeople = Convert.ToInt32(txtNoPeople.Text);
@@ -197,5 +197,6 @@ namespace INF2011S_Project_Group22.Presentation
         {
             this.Close();
         }
+        #endregion
     }
 }
