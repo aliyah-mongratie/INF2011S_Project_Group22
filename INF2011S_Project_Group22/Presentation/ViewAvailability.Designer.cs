@@ -147,7 +147,7 @@
             this.btnEnterReservationDetails.TabIndex = 3;
             this.btnEnterReservationDetails.Text = "Enter Reservation Details";
             this.btnEnterReservationDetails.UseVisualStyleBackColor = true;
-            this.btnEnterReservationDetails.Click += new System.EventHandler(this.button1_Click);
+            
             // 
             // btnBack
             // 
