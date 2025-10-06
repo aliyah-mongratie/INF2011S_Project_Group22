@@ -21,5 +21,15 @@ namespace INF2011S_Project_Group22.Presentation
         {
 
         }
+
+        private void lblUnavailable_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
