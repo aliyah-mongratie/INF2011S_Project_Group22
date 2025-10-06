@@ -84,6 +84,8 @@
             // txtFirstName
             // 
             this.txtFirstName.BackColor = System.Drawing.Color.Bisque;
+            this.txtFirstName.Location = new System.Drawing.Point(399, 375);
+            this.txtFirstName.Margin = new System.Windows.Forms.Padding(2);
             this.txtFirstName.Location = new System.Drawing.Point(532, 462);
             this.txtFirstName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtFirstName.Name = "txtFirstName";
@@ -93,6 +95,8 @@
             // txtLastName
             // 
             this.txtLastName.BackColor = System.Drawing.Color.Bisque;
+            this.txtLastName.Location = new System.Drawing.Point(619, 374);
+            this.txtLastName.Margin = new System.Windows.Forms.Padding(2);
             this.txtLastName.Location = new System.Drawing.Point(825, 460);
             this.txtLastName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtLastName.Name = "txtLastName";
@@ -101,6 +105,12 @@
             // 
             // txtBookingNumber
             // 
+            this.textBox3.BackColor = System.Drawing.Color.Bisque;
+            this.textBox3.Location = new System.Drawing.Point(526, 412);
+            this.textBox3.Margin = new System.Windows.Forms.Padding(2);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(239, 20);
+            this.textBox3.TabIndex = 6;
             this.txtBookingNumber.BackColor = System.Drawing.Color.Bisque;
             this.txtBookingNumber.Location = new System.Drawing.Point(701, 507);
             this.txtBookingNumber.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -113,6 +123,8 @@
             this.btnBack.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnBack.BackgroundImage")));
             this.btnBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBack.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.btnBack.Location = new System.Drawing.Point(619, 483);
+            this.btnBack.Margin = new System.Windows.Forms.Padding(2);
             this.btnBack.Location = new System.Drawing.Point(825, 594);
             this.btnBack.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnBack.Name = "btnBack";
@@ -127,6 +139,8 @@
             this.btnViewDetails.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnViewDetails.BackgroundImage")));
             this.btnViewDetails.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnViewDetails.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.btnViewDetails.Location = new System.Drawing.Point(813, 479);
+            this.btnViewDetails.Margin = new System.Windows.Forms.Padding(2);
             this.btnViewDetails.Location = new System.Drawing.Point(1084, 590);
             this.btnViewDetails.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnViewDetails.Name = "btnViewDetails";
@@ -152,6 +166,7 @@
             this.Controls.Add(this.lblLastName);
             this.Controls.Add(this.lblFirstName);
             this.Controls.Add(this.lblReservationEnquiry);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "ReservationEnquiry";
             this.Text = "Reservation Enquiry";
