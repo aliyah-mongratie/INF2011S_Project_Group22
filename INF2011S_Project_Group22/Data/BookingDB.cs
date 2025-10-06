@@ -371,8 +371,8 @@ namespace INF2011S_Project_Group22.Data
                     booking.bookingType = (Booking.BookingType)Convert.ToByte(myRow["bookingType"]);
                     booking.numOfPeople = Convert.ToInt32(myRow["numOfPeople"]);
                     booking.numOfRooms = Convert.ToInt32(myRow["numOfRooms"]);
-                    booking.checkInDate = Convert.ToDateTime(myRow["CheckInDate"]);
-                    booking.checkOutDate = Convert.ToDateTime(myRow["CheckOutDate"]);
+                    booking.checkInDate = Convert.ToDateTime(myRow["CheckInDate"]).Date;
+                    booking.checkOutDate = Convert.ToDateTime(myRow["CheckOutDate"]).Date;
                     booking.specialRequirements = Convert.ToString(myRow["SpecialRequirements"]).TrimEnd();
 
                     
@@ -394,8 +394,14 @@ namespace INF2011S_Project_Group22.Data
             aRow["bookingType"] = booking.bookingType;
             aRow["numOfPeople"] = booking.numOfPeople;
             aRow["numOfRooms"] = booking.numOfRooms;
-            aRow["CheckInDate"] = booking.checkInDate < SqlDateTime.MinValue.Value ? DateTime.Today : booking.checkInDate;
-            aRow["CheckOutDate"] = booking.checkOutDate < SqlDateTime.MinValue.Value ? DateTime.Today.AddDays(1) : booking.checkOutDate;
+            aRow["CheckInDate"] = booking.checkInDate < SqlDateTime.MinValue.Value
+                       ? DateTime.Today
+                       : booking.checkInDate.Date;
+
+            aRow["CheckOutDate"] = booking.checkOutDate < SqlDateTime.MinValue.Value
+                                    ? DateTime.Today.AddDays(1)
+                                    : booking.checkOutDate.Date;
+
             aRow["SpecialRequirements"] = booking.specialRequirements;
 
         }
@@ -833,10 +839,10 @@ namespace INF2011S_Project_Group22.Data
             param = new SqlParameter("@numOfRooms", SqlDbType.Int, 0, "numOfRooms");
             daMain.UpdateCommand.Parameters.Add(param);
 
-            param = new SqlParameter("@CheckInDate", SqlDbType.DateTime, 0, "CheckInDate");
+            param = new SqlParameter("@CheckInDate", SqlDbType.Date, 0, "CheckInDate");
             daMain.UpdateCommand.Parameters.Add(param);
 
-            param = new SqlParameter("@CheckOutDate", SqlDbType.DateTime, 0, "CheckOutDate");
+            param = new SqlParameter("@CheckOutDate", SqlDbType.Date, 0, "CheckOutDate");
             daMain.UpdateCommand.Parameters.Add(param);
 
             param = new SqlParameter("@SpecialRequirements", SqlDbType.NVarChar, 500, "SpecialRequirements");
@@ -1057,10 +1063,10 @@ namespace INF2011S_Project_Group22.Data
             param = new SqlParameter("@numOfRooms", SqlDbType.Int, 0, "numOfRooms");
             daMain.InsertCommand.Parameters.Add(param);
 
-            param = new SqlParameter("@CheckInDate", SqlDbType.DateTime, 0, "CheckInDate");
+            param = new SqlParameter("@CheckInDate", SqlDbType.Date, 0, "CheckInDate");
             daMain.InsertCommand.Parameters.Add(param);
 
-            param = new SqlParameter("@CheckOutDate", SqlDbType.DateTime, 0, "CheckOutDate");
+            param = new SqlParameter("@CheckOutDate", SqlDbType.Date, 0, "CheckOutDate");
             daMain.InsertCommand.Parameters.Add(param);
 
             param = new SqlParameter("@SpecialRequirements", SqlDbType.NVarChar, 500, "SpecialRequirements");
