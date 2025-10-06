@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace INF2011S_Project_Group22.Business
 {
-    class BookingController //aliyah 
+    class BookingController 
     {
         #region Data Members 
         BookingDB bookingDB; // references the BookingDB class which communicates with the database 

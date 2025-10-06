@@ -125,5 +125,10 @@ namespace INF2011S_Project_Group22.Presentation
 
         }
 
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
