@@ -307,7 +307,7 @@
             // 
             this.btnEnterReservationDetails.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnEnterReservationDetails.BackgroundImage")));
             this.btnEnterReservationDetails.Font = new System.Drawing.Font("Segoe UI Emoji", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEnterReservationDetails.Location = new System.Drawing.Point(831, 513);
+            this.btnEnterReservationDetails.Location = new System.Drawing.Point(829, 528);
             this.btnEnterReservationDetails.Margin = new System.Windows.Forms.Padding(2);
             this.btnEnterReservationDetails.Name = "btnEnterReservationDetails";
             this.btnEnterReservationDetails.Size = new System.Drawing.Size(188, 52);
@@ -319,7 +319,7 @@
             // 
             this.btnBack.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnBack.BackgroundImage")));
             this.btnBack.Font = new System.Drawing.Font("Segoe UI Emoji", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBack.Location = new System.Drawing.Point(615, 513);
+            this.btnBack.Location = new System.Drawing.Point(610, 536);
             this.btnBack.Margin = new System.Windows.Forms.Padding(2);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(195, 44);

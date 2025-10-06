@@ -570,6 +570,20 @@ namespace INF2011S_Project_Group22.Business
         #endregion
         #region Methods 
 
+        public List<HotelRoom> GetAvailableRooms()
+        {
+            List<HotelRoom> availableRooms = new List<HotelRoom>();
+
+            foreach (HotelRoom room in bookingDB.AllHotelRooms)
+            {
+                if (room.roomStat == HotelRoom.RoomStatus.Available)
+                {
+                    availableRooms.Add(room);
+                }
+            }
+
+            return availableRooms;
+        }
         //This methods allow the receptionist to manage bookings according to the business rules, and communicate with the database through the BookingDB class.
         public Booking MakeBooking(Guest guest, List<HotelRoom> rooms, TravelAgent travelAgent, string bookingType, int numOfPeople, int numOfRooms,
                         DateTime checkInDate, DateTime checkOutDate, string specialRequirements)
