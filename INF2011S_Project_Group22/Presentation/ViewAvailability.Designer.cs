@@ -332,6 +332,7 @@
             this.Controls.Add(this.gbBackground);
             this.Name = "ViewAvailability";
             this.Text = "ViewAvailability";
+            this.Load += new System.EventHandler(this.ViewAvailability_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
