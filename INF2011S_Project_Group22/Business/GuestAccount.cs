@@ -20,7 +20,7 @@ namespace INF2011S_Project_Group22
         #region Data Members
         public string guestID;
         
-        private int roomID;
+        private string roomID;
         private int creditCardCredentials; // e.g. credit card number
         public enum AccountStatus
         {
@@ -40,7 +40,7 @@ namespace INF2011S_Project_Group22
             set { guestID = value; }
         }
       
-        public int RoomID
+        public string RoomID
         {
             get { return roomID; }
             set { roomID = value; }
@@ -66,14 +66,14 @@ namespace INF2011S_Project_Group22
         public GuestAccount()
         {
             guestID = " ";
-            roomID = 0;
+            roomID = "";
             creditCardCredentials = 0;
             accountStat = AccountStatus.Active;//default?
             accountBalance = 0.0m;
             accountCharges = 0.0m;
         }
 
-        public GuestAccount(string newGuestID,  int newRoomID, int newCreditCardCredentials,  decimal newAccountBalance)
+        public GuestAccount(string newGuestID,  string newRoomID, int newCreditCardCredentials,  decimal newAccountBalance)
         {
             guestID = newGuestID;
             roomID = newRoomID;
