@@ -22,11 +22,46 @@ namespace INF2011S_Project_Group22.Presentation
             InitializeComponent();
            
         }
+        private void SetRoomStatus(Label label, HotelRoom.RoomStatus roomStatus)
+        {
+            switch(roomStatus)
+            {
+                case HotelRoom.RoomStatus.Available:
+                    label.ForeColor = Color.YellowGreen;
+
+                    break;
+                case HotelRoom.RoomStatus.Occupied:
+                    label.ForeColor = Color.Crimson;
+                    break;
+
+            }
+
+        }
 
         private void ShowRoomAvailability()
         {
             Collection<HotelRoom> allRooms = bookingController.AllHotelRooms;
-
+            foreach (HotelRoom room in allRooms)
+            {
+                switch (room.HotelRoomID)
+                {
+                    case "101":
+                        SetRoomStatus(lblStatus101, room.roomStat);
+                        break;
+                    case "102":
+                        SetRoomStatus(lblStatus102, room.roomStat);
+                        break;
+                    case "103":
+                        SetRoomStatus(lblStatus103, room.roomStat);
+                        break;
+                    case "104":
+                        SetRoomStatus(lblStatus104, room.roomStat);
+                        break;
+                    case "105":
+                        SetRoomStatus(lblStatus105, room.roomStat);
+                        break;
+                }
+            }
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -37,6 +72,8 @@ namespace INF2011S_Project_Group22.Presentation
         private void ViewAvailability_Load(object sender, EventArgs e)
         {
             bookingController = new BookingController();
+
+            ShowRoomAvailability();
         }
 
         private void lblUnavailable_Click(object sender, EventArgs e)
@@ -52,6 +89,22 @@ namespace INF2011S_Project_Group22.Presentation
         private void ViewAvailability_Load_1(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnResDetails_Click(object sender, EventArgs e)
+        {
+            ReservationDetails form = new ReservationDetails();
+            this.Hide();
+            form.ShowDialog();
+            this.Show();
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            Homepage form = new Homepage();
+            this.Hide();
+            form.ShowDialog();
+            this.Show();
         }
     }
 }
