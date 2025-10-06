@@ -105,12 +105,17 @@
             // 
             // txtBookingNumber
             // 
-            this.textBox3.BackColor = System.Drawing.Color.Bisque;
-            this.textBox3.Location = new System.Drawing.Point(526, 412);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(239, 20);
-            this.textBox3.TabIndex = 6;
+            // Remove the following lines from InitializeComponent as 'textBox3' does not exist and is not needed:
+            /*
+                        this.textBox3.BackColor = System.Drawing.Color.Bisque;
+                        this.textBox3.Location = new System.Drawing.Point(526, 412);
+                        this.textBox3.Margin = new System.Windows.Forms.Padding(2);
+                        this.textBox3.Name = "textBox3";
+                        this.textBox3.Size = new System.Drawing.Size(239, 20);
+                        this.textBox3.TabIndex = 6;
+            */
+
+            // The correct TextBox for booking number is 'txtBookingNumber', which is already defined and used below.
             this.txtBookingNumber.BackColor = System.Drawing.Color.Bisque;
             this.txtBookingNumber.Location = new System.Drawing.Point(701, 507);
             this.txtBookingNumber.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);

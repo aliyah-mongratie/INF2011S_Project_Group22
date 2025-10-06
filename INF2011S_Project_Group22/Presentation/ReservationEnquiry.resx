@@ -188,6 +188,27 @@
         8Vu0sZNoefAAOtdv9duYQdb2PzEAAAAASUVORK5CYII=
 </value>
   </data>
+<!-- Removed duplicate or invalid <data> entry for btnViewDetails.BackgroundImage that caused Base-64 error -->
+<data name="btnViewDetails.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <value>
+      iVBORw0KGgoAAAANSUhEUgAAAPwAAAAzCAYAAACzFWUGAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+      wAAADsABataJCQAAA1hJREFUeF7t3VtPE0EYgGH+vhIUMaIGRWJCIl4o0QSNeEANGk2EllZaaAkKUhAP
+      tNDOLFfjTpW47X49bCllp30vnsuZ3Zu33e7ObIcqlbwBMBgIHhggBA8MkKFyOW/OVg5AJFJH3dHVb3hV
+      TBi9M2907p45To+b408XAHTC70fnZ4wuzPtdrYi9daIrwduT8j5PyCcO4NS8zG2jdhfE/qI4VfC68Nx4
+      yTHxBAGcgfR1o/Zeiz22o6PgVSlldGZKPiEAZ85bnzaVUlrss5nIwavdV+Y4cUk8CQA9lBw1av+d2Gkj
+      kYLXW4/lAwM4N2prTuxV0nbwemNGPBiA86c3H4jd1msreLX9RDwIgPiwN9GlfoNaBq/2FsTJAcTNsP+b
+      flHs+ETT4O0Df27QAe7wVq6aymFG7NlqGry3ekucFEB8eWt3xZ6thsHrnWfiZADiT+29EbuWgy+vGS9x
+      RZwIgANS1/yW10Nti8FzVx5wn10kV9+2GLyXviFOAMAdOjsVajsc/O8lcTAAxywNG3VYu94+FDyX80D/
+      qF+MEwre3tKXBgJwj30ZTbDvUPB2B440EICDqnfrGwafkwcBcNTFQN/1wZfXhAEAXFYp/38eT/BAn7Nd
+      y8EfZcUBANxF8MAAaRw8l/RA3yF4YIAEN9HUBs9jOaDPNHss52PhDdBHmi+8yRsvNy0PBOAcvXG/pu9Q
+      8LrwQhwIwD3qe+2bb0LB2+10dludNBiAQ5ZHTOWo9oWWoeAtu3FenACAM+p3ylli8PYFeNIEANyhfrwP
+      tS0Gb3npm+IkAOLPy0yKXTcMXu8vihMBiD/184PYdcPgLX7LA+6xj9alnq2mwatikr+aAhxS/aupUu2L
+      K4OaBm/Z53jSxABixr6l9tdHseMTLYO3+AdZIOb82O19N6nfoLaCt1ThpXwgAOdrecS/En8rdluv7eCt
+      6uW9P7l4UAC9l7jc8jI+KFLwliomjLc6IR8cQM942TtGlVbEThuJHPxfOaO351hzD5wHewn/7anQZWsd
+      Bv/PwTLbaYEesttdVTHat3rQ6YI/4YevN2eNlxwTTxLAKaTGjf76yL98T8n9RdCd4APUQcKo3QX/A+Bh
+      dT2vlxgFEEV20ugvs9XH4Xbxm9RZp7oePIC4yps/9duYQSQ3BXkAAAAASUVORK5CYII=
+  </value>
+</data>
   <data name="$this.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAABVYAAAMACAIAAABAXKuVAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
