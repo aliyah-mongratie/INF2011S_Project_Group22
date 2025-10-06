@@ -31,16 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ViewAvailability));
             this.lblViewAvailability = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.cbRoom105 = new System.Windows.Forms.CheckBox();
-            this.cbRoom104 = new System.Windows.Forms.CheckBox();
-            this.cbRoom103 = new System.Windows.Forms.CheckBox();
-            this.cbRoom102 = new System.Windows.Forms.CheckBox();
-            this.cbRoom101 = new System.Windows.Forms.CheckBox();
-            this.txtRoom105 = new System.Windows.Forms.TextBox();
-            this.txtRoom104 = new System.Windows.Forms.TextBox();
-            this.txtRoom103 = new System.Windows.Forms.TextBox();
-            this.txtRoom102 = new System.Windows.Forms.TextBox();
-            this.txtRoom101 = new System.Windows.Forms.TextBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
@@ -48,6 +38,11 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnEnterReservationDetails = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
+            this.lblRoom101 = new System.Windows.Forms.Label();
+            this.lblRoom102 = new System.Windows.Forms.Label();
+            this.lblRoom103 = new System.Windows.Forms.Label();
+            this.lblRoom104 = new System.Windows.Forms.Label();
+            this.lblRoom105 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -62,7 +57,7 @@
             this.lblViewAvailability.BackColor = System.Drawing.Color.OldLace;
             this.lblViewAvailability.Font = new System.Drawing.Font("Times New Roman", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblViewAvailability.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.lblViewAvailability.Location = new System.Drawing.Point(11, 172);
+            this.lblViewAvailability.Location = new System.Drawing.Point(11, 119);
             this.lblViewAvailability.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblViewAvailability.Name = "lblViewAvailability";
             this.lblViewAvailability.Size = new System.Drawing.Size(236, 36);
@@ -72,16 +67,11 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.OldLace;
-            this.groupBox1.Controls.Add(this.cbRoom105);
-            this.groupBox1.Controls.Add(this.cbRoom104);
-            this.groupBox1.Controls.Add(this.cbRoom103);
-            this.groupBox1.Controls.Add(this.cbRoom102);
-            this.groupBox1.Controls.Add(this.cbRoom101);
-            this.groupBox1.Controls.Add(this.txtRoom105);
-            this.groupBox1.Controls.Add(this.txtRoom104);
-            this.groupBox1.Controls.Add(this.txtRoom103);
-            this.groupBox1.Controls.Add(this.txtRoom102);
-            this.groupBox1.Controls.Add(this.txtRoom101);
+            this.groupBox1.Controls.Add(this.lblRoom105);
+            this.groupBox1.Controls.Add(this.lblRoom104);
+            this.groupBox1.Controls.Add(this.lblRoom103);
+            this.groupBox1.Controls.Add(this.lblRoom102);
+            this.groupBox1.Controls.Add(this.lblRoom101);
             this.groupBox1.Controls.Add(this.pictureBox5);
             this.groupBox1.Controls.Add(this.pictureBox4);
             this.groupBox1.Controls.Add(this.pictureBox3);
@@ -94,130 +84,34 @@
             this.groupBox1.Size = new System.Drawing.Size(615, 240);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "groupBox1";
-            // 
-            // cbRoom105
-            // 
-            this.cbRoom105.AutoSize = true;
-            this.cbRoom105.Location = new System.Drawing.Point(508, 99);
-            this.cbRoom105.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.cbRoom105.Name = "cbRoom105";
-            this.cbRoom105.Size = new System.Drawing.Size(75, 17);
-            this.cbRoom105.TabIndex = 20;
-            this.cbRoom105.Text = "Room 105";
-            this.cbRoom105.UseVisualStyleBackColor = true;
-            // 
-            // cbRoom104
-            // 
-            this.cbRoom104.AutoSize = true;
-            this.cbRoom104.Location = new System.Drawing.Point(399, 100);
-            this.cbRoom104.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.cbRoom104.Name = "cbRoom104";
-            this.cbRoom104.Size = new System.Drawing.Size(75, 17);
-            this.cbRoom104.TabIndex = 19;
-            this.cbRoom104.Text = "Room 104";
-            this.cbRoom104.UseVisualStyleBackColor = true;
-            // 
-            // cbRoom103
-            // 
-            this.cbRoom103.AutoSize = true;
-            this.cbRoom103.Location = new System.Drawing.Point(274, 101);
-            this.cbRoom103.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.cbRoom103.Name = "cbRoom103";
-            this.cbRoom103.Size = new System.Drawing.Size(75, 17);
-            this.cbRoom103.TabIndex = 18;
-            this.cbRoom103.Text = "Room 103";
-            this.cbRoom103.UseVisualStyleBackColor = true;
-            // 
-            // cbRoom102
-            // 
-            this.cbRoom102.AutoSize = true;
-            this.cbRoom102.Location = new System.Drawing.Point(158, 102);
-            this.cbRoom102.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.cbRoom102.Name = "cbRoom102";
-            this.cbRoom102.Size = new System.Drawing.Size(75, 17);
-            this.cbRoom102.TabIndex = 17;
-            this.cbRoom102.Text = "Room 102";
-            this.cbRoom102.UseVisualStyleBackColor = true;
-            // 
-            // cbRoom101
-            // 
-            this.cbRoom101.AutoSize = true;
-            this.cbRoom101.Location = new System.Drawing.Point(32, 102);
-            this.cbRoom101.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.cbRoom101.Name = "cbRoom101";
-            this.cbRoom101.Size = new System.Drawing.Size(75, 17);
-            this.cbRoom101.TabIndex = 16;
-            this.cbRoom101.Text = "Room 101";
-            this.cbRoom101.UseVisualStyleBackColor = true;
-            // 
-            // txtRoom105
-            // 
-            this.txtRoom105.Location = new System.Drawing.Point(508, 132);
-            this.txtRoom105.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.txtRoom105.Name = "txtRoom105";
-            this.txtRoom105.Size = new System.Drawing.Size(76, 20);
-            this.txtRoom105.TabIndex = 15;
-            // 
-            // txtRoom104
-            // 
-            this.txtRoom104.Location = new System.Drawing.Point(399, 132);
-            this.txtRoom104.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.txtRoom104.Name = "txtRoom104";
-            this.txtRoom104.Size = new System.Drawing.Size(76, 20);
-            this.txtRoom104.TabIndex = 14;
-            // 
-            // txtRoom103
-            // 
-            this.txtRoom103.Location = new System.Drawing.Point(274, 132);
-            this.txtRoom103.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.txtRoom103.Name = "txtRoom103";
-            this.txtRoom103.Size = new System.Drawing.Size(76, 20);
-            this.txtRoom103.TabIndex = 13;
-            // 
-            // txtRoom102
-            // 
-            this.txtRoom102.Location = new System.Drawing.Point(154, 132);
-            this.txtRoom102.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.txtRoom102.Name = "txtRoom102";
-            this.txtRoom102.Size = new System.Drawing.Size(76, 20);
-            this.txtRoom102.TabIndex = 12;
-            // 
-            // txtRoom101
-            // 
-            this.txtRoom101.Location = new System.Drawing.Point(32, 132);
-            this.txtRoom101.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.txtRoom101.Name = "txtRoom101";
-            this.txtRoom101.Size = new System.Drawing.Size(76, 20);
-            this.txtRoom101.TabIndex = 11;
             // 
             // pictureBox5
             // 
             this.pictureBox5.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox5.BackgroundImage")));
-            this.pictureBox5.Location = new System.Drawing.Point(399, 49);
+            this.pictureBox5.Location = new System.Drawing.Point(196, 145);
             this.pictureBox5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(40, 37);
+            this.pictureBox5.Size = new System.Drawing.Size(57, 37);
             this.pictureBox5.TabIndex = 6;
             this.pictureBox5.TabStop = false;
             // 
             // pictureBox4
             // 
             this.pictureBox4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox4.BackgroundImage")));
-            this.pictureBox4.Location = new System.Drawing.Point(508, 49);
+            this.pictureBox4.Location = new System.Drawing.Point(360, 145);
             this.pictureBox4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(43, 37);
+            this.pictureBox4.Size = new System.Drawing.Size(55, 37);
             this.pictureBox4.TabIndex = 5;
             this.pictureBox4.TabStop = false;
             // 
             // pictureBox3
             // 
             this.pictureBox3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox3.BackgroundImage")));
-            this.pictureBox3.Location = new System.Drawing.Point(274, 49);
+            this.pictureBox3.Location = new System.Drawing.Point(453, 50);
             this.pictureBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(42, 37);
+            this.pictureBox3.Size = new System.Drawing.Size(55, 37);
             this.pictureBox3.TabIndex = 4;
             this.pictureBox3.TabStop = false;
             // 
@@ -225,20 +119,20 @@
             // 
             this.pictureBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.BackgroundImage")));
             this.pictureBox2.ErrorImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.ErrorImage")));
-            this.pictureBox2.Location = new System.Drawing.Point(158, 50);
+            this.pictureBox2.Location = new System.Drawing.Point(279, 51);
             this.pictureBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(41, 32);
+            this.pictureBox2.Size = new System.Drawing.Size(56, 36);
             this.pictureBox2.TabIndex = 3;
             this.pictureBox2.TabStop = false;
             // 
             // pictureBox1
             // 
             this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
-            this.pictureBox1.Location = new System.Drawing.Point(44, 49);
+            this.pictureBox1.Location = new System.Drawing.Point(109, 50);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(43, 32);
+            this.pictureBox1.Size = new System.Drawing.Size(56, 37);
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
             // 
@@ -249,7 +143,7 @@
             this.btnEnterReservationDetails.Location = new System.Drawing.Point(831, 513);
             this.btnEnterReservationDetails.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnEnterReservationDetails.Name = "btnEnterReservationDetails";
-            this.btnEnterReservationDetails.Size = new System.Drawing.Size(188, 44);
+            this.btnEnterReservationDetails.Size = new System.Drawing.Size(188, 52);
             this.btnEnterReservationDetails.TabIndex = 3;
             this.btnEnterReservationDetails.Text = "Enter Reservation Details";
             this.btnEnterReservationDetails.UseVisualStyleBackColor = true;
@@ -267,6 +161,52 @@
             this.btnBack.Text = "Back";
             this.btnBack.UseVisualStyleBackColor = true;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+            // 
+            // lblRoom101
+            // 
+            this.lblRoom101.AutoSize = true;
+            this.lblRoom101.Location = new System.Drawing.Point(109, 106);
+            this.lblRoom101.Name = "lblRoom101";
+            this.lblRoom101.Size = new System.Drawing.Size(56, 13);
+            this.lblRoom101.TabIndex = 7;
+            this.lblRoom101.Text = "Room 101";
+            this.lblRoom101.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // lblRoom102
+            // 
+            this.lblRoom102.AutoSize = true;
+            this.lblRoom102.Location = new System.Drawing.Point(279, 106);
+            this.lblRoom102.Name = "lblRoom102";
+            this.lblRoom102.Size = new System.Drawing.Size(56, 13);
+            this.lblRoom102.TabIndex = 8;
+            this.lblRoom102.Text = "Room 102";
+            // 
+            // lblRoom103
+            // 
+            this.lblRoom103.AutoSize = true;
+            this.lblRoom103.Location = new System.Drawing.Point(452, 106);
+            this.lblRoom103.Name = "lblRoom103";
+            this.lblRoom103.Size = new System.Drawing.Size(56, 13);
+            this.lblRoom103.TabIndex = 9;
+            this.lblRoom103.Text = "Room 103";
+            // 
+            // lblRoom104
+            // 
+            this.lblRoom104.AutoSize = true;
+            this.lblRoom104.Location = new System.Drawing.Point(197, 203);
+            this.lblRoom104.Name = "lblRoom104";
+            this.lblRoom104.Size = new System.Drawing.Size(56, 13);
+            this.lblRoom104.TabIndex = 10;
+            this.lblRoom104.Text = "Room 104";
+            // 
+            // lblRoom105
+            // 
+            this.lblRoom105.AutoSize = true;
+            this.lblRoom105.Location = new System.Drawing.Point(359, 203);
+            this.lblRoom105.Name = "lblRoom105";
+            this.lblRoom105.Size = new System.Drawing.Size(56, 13);
+            this.lblRoom105.TabIndex = 11;
+            this.lblRoom105.Text = "Room 105";
             // 
             // ViewAvailability
             // 
@@ -304,17 +244,12 @@
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.TextBox txtRoom105;
-        private System.Windows.Forms.TextBox txtRoom104;
-        private System.Windows.Forms.TextBox txtRoom103;
-        private System.Windows.Forms.TextBox txtRoom102;
-        private System.Windows.Forms.TextBox txtRoom101;
         private System.Windows.Forms.Button btnEnterReservationDetails;
         private System.Windows.Forms.Button btnBack;
-        private System.Windows.Forms.CheckBox cbRoom105;
-        private System.Windows.Forms.CheckBox cbRoom104;
-        private System.Windows.Forms.CheckBox cbRoom103;
-        private System.Windows.Forms.CheckBox cbRoom102;
-        private System.Windows.Forms.CheckBox cbRoom101;
+        private System.Windows.Forms.Label lblRoom105;
+        private System.Windows.Forms.Label lblRoom104;
+        private System.Windows.Forms.Label lblRoom103;
+        private System.Windows.Forms.Label lblRoom102;
+        private System.Windows.Forms.Label lblRoom101;
     }
 }

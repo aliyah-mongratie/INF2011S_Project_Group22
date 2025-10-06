@@ -109,6 +109,11 @@ namespace INF2011S_Project_Group22.Presentation
             //if the user wants to carry out a different functionality, the back button directs them back to the homepage.
             this.Close();// close is used, since the homepage is already open in the background.
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 
