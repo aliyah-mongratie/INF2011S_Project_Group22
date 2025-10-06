@@ -25,6 +25,7 @@ namespace INF2011S_Project_Group22
             InitializeComponent();
 
             Booking booking = new Booking();
+            BookingType bookingType = new BookingType();
             BookingController bookingController = new BookingController(); //instantiate the booking controller class to use its methods
 
 
@@ -46,9 +47,10 @@ namespace INF2011S_Project_Group22
 
             if (rbPersonalBooking.Checked)
             {
-                BookingType bookingType =BookingType.Personal;
+                BookingType bookingType = BookingType.Personal;
                 frmMakePayment newForm = new frmMakePayment();
                 newForm.ShowDialog();
+
             }
             else if (rbTravelAgencyBooking.Checked)
             {
