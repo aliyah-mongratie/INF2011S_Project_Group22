@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static INF2011S_Project_Group22.Business.Booking;
 
 namespace INF2011S_Project_Group22.Presentation
 {
@@ -17,7 +18,9 @@ namespace INF2011S_Project_Group22.Presentation
         public ViewAvailability()
         {
             InitializeComponent();
+
            
+
         }
 
         private void ViewAvailability_Load(object sender, EventArgs e)
@@ -40,14 +43,14 @@ namespace INF2011S_Project_Group22.Presentation
 
         
 
-        private void button1_Click(object sender, EventArgs e)
+        /*private void button1_Click(object sender, EventArgs e)
         {
             
             roomSelection();
             //If the user is satisfied with the room selection, they can proceed to the reservation form
             frmCreateReservation newForm = new frmCreateReservation();
             newForm.ShowDialog();
-        }
+        }*/
 
         private void btnBack_Click(object sender, EventArgs e)
         {
