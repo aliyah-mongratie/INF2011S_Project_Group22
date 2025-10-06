@@ -25,15 +25,13 @@ namespace INF2011S_Project_Group22.Presentation
 
         private void ViewAvailability_Load(object sender, EventArgs e)
         {
-            
-           
+            // TODO: This line of code loads data into the 'hotelBookingDBDataSet.HotelRoom' table. You can move, or remove it, as needed.
+            this.hotelRoomTableAdapter.Fill(this.hotelBookingDBDataSet.HotelRoom);
+
+
 
 
         }
-       
-
-    
-           
 
 
 
@@ -41,7 +39,11 @@ namespace INF2011S_Project_Group22.Presentation
 
 
 
-        
+
+
+
+
+
 
         /*private void button1_Click(object sender, EventArgs e)
         {
@@ -59,6 +61,26 @@ namespace INF2011S_Project_Group22.Presentation
         }
 
         private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click_2(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnEnterReservationDetails_Click(object sender, EventArgs e)
         {
 
         }

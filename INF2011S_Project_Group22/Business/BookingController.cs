@@ -103,6 +103,11 @@ namespace INF2011S_Project_Group22.Business
         // Each Find method has a corresponding FindIndex method that returns the index of the object in the collection, and more specifically, the index of the object that is to be edited or deleted.
         public Booking Find(int bookingResNumber)
         {
+            if (bookings.Count == 0)
+            {
+                return null;
+            }
+               
             int index = 0;
             bool found = (bookings[index].bookingResNumber == bookingResNumber);
             int count = bookings.Count;
@@ -118,6 +123,10 @@ namespace INF2011S_Project_Group22.Business
         // this method finds a booking room based on the booking reference number, and returns the booking room object
         public BookingRoom FindBookRoom(int bookingResNumber)
         {
+            if (bookingRooms.Count == 0)
+            {
+                return null;
+            }
             int index = 0;
             bool found = (bookingRooms[index].bookingResNumber == bookingResNumber);
             int count = bookingRooms.Count;
@@ -133,6 +142,10 @@ namespace INF2011S_Project_Group22.Business
         // this method finds a guest based on the guest ID, and returns the guest object
         public Guest FindGuest(string guestID)
         {
+            if (guests.Count == 0)
+            {
+                return null;
+            }
             int index = 0;
             bool found = (guests[index].guestID == guestID);
             int count = guests.Count;
@@ -148,6 +161,10 @@ namespace INF2011S_Project_Group22.Business
         // this method finds a guest account based on the guest ID, and returns the guest account object
         public GuestAccount FindAccount(string guestId)
         {
+            if (accounts.Count == 0)
+            {
+                return null;
+            }
             int index = 0;
             bool found = (accounts[index].guestID == guestId);
             int count = accounts.Count;
@@ -163,6 +180,10 @@ namespace INF2011S_Project_Group22.Business
         // this method finds a hotel room based on the room ID, and returns the hotel room object
         public HotelRoom FindRoom(string hotelRoomId)
         {
+            if (rooms.Count == 0)
+            {
+                return null;
+            }
             int index = 0;
             bool found = (rooms[index].hotelRoomID == hotelRoomId);
             int count = rooms.Count;
@@ -178,6 +199,10 @@ namespace INF2011S_Project_Group22.Business
         // this method finds a payment based on the payment ID, and returns the payment object
         public Payment FindPayment(string paymentId)
         {
+            if (payments.Count == 0)
+            {
+                return null;
+            }
             int index = 0;
             bool found = (payments[index].paymentID == paymentId);
             int count = payments.Count;
@@ -193,6 +218,10 @@ namespace INF2011S_Project_Group22.Business
         // this method finds a travel agent based on the travel agent ID, and returns the travel agent object
         public TravelAgent FindAgent(string travelAgentId)
         {
+            if (agents.Count == 0)
+            {
+                return null;
+            }
             int index = 0;
             bool found = (agents[index].TravelAgentId == travelAgentId);
             int count = agents.Count;
@@ -541,6 +570,20 @@ namespace INF2011S_Project_Group22.Business
         #endregion
         #region Methods 
 
+        public List<HotelRoom> GetAvailableRooms()
+        {
+            List<HotelRoom> availableRooms = new List<HotelRoom>();
+
+            foreach (HotelRoom room in bookingDB.AllHotelRooms)
+            {
+                if (room.roomStat == HotelRoom.RoomStatus.Available)
+                {
+                    availableRooms.Add(room);
+                }
+            }
+
+            return availableRooms;
+        }
         //This methods allow the receptionist to manage bookings according to the business rules, and communicate with the database through the BookingDB class.
         public Booking MakeBooking(Guest guest, List<HotelRoom> rooms, TravelAgent travelAgent, string bookingType, int numOfPeople, int numOfRooms,
                         DateTime checkInDate, DateTime checkOutDate, string specialRequirements)

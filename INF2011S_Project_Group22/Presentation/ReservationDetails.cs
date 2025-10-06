@@ -87,10 +87,5 @@ namespace INF2011S_Project_Group22.Presentation
 
             }
         }
-
-        private void btnBack_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
     }
 }

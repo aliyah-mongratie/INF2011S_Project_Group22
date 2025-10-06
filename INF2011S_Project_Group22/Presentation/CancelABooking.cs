@@ -80,14 +80,12 @@ namespace INF2011S_Project_Group22.Presentation
             }
             CancelBookingDetailsValidation();
 
-            //Cancelling and deleting the booking from the database 
+            //Cancelling and deleting the booking from the database e
 
             BookingController bookingController = new BookingController();
             Booking booking = new Booking(); //instantiate a booking object so that we can use the bookingResNumber property
-            //cancel a booking method
-            bookingController.CancelBooking(booking.bookingResNumber);
-
-
+            
+            int bookingResNumber = booking.bookingResNumber;    
 
 
         }
