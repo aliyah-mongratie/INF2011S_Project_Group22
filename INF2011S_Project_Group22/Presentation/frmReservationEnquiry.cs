@@ -10,18 +10,17 @@ using System.Windows.Forms;
 
 namespace INF2011S_Project_Group22.Presentation
 {
-    public partial class ReservationEnquiry : Form
+    public partial class frmReservationEnquiry : Form
     {
-        public ReservationEnquiry()
+        public frmReservationEnquiry()
         {
             InitializeComponent();
         }
 
-        private void ReservationEnquiryValidation()
+        private void ReservationEnquiryDetails()
         {
             //This method will validate the input fields for reservation enquiry
             //It will check if the fields are empty, if they contain invalid characters, and if they exceed the maximum length
-            //Once bookingController is done, we will use the first name, last name and booking number to find the booking in the database and display the details.
             string firstName = txtFirstName.Text;
             string lastName = txtLastName.Text;
             //Validation for First Name and Last Name
@@ -41,45 +40,38 @@ namespace INF2011S_Project_Group22.Presentation
                 return;
             }
             //Validation for Booking Number
-            if (string.IsNullOrWhiteSpace(txtBookingNumber.Text))
+            if (string.IsNullOrWhiteSpace(txtResNumber.Text))
             {
                 MessageBox.Show("Booking Number is a required field.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            if (!int.TryParse(txtBookingNumber.Text, out int bookingNumber)) // out int bookingNumber will store the parsed integer if successful, the out keyword allows the method to return this value.
+            if (!int.TryParse(txtResNumber.Text, out int bookingNumber)) // out int bookingNumber will store the parsed integer if successful, the out keyword allows the method to return this value.
             {
                 MessageBox.Show("Booking Number must contain digits only.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            if (txtBookingNumber.Text.Length > 10)
+            if (txtResNumber.Text.Length > 10)
             {
                 MessageBox.Show("Booking Number cannot exceed 10 digits.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
         }
 
-        private void ReservationEnquiry_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnViewDetails_Click(object sender, EventArgs e)
         {
-            //This checks if any of the fields are empty before calling the validation method
-            if (string.IsNullOrWhiteSpace(txtFirstName.Text) || string.IsNullOrWhiteSpace(txtLastName.Text) || string.IsNullOrWhiteSpace(txtBookingNumber.Text))// string.IsNullOrWhiteSpace checks if the string is null, empty, or consists only of white-space characters.
+            if (string.IsNullOrWhiteSpace(txtFirstName.Text) || string.IsNullOrWhiteSpace(txtLastName.Text) || string.IsNullOrWhiteSpace(txtResNumber.Text))
             {
                 MessageBox.Show("Please fill in all fields.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            ReservationEnquiryValidation();
-
-            ReservationDetails newForm= new ReservationDetails();
-            newForm.ShowDialog();
+            ReservationEnquiryDetails();
+            ReservationDetails newViewReservationDetails = new ReservationDetails();
+            newViewReservationDetails.ShowDialog();
         }
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            new Homepage().Show();
+            this.Close();
         }
     }
 }

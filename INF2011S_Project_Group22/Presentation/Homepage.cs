@@ -52,7 +52,7 @@ namespace INF2011S_Project_Group22.Presentation
 
         private void button4_Click(object sender, EventArgs e)
         {
-            ReservationEnquiry newForm = new ReservationEnquiry();
+            frmReservationEnquiry newForm = new frmReservationEnquiry();
             newForm.ShowDialog();
         }
 

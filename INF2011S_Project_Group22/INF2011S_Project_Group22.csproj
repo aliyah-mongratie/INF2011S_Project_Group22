@@ -105,11 +105,11 @@
     <Compile Include="Business\HotelRoom.cs" />
     <Compile Include="Business\Manager.cs" />
     <Compile Include="Business\Person.cs" />
-    <Compile Include="Presentation\ReservationEnquiry.cs">
+    <Compile Include="Presentation\frmReservationEnquiry.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Presentation\ReservationEnquiry.Designer.cs">
-      <DependentUpon>ReservationEnquiry.cs</DependentUpon>
+    <Compile Include="Presentation\frmReservationEnquiry.Designer.cs">
+      <DependentUpon>frmReservationEnquiry.cs</DependentUpon>
     </Compile>
     <Compile Include="Presentation\Homepage.cs">
       <SubType>Form</SubType>
@@ -149,9 +149,8 @@
     <EmbeddedResource Include="Presentation\CreateAReservation.resx">
       <DependentUpon>CreateAReservation.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Presentation\ReservationEnquiry.resx">
-      <DependentUpon>ReservationEnquiry.cs</DependentUpon>
-      <SubType>Designer</SubType>
+    <EmbeddedResource Include="Presentation\frmReservationEnquiry.resx">
+      <DependentUpon>frmReservationEnquiry.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentation\Homepage.resx">
       <DependentUpon>Homepage.cs</DependentUpon>
