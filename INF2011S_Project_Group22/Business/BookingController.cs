@@ -72,7 +72,7 @@ namespace INF2011S_Project_Group22.Business
                 return payments;
             }
         }
-        private Collection<TravelAgent> AlltravelAgents
+        private Collection<TravelAgent> AllTravelAgents
         {
             get
             {
@@ -91,7 +91,7 @@ namespace INF2011S_Project_Group22.Business
             payments = bookingDB.AllPayments;
             accounts = bookingDB.AllAccounts;
             rooms = bookingDB.AllHotelRooms;
-            agents = bookingDB.AlltravelAgents;
+            agents = bookingDB.AllTravelAgents;
             hotels = bookingDB.AllHotels;
         }
 
@@ -374,7 +374,7 @@ namespace INF2011S_Project_Group22.Business
                     bookings.RemoveAt(index);
                     break;
             }
-            bookings.Add(booking);
+            
         }
         public void DataMaintenanceBookRoom(BookingRoom bookingRoom, DB.DBOperation operation)
         {
@@ -395,7 +395,7 @@ namespace INF2011S_Project_Group22.Business
                     bookingRooms.RemoveAt(index);
                     break;
             }
-            bookingRooms.Add(bookingRoom);
+           
         }
         public void DataMaintenanceGuest(Guest guest, DB.DBOperation operation)
         {
@@ -416,7 +416,7 @@ namespace INF2011S_Project_Group22.Business
                     guests.RemoveAt(index);
                     break;
             }
-            guests.Add(guest);
+           
         }
         public void DataMaintenanceAccount(GuestAccount account, DB.DBOperation operation)
         {
@@ -437,7 +437,7 @@ namespace INF2011S_Project_Group22.Business
                     accounts.RemoveAt(index);
                     break;
             }
-            accounts.Add(account);
+            
         }
         public void DataMaintenanceRoom(HotelRoom room, DB.DBOperation operation)
         {
@@ -458,7 +458,7 @@ namespace INF2011S_Project_Group22.Business
                     rooms.RemoveAt(index);
                     break;
             }
-            rooms.Add(room);
+           
         }
         public void DataMaintenancePayment(Payment payment, DB.DBOperation operation)
         {
@@ -479,7 +479,7 @@ namespace INF2011S_Project_Group22.Business
                     payments.RemoveAt(index);
                     break;
             }
-            payments.Add(payment);
+           
         }
         public void DataMaintenanceAgent(TravelAgent agent, DB.DBOperation operation)
         {
@@ -500,7 +500,7 @@ namespace INF2011S_Project_Group22.Business
                     agents.RemoveAt(index);
                     break;
             }
-            agents.Add(agent);
+            
         }
         // Finalize changes methods: Commit the changes to the database
         public bool FinalizeChangesBooking(Booking booking)
@@ -550,17 +550,20 @@ namespace INF2011S_Project_Group22.Business
             if (numOfPeople > 6)
             {
                 MessageBox.Show("The number of people for a booking cannot exceed 6.", "Invalid input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return null; // to stop booking from being created 
             }
 
             if (numOfRooms < 1 || numOfRooms > 3)
             {
                 MessageBox.Show("The number of rooms for a booking must be between 1 and 3.", "Invalid input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return null;
             }
 
 
             if (checkInDate >= checkOutDate)
             {
                 MessageBox.Show("The check in date must be before the check out date", "Invalid input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return null;
             }
 
             int bookingResNumber = Booking.generateBookingResNumber(); //generate a booking reservation number 
