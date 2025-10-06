@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Drawing.Text;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -35,11 +36,15 @@ namespace INF2011S_Project_Group22.Presentation
             if (firstName.Any(char.IsDigit) || lastName.Any(char.IsDigit))
             {
                 MessageBox.Show("First and Last Name cannot contain numbers.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtFirstName.Clear();
+                txtLastName.Clear();
                 return false;
             }
             if (firstName.Length > 50 || lastName.Length > 50)
             {
                 MessageBox.Show("First Name and Last Name cannot exceed 50 characters.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtFirstName.Clear();
+                txtLastName.Clear();
                 return false;
             }
 
@@ -56,9 +61,10 @@ namespace INF2011S_Project_Group22.Presentation
                 return false;
             }
             
-            if (txtResNumber.Text.Length > 10)
+            if (txtResNumber.Text.Length > 6)
             {
-                MessageBox.Show("Booking Number cannot exceed 10 digits.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Booking Number cannot exceed 6 digits.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtResNumber.Clear();
                 return false;
             }
 
@@ -77,6 +83,7 @@ namespace INF2011S_Project_Group22.Presentation
                         if (count == 0)
                         {
                             MessageBox.Show("No reservation found with the provided booking number.", "Not Found", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            txtResNumber.Clear();
                             return false;
                         }
                     }
@@ -111,8 +118,11 @@ namespace INF2011S_Project_Group22.Presentation
                 return;
             }
 
+           
+
             ReservationDetails newViewReservationDetails = new ReservationDetails();
             newViewReservationDetails.ShowDialog();
+            
         }
 
         private void btnBack_Click(object sender, EventArgs e)

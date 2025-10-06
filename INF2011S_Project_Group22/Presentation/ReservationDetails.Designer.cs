@@ -45,7 +45,7 @@
             this.txtCheckInDate = new System.Windows.Forms.TextBox();
             this.txtCheckOutDate = new System.Windows.Forms.TextBox();
             this.lblSQ = new System.Windows.Forms.Label();
-            this.txtSQ = new System.Windows.Forms.TextBox();
+            this.txtSpecialRequirements = new System.Windows.Forms.TextBox();
             this.lblEmail = new System.Windows.Forms.Label();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.btnBack = new System.Windows.Forms.Button();
@@ -248,16 +248,16 @@
             this.lblSQ.TabIndex = 15;
             this.lblSQ.Text = "Special Requirements (Optional):";
             // 
-            // txtSQ
+            // txtSpecialRequirements
             // 
-            this.txtSQ.BackColor = System.Drawing.Color.Bisque;
-            this.txtSQ.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSQ.Location = new System.Drawing.Point(403, 585);
-            this.txtSQ.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtSQ.Name = "txtSQ";
-            this.txtSQ.ReadOnly = true;
-            this.txtSQ.Size = new System.Drawing.Size(433, 30);
-            this.txtSQ.TabIndex = 16;
+            this.txtSpecialRequirements.BackColor = System.Drawing.Color.Bisque;
+            this.txtSpecialRequirements.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSpecialRequirements.Location = new System.Drawing.Point(403, 585);
+            this.txtSpecialRequirements.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtSpecialRequirements.Name = "txtSpecialRequirements";
+            this.txtSpecialRequirements.ReadOnly = true;
+            this.txtSpecialRequirements.Size = new System.Drawing.Size(433, 30);
+            this.txtSpecialRequirements.TabIndex = 16;
             // 
             // lblEmail
             // 
@@ -409,7 +409,7 @@
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.txtEmail);
             this.Controls.Add(this.lblEmail);
-            this.Controls.Add(this.txtSQ);
+            this.Controls.Add(this.txtSpecialRequirements);
             this.Controls.Add(this.lblSQ);
             this.Controls.Add(this.txtCheckOutDate);
             this.Controls.Add(this.txtCheckInDate);
@@ -454,7 +454,7 @@
         private System.Windows.Forms.TextBox txtCheckInDate;
         private System.Windows.Forms.TextBox txtCheckOutDate;
         private System.Windows.Forms.Label lblSQ;
-        private System.Windows.Forms.TextBox txtSQ;
+        private System.Windows.Forms.TextBox txtSpecialRequirements;
         private System.Windows.Forms.Label lblEmail;
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.Button btnBack;
