@@ -24,6 +24,7 @@ namespace INF2011S_Project_Group22.Presentation
         }
         private void SetRoomStatus(Label label, HotelRoom.RoomStatus roomStatus)
         {
+            // Method to change the colour of the label based on the room status. YellowGreen = available and Crimson = Occupied.
             switch(roomStatus)
             {
                 case HotelRoom.RoomStatus.Available:
@@ -40,6 +41,7 @@ namespace INF2011S_Project_Group22.Presentation
 
         private void ShowRoomAvailability()
         {
+            //Display the room availability based on the HotelRoomId and its status
             Collection<HotelRoom> allRooms = bookingController.AllHotelRooms;
             foreach (HotelRoom room in allRooms)
             {
@@ -73,7 +75,7 @@ namespace INF2011S_Project_Group22.Presentation
         {
             bookingController = new BookingController();
 
-            ShowRoomAvailability();
+            ShowRoomAvailability(); // Display the room availability when the form loads
         }
 
         private void lblUnavailable_Click(object sender, EventArgs e)
@@ -93,7 +95,7 @@ namespace INF2011S_Project_Group22.Presentation
 
         private void btnResDetails_Click(object sender, EventArgs e)
         {
-            ReservationDetails form = new ReservationDetails();
+            ReservationDetails form = new ReservationDetails(); //Open the reservation details form to create a reservation 
             this.Hide();
             form.ShowDialog();
             this.Show();
@@ -101,7 +103,7 @@ namespace INF2011S_Project_Group22.Presentation
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            Homepage form = new Homepage();
+            Homepage form = new Homepage(); // Return to the homepage
             this.Hide();
             form.ShowDialog();
             this.Show();
