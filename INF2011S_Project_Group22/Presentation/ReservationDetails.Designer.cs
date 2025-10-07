@@ -60,9 +60,9 @@
             this.txtRoom102 = new System.Windows.Forms.TextBox();
             this.txtRoom101 = new System.Windows.Forms.TextBox();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.gBoxRoomPeople = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.groupBox1.SuspendLayout();
+            this.gBoxRoomPeople.SuspendLayout();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -409,31 +409,33 @@
             this.txtRoom101.Size = new System.Drawing.Size(76, 20);
             this.txtRoom101.TabIndex = 21;
             // 
-            // groupBox1
+            // gBoxRoomPeople
             // 
-            this.groupBox1.Controls.Add(this.cbRoom101);
-            this.groupBox1.Controls.Add(this.txtRoom105);
-            this.groupBox1.Controls.Add(this.cbRoom105);
-            this.groupBox1.Controls.Add(this.txtRoom101);
-            this.groupBox1.Controls.Add(this.cbRoom104);
-            this.groupBox1.Controls.Add(this.txtRoom104);
-            this.groupBox1.Controls.Add(this.cbRoom102);
-            this.groupBox1.Controls.Add(this.cbRoom103);
-            this.groupBox1.Controls.Add(this.txtRoom102);
-            this.groupBox1.Controls.Add(this.txtRoom103);
-            this.groupBox1.Location = new System.Drawing.Point(695, 242);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(262, 224);
-            this.groupBox1.TabIndex = 31;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Select room and Specify number of people";
+            this.gBoxRoomPeople.BackColor = System.Drawing.Color.OldLace;
+            this.gBoxRoomPeople.Controls.Add(this.cbRoom101);
+            this.gBoxRoomPeople.Controls.Add(this.txtRoom105);
+            this.gBoxRoomPeople.Controls.Add(this.cbRoom105);
+            this.gBoxRoomPeople.Controls.Add(this.txtRoom101);
+            this.gBoxRoomPeople.Controls.Add(this.cbRoom104);
+            this.gBoxRoomPeople.Controls.Add(this.txtRoom104);
+            this.gBoxRoomPeople.Controls.Add(this.cbRoom102);
+            this.gBoxRoomPeople.Controls.Add(this.cbRoom103);
+            this.gBoxRoomPeople.Controls.Add(this.txtRoom102);
+            this.gBoxRoomPeople.Controls.Add(this.txtRoom103);
+            this.gBoxRoomPeople.Location = new System.Drawing.Point(723, 263);
+            this.gBoxRoomPeople.Name = "gBoxRoomPeople";
+            this.gBoxRoomPeople.Size = new System.Drawing.Size(262, 224);
+            this.gBoxRoomPeople.TabIndex = 31;
+            this.gBoxRoomPeople.TabStop = false;
+            this.gBoxRoomPeople.Text = "Select room and Specify number of people";
+            this.gBoxRoomPeople.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // ReservationDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1023, 583);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.gBoxRoomPeople);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.txtEmail);
             this.Controls.Add(this.lblEmail);
@@ -459,8 +461,8 @@
             this.Text = "ReservationDetails";
             this.Load += new System.EventHandler(this.ReservationDetails_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.gBoxRoomPeople.ResumeLayout(false);
+            this.gBoxRoomPeople.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -499,6 +501,6 @@
         private System.Windows.Forms.TextBox txtRoom102;
         private System.Windows.Forms.TextBox txtRoom101;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox gBoxRoomPeople;
     }
 }

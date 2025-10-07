@@ -36,9 +36,9 @@ namespace INF2011S_Project_Group22.Presentation
             DisplayAvailableRooms();
 
             // In the Form Designer or code
-           /* cbRoom101 = new HotelRoom(101, HotelRoom.RoomStatus.Available);
+            cbRoom101 = new HotelRoom(101, HotelRoom.RoomStatus.Available,HotelRoom.Get);
             cbRoom102 = new HotelRoom(102, HotelRoom.RoomStatus.Occupied);
-            cbRoom103 = new HotelRoom(103, HotelRoom.RoomStatus.Available);*/
+            cbRoom103 = new HotelRoom(103, HotelRoom.RoomStatus.Available);
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -229,5 +229,25 @@ namespace INF2011S_Project_Group22.Presentation
             this.Close();
         }
         #endregion
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+            int numberOfPeople = Convert.ToInt32(txtNoPeople.Text);
+
+            while (txtNoPeople == null)
+            {
+                gBoxRoomPeople.Visible = false;
+
+                if(numberOfPeople > 1 && numberOfPeople < 7)
+                {
+                    gBoxRoomPeople.Visible =true;
+                }
+                else
+                {
+                    gBoxRoomPeople.Visible =false;
+                    
+                }
+            }
+        }
     }
 }
