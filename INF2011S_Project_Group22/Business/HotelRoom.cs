@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices.ComTypes;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -80,6 +81,44 @@ namespace INF2011S_Project_Group22
         public void CheckOut()
         {
             roomStat = RoomStatus.Available;
+        }
+
+        public decimal GetRoomPrice(DateTime checkInDate, DateTime checkOutDate) // this method figures out the season based on the booking date
+        {
+            
+            // only December is being checked
+            if (checkInDate.Month == 12)
+            {
+                // Low season starts from the first of December until the seventh
+                if (checkInDate.Day >= 1 && checkInDate.Day <= 7)
+                {
+                    roomPrice = 550m;
+                   
+                }
+
+                // Mid season starts from the 8th of december until the 15th
+                else if (checkInDate.Day >= 8 && checkInDate.Day <= 15)
+                {
+                    
+                    roomPrice = 750m;
+                   
+                }
+
+                // High season starts from the 16th until the 31st
+                else if (checkInDate.Day >= 16 && checkInDate.Day <= 31)
+                {
+                   
+                    roomPrice = 995m;
+                   
+                }
+
+                else
+                {
+                    
+                    roomPrice = 0m;
+                }
+            }
+            return roomPrice;
         }
         #endregion
     }
