@@ -20,12 +20,15 @@ namespace INF2011S_Project_Group22
 {
     public partial class frmCreateReservation : Form
     {
+        private Booking booking;
+        private BookingType bookingType;
+        private BookingController bookingController;
         public frmCreateReservation()
         {
             InitializeComponent();
 
-            Booking booking = new Booking();
-            BookingType bookingType = new BookingType();
+           
+           
             BookingController bookingController = new BookingController(); //instantiate the booking controller class to use its methods
 
 
@@ -38,23 +41,33 @@ namespace INF2011S_Project_Group22
             string lastName = txtLastName.Text;
             int numberOfPeople = int.Parse(txtNumPeople.Text);
             int numberOfRooms = int.Parse(txtNumRooms.Text);
-            DateTime checkInDate = dateTimePicker1.Value;
-            DateTime checkOutDate = dateTimePicker2.Value;
-           
-            
+            DateTime checkInDate;
+            DateTime checkOutDate;
+
+            try
+            {
+                checkInDate = DateTime.Parse(txtCheckInDate.Text);//parsing to the textboxes
+                checkOutDate = DateTime.Parse(txtCheckOutDate.Text);
+            }
+            catch
+            {
+                MessageBox.Show("Please enter valid dates (e.g. 10/10/2025).", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+
             //If the personal booking is chosen, the user will be directed to the payment form. If not, they will be directed to the confirmed booking form.
             //The assumption is that personal bookings will always require payment, while travel agent bookings will be handled by the travel agent.
 
             if (rbPersonalBooking.Checked)
             {
-                BookingType bookingType = BookingType.Personal;
+                bookingType = BookingType.Personal;
                 frmMakePayment newForm = new frmMakePayment();
                 newForm.ShowDialog();
-
             }
             else if (rbTravelAgencyBooking.Checked)
             {
-                BookingType bookingType = BookingType.TravelAgency;
+                bookingType = BookingType.TravelAgency;
                 BookingConfirmation newForm = new BookingConfirmation();
                 newForm.ShowDialog();
             }
@@ -110,11 +123,7 @@ namespace INF2011S_Project_Group22
             //Validation for check-in and check-out dates
 
             //Make sure the dates are valid
-            dateTimePicker1.CustomFormat = "dd/MM/yyyy";
-            dateTimePicker1.Format = DateTimePickerFormat.Custom;
-
-            dateTimePicker2.CustomFormat = "dd/MM/yyyy";
-            dateTimePicker2.Format = DateTimePickerFormat.Custom;
+            
 
             if (checkInDate < DateTime.Today) // if the check-in date is before today's date, a messagebox will pop up telling the user there is an error.
             {
@@ -127,7 +136,7 @@ namespace INF2011S_Project_Group22
             }
             else
             {
-                MessageBox.Show($"Check-in date: {dateTimePicker1.Value}, Check-out date: {dateTimePicker2.Value}");
+                MessageBox.Show($"Check-in date: {txtCheckInDate.Text}, Check-out date: {txtCheckOutDate.Text}");
             }
 
             //Special Requirements validation

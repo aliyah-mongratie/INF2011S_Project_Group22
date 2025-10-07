@@ -49,20 +49,8 @@
             this.lblEmail = new System.Windows.Forms.Label();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.btnBack = new System.Windows.Forms.Button();
-            this.cbRoom105 = new System.Windows.Forms.CheckBox();
-            this.cbRoom104 = new System.Windows.Forms.CheckBox();
-            this.cbRoom103 = new System.Windows.Forms.CheckBox();
-            this.cbRoom102 = new System.Windows.Forms.CheckBox();
-            this.cbRoom101 = new System.Windows.Forms.CheckBox();
-            this.txtRoom105 = new System.Windows.Forms.TextBox();
-            this.txtRoom104 = new System.Windows.Forms.TextBox();
-            this.txtRoom103 = new System.Windows.Forms.TextBox();
-            this.txtRoom102 = new System.Windows.Forms.TextBox();
-            this.txtRoom101 = new System.Windows.Forms.TextBox();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.gBoxRoomPeople = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.gBoxRoomPeople.SuspendLayout();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -309,133 +297,11 @@
             this.btnBack.UseVisualStyleBackColor = true;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
-            // cbRoom105
-            // 
-            this.cbRoom105.AutoSize = true;
-            this.cbRoom105.Location = new System.Drawing.Point(14, 176);
-            this.cbRoom105.Margin = new System.Windows.Forms.Padding(2);
-            this.cbRoom105.Name = "cbRoom105";
-            this.cbRoom105.Size = new System.Drawing.Size(75, 17);
-            this.cbRoom105.TabIndex = 30;
-            this.cbRoom105.Text = "Room 105";
-            this.cbRoom105.UseVisualStyleBackColor = true;
-            // 
-            // cbRoom104
-            // 
-            this.cbRoom104.AutoSize = true;
-            this.cbRoom104.Location = new System.Drawing.Point(14, 137);
-            this.cbRoom104.Margin = new System.Windows.Forms.Padding(2);
-            this.cbRoom104.Name = "cbRoom104";
-            this.cbRoom104.Size = new System.Drawing.Size(75, 17);
-            this.cbRoom104.TabIndex = 29;
-            this.cbRoom104.Text = "Room 104";
-            this.cbRoom104.UseVisualStyleBackColor = true;
-            // 
-            // cbRoom103
-            // 
-            this.cbRoom103.AutoSize = true;
-            this.cbRoom103.Location = new System.Drawing.Point(14, 100);
-            this.cbRoom103.Margin = new System.Windows.Forms.Padding(2);
-            this.cbRoom103.Name = "cbRoom103";
-            this.cbRoom103.Size = new System.Drawing.Size(75, 17);
-            this.cbRoom103.TabIndex = 28;
-            this.cbRoom103.Text = "Room 103";
-            this.cbRoom103.UseVisualStyleBackColor = true;
-            // 
-            // cbRoom102
-            // 
-            this.cbRoom102.AutoSize = true;
-            this.cbRoom102.Location = new System.Drawing.Point(14, 59);
-            this.cbRoom102.Margin = new System.Windows.Forms.Padding(2);
-            this.cbRoom102.Name = "cbRoom102";
-            this.cbRoom102.Size = new System.Drawing.Size(75, 17);
-            this.cbRoom102.TabIndex = 27;
-            this.cbRoom102.Text = "Room 102";
-            this.cbRoom102.UseVisualStyleBackColor = true;
-            // 
-            // cbRoom101
-            // 
-            this.cbRoom101.AutoSize = true;
-            this.cbRoom101.Location = new System.Drawing.Point(14, 18);
-            this.cbRoom101.Margin = new System.Windows.Forms.Padding(2);
-            this.cbRoom101.Name = "cbRoom101";
-            this.cbRoom101.Size = new System.Drawing.Size(75, 17);
-            this.cbRoom101.TabIndex = 26;
-            this.cbRoom101.Text = "Room 101";
-            this.cbRoom101.UseVisualStyleBackColor = true;
-            // 
-            // txtRoom105
-            // 
-            this.txtRoom105.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.txtRoom105.Location = new System.Drawing.Point(101, 176);
-            this.txtRoom105.Margin = new System.Windows.Forms.Padding(2);
-            this.txtRoom105.Name = "txtRoom105";
-            this.txtRoom105.Size = new System.Drawing.Size(76, 20);
-            this.txtRoom105.TabIndex = 25;
-            // 
-            // txtRoom104
-            // 
-            this.txtRoom104.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.txtRoom104.Location = new System.Drawing.Point(101, 137);
-            this.txtRoom104.Margin = new System.Windows.Forms.Padding(2);
-            this.txtRoom104.Name = "txtRoom104";
-            this.txtRoom104.Size = new System.Drawing.Size(76, 20);
-            this.txtRoom104.TabIndex = 24;
-            // 
-            // txtRoom103
-            // 
-            this.txtRoom103.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.txtRoom103.Location = new System.Drawing.Point(101, 97);
-            this.txtRoom103.Margin = new System.Windows.Forms.Padding(2);
-            this.txtRoom103.Name = "txtRoom103";
-            this.txtRoom103.Size = new System.Drawing.Size(76, 20);
-            this.txtRoom103.TabIndex = 23;
-            // 
-            // txtRoom102
-            // 
-            this.txtRoom102.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.txtRoom102.Location = new System.Drawing.Point(101, 55);
-            this.txtRoom102.Margin = new System.Windows.Forms.Padding(2);
-            this.txtRoom102.Name = "txtRoom102";
-            this.txtRoom102.Size = new System.Drawing.Size(76, 20);
-            this.txtRoom102.TabIndex = 22;
-            // 
-            // txtRoom101
-            // 
-            this.txtRoom101.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.txtRoom101.Location = new System.Drawing.Point(101, 18);
-            this.txtRoom101.Margin = new System.Windows.Forms.Padding(2);
-            this.txtRoom101.Name = "txtRoom101";
-            this.txtRoom101.Size = new System.Drawing.Size(76, 20);
-            this.txtRoom101.TabIndex = 21;
-            // 
-            // gBoxRoomPeople
-            // 
-            this.gBoxRoomPeople.BackColor = System.Drawing.Color.OldLace;
-            this.gBoxRoomPeople.Controls.Add(this.cbRoom101);
-            this.gBoxRoomPeople.Controls.Add(this.txtRoom105);
-            this.gBoxRoomPeople.Controls.Add(this.cbRoom105);
-            this.gBoxRoomPeople.Controls.Add(this.txtRoom101);
-            this.gBoxRoomPeople.Controls.Add(this.cbRoom104);
-            this.gBoxRoomPeople.Controls.Add(this.txtRoom104);
-            this.gBoxRoomPeople.Controls.Add(this.cbRoom102);
-            this.gBoxRoomPeople.Controls.Add(this.cbRoom103);
-            this.gBoxRoomPeople.Controls.Add(this.txtRoom102);
-            this.gBoxRoomPeople.Controls.Add(this.txtRoom103);
-            this.gBoxRoomPeople.Location = new System.Drawing.Point(723, 263);
-            this.gBoxRoomPeople.Name = "gBoxRoomPeople";
-            this.gBoxRoomPeople.Size = new System.Drawing.Size(262, 224);
-            this.gBoxRoomPeople.TabIndex = 31;
-            this.gBoxRoomPeople.TabStop = false;
-            this.gBoxRoomPeople.Text = "Select room and Specify number of people";
-            this.gBoxRoomPeople.Enter += new System.EventHandler(this.groupBox1_Enter);
-            // 
             // ReservationDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1023, 583);
-            this.Controls.Add(this.gBoxRoomPeople);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.txtEmail);
             this.Controls.Add(this.lblEmail);
@@ -461,8 +327,6 @@
             this.Text = "ReservationDetails";
             this.Load += new System.EventHandler(this.ReservationDetails_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.gBoxRoomPeople.ResumeLayout(false);
-            this.gBoxRoomPeople.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -490,17 +354,6 @@
         private System.Windows.Forms.Label lblEmail;
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.Button btnBack;
-        private System.Windows.Forms.CheckBox cbRoom105;
-        private System.Windows.Forms.CheckBox cbRoom104;
-        private System.Windows.Forms.CheckBox cbRoom103;
-        private System.Windows.Forms.CheckBox cbRoom102;
-        private System.Windows.Forms.CheckBox cbRoom101;
-        private System.Windows.Forms.TextBox txtRoom105;
-        private System.Windows.Forms.TextBox txtRoom104;
-        private System.Windows.Forms.TextBox txtRoom103;
-        private System.Windows.Forms.TextBox txtRoom102;
-        private System.Windows.Forms.TextBox txtRoom101;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
-        private System.Windows.Forms.GroupBox gBoxRoomPeople;
     }
 }

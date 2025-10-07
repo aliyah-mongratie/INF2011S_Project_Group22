@@ -230,24 +230,6 @@ namespace INF2011S_Project_Group22.Presentation
         }
         #endregion
 
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-            int numberOfPeople = Convert.ToInt32(txtNoPeople.Text);
-
-            while (txtNoPeople == null)
-            {
-                gBoxRoomPeople.Visible = false;
-
-                if(numberOfPeople > 1 && numberOfPeople < 7)
-                {
-                    gBoxRoomPeople.Visible =true;
-                }
-                else
-                {
-                    gBoxRoomPeople.Visible =false;
-                    
-                }
-            }
-        }
+      
     }
 }
