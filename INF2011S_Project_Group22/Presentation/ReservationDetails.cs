@@ -36,9 +36,9 @@ namespace INF2011S_Project_Group22.Presentation
             DisplayAvailableRooms();
 
             
-            cbRoom101 = new HotelRoom(101, HotelRoom.RoomStatus.Available, );
+            /*cbRoom101 = new HotelRoom(101, HotelRoom.RoomStatus.Available, );
             cbRoom102 = new HotelRoom(102, HotelRoom.RoomStatus.Occupied);
-            cbRoom103 = new HotelRoom(103, HotelRoom.RoomStatus.Available);
+            cbRoom103 = new HotelRoom(103, HotelRoom.RoomStatus.Available);*/
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
