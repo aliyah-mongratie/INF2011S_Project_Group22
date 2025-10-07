@@ -60,7 +60,7 @@ namespace INF2011S_Project_Group22.Business
                 {
                     seasonName = "Low Season";
                     roomRate = 550m;
-                    startDate = new DateTime(bookingDate.Year, 12, 1);
+                    startDate = new DateTime(bookingDate.Year,12,1);
                     endDate = new DateTime(bookingDate.Year, 12, 7);
                 }
 

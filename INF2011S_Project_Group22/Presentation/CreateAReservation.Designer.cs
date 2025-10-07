@@ -31,8 +31,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCreateReservation));
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.lblCreateAReservation = new System.Windows.Forms.Label();
-            this.btnCreateResExit = new System.Windows.Forms.Button();
-            this.btnCreateResNext = new System.Windows.Forms.Button();
+            this.btnBack = new System.Windows.Forms.Button();
+            this.btnConfirm = new System.Windows.Forms.Button();
             this.btnCreateResClear = new System.Windows.Forms.Button();
             this.rbTravelAgencyBooking = new System.Windows.Forms.RadioButton();
             this.rbPersonalBooking = new System.Windows.Forms.RadioButton();
@@ -51,16 +51,14 @@
             this.txtCheckOutDate = new System.Windows.Forms.TextBox();
             this.txtSpecialReq = new System.Windows.Forms.TextBox();
             this.txtEmail = new System.Windows.Forms.TextBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.txtLastName = new System.Windows.Forms.TextBox();
             this.lblLastName = new System.Windows.Forms.Label();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(211, 0);
+            this.dateTimePicker1.Location = new System.Drawing.Point(701, 487);
             this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(200, 22);
@@ -71,50 +69,50 @@
             this.lblCreateAReservation.AutoSize = true;
             this.lblCreateAReservation.BackColor = System.Drawing.Color.OldLace;
             this.lblCreateAReservation.Font = new System.Drawing.Font("Times New Roman", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCreateAReservation.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.lblCreateAReservation.ForeColor = System.Drawing.Color.DarkSlateGray;
             this.lblCreateAReservation.Location = new System.Drawing.Point(12, 217);
             this.lblCreateAReservation.Name = "lblCreateAReservation";
-            this.lblCreateAReservation.Size = new System.Drawing.Size(349, 46);
+            this.lblCreateAReservation.Size = new System.Drawing.Size(303, 46);
             this.lblCreateAReservation.TabIndex = 2;
-            this.lblCreateAReservation.Text = "Create a Reservation";
+            this.lblCreateAReservation.Text = "Create A Booking";
             // 
-            // btnCreateResExit
+            // btnBack
             // 
-            this.btnCreateResExit.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnCreateResExit.BackgroundImage")));
-            this.btnCreateResExit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnCreateResExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCreateResExit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.btnCreateResExit.Location = new System.Drawing.Point(12, 639);
-            this.btnCreateResExit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnCreateResExit.Name = "btnCreateResExit";
-            this.btnCreateResExit.Size = new System.Drawing.Size(253, 55);
-            this.btnCreateResExit.TabIndex = 14;
-            this.btnCreateResExit.Text = "&Exit";
-            this.btnCreateResExit.UseVisualStyleBackColor = true;
-            this.btnCreateResExit.Click += new System.EventHandler(this.btnCreateResExit_Click);
+            this.btnBack.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnBack.BackgroundImage")));
+            this.btnBack.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnBack.Font = new System.Drawing.Font("Segoe UI Emoji", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBack.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.btnBack.Location = new System.Drawing.Point(12, 639);
+            this.btnBack.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(253, 55);
+            this.btnBack.TabIndex = 14;
+            this.btnBack.Text = "Back";
+            this.btnBack.UseVisualStyleBackColor = true;
+            this.btnBack.Click += new System.EventHandler(this.btnCreateResExit_Click);
             // 
-            // btnCreateResNext
+            // btnConfirm
             // 
-            this.btnCreateResNext.BackColor = System.Drawing.Color.OldLace;
-            this.btnCreateResNext.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnCreateResNext.BackgroundImage")));
-            this.btnCreateResNext.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnCreateResNext.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCreateResNext.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.btnCreateResNext.Location = new System.Drawing.Point(827, 639);
-            this.btnCreateResNext.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnCreateResNext.Name = "btnCreateResNext";
-            this.btnCreateResNext.Size = new System.Drawing.Size(253, 55);
-            this.btnCreateResNext.TabIndex = 15;
-            this.btnCreateResNext.Text = "Next";
-            this.btnCreateResNext.UseVisualStyleBackColor = false;
-            this.btnCreateResNext.Click += new System.EventHandler(this.btnCreateResNext_Click);
+            this.btnConfirm.BackColor = System.Drawing.Color.OldLace;
+            this.btnConfirm.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnConfirm.BackgroundImage")));
+            this.btnConfirm.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnConfirm.Font = new System.Drawing.Font("Segoe UI Emoji", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConfirm.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.btnConfirm.Location = new System.Drawing.Point(827, 639);
+            this.btnConfirm.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnConfirm.Name = "btnConfirm";
+            this.btnConfirm.Size = new System.Drawing.Size(253, 55);
+            this.btnConfirm.TabIndex = 15;
+            this.btnConfirm.Text = "Confirm";
+            this.btnConfirm.UseVisualStyleBackColor = false;
+            this.btnConfirm.Click += new System.EventHandler(this.btnCreateResNext_Click);
             // 
             // btnCreateResClear
             // 
             this.btnCreateResClear.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnCreateResClear.BackgroundImage")));
             this.btnCreateResClear.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnCreateResClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCreateResClear.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.btnCreateResClear.Font = new System.Drawing.Font("Segoe UI Emoji", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCreateResClear.ForeColor = System.Drawing.Color.DarkSlateGray;
             this.btnCreateResClear.Location = new System.Drawing.Point(1085, 639);
             this.btnCreateResClear.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCreateResClear.Name = "btnCreateResClear";
@@ -158,7 +156,7 @@
             this.lblFirstName.AutoSize = true;
             this.lblFirstName.BackColor = System.Drawing.Color.OldLace;
             this.lblFirstName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFirstName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.lblFirstName.ForeColor = System.Drawing.Color.DarkSlateGray;
             this.lblFirstName.Location = new System.Drawing.Point(348, 314);
             this.lblFirstName.Name = "lblFirstName";
             this.lblFirstName.Size = new System.Drawing.Size(112, 25);
@@ -170,7 +168,7 @@
             this.lblNumRooms.AutoSize = true;
             this.lblNumRooms.BackColor = System.Drawing.Color.OldLace;
             this.lblNumRooms.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNumRooms.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.lblNumRooms.ForeColor = System.Drawing.Color.DarkSlateGray;
             this.lblNumRooms.Location = new System.Drawing.Point(318, 368);
             this.lblNumRooms.Name = "lblNumRooms";
             this.lblNumRooms.Size = new System.Drawing.Size(243, 25);
@@ -182,7 +180,7 @@
             this.lblNumPeople.AutoSize = true;
             this.lblNumPeople.BackColor = System.Drawing.Color.OldLace;
             this.lblNumPeople.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNumPeople.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.lblNumPeople.ForeColor = System.Drawing.Color.DarkSlateGray;
             this.lblNumPeople.Location = new System.Drawing.Point(348, 418);
             this.lblNumPeople.Name = "lblNumPeople";
             this.lblNumPeople.Size = new System.Drawing.Size(172, 25);
@@ -194,7 +192,7 @@
             this.lblBookingDate.AutoSize = true;
             this.lblBookingDate.BackColor = System.Drawing.Color.OldLace;
             this.lblBookingDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBookingDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.lblBookingDate.ForeColor = System.Drawing.Color.DarkSlateGray;
             this.lblBookingDate.Location = new System.Drawing.Point(365, 484);
             this.lblBookingDate.Name = "lblBookingDate";
             this.lblBookingDate.Size = new System.Drawing.Size(132, 25);
@@ -206,7 +204,7 @@
             this.lblCheckOut.AutoSize = true;
             this.lblCheckOut.BackColor = System.Drawing.Color.OldLace;
             this.lblCheckOut.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCheckOut.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.lblCheckOut.ForeColor = System.Drawing.Color.DarkSlateGray;
             this.lblCheckOut.Location = new System.Drawing.Point(925, 482);
             this.lblCheckOut.Name = "lblCheckOut";
             this.lblCheckOut.Size = new System.Drawing.Size(155, 25);
@@ -218,7 +216,7 @@
             this.lblSR.AutoSize = true;
             this.lblSR.BackColor = System.Drawing.Color.OldLace;
             this.lblSR.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSR.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.lblSR.ForeColor = System.Drawing.Color.DarkSlateGray;
             this.lblSR.Location = new System.Drawing.Point(297, 540);
             this.lblSR.Name = "lblSR";
             this.lblSR.Size = new System.Drawing.Size(291, 25);
@@ -230,7 +228,7 @@
             this.lblCheckIn.AutoSize = true;
             this.lblCheckIn.BackColor = System.Drawing.Color.OldLace;
             this.lblCheckIn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCheckIn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.lblCheckIn.ForeColor = System.Drawing.Color.DarkSlateGray;
             this.lblCheckIn.Location = new System.Drawing.Point(552, 484);
             this.lblCheckIn.Name = "lblCheckIn";
             this.lblCheckIn.Size = new System.Drawing.Size(143, 25);
@@ -242,7 +240,7 @@
             this.lblEmail.AutoSize = true;
             this.lblEmail.BackColor = System.Drawing.Color.OldLace;
             this.lblEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEmail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.lblEmail.ForeColor = System.Drawing.Color.DarkSlateGray;
             this.lblEmail.Location = new System.Drawing.Point(396, 597);
             this.lblEmail.Name = "lblEmail";
             this.lblEmail.Size = new System.Drawing.Size(66, 25);
@@ -298,7 +296,7 @@
             this.txtCheckOutDate.BackColor = System.Drawing.Color.Bisque;
             this.txtCheckOutDate.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtCheckOutDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCheckOutDate.Location = new System.Drawing.Point(1085, 484);
+            this.txtCheckOutDate.Location = new System.Drawing.Point(1086, 480);
             this.txtCheckOutDate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtCheckOutDate.Name = "txtCheckOutDate";
             this.txtCheckOutDate.Size = new System.Drawing.Size(216, 23);
@@ -326,19 +324,6 @@
             this.txtEmail.Size = new System.Drawing.Size(496, 23);
             this.txtEmail.TabIndex = 33;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(255)))), ((int)(((byte)(193)))));
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(-5, 0);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1355, 706);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
-            // 
             // txtLastName
             // 
             this.txtLastName.BackColor = System.Drawing.Color.Bisque;
@@ -355,7 +340,7 @@
             this.lblLastName.AutoSize = true;
             this.lblLastName.BackColor = System.Drawing.Color.OldLace;
             this.lblLastName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLastName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.lblLastName.ForeColor = System.Drawing.Color.DarkSlateGray;
             this.lblLastName.Location = new System.Drawing.Point(822, 316);
             this.lblLastName.Name = "lblLastName";
             this.lblLastName.Size = new System.Drawing.Size(112, 25);
@@ -364,7 +349,7 @@
             // 
             // dateTimePicker2
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(160, 89);
+            this.dateTimePicker2.Location = new System.Drawing.Point(1086, 482);
             this.dateTimePicker2.Name = "dateTimePicker2";
             this.dateTimePicker2.Size = new System.Drawing.Size(200, 22);
             this.dateTimePicker2.TabIndex = 36;
@@ -373,6 +358,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1349, 706);
             this.Controls.Add(this.lblLastName);
             this.Controls.Add(this.txtLastName);
@@ -394,17 +380,15 @@
             this.Controls.Add(this.rbPersonalBooking);
             this.Controls.Add(this.rbTravelAgencyBooking);
             this.Controls.Add(this.btnCreateResClear);
-            this.Controls.Add(this.btnCreateResNext);
-            this.Controls.Add(this.btnCreateResExit);
+            this.Controls.Add(this.btnConfirm);
+            this.Controls.Add(this.btnBack);
             this.Controls.Add(this.lblCreateAReservation);
-            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.dateTimePicker2);
             this.Controls.Add(this.dateTimePicker1);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "frmCreateReservation";
             this.Text = "Create A Reservation";
             this.Load += new System.EventHandler(this.frmCreateReservation_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -413,8 +397,8 @@
         #endregion
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Label lblCreateAReservation;
-        private System.Windows.Forms.Button btnCreateResExit;
-        private System.Windows.Forms.Button btnCreateResNext;
+        private System.Windows.Forms.Button btnBack;
+        private System.Windows.Forms.Button btnConfirm;
         private System.Windows.Forms.Button btnCreateResClear;
         private System.Windows.Forms.RadioButton rbTravelAgencyBooking;
         private System.Windows.Forms.RadioButton rbPersonalBooking;
@@ -433,7 +417,6 @@
         private System.Windows.Forms.TextBox txtCheckOutDate;
         private System.Windows.Forms.TextBox txtSpecialReq;
         private System.Windows.Forms.TextBox txtEmail;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.TextBox txtLastName;
         private System.Windows.Forms.Label lblLastName;
         private System.Windows.Forms.DateTimePicker dateTimePicker2;

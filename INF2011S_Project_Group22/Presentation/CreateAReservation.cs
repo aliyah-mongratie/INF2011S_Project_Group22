@@ -1,13 +1,20 @@
-﻿using INF2011S_Project_Group22.Presentation;
+﻿using INF2011S_Project_Group22.Business;
+using INF2011S_Project_Group22.Data;
+using INF2011S_Project_Group22.Presentation;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static INF2011S_Project_Group22.Business.Booking;
+
+
+
 
 namespace INF2011S_Project_Group22
 {
@@ -16,24 +23,16 @@ namespace INF2011S_Project_Group22
         public frmCreateReservation()
         {
             InitializeComponent();
-            
-        }
+
+            Booking booking = new Booking();
+            BookingType bookingType = new BookingType();
+            BookingController bookingController = new BookingController(); //instantiate the booking controller class to use its methods
 
 
-
-        
-
-        private void button1_Click(object sender, EventArgs e)
-        {
 
         }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void btnCreateResNext_Click(object sender, EventArgs e)
+        #region Validation Method
+        private void EnterDetailsValidation()
         {
             string firstName = txtFirstName.Text;
             string lastName = txtLastName.Text;
@@ -41,17 +40,21 @@ namespace INF2011S_Project_Group22
             int numberOfRooms = int.Parse(txtNumRooms.Text);
             DateTime checkInDate = dateTimePicker1.Value;
             DateTime checkOutDate = dateTimePicker2.Value;
-
+           
+            
             //If the personal booking is chosen, the user will be directed to the payment form. If not, they will be directed to the confirmed booking form.
             //The assumption is that personal bookings will always require payment, while travel agent bookings will be handled by the travel agent.
 
             if (rbPersonalBooking.Checked)
             {
+                BookingType bookingType = BookingType.Personal;
                 frmMakePayment newForm = new frmMakePayment();
                 newForm.ShowDialog();
+
             }
             else if (rbTravelAgencyBooking.Checked)
             {
+                BookingType bookingType = BookingType.TravelAgency;
                 BookingConfirmation newForm = new BookingConfirmation();
                 newForm.ShowDialog();
             }
@@ -105,7 +108,7 @@ namespace INF2011S_Project_Group22
             }
 
             //Validation for check-in and check-out dates
-            
+
             //Make sure the dates are valid
             dateTimePicker1.CustomFormat = "dd/MM/yyyy";
             dateTimePicker1.Format = DateTimePickerFormat.Custom;
@@ -118,7 +121,7 @@ namespace INF2011S_Project_Group22
                 MessageBox.Show("The check-in date cannot be in the past.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            else if (checkOutDate >= checkInDate)
+            else if (checkOutDate <= checkInDate)
             {
                 MessageBox.Show("The check-out date must be after the check-in date.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -126,7 +129,7 @@ namespace INF2011S_Project_Group22
             {
                 MessageBox.Show($"Check-in date: {dateTimePicker1.Value}, Check-out date: {dateTimePicker2.Value}");
             }
-             
+
             //Special Requirements validation
             string specialRequirements = txtSpecialReq.Text;
             if (specialRequirements.Length > 200) // if the special requirements field is longer than 200 characters, a messagebox will pop up telling the user there is an error.
@@ -145,9 +148,91 @@ namespace INF2011S_Project_Group22
 
             // If all validations pass, proceed with reservation creation
         }
+        #endregion
+
+
+
+
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void btnCreateResNext_Click(object sender, EventArgs e)
+        {
+            
+
+
+            //Show a message box if any of the required fields are empty when the next button is clicked
+            if (string.IsNullOrWhiteSpace(txtFirstName.Text) ||
+                string.IsNullOrWhiteSpace(txtLastName.Text) ||
+                string.IsNullOrWhiteSpace(txtNumPeople.Text) ||
+                string.IsNullOrWhiteSpace(txtNumRooms.Text) ||
+                string.IsNullOrWhiteSpace(txtEmail.Text))
+            {
+                MessageBox.Show("Please fill in all required fields.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            
+            EnterDetailsValidation(); //Call the method to validate the input fields
+
+
+
+
+            // initiate the objects so it can be passed to the MakeBooking method
+            Guest guest = new Guest();
+            guest.FirstName = txtFirstName.Text;
+            guest.LastName = txtLastName.Text;
+            guest.Email = txtEmail.Text;
+            DateTime checkInDate, checkOutDate;
+            DateTime.TryParse(txtCheckInDate.Text, out checkInDate);
+            DateTime.TryParse(txtCheckOutDate.Text, out checkOutDate);
+            guest.CheckInDate = checkInDate;
+            guest.CheckOutDate = checkOutDate;
+            List<HotelRoom> rooms = new List<HotelRoom>(); //Create a new list to store the rooms that will be booked
+            TravelAgent travelAgent = new TravelAgent(); //Create a new travel agent object, it will be populated if the booking type is travel agent
+           
+            int numOfPeople = int.Parse(txtNumPeople.Text); //Parse the number of people from the textbox
+            BookingType bookingType= (rbPersonalBooking.Checked) ? BookingType.Personal : BookingType.TravelAgency; //Determine the booking type based on the selected radio button
+            int numOfRooms = int.Parse(txtNumRooms.Text); //Parse the number of rooms from the textbox
+            
+            string specialRequirements = txtSpecialReq.Text; //Get the special requirements from the textbox
+
+
+            //Call the MakeBooking method from the BookingController class to create a new booking
+            BookingController bookingController = new BookingController();
+            Booking booking = bookingController.MakeBooking(
+                guest,
+                rooms,
+                travelAgent,
+                numOfPeople.ToString(),
+                (int)bookingType, // Convert BookingType enum to int
+                numOfRooms,
+                checkInDate,      // Pass checkInDate as DateTime
+                checkOutDate,
+                specialRequirements // Pass checkOutDate as DateTime
+                                
+            );
+            
+
+
+
+
+            BookingConfirmation newForm = new BookingConfirmation(); //Open the booking confirmation form once the details have been entered and validated
+            newForm.ShowDialog();
+
+
+        }
 
         private void btnCreateResClear_Click(object sender, EventArgs e)
         {
+
             //Clearing all textboxes after clicking the clear button
             txtFirstName.Clear();
             txtLastName.Clear();
@@ -171,15 +256,5 @@ namespace INF2011S_Project_Group22
 
         }
 
-        /*if (booking.CheckRoomAvailability())
-{
-    booking.Status = BookingStatus.Confirmed;
-    Console.WriteLine("✅ Booking confirmed. All rooms are available.");
-}
-else
-{
-    booking.Status = BookingStatus.Pending;
-    Console.WriteLine("⚠️ Booking pending. One or more rooms are unavailable.");
-}*/
     }
 }

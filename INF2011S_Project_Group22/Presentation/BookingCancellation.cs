@@ -8,32 +8,42 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
+
 
 namespace INF2011S_Project_Group22.Presentation
 {
-    public partial class BookingConfirmation : Form
+    public partial class frmBookingCancellation : Form
     {
-        public BookingConfirmation()
+        public frmBookingCancellation()
         {
             InitializeComponent();
 
-            
-            BookingController bookingController = new BookingController();
+
+           
             Booking booking = new Booking(); //instantiate a booking object so that we can use the bookingResNumber property
 
             int bookingResNumber = booking.bookingResNumber;
 
+            //get bookingReservationNumber from database once bookingController is done
 
-            lblBookingReservation.Text= "$The Booking Reservation Number is:"+bookingResNumber //add the booking reservation number here
-            ;
+            lblBookingNumberRemoved.Text = "The Booking Reservation Number is: $"+bookingResNumber; //add the booking reservation number here
+
+            
+
         }
 
-        private void BookingConfirmation_Load(object sender, EventArgs e)
+        private void lblBookingNumberRemoved_Click(object sender, EventArgs e)
         {
 
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void frmBookingCancellation_Load(object sender, EventArgs e)
         {
 
         }

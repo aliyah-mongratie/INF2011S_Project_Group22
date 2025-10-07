@@ -8,42 +8,47 @@ namespace INF2011S_Project_Group22
 {
     internal class GuestAccount
     {
+        #region Enum
+        public enum GuestStatusType // this is used to determine if the guest is new or existing
+        {
+            New,
+            Existing
+        }
+        #endregion
+
         //Munta's part
         #region Data Members
-        private int guestID;
-        private string guestStatus; // e.g. regular, vip, etc
-        private int roomID;
-        private int creditCardCredentials; // e.g. credit card number
-        private string accountStatus; // e.g. active, inactive, closed
+        public string guestID;
+        
+        private string roomID;
+        private string creditCardCredentials; // e.g. credit card number
+        public enum AccountStatus
+        {
+            Active,
+            Inactive,
+            Closed
+        }
+        public AccountStatus accountStat { get; set; } // e.g. active, inactive, closed
         private decimal accountBalance; // e.g. current balance
         private decimal accountCharges; // e.g. charges incurred
         #endregion
 
         #region Property methods
-        public int GuestID
+        public string GuestID
         {
             get { return guestID; }
             set { guestID = value; }
         }
-        public string GuestStatus
-        {
-            get { return guestStatus; }
-            set { guestStatus = value; }
-        }
-        public int RoomID
+      
+        public string RoomID
         {
             get { return roomID; }
             set { roomID = value; }
         }
-        public int CreditCardCredentials
+        public string CreditCardCredentials
         {
             get { return creditCardCredentials; }
             set { creditCardCredentials = value; }
-        }
-        public string AccountStatus
-        {
-            get { return accountStatus; }
-            set { accountStatus = value; }
         }
         public decimal AccountBalance
         {
@@ -60,22 +65,19 @@ namespace INF2011S_Project_Group22
         #region Constructors
         public GuestAccount()
         {
-            guestID = 0;
-            guestStatus = " ";
-            roomID = 0;
-            creditCardCredentials = 0;
-            accountStatus = " ";
+            guestID = " ";
+            roomID = "";
+            creditCardCredentials = "";
+            accountStat = AccountStatus.Active;//default?
             accountBalance = 0.0m;
             accountCharges = 0.0m;
         }
 
-        public GuestAccount(int newGuestID, string newGuestStatus, int newRoomID, int newCreditCardCredentials, string newAccountStatus, decimal newAccountBalance)
+        public GuestAccount(string newGuestID,  string newRoomID, string newCreditCardCredentials,  decimal newAccountBalance)
         {
             guestID = newGuestID;
-            guestStatus = newGuestStatus;
             roomID = newRoomID;
             creditCardCredentials = newCreditCardCredentials;
-            accountStatus = newAccountStatus;
             accountBalance = newAccountBalance;
         }
         #endregion

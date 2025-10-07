@@ -11,17 +11,29 @@ namespace INF2011S_Project_Group22
         //Munta's part
         #region Data Members
         //TEST
-        public int guestID;
+        public string guestID;
+        public enum GuestStatus
+        {
+            New,
+            Existing
+        }
+
+        public GuestStatus guestStat { get; set; }//i.e new or existing guest
         private DateTime checkInDate;
         private DateTime checkOutDate;
-        private int creditCardNumber;
+        private string creditCardNumber;
         #endregion
 
         #region Property methods
-        public int GuestID
+        public string GuestID
         {
             get { return guestID; }
             set { guestID = value; }
+        }
+        public GuestStatus getGuestStatus
+        {
+            get { return guestStat; }
+            set { guestStat = value; }
         }
         public DateTime CheckInDate 
         { 
@@ -33,7 +45,7 @@ namespace INF2011S_Project_Group22
             get { return checkOutDate; }
             set { checkOutDate = value; }
         }
-        public int CreditCardNumber
+        public string CreditCardNumber
         {
             get { return creditCardNumber; }
             set { creditCardNumber = value; }
@@ -45,14 +57,16 @@ namespace INF2011S_Project_Group22
         {
             checkInDate = DateTime.MinValue;
             checkOutDate = DateTime.MinValue;
-            creditCardNumber = 0;
+            guestStat = GuestStatus.New;
+            creditCardNumber = "";
         }
 
-        public Guest(DateTime newCheckInDate, DateTime newCheckOutDate, int newCreditCardNumber):base() //parameterized constructor
+        public Guest(DateTime newCheckInDate, DateTime newCheckOutDate, string newCreditCardNumber):base() //parameterized constructor
         {
             checkInDate = newCheckInDate;
             checkOutDate = newCheckOutDate;
             creditCardNumber = newCreditCardNumber;
+            guestStat = GuestStatus.New;
         }
         #endregion
 

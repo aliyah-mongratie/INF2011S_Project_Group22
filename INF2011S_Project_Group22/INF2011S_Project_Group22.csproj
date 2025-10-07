@@ -68,10 +68,18 @@
     <Compile Include="Business\Receptionist.cs" />
     <Compile Include="Business\Season.cs" />
     <Compile Include="Business\TravelAgent.cs" />
+    <Compile Include="Data\BookingDB.cs" />
+    <Compile Include="Data\DB.cs" />
     <Compile Include="HotelBookingDBDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>HotelBookingDBDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\BookingCancellation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\BookingCancellation.Designer.cs">
+      <DependentUpon>BookingCancellation.cs</DependentUpon>
     </Compile>
     <Compile Include="Presentation\BookingConfirmation.cs">
       <SubType>Form</SubType>
@@ -97,6 +105,12 @@
     <Compile Include="Business\HotelRoom.cs" />
     <Compile Include="Business\Manager.cs" />
     <Compile Include="Business\Person.cs" />
+    <Compile Include="Presentation\frmReservationEnquiry.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\frmReservationEnquiry.Designer.cs">
+      <DependentUpon>frmReservationEnquiry.cs</DependentUpon>
+    </Compile>
     <Compile Include="Presentation\Homepage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -109,8 +123,23 @@
     <Compile Include="Presentation\MakePayment.Designer.cs">
       <DependentUpon>MakePayment.cs</DependentUpon>
     </Compile>
+    <Compile Include="Presentation\ReservationDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\ReservationDetails.Designer.cs">
+      <DependentUpon>ReservationDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\ViewAvailability.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\ViewAvailability.Designer.cs">
+      <DependentUpon>ViewAvailability.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Presentation\BookingCancellation.resx">
+      <DependentUpon>BookingCancellation.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Presentation\BookingConfirmation.resx">
       <DependentUpon>BookingConfirmation.cs</DependentUpon>
     </EmbeddedResource>
@@ -120,11 +149,20 @@
     <EmbeddedResource Include="Presentation\CreateAReservation.resx">
       <DependentUpon>CreateAReservation.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\frmReservationEnquiry.resx">
+      <DependentUpon>frmReservationEnquiry.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Presentation\Homepage.resx">
       <DependentUpon>Homepage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentation\MakePayment.resx">
       <DependentUpon>MakePayment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\ReservationDetails.resx">
+      <DependentUpon>ReservationDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\ViewAvailability.resx">
+      <DependentUpon>ViewAvailability.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -159,9 +197,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
       <Visible>False</Visible>
@@ -176,11 +212,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="HotelBookingDB.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="HotelBookingDB_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>HotelBookingDB.mdf</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

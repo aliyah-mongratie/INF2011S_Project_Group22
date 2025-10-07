@@ -10,12 +10,12 @@ namespace INF2011S_Project_Group22
     {
         #region Data Members
          
-        public int managerID;
+        public string managerID;
         #endregion
 
         #region Property Methods
 
-        public int ManagerID
+        public string ManagerID
         {
             get { return managerID; }
             set { managerID = value; }
@@ -26,11 +26,11 @@ namespace INF2011S_Project_Group22
 
         public Manager() : base() //default constructor 
         {
-            managerID = 0;
+            managerID = " ";
         }
 
         //parameterized constructor
-        public Manager(int managerID, string firstName, string lastName, string phoneNumber, string email, string role) : base(firstName, lastName, phoneNumber, email, role) //parameterized constructor
+        public Manager(string managerID, string firstName, string lastName, string phoneNumber, string email, string role) : base(firstName, lastName, phoneNumber, email, role) //parameterized constructor
         {
             this.managerID = managerID;
         }

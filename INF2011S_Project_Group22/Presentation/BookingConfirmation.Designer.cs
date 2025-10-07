@@ -29,24 +29,12 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BookingConfirmation));
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblBookingConfirmed = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.btnReturn = new System.Windows.Forms.Button();
             this.lblBookingReservation = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.btnBack = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
-            this.pictureBox1.Location = new System.Drawing.Point(1, 1);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1364, 708);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // lblBookingConfirmed
             // 
@@ -69,18 +57,6 @@
             this.pictureBox2.TabIndex = 2;
             this.pictureBox2.TabStop = false;
             // 
-            // btnReturn
-            // 
-            this.btnReturn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnReturn.BackgroundImage")));
-            this.btnReturn.Font = new System.Drawing.Font("Segoe UI Emoji", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReturn.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.btnReturn.Location = new System.Drawing.Point(21, 604);
-            this.btnReturn.Name = "btnReturn";
-            this.btnReturn.Size = new System.Drawing.Size(215, 105);
-            this.btnReturn.TabIndex = 3;
-            this.btnReturn.Text = "Return";
-            this.btnReturn.UseVisualStyleBackColor = true;
-            // 
             // lblBookingReservation
             // 
             this.lblBookingReservation.AutoSize = true;
@@ -90,20 +66,31 @@
             this.lblBookingReservation.TabIndex = 4;
             this.lblBookingReservation.Text = "lbl1";
             // 
+            // btnBack
+            // 
+            this.btnBack.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnBack.BackgroundImage")));
+            this.btnBack.Font = new System.Drawing.Font("Segoe UI Emoji", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBack.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.btnBack.Location = new System.Drawing.Point(29, 618);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(254, 56);
+            this.btnBack.TabIndex = 5;
+            this.btnBack.Text = "Back";
+            this.btnBack.UseVisualStyleBackColor = true;
+            // 
             // BookingConfirmation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1359, 698);
+            this.Controls.Add(this.btnBack);
             this.Controls.Add(this.lblBookingReservation);
-            this.Controls.Add(this.btnReturn);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.lblBookingConfirmed);
-            this.Controls.Add(this.pictureBox1);
             this.Name = "BookingConfirmation";
             this.Text = "BookingConfirmation";
             this.Load += new System.EventHandler(this.BookingConfirmation_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -111,11 +98,9 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label lblBookingConfirmed;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.Button btnReturn;
         private System.Windows.Forms.Label lblBookingReservation;
+        private System.Windows.Forms.Button btnBack;
     }
 }
