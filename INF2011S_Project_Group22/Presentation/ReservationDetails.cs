@@ -78,6 +78,7 @@ namespace INF2011S_Project_Group22.Presentation
             BookingController controller = new BookingController();
             List<HotelRoom> availableRooms = controller.GetAvailableRooms();
 
+
             //  Hide all room checkboxes first
             foreach (Control ctrl in this.Controls)
             {
@@ -123,16 +124,6 @@ namespace INF2011S_Project_Group22.Presentation
 
             return selectedRooms;
 
-           /* CheckBox chk = ctrl as CheckBox;
-
-            if (chk != null && chk.Checked && chk.Tag is HotelRoom)
-            {
-                HotelRoom room = chk.Tag as HotelRoom;
-                if (room != null)
-                {
-                    selectedRooms.Add(room);
-                }
-            }*/
         }
 
 

@@ -72,7 +72,7 @@
             this.pictureBox1.Location = new System.Drawing.Point(1, 0);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1025, 583);
+            this.pictureBox1.Size = new System.Drawing.Size(1080, 606);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
@@ -421,12 +421,12 @@
             this.groupBox1.Controls.Add(this.cbRoom103);
             this.groupBox1.Controls.Add(this.txtRoom102);
             this.groupBox1.Controls.Add(this.txtRoom103);
-            this.groupBox1.Location = new System.Drawing.Point(741, 242);
+            this.groupBox1.Location = new System.Drawing.Point(695, 242);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(216, 224);
+            this.groupBox1.Size = new System.Drawing.Size(262, 224);
             this.groupBox1.TabIndex = 31;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "groupBox1";
+            this.groupBox1.Text = "Select room and Specify number of people";
             // 
             // ReservationDetails
             // 
