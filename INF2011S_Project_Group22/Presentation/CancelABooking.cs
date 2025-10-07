@@ -42,7 +42,7 @@ namespace INF2011S_Project_Group22.Presentation
             BookingController bookingController = new BookingController();
             Booking booking = new Booking(); //instantiate a booking object so that we can use the bookingResNumber property
 
-            int bookingResNumber = booking.bookingResNumber;
+            int bookingResNumber = int.Parse(txtEnterResNumber.Text);
 
 
             //Validation for First Name and Last Name
@@ -99,8 +99,30 @@ namespace INF2011S_Project_Group22.Presentation
                 lblBookingResError.Visible = true;
             }
             //Add a method to validate if the booking number, booking and guest even exists in the database.
+            //Call the find method
 
-            return false;
+            Booking foundBooking = bookingController.Find(bookingResNumber);
+
+            if (foundBooking == null)// if no booking is found with the provided reservation number, display an error message
+            {
+                lblBookingResError.Text = "No booking found with the provided Reservation Number.";
+                lblBookingResError.Visible = true;
+
+            }
+            else
+            {
+                bookingController.CancelBooking(bookingResNumber);// If booking is found, proceed to cancel it
+
+            }
+
+
+
+
+
+
+
+
+                return false;
             
         }
 
@@ -117,7 +139,8 @@ namespace INF2011S_Project_Group22.Presentation
                 return; // If validation fails, exit the method
             }
 
-            //Add the method to actually cancel the booking in the database using the bookingController.
+           
+            
             frmBookingCancellation bookingCancellationForm = new frmBookingCancellation();
             bookingCancellationForm.ShowDialog();
 
