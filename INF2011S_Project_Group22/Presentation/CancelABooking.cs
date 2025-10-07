@@ -114,15 +114,7 @@ namespace INF2011S_Project_Group22.Presentation
                 bookingController.CancelBooking(bookingResNumber);// If booking is found, proceed to cancel it
 
             }
-
-
-
-
-
-
-
-
-                return false;
+            return false;
             
         }
 
