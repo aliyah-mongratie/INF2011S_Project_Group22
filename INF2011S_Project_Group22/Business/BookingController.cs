@@ -621,7 +621,7 @@ namespace INF2011S_Project_Group22.Business
 
             foreach (HotelRoom room in rooms) // loop for each room that the guest is booking 
             {
-                booking.AddRoom(room.HotelRoomID, room.HotelID, room.RoomPrice, room.RoomCapacity); // add the room to the booking
+                booking.AddRoom(room.HotelRoomID, room.HotelID, room.RoomPrice); // add the room to the booking
                 room.CheckIn(); //change the room status to "occupied"
 
                 BookingRoom bookingRoom = new BookingRoom(bookingResNumber, room.HotelRoomID);

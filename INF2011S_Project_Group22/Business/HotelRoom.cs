@@ -59,7 +59,7 @@ namespace INF2011S_Project_Group22
             roomPrice = 0;
             
         }
-        public HotelRoom(string newHotelRoomID, string newHotelID, decimal newRoomPrice, int newRoomCapacity)
+        public HotelRoom(string newHotelRoomID, string newHotelID, decimal newRoomPrice)
         {
             hotelRoomID = newHotelRoomID;
             hotelID = newHotelID;
