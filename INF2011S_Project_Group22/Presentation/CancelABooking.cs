@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -17,6 +18,12 @@ namespace INF2011S_Project_Group22.Presentation
         {
             InitializeComponent();
             //Can you guys see this comment? @Aliyah
+            lblFNameError.Visible = false;
+            lblLNameError.Visible = false;
+            lblBookingResError.Visible = false;
+
+            txtFirstName.Focus();
+
         }
 
         private void btnExit_Click(object sender, EventArgs e)
@@ -24,7 +31,7 @@ namespace INF2011S_Project_Group22.Presentation
             this.Close();
         }
 
-        private void CancelBookingDetailsValidation()
+        private bool CancelBookingDetailsValidation()
         {
             //This method will validate the input fields for cancelling a booking
             //It will check if the fields are empty, if they contain invalid characters, and if they exceed the maximum length
@@ -32,60 +39,114 @@ namespace INF2011S_Project_Group22.Presentation
             string firstName = txtFirstName.Text;
             string lastName = txtLastName.Text;
 
+            BookingController bookingController = new BookingController();
+            Booking booking = new Booking(); //instantiate a booking object so that we can use the bookingResNumber property
+
+            int bookingResNumber = int.Parse(txtEnterResNumber.Text);
+
+
             //Validation for First Name and Last Name
             if (string.IsNullOrWhiteSpace(firstName) || string.IsNullOrEmpty(lastName))
             {
-                MessageBox.Show("Fist Name and Last Name are required fields.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
+                lblFNameError.Text = "First Name is a required field.";
+                lblFNameError.Visible = true;
+
+                lblLNameError.Text = "Last Name is a required field.";
+                lblLNameError.Visible = true;
+
+
             }
             if (firstName.Any(char.IsDigit) || lastName.Any(char.IsDigit))
             {
-                MessageBox.Show("First and Last Name cannot contain numbers.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
+                
+                lblFNameError.Text = "First Name cannot contain numbers";
+                lblFNameError.Visible = true;
+
+               
+                lblLNameError.Text = "Last Name cannot contain numbers";
+                lblLNameError.Visible = true;
             }
             if (firstName.Length > 50 || lastName.Length > 50)
             {
-                MessageBox.Show("First Name and Last Name cannot exceed 50 characters.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
+                lblFNameError.Text = "First Name cannot exceed 50 characters";
+                lblFNameError.Visible = true;
+
+
+                lblLNameError.Text = "Last Name cannot cannot exceed 50 characters";
+                lblLNameError.Visible = true;
             }
 
             //Validation for Booking Number
-            if (string.IsNullOrWhiteSpace(txtEnterResNumber.Text))
+            if (string.IsNullOrEmpty(txtEnterResNumber.Text))
             {
-                MessageBox.Show("Booking Number is a required field.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
+                lblBookingResError.Text = "Booking Reservation Number is a required field.";
+                lblBookingResError.Visible = true;
             }
             if (!int.TryParse(txtEnterResNumber.Text, out int bookingNumber)) // out int bookingNumber will store the parsed integer if successful, the out keyword allows the method to return this value.
             {
-                MessageBox.Show("Booking Number must contain digits only.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
+                lblBookingResError.Text = "Booking Reservation Number must be a valid number.";
+                lblBookingResError.Visible = true;
             }
             if (bookingNumber <= 0)
             {
-                MessageBox.Show("Booking Number must be a positive number.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
+                lblBookingResError.Text = "Booking Reservation Number must be a positive number.";
+                lblBookingResError.Visible = true;
 
-            frmBookingCancellation newBookingCancellation = new frmBookingCancellation();
-            newBookingCancellation.ShowDialog();
+            }
+            if (txtEnterResNumber.Text.Length > 6)
+            {
+                lblBookingResError.Text = "Booking Reservation Number cannot exceed 6 digits.";
+                lblBookingResError.Visible = true;
+            }
+            //Add a method to validate if the booking number, booking and guest even exists in the database.
+            //Call the find method
+
+            Booking foundBooking = bookingController.Find(bookingResNumber);
+
+            if (foundBooking == null)// if no booking is found with the provided reservation number, display an error message
+            {
+                lblBookingResError.Text = "No booking found with the provided Reservation Number.";
+                lblBookingResError.Visible = true;
+
+            }
+            else
+            {
+                bookingController.CancelBooking(bookingResNumber);// If booking is found, proceed to cancel it
+
+            }
+            return false;
+            
         }
+
+
+
+
 
         private void btnConfirm_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtFirstName.Text) ||
-                string.IsNullOrWhiteSpace(txtLastName.Text))
+
+
+            if (!CancelBookingDetailsValidation())
             {
-                MessageBox.Show("Please fill in all required fields.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
+                return; // If validation fails, exit the method
             }
-            CancelBookingDetailsValidation();
 
-            //Cancelling and deleting the booking from the database e
-
-            BookingController bookingController = new BookingController();
-            Booking booking = new Booking(); //instantiate a booking object so that we can use the bookingResNumber property
+           
             
-            int bookingResNumber = booking.bookingResNumber;    
+            frmBookingCancellation bookingCancellationForm = new frmBookingCancellation();
+            bookingCancellationForm.ShowDialog();
+
+
+
+
+
+
+
+
+
+
+
+
 
 
         }

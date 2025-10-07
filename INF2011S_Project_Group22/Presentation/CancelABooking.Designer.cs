@@ -39,6 +39,9 @@
             this.btnConfirm = new System.Windows.Forms.Button();
             this.lblFirstName = new System.Windows.Forms.Label();
             this.txtFirstName = new System.Windows.Forms.TextBox();
+            this.lblFNameError = new System.Windows.Forms.Label();
+            this.lblLNameError = new System.Windows.Forms.Label();
+            this.lblBookingResError = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -156,11 +159,47 @@
             this.txtFirstName.Size = new System.Drawing.Size(448, 30);
             this.txtFirstName.TabIndex = 10;
             // 
+            // lblFNameError
+            // 
+            this.lblFNameError.AutoSize = true;
+            this.lblFNameError.BackColor = System.Drawing.Color.OldLace;
+            this.lblFNameError.ForeColor = System.Drawing.Color.Red;
+            this.lblFNameError.Location = new System.Drawing.Point(543, 385);
+            this.lblFNameError.Name = "lblFNameError";
+            this.lblFNameError.Size = new System.Drawing.Size(95, 16);
+            this.lblFNameError.TabIndex = 11;
+            this.lblFNameError.Text = "lblFNameError";
+            // 
+            // lblLNameError
+            // 
+            this.lblLNameError.AutoSize = true;
+            this.lblLNameError.BackColor = System.Drawing.Color.OldLace;
+            this.lblLNameError.ForeColor = System.Drawing.Color.Red;
+            this.lblLNameError.Location = new System.Drawing.Point(543, 448);
+            this.lblLNameError.Name = "lblLNameError";
+            this.lblLNameError.Size = new System.Drawing.Size(44, 16);
+            this.lblLNameError.TabIndex = 12;
+            this.lblLNameError.Text = "label3";
+            // 
+            // lblBookingResError
+            // 
+            this.lblBookingResError.AutoSize = true;
+            this.lblBookingResError.BackColor = System.Drawing.Color.OldLace;
+            this.lblBookingResError.ForeColor = System.Drawing.Color.Red;
+            this.lblBookingResError.Location = new System.Drawing.Point(543, 514);
+            this.lblBookingResError.Name = "lblBookingResError";
+            this.lblBookingResError.Size = new System.Drawing.Size(44, 16);
+            this.lblBookingResError.TabIndex = 13;
+            this.lblBookingResError.Text = "label4";
+            // 
             // frmCancelABooking
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1349, 706);
+            this.Controls.Add(this.lblBookingResError);
+            this.Controls.Add(this.lblLNameError);
+            this.Controls.Add(this.lblFNameError);
             this.Controls.Add(this.txtFirstName);
             this.Controls.Add(this.lblFirstName);
             this.Controls.Add(this.btnConfirm);
@@ -192,5 +231,8 @@
         private System.Windows.Forms.Button btnConfirm;
         private System.Windows.Forms.Label lblFirstName;
         private System.Windows.Forms.TextBox txtFirstName;
+        private System.Windows.Forms.Label lblFNameError;
+        private System.Windows.Forms.Label lblLNameError;
+        private System.Windows.Forms.Label lblBookingResError;
     }
 }
