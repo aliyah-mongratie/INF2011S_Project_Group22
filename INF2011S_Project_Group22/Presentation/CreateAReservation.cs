@@ -155,6 +155,14 @@ namespace INF2011S_Project_Group22
                 return;
             }
 
+
+            // Check if the email contains '@' and '.'
+            if (!email.Contains("@") || !email.Contains("."))
+            {
+                MessageBox.Show("Email must contain '@' and '.' characters.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             // If all validations pass, proceed with reservation creation
         }
         #endregion
