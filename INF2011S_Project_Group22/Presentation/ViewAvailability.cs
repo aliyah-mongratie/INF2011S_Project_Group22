@@ -95,18 +95,15 @@ namespace INF2011S_Project_Group22.Presentation
 
         private void btnResDetails_Click(object sender, EventArgs e)
         {
-            ReservationDetails form = new ReservationDetails(); //Open the reservation details form to create a reservation 
+            frmCreateReservation newform = new frmCreateReservation(); //Open the reservation details form to create a reservation 
             this.Hide();
-            form.ShowDialog();
+            newform.ShowDialog();
             this.Show();
         }
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            Homepage form = new Homepage(); // Return to the homepage
-            this.Hide();
-            form.ShowDialog();
-            this.Show();
+            this.Close();
         }
     }
 }
