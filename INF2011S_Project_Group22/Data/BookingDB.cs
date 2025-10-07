@@ -266,8 +266,8 @@ namespace INF2011S_Project_Group22.Data
                 if (!(myRow.RowState == DataRowState.Deleted))
                 {
                     guestAccount = new GuestAccount();
-                    guestAccount.GuestID = Convert.ToString(myRow["GuestID"]).TrimEnd();
-                    guestAccount.RoomID = Convert.ToString(myRow["HotelRoomID"]).TrimEnd();
+                    guestAccount.GuestID = Convert.ToString(myRow["GuestId"]).TrimEnd();
+                    guestAccount.RoomID = Convert.ToString(myRow["HotelRoomId"]).TrimEnd();
                     guestAccount.CreditCardCredentials = Convert.ToInt32(myRow["CreditCardCredentials"]);
                     guestAccount.accountStat = (GuestAccount.AccountStatus)Convert.ToByte(myRow["AccountStatus"]);
                     guestAccount.AccountBalance = Convert.ToDecimal(myRow["AccountBalance"]);
@@ -594,7 +594,7 @@ namespace INF2011S_Project_Group22.Data
             {
                 aRow["HotelRoomId"] = room.HotelRoomID;
             }
-            aRow["HotelID"] = room.HotelID;
+            aRow["HotelId"] = room.HotelID;
             aRow["RoomStatus"] = room.getRoomStatus;
             aRow["RoomPrice"] = room.RoomPrice;
             aRow["RoomCapacity"] = room.RoomCapacity;
