@@ -83,7 +83,7 @@ namespace INF2011S_Project_Group22
             roomStat = RoomStatus.Available;
         }
 
-        public decimal GetRoomPrice(DateTime checkInDate, DateTime checkOutDate) // this method figures out the season based on the booking date
+        public decimal GetRoomPrice(DateTime checkInDate) // this method figures out the season based on the booking date
         {
             
             // only December is being checked

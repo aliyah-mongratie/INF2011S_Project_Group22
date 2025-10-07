@@ -35,8 +35,8 @@ namespace INF2011S_Project_Group22.Presentation
         {
             DisplayAvailableRooms();
 
-            // In the Form Designer or code
-            cbRoom101 = new HotelRoom(101, HotelRoom.RoomStatus.Available,HotelRoom.Get);
+            
+            cbRoom101 = new HotelRoom(101, HotelRoom.RoomStatus.Available, );
             cbRoom102 = new HotelRoom(102, HotelRoom.RoomStatus.Occupied);
             cbRoom103 = new HotelRoom(103, HotelRoom.RoomStatus.Available);
         }
