@@ -21,7 +21,7 @@ namespace INF2011S_Project_Group22
         public GuestStatus guestStat { get; set; }//i.e new or existing guest
         private DateTime checkInDate;
         private DateTime checkOutDate;
-        private int creditCardNumber;
+        private string creditCardNumber;
         #endregion
 
         #region Property methods
@@ -45,7 +45,7 @@ namespace INF2011S_Project_Group22
             get { return checkOutDate; }
             set { checkOutDate = value; }
         }
-        public int CreditCardNumber
+        public string CreditCardNumber
         {
             get { return creditCardNumber; }
             set { creditCardNumber = value; }
@@ -58,10 +58,10 @@ namespace INF2011S_Project_Group22
             checkInDate = DateTime.MinValue;
             checkOutDate = DateTime.MinValue;
             guestStat = GuestStatus.New;
-            creditCardNumber = 0;
+            creditCardNumber = "";
         }
 
-        public Guest(DateTime newCheckInDate, DateTime newCheckOutDate, int newCreditCardNumber):base() //parameterized constructor
+        public Guest(DateTime newCheckInDate, DateTime newCheckOutDate, string newCreditCardNumber):base() //parameterized constructor
         {
             checkInDate = newCheckInDate;
             checkOutDate = newCheckOutDate;

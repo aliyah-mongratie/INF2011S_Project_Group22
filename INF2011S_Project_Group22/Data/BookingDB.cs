@@ -210,7 +210,7 @@ namespace INF2011S_Project_Group22.Data
                     guest.LastName = Convert.ToString(myRow["LastName"]).TrimEnd();
                     guest.PhoneNumber = Convert.ToString(myRow["PhoneNumber"]).TrimEnd();
                     guest.Email = Convert.ToString(myRow["Email"]).TrimEnd();
-                    guest.CreditCardNumber = Convert.ToInt32(myRow["CreditCardNumber"]);
+                    guest.CreditCardNumber = Convert.ToString(myRow["CreditCardNumber"]);
 
 
 
@@ -268,7 +268,7 @@ namespace INF2011S_Project_Group22.Data
                     guestAccount = new GuestAccount();
                     guestAccount.GuestID = Convert.ToString(myRow["GuestId"]).TrimEnd();
                     guestAccount.RoomID = Convert.ToString(myRow["HotelRoomId"]).TrimEnd();
-                    guestAccount.CreditCardCredentials = Convert.ToInt32(myRow["CreditCardCredentials"]);
+                    guestAccount.CreditCardCredentials = Convert.ToString(myRow["CreditCardCredentials"]);
                     guestAccount.accountStat = (GuestAccount.AccountStatus)Convert.ToByte(myRow["AccountStatus"]);
                     guestAccount.AccountBalance = Convert.ToDecimal(myRow["AccountBalance"]);
                     guestAccount.AccountCharges = Convert.ToInt32(myRow["AccountCharges"]);
@@ -295,7 +295,7 @@ namespace INF2011S_Project_Group22.Data
                     payment.paymentID = Convert.ToString(myRow["PaymentId"]).TrimEnd();
                     payment.guestId = Convert.ToString(myRow["GuestId"]).TrimEnd();
                     payment.paymentStat = (Payment.PaymentStatus)Convert.ToByte(myRow["PaymentStatus"]);
-                    payment.paymentAmount = Convert.ToSingle(myRow["PaymentAmount"]);
+                    payment.paymentAmount = Convert.ToDecimal(myRow["PaymentAmount"]);
 
                     payments.Add(payment);
                 }
@@ -893,7 +893,7 @@ namespace INF2011S_Project_Group22.Data
             param = new SqlParameter("@HotelRoomId", SqlDbType.NVarChar, 10, "HotelRoomId");
             daMain.UpdateCommand.Parameters.Add(param);
 
-            param = new SqlParameter("@CreditCardCredentials", SqlDbType.NVarChar, 10, "CreditCardCredentials");
+            param = new SqlParameter("@CreditCardCredentials", SqlDbType.NVarChar, 19, "CreditCardCredentials");
             daMain.UpdateCommand.Parameters.Add(param);
 
             param = new SqlParameter("@AccountStatus", SqlDbType.NVarChar, 20, "AccountStatus");
@@ -1124,7 +1124,7 @@ namespace INF2011S_Project_Group22.Data
             param = new SqlParameter("@HotelRoomId", SqlDbType.NVarChar, 10, "HotelRoomId");
             daMain.InsertCommand.Parameters.Add(param);
 
-            param = new SqlParameter("@CreditCardCredentials", SqlDbType.NVarChar, 10, "CreditCardCredentials");
+            param = new SqlParameter("@CreditCardCredentials", SqlDbType.NVarChar, 19, "CreditCardCredentials");
             daMain.InsertCommand.Parameters.Add(param);
 
             param = new SqlParameter("@AccountStatus", SqlDbType.NVarChar, 20, "AccountStatus");

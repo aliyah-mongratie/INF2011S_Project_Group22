@@ -19,7 +19,7 @@ namespace INF2011S_Project_Group22.Business
             unpaid
         }
         public PaymentStatus paymentStat { get; set; }//various statuses for payment to be in
-        public float paymentAmount;//is it the same ad 
+        public decimal paymentAmount;//is it the same ad 
 
         //foreign key
         public string BookingReservationNumber { get; set; }
@@ -32,7 +32,7 @@ namespace INF2011S_Project_Group22.Business
             paymentStat = Payment.PaymentStatus.unpaid;//default status
             paymentAmount = 0;
         }
-        public Payment(string payID,  float payAmount, string newGuestId)
+        public Payment(string payID,  decimal payAmount, string newGuestId)
         {
             paymentID = payID;
             paymentStat = Payment.PaymentStatus.unpaid;//defualt status

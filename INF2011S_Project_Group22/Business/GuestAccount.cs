@@ -21,7 +21,7 @@ namespace INF2011S_Project_Group22
         public string guestID;
         
         private string roomID;
-        private int creditCardCredentials; // e.g. credit card number
+        private string creditCardCredentials; // e.g. credit card number
         public enum AccountStatus
         {
             Active,
@@ -45,7 +45,7 @@ namespace INF2011S_Project_Group22
             get { return roomID; }
             set { roomID = value; }
         }
-        public int CreditCardCredentials
+        public string CreditCardCredentials
         {
             get { return creditCardCredentials; }
             set { creditCardCredentials = value; }
@@ -67,13 +67,13 @@ namespace INF2011S_Project_Group22
         {
             guestID = " ";
             roomID = "";
-            creditCardCredentials = 0;
+            creditCardCredentials = "";
             accountStat = AccountStatus.Active;//default?
             accountBalance = 0.0m;
             accountCharges = 0.0m;
         }
 
-        public GuestAccount(string newGuestID,  string newRoomID, int newCreditCardCredentials,  decimal newAccountBalance)
+        public GuestAccount(string newGuestID,  string newRoomID, string newCreditCardCredentials,  decimal newAccountBalance)
         {
             guestID = newGuestID;
             roomID = newRoomID;
