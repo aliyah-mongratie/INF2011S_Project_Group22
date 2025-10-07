@@ -59,6 +59,7 @@
             this.txtRoom103 = new System.Windows.Forms.TextBox();
             this.txtRoom102 = new System.Windows.Forms.TextBox();
             this.txtRoom101 = new System.Windows.Forms.TextBox();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -309,7 +310,7 @@
             // cbRoom105
             // 
             this.cbRoom105.AutoSize = true;
-            this.cbRoom105.Location = new System.Drawing.Point(936, 322);
+            this.cbRoom105.Location = new System.Drawing.Point(935, 345);
             this.cbRoom105.Margin = new System.Windows.Forms.Padding(2);
             this.cbRoom105.Name = "cbRoom105";
             this.cbRoom105.Size = new System.Drawing.Size(75, 17);
@@ -320,7 +321,7 @@
             // cbRoom104
             // 
             this.cbRoom104.AutoSize = true;
-            this.cbRoom104.Location = new System.Drawing.Point(824, 322);
+            this.cbRoom104.Location = new System.Drawing.Point(824, 345);
             this.cbRoom104.Margin = new System.Windows.Forms.Padding(2);
             this.cbRoom104.Name = "cbRoom104";
             this.cbRoom104.Size = new System.Drawing.Size(75, 17);
@@ -331,7 +332,7 @@
             // cbRoom103
             // 
             this.cbRoom103.AutoSize = true;
-            this.cbRoom103.Location = new System.Drawing.Point(721, 322);
+            this.cbRoom103.Location = new System.Drawing.Point(720, 345);
             this.cbRoom103.Margin = new System.Windows.Forms.Padding(2);
             this.cbRoom103.Name = "cbRoom103";
             this.cbRoom103.Size = new System.Drawing.Size(75, 17);
@@ -342,7 +343,7 @@
             // cbRoom102
             // 
             this.cbRoom102.AutoSize = true;
-            this.cbRoom102.Location = new System.Drawing.Point(602, 322);
+            this.cbRoom102.Location = new System.Drawing.Point(602, 345);
             this.cbRoom102.Margin = new System.Windows.Forms.Padding(2);
             this.cbRoom102.Name = "cbRoom102";
             this.cbRoom102.Size = new System.Drawing.Size(75, 17);
@@ -353,7 +354,7 @@
             // cbRoom101
             // 
             this.cbRoom101.AutoSize = true;
-            this.cbRoom101.Location = new System.Drawing.Point(491, 322);
+            this.cbRoom101.Location = new System.Drawing.Point(491, 345);
             this.cbRoom101.Margin = new System.Windows.Forms.Padding(2);
             this.cbRoom101.Name = "cbRoom101";
             this.cbRoom101.Size = new System.Drawing.Size(75, 17);
@@ -364,7 +365,7 @@
             // txtRoom105
             // 
             this.txtRoom105.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.txtRoom105.Location = new System.Drawing.Point(935, 353);
+            this.txtRoom105.Location = new System.Drawing.Point(935, 377);
             this.txtRoom105.Margin = new System.Windows.Forms.Padding(2);
             this.txtRoom105.Name = "txtRoom105";
             this.txtRoom105.Size = new System.Drawing.Size(76, 20);
@@ -373,7 +374,7 @@
             // txtRoom104
             // 
             this.txtRoom104.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.txtRoom104.Location = new System.Drawing.Point(823, 353);
+            this.txtRoom104.Location = new System.Drawing.Point(824, 377);
             this.txtRoom104.Margin = new System.Windows.Forms.Padding(2);
             this.txtRoom104.Name = "txtRoom104";
             this.txtRoom104.Size = new System.Drawing.Size(76, 20);
@@ -382,7 +383,7 @@
             // txtRoom103
             // 
             this.txtRoom103.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.txtRoom103.Location = new System.Drawing.Point(720, 353);
+            this.txtRoom103.Location = new System.Drawing.Point(720, 377);
             this.txtRoom103.Margin = new System.Windows.Forms.Padding(2);
             this.txtRoom103.Name = "txtRoom103";
             this.txtRoom103.Size = new System.Drawing.Size(76, 20);
@@ -391,7 +392,7 @@
             // txtRoom102
             // 
             this.txtRoom102.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.txtRoom102.Location = new System.Drawing.Point(614, 353);
+            this.txtRoom102.Location = new System.Drawing.Point(602, 377);
             this.txtRoom102.Margin = new System.Windows.Forms.Padding(2);
             this.txtRoom102.Name = "txtRoom102";
             this.txtRoom102.Size = new System.Drawing.Size(76, 20);
@@ -400,7 +401,7 @@
             // txtRoom101
             // 
             this.txtRoom101.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.txtRoom101.Location = new System.Drawing.Point(491, 353);
+            this.txtRoom101.Location = new System.Drawing.Point(490, 377);
             this.txtRoom101.Margin = new System.Windows.Forms.Padding(2);
             this.txtRoom101.Name = "txtRoom101";
             this.txtRoom101.Size = new System.Drawing.Size(76, 20);
@@ -483,5 +484,6 @@
         private System.Windows.Forms.TextBox txtRoom103;
         private System.Windows.Forms.TextBox txtRoom102;
         private System.Windows.Forms.TextBox txtRoom101;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
     }
 }
