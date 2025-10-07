@@ -27,7 +27,7 @@ namespace INF2011S_Project_Group22.Properties {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
         [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\HotelBookingD" +
-            "B.mdf;Integrated Security=True")]
+            "B.mdf;Integrated Security=True;Encrypt=False")]
         public string HotelBookingDBConnectionString {
             get {
                 return ((string)(this["HotelBookingDBConnectionString"]));
