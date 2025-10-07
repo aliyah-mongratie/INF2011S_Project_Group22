@@ -6,6 +6,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Configuration;
+
 using INF2011S_Project_Group22.Properties;
 
 namespace INF2011S_Project_Group22.Data
@@ -14,7 +16,8 @@ namespace INF2011S_Project_Group22.Data
     {
         #region Variable declaration
        
-        private string strConn = Settings.Default.HotelBookingDBConnectionString; //connection string used to connect to the HotelBookingDB
+        private string strConn = ConfigurationManager.ConnectionStrings["HotelBookingDB"].ConnectionString;
+        //Settings.Default.HotelBookingDBConnectionString; //connection string used to connect to the HotelBookingDB
         protected SqlConnection cnMain; //represents a connection in the database 
         protected DataSet dsMain; //An in-memory collection of the data
         protected SqlDataAdapter daMain; // delivers data from the database to the dataset
