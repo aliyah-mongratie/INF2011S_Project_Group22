@@ -49,7 +49,9 @@ namespace INF2011S_Project_Group22.Business
         }
         #endregion
 
-        #region Methods
+        #region Methods 
+
+        //PUT IN BOOOKING CLASS!!!!!!
         public void GetSeasonDate(DateTime bookingDate) // this method figures out the season based on the booking date
         {
             // only December is being checked

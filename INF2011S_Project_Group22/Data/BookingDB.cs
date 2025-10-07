@@ -342,7 +342,7 @@ namespace INF2011S_Project_Group22.Data
                     room.HotelRoomID = Convert.ToString(myRow["HotelRoomId"]).TrimEnd();
                     room.getRoomStatus = (HotelRoom.RoomStatus)Convert.ToByte(myRow["RoomStatus"]);
                     room.RoomPrice = Convert.ToDecimal(myRow["RoomPrice"]);
-                    room.RoomCapacity = Convert.ToInt32(myRow["RoomCapacity"]);
+                   
 
                     hotelRooms.Add(room);
                 }
@@ -597,7 +597,7 @@ namespace INF2011S_Project_Group22.Data
             aRow["HotelId"] = room.HotelID;
             aRow["RoomStatus"] = room.getRoomStatus;
             aRow["RoomPrice"] = room.RoomPrice;
-            aRow["RoomCapacity"] = room.RoomCapacity;
+           
             
         }
         private int FindRowRoom(HotelRoom room, string table)

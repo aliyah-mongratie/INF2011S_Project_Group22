@@ -613,13 +613,7 @@ namespace INF2011S_Project_Group22.Business
 
             Booking booking = new Booking(bookingResNumber, numOfPeople, numOfRooms, checkInDate, checkOutDate, specialRequirements, guest, rooms, travelAgent);
 
-            string unavailableRoomID = booking.CheckRoomAvailability(); // the roomId that is unavailable 
-            if (unavailableRoomID != null)
-            {
-                MessageBox.Show("The room " + unavailableRoomID + " is currently occupied. Please select a new room.", "Room Occupied", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return null;
-            }
-
+            booking = new Booking(bookingResNumber, numOfPeople, numOfRooms, checkInDate, checkOutDate, specialRequirements, guest, rooms, travelAgent);
             bookings.Add(booking);
             DataMaintenanceBooking(booking, DB.DBOperation.add);
             FinalizeChangesBooking(booking);           // adding booking to the database 
@@ -627,7 +621,7 @@ namespace INF2011S_Project_Group22.Business
 
             foreach (HotelRoom room in rooms) // loop for each room that the guest is booking 
             {
-                booking.AddRoom(room.HotelRoomID, room.HotelID, room.RoomPrice, room.RoomCapacity); // add the room to the booking
+                booking.AddRoom(room.HotelRoomID, room.HotelID, room.RoomPrice); // add the room to the booking
                 room.CheckIn(); //change the room status to "occupied"
 
                 BookingRoom bookingRoom = new BookingRoom(bookingResNumber, room.HotelRoomID);

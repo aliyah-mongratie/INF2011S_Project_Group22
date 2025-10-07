@@ -100,16 +100,16 @@ namespace INF2011S_Project_Group22.Business
         }
 
         //This method is used to add a room to the booking
-        public void AddRoom(string newHotelRoomID, string newHotelID, decimal newRoomPrice, int newRoomCapacity) //add a room to teh booking
+        public void AddRoom(string newHotelRoomID, string newHotelID, decimal newRoomPrice) //add a room to teh booking
          {
-            var newRoom = new HotelRoom(newHotelRoomID, newHotelID, newRoomPrice, newRoomCapacity); //create a new room object
+            var newRoom = new HotelRoom(newHotelRoomID, newHotelID, newRoomPrice); //create a new room object
 
             // Change status to Occupied right after creation
             newRoom.roomStat = RoomStatus.Occupied;
 
             Rooms.Add(newRoom); //add the new room to the list of rooms in the booking
 
-            MessageBox.Show($"Added Room {newHotelRoomID} ({newHotelID}, {newRoomPrice}, {newRoomCapacity}) - Status: {newRoom.roomStat}");
+            MessageBox.Show($"Added Room {newHotelRoomID} ({newHotelID}, {newRoomPrice}) - Status: {newRoom.roomStat}");
             MessageBox.Show($"Count: {Rooms.Count}, Capacity: {Rooms.Capacity}");
         }
 
