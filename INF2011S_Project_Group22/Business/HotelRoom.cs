@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices.ComTypes;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -21,7 +22,7 @@ namespace INF2011S_Project_Group22
         }
         public RoomStatus roomStat;//various statuses that a room can be in
         public decimal roomPrice;//price of room
-        public int roomCapacity;//capacity the room is allowed to have
+        public const int roomCapacity = 4;//capacity the room is allowed to have
         //should be linked to the UI when calculatin how many people per booking
 
         #endregion
@@ -47,11 +48,7 @@ namespace INF2011S_Project_Group22
             get { return roomPrice; }
             set { roomPrice = value; }
         }
-        public int RoomCapacity
-        {
-            get { return roomCapacity; }
-            set { roomCapacity = value; }
-        }
+      
         #endregion
 
         #region Constructors 
@@ -61,15 +58,15 @@ namespace INF2011S_Project_Group22
             hotelID = "";
             roomStat = HotelRoom.RoomStatus.Available; //the default state of a room
             roomPrice = 0;
-            roomCapacity = 0;
+            
         }
-        public HotelRoom(string newHotelRoomID, string newHotelID, decimal newRoomPrice, int newRoomCapacity)
+        public HotelRoom(string newHotelRoomID, string newHotelID, decimal newRoomPrice)
         {
             hotelRoomID = newHotelRoomID;
             hotelID = newHotelID;
             roomStat = HotelRoom.RoomStatus.Available;
             roomPrice = newRoomPrice;
-            roomCapacity = newRoomCapacity;
+           
         }
 
         #endregion
@@ -84,6 +81,44 @@ namespace INF2011S_Project_Group22
         public void CheckOut()
         {
             roomStat = RoomStatus.Available;
+        }
+
+        public decimal GetRoomPrice(DateTime checkInDate) // this method figures out the season based on the booking date
+        {
+            
+            // only December is being checked
+            if (checkInDate.Month == 12)
+            {
+                // Low season starts from the first of December until the seventh
+                if (checkInDate.Day >= 1 && checkInDate.Day <= 7)
+                {
+                    roomPrice = 550m;
+                   
+                }
+
+                // Mid season starts from the 8th of december until the 15th
+                else if (checkInDate.Day >= 8 && checkInDate.Day <= 15)
+                {
+                    
+                    roomPrice = 750m;
+                   
+                }
+
+                // High season starts from the 16th until the 31st
+                else if (checkInDate.Day >= 16 && checkInDate.Day <= 31)
+                {
+                   
+                    roomPrice = 995m;
+                   
+                }
+
+                else
+                {
+                    
+                    roomPrice = 0m;
+                }
+            }
+            return roomPrice;
         }
         #endregion
     }

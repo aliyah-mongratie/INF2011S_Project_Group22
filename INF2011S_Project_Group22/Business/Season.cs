@@ -49,8 +49,10 @@ namespace INF2011S_Project_Group22.Business
         }
         #endregion
 
-        #region Methods
-        public void GetSeasonDate(DateTime bookingDate) // this method figures out the season based on the booking date
+        #region Methods 
+
+        //PUT IN BOOOKING CLASS!!!!!!
+       /* public void GetSeasonDate(DateTime bookingDate) // this method figures out the season based on the booking date
         {
             // only December is being checked
             if (bookingDate.Month == 12)
@@ -94,7 +96,7 @@ namespace INF2011S_Project_Group22.Business
                 seasonName = "It is not in December season";
                 roomRate = 0m;
             }
-        }
+        }*/
         #endregion
     }
 }
