@@ -25,6 +25,7 @@ namespace INF2011S_Project_Group22.Presentation
             lblBookingReservation.Text= "The Booking Reservation Number is: " + bookingResNumber; //add the booking reservation number here
 
 
+
             //lblBookingReservation.Text= "$The Booking Reservation Number is:"+bookingResNumber //add the booking reservation number here
             ;
         }
