@@ -16,6 +16,10 @@ namespace INF2011S_Project_Group22.Presentation
         public frmMakePayment()
         {
             InitializeComponent();
+            lblCardNoError.Visible = false;
+            lblCVVError.Visible = false;
+            lblExpiryDateError.Visible = false;
+            lblNameCardError.Visible = false;
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
