@@ -35,7 +35,7 @@ namespace INF2011S_Project_Group22.Presentation
 
         private void frmMakePayment_Load(object sender, EventArgs e)
         {
-
+            //Is the github working now?
         }
     }
 }
