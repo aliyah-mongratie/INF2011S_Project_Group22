@@ -53,6 +53,7 @@
             this.txtLastName = new System.Windows.Forms.TextBox();
             this.lblLastName = new System.Windows.Forms.Label();
             this.gBoxRoomPeople = new System.Windows.Forms.GroupBox();
+            this.lblRoomSelectionErr = new System.Windows.Forms.Label();
             this.cbRoom101 = new System.Windows.Forms.CheckBox();
             this.txtRoom105 = new System.Windows.Forms.TextBox();
             this.cbRoom105 = new System.Windows.Forms.CheckBox();
@@ -72,7 +73,9 @@
             this.lblEmailErr = new System.Windows.Forms.Label();
             this.lblBookingTypeErr = new System.Windows.Forms.Label();
             this.lblSpecialReqErr = new System.Windows.Forms.Label();
-            this.lblRoomSelectionErr = new System.Windows.Forms.Label();
+            this.lblPhoneNumber = new System.Windows.Forms.Label();
+            this.txtPhoneNumber = new System.Windows.Forms.TextBox();
+            this.lblPhoneNumberErr = new System.Windows.Forms.Label();
             this.gBoxRoomPeople.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -82,7 +85,7 @@
             this.lblCreateAReservation.BackColor = System.Drawing.Color.OldLace;
             this.lblCreateAReservation.Font = new System.Drawing.Font("Times New Roman", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCreateAReservation.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.lblCreateAReservation.Location = new System.Drawing.Point(-5, 208);
+            this.lblCreateAReservation.Location = new System.Drawing.Point(1046, 219);
             this.lblCreateAReservation.Name = "lblCreateAReservation";
             this.lblCreateAReservation.Size = new System.Drawing.Size(303, 46);
             this.lblCreateAReservation.TabIndex = 2;
@@ -94,7 +97,7 @@
             this.btnBack.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnBack.Font = new System.Drawing.Font("Segoe UI Emoji", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBack.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.btnBack.Location = new System.Drawing.Point(9, 640);
+            this.btnBack.Location = new System.Drawing.Point(-3, 669);
             this.btnBack.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(253, 55);
@@ -110,7 +113,7 @@
             this.btnConfirm.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnConfirm.Font = new System.Drawing.Font("Segoe UI Emoji", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnConfirm.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.btnConfirm.Location = new System.Drawing.Point(827, 639);
+            this.btnConfirm.Location = new System.Drawing.Point(825, 669);
             this.btnConfirm.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnConfirm.Name = "btnConfirm";
             this.btnConfirm.Size = new System.Drawing.Size(253, 55);
@@ -125,7 +128,7 @@
             this.btnCreateResClear.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnCreateResClear.Font = new System.Drawing.Font("Segoe UI Emoji", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCreateResClear.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.btnCreateResClear.Location = new System.Drawing.Point(1085, 639);
+            this.btnCreateResClear.Location = new System.Drawing.Point(1084, 669);
             this.btnCreateResClear.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCreateResClear.Name = "btnCreateResClear";
             this.btnCreateResClear.Size = new System.Drawing.Size(253, 55);
@@ -140,7 +143,7 @@
             this.rbTravelAgencyBooking.BackColor = System.Drawing.Color.OldLace;
             this.rbTravelAgencyBooking.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rbTravelAgencyBooking.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.rbTravelAgencyBooking.Location = new System.Drawing.Point(12, 268);
+            this.rbTravelAgencyBooking.Location = new System.Drawing.Point(14, 250);
             this.rbTravelAgencyBooking.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rbTravelAgencyBooking.Name = "rbTravelAgencyBooking";
             this.rbTravelAgencyBooking.Size = new System.Drawing.Size(236, 29);
@@ -154,7 +157,7 @@
             this.rbPersonalBooking.AutoSize = true;
             this.rbPersonalBooking.BackColor = System.Drawing.Color.OldLace;
             this.rbPersonalBooking.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbPersonalBooking.Location = new System.Drawing.Point(307, 268);
+            this.rbPersonalBooking.Location = new System.Drawing.Point(301, 250);
             this.rbPersonalBooking.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rbPersonalBooking.Name = "rbPersonalBooking";
             this.rbPersonalBooking.Size = new System.Drawing.Size(186, 29);
@@ -169,7 +172,7 @@
             this.lblFirstName.BackColor = System.Drawing.Color.OldLace;
             this.lblFirstName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFirstName.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.lblFirstName.Location = new System.Drawing.Point(7, 316);
+            this.lblFirstName.Location = new System.Drawing.Point(12, 302);
             this.lblFirstName.Name = "lblFirstName";
             this.lblFirstName.Size = new System.Drawing.Size(112, 25);
             this.lblFirstName.TabIndex = 19;
@@ -181,7 +184,7 @@
             this.lblNumRooms.BackColor = System.Drawing.Color.OldLace;
             this.lblNumRooms.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNumRooms.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.lblNumRooms.Location = new System.Drawing.Point(7, 368);
+            this.lblNumRooms.Location = new System.Drawing.Point(8, 366);
             this.lblNumRooms.Name = "lblNumRooms";
             this.lblNumRooms.Size = new System.Drawing.Size(243, 25);
             this.lblNumRooms.TabIndex = 20;
@@ -193,7 +196,7 @@
             this.lblNumPeople.BackColor = System.Drawing.Color.OldLace;
             this.lblNumPeople.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNumPeople.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.lblNumPeople.Location = new System.Drawing.Point(7, 414);
+            this.lblNumPeople.Location = new System.Drawing.Point(8, 417);
             this.lblNumPeople.Name = "lblNumPeople";
             this.lblNumPeople.Size = new System.Drawing.Size(172, 25);
             this.lblNumPeople.TabIndex = 21;
@@ -203,7 +206,7 @@
             // 
             this.lblBookingDate.AutoSize = true;
             this.lblBookingDate.BackColor = System.Drawing.Color.OldLace;
-            this.lblBookingDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBookingDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblBookingDate.ForeColor = System.Drawing.Color.DarkSlateGray;
             this.lblBookingDate.Location = new System.Drawing.Point(7, 468);
             this.lblBookingDate.Name = "lblBookingDate";
@@ -217,7 +220,7 @@
             this.lblCheckOut.BackColor = System.Drawing.Color.OldLace;
             this.lblCheckOut.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCheckOut.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.lblCheckOut.Location = new System.Drawing.Point(183, 507);
+            this.lblCheckOut.Location = new System.Drawing.Point(571, 468);
             this.lblCheckOut.Name = "lblCheckOut";
             this.lblCheckOut.Size = new System.Drawing.Size(155, 25);
             this.lblCheckOut.TabIndex = 23;
@@ -229,7 +232,7 @@
             this.lblSR.BackColor = System.Drawing.Color.OldLace;
             this.lblSR.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSR.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.lblSR.Location = new System.Drawing.Point(7, 551);
+            this.lblSR.Location = new System.Drawing.Point(1, 621);
             this.lblSR.Name = "lblSR";
             this.lblSR.Size = new System.Drawing.Size(291, 25);
             this.lblSR.TabIndex = 24;
@@ -253,7 +256,7 @@
             this.lblEmail.BackColor = System.Drawing.Color.OldLace;
             this.lblEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEmail.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.lblEmail.Location = new System.Drawing.Point(7, 598);
+            this.lblEmail.Location = new System.Drawing.Point(12, 576);
             this.lblEmail.Name = "lblEmail";
             this.lblEmail.Size = new System.Drawing.Size(66, 25);
             this.lblEmail.TabIndex = 26;
@@ -264,7 +267,7 @@
             this.txtFirstName.BackColor = System.Drawing.Color.Bisque;
             this.txtFirstName.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtFirstName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFirstName.Location = new System.Drawing.Point(152, 316);
+            this.txtFirstName.Location = new System.Drawing.Point(135, 302);
             this.txtFirstName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtFirstName.Name = "txtFirstName";
             this.txtFirstName.Size = new System.Drawing.Size(213, 23);
@@ -275,7 +278,7 @@
             this.txtNumRooms.BackColor = System.Drawing.Color.Bisque;
             this.txtNumRooms.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtNumRooms.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNumRooms.Location = new System.Drawing.Point(307, 368);
+            this.txtNumRooms.Location = new System.Drawing.Point(280, 366);
             this.txtNumRooms.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtNumRooms.Name = "txtNumRooms";
             this.txtNumRooms.Size = new System.Drawing.Size(319, 23);
@@ -286,7 +289,7 @@
             this.txtNumPeople.BackColor = System.Drawing.Color.Bisque;
             this.txtNumPeople.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtNumPeople.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNumPeople.Location = new System.Drawing.Point(223, 414);
+            this.txtNumPeople.Location = new System.Drawing.Point(201, 417);
             this.txtNumPeople.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtNumPeople.Name = "txtNumPeople";
             this.txtNumPeople.Size = new System.Drawing.Size(319, 23);
@@ -297,7 +300,7 @@
             this.txtCheckInDate.BackColor = System.Drawing.Color.Bisque;
             this.txtCheckInDate.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtCheckInDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCheckInDate.Location = new System.Drawing.Point(367, 468);
+            this.txtCheckInDate.Location = new System.Drawing.Point(332, 468);
             this.txtCheckInDate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtCheckInDate.Name = "txtCheckInDate";
             this.txtCheckInDate.Size = new System.Drawing.Size(216, 23);
@@ -308,7 +311,7 @@
             this.txtCheckOutDate.BackColor = System.Drawing.Color.Bisque;
             this.txtCheckOutDate.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtCheckOutDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCheckOutDate.Location = new System.Drawing.Point(367, 507);
+            this.txtCheckOutDate.Location = new System.Drawing.Point(732, 470);
             this.txtCheckOutDate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtCheckOutDate.Name = "txtCheckOutDate";
             this.txtCheckOutDate.Size = new System.Drawing.Size(216, 23);
@@ -319,7 +322,7 @@
             this.txtSpecialReq.BackColor = System.Drawing.Color.Bisque;
             this.txtSpecialReq.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtSpecialReq.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSpecialReq.Location = new System.Drawing.Point(347, 553);
+            this.txtSpecialReq.Location = new System.Drawing.Point(311, 627);
             this.txtSpecialReq.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtSpecialReq.Multiline = true;
             this.txtSpecialReq.Name = "txtSpecialReq";
@@ -331,7 +334,7 @@
             this.txtEmail.BackColor = System.Drawing.Color.Bisque;
             this.txtEmail.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEmail.Location = new System.Drawing.Point(103, 599);
+            this.txtEmail.Location = new System.Drawing.Point(115, 578);
             this.txtEmail.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(496, 23);
@@ -342,7 +345,7 @@
             this.txtLastName.BackColor = System.Drawing.Color.Bisque;
             this.txtLastName.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtLastName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtLastName.Location = new System.Drawing.Point(557, 318);
+            this.txtLastName.Location = new System.Drawing.Point(522, 304);
             this.txtLastName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtLastName.Name = "txtLastName";
             this.txtLastName.Size = new System.Drawing.Size(285, 23);
@@ -354,7 +357,7 @@
             this.lblLastName.BackColor = System.Drawing.Color.OldLace;
             this.lblLastName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLastName.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.lblLastName.Location = new System.Drawing.Point(396, 316);
+            this.lblLastName.Location = new System.Drawing.Point(395, 302);
             this.lblLastName.Name = "lblLastName";
             this.lblLastName.Size = new System.Drawing.Size(112, 25);
             this.lblLastName.TabIndex = 35;
@@ -374,14 +377,24 @@
             this.gBoxRoomPeople.Controls.Add(this.cbRoom103);
             this.gBoxRoomPeople.Controls.Add(this.txtRoom102);
             this.gBoxRoomPeople.Controls.Add(this.txtRoom103);
-            this.gBoxRoomPeople.Location = new System.Drawing.Point(944, 314);
-            this.gBoxRoomPeople.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gBoxRoomPeople.Location = new System.Drawing.Point(987, 302);
+            this.gBoxRoomPeople.Margin = new System.Windows.Forms.Padding(4);
             this.gBoxRoomPeople.Name = "gBoxRoomPeople";
-            this.gBoxRoomPeople.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gBoxRoomPeople.Padding = new System.Windows.Forms.Padding(4);
             this.gBoxRoomPeople.Size = new System.Drawing.Size(349, 274);
             this.gBoxRoomPeople.TabIndex = 36;
             this.gBoxRoomPeople.TabStop = false;
             this.gBoxRoomPeople.Text = "Select room and Specify number of people";
+            // 
+            // lblRoomSelectionErr
+            // 
+            this.lblRoomSelectionErr.AutoSize = true;
+            this.lblRoomSelectionErr.ForeColor = System.Drawing.Color.Red;
+            this.lblRoomSelectionErr.Location = new System.Drawing.Point(19, 251);
+            this.lblRoomSelectionErr.Name = "lblRoomSelectionErr";
+            this.lblRoomSelectionErr.Size = new System.Drawing.Size(44, 16);
+            this.lblRoomSelectionErr.TabIndex = 31;
+            this.lblRoomSelectionErr.Text = "label1";
             // 
             // cbRoom101
             // 
@@ -488,7 +501,7 @@
             this.lblFNameErr.AutoSize = true;
             this.lblFNameErr.BackColor = System.Drawing.Color.OldLace;
             this.lblFNameErr.ForeColor = System.Drawing.Color.Red;
-            this.lblFNameErr.Location = new System.Drawing.Point(149, 343);
+            this.lblFNameErr.Location = new System.Drawing.Point(135, 334);
             this.lblFNameErr.Name = "lblFNameErr";
             this.lblFNameErr.Size = new System.Drawing.Size(44, 16);
             this.lblFNameErr.TabIndex = 37;
@@ -499,7 +512,7 @@
             this.lblLNameErr.AutoSize = true;
             this.lblLNameErr.BackColor = System.Drawing.Color.OldLace;
             this.lblLNameErr.ForeColor = System.Drawing.Color.Red;
-            this.lblLNameErr.Location = new System.Drawing.Point(555, 343);
+            this.lblLNameErr.Location = new System.Drawing.Point(519, 329);
             this.lblLNameErr.Name = "lblLNameErr";
             this.lblLNameErr.Size = new System.Drawing.Size(44, 16);
             this.lblLNameErr.TabIndex = 38;
@@ -510,7 +523,7 @@
             this.lblNoOfRoomsErr.AutoSize = true;
             this.lblNoOfRoomsErr.BackColor = System.Drawing.Color.OldLace;
             this.lblNoOfRoomsErr.ForeColor = System.Drawing.Color.Red;
-            this.lblNoOfRoomsErr.Location = new System.Drawing.Point(304, 391);
+            this.lblNoOfRoomsErr.Location = new System.Drawing.Point(282, 391);
             this.lblNoOfRoomsErr.Name = "lblNoOfRoomsErr";
             this.lblNoOfRoomsErr.Size = new System.Drawing.Size(44, 16);
             this.lblNoOfRoomsErr.TabIndex = 39;
@@ -521,7 +534,7 @@
             this.lblNoOfPeopleErr.AutoSize = true;
             this.lblNoOfPeopleErr.BackColor = System.Drawing.Color.OldLace;
             this.lblNoOfPeopleErr.ForeColor = System.Drawing.Color.Red;
-            this.lblNoOfPeopleErr.Location = new System.Drawing.Point(220, 441);
+            this.lblNoOfPeopleErr.Location = new System.Drawing.Point(198, 442);
             this.lblNoOfPeopleErr.Name = "lblNoOfPeopleErr";
             this.lblNoOfPeopleErr.Size = new System.Drawing.Size(44, 16);
             this.lblNoOfPeopleErr.TabIndex = 40;
@@ -532,7 +545,7 @@
             this.lblCheckInDateErr.AutoSize = true;
             this.lblCheckInDateErr.BackColor = System.Drawing.Color.OldLace;
             this.lblCheckInDateErr.ForeColor = System.Drawing.Color.Red;
-            this.lblCheckInDateErr.Location = new System.Drawing.Point(589, 475);
+            this.lblCheckInDateErr.Location = new System.Drawing.Point(329, 493);
             this.lblCheckInDateErr.Name = "lblCheckInDateErr";
             this.lblCheckInDateErr.Size = new System.Drawing.Size(44, 16);
             this.lblCheckInDateErr.TabIndex = 41;
@@ -543,7 +556,7 @@
             this.lblCheckOutDateErr.AutoSize = true;
             this.lblCheckOutDateErr.BackColor = System.Drawing.Color.OldLace;
             this.lblCheckOutDateErr.ForeColor = System.Drawing.Color.Red;
-            this.lblCheckOutDateErr.Location = new System.Drawing.Point(589, 514);
+            this.lblCheckOutDateErr.Location = new System.Drawing.Point(729, 495);
             this.lblCheckOutDateErr.Name = "lblCheckOutDateErr";
             this.lblCheckOutDateErr.Size = new System.Drawing.Size(44, 16);
             this.lblCheckOutDateErr.TabIndex = 42;
@@ -554,7 +567,7 @@
             this.lblEmailErr.AutoSize = true;
             this.lblEmailErr.BackColor = System.Drawing.Color.OldLace;
             this.lblEmailErr.ForeColor = System.Drawing.Color.Red;
-            this.lblEmailErr.Location = new System.Drawing.Point(100, 622);
+            this.lblEmailErr.Location = new System.Drawing.Point(112, 603);
             this.lblEmailErr.Name = "lblEmailErr";
             this.lblEmailErr.Size = new System.Drawing.Size(44, 16);
             this.lblEmailErr.TabIndex = 43;
@@ -565,7 +578,7 @@
             this.lblBookingTypeErr.AutoSize = true;
             this.lblBookingTypeErr.BackColor = System.Drawing.Color.OldLace;
             this.lblBookingTypeErr.ForeColor = System.Drawing.Color.Red;
-            this.lblBookingTypeErr.Location = new System.Drawing.Point(499, 277);
+            this.lblBookingTypeErr.Location = new System.Drawing.Point(504, 259);
             this.lblBookingTypeErr.Name = "lblBookingTypeErr";
             this.lblBookingTypeErr.Size = new System.Drawing.Size(44, 16);
             this.lblBookingTypeErr.TabIndex = 44;
@@ -576,20 +589,43 @@
             this.lblSpecialReqErr.AutoSize = true;
             this.lblSpecialReqErr.BackColor = System.Drawing.Color.OldLace;
             this.lblSpecialReqErr.ForeColor = System.Drawing.Color.Red;
-            this.lblSpecialReqErr.Location = new System.Drawing.Point(344, 578);
+            this.lblSpecialReqErr.Location = new System.Drawing.Point(308, 648);
             this.lblSpecialReqErr.Name = "lblSpecialReqErr";
             this.lblSpecialReqErr.Size = new System.Drawing.Size(44, 16);
             this.lblSpecialReqErr.TabIndex = 45;
             this.lblSpecialReqErr.Text = "label1";
             // 
-            // lblRoomSelectionErr
+            // lblPhoneNumber
             // 
-            this.lblRoomSelectionErr.AutoSize = true;
-            this.lblRoomSelectionErr.Location = new System.Drawing.Point(19, 251);
-            this.lblRoomSelectionErr.Name = "lblRoomSelectionErr";
-            this.lblRoomSelectionErr.Size = new System.Drawing.Size(44, 16);
-            this.lblRoomSelectionErr.TabIndex = 31;
-            this.lblRoomSelectionErr.Text = "label1";
+            this.lblPhoneNumber.AutoSize = true;
+            this.lblPhoneNumber.BackColor = System.Drawing.Color.OldLace;
+            this.lblPhoneNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPhoneNumber.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.lblPhoneNumber.Location = new System.Drawing.Point(8, 521);
+            this.lblPhoneNumber.Name = "lblPhoneNumber";
+            this.lblPhoneNumber.Size = new System.Drawing.Size(143, 25);
+            this.lblPhoneNumber.TabIndex = 46;
+            this.lblPhoneNumber.Text = "Phone Number";
+            // 
+            // txtPhoneNumber
+            // 
+            this.txtPhoneNumber.BackColor = System.Drawing.Color.Bisque;
+            this.txtPhoneNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPhoneNumber.Location = new System.Drawing.Point(201, 524);
+            this.txtPhoneNumber.Name = "txtPhoneNumber";
+            this.txtPhoneNumber.Size = new System.Drawing.Size(398, 30);
+            this.txtPhoneNumber.TabIndex = 47;
+            // 
+            // lblPhoneNumberErr
+            // 
+            this.lblPhoneNumberErr.AutoSize = true;
+            this.lblPhoneNumberErr.BackColor = System.Drawing.Color.OldLace;
+            this.lblPhoneNumberErr.ForeColor = System.Drawing.Color.Red;
+            this.lblPhoneNumberErr.Location = new System.Drawing.Point(206, 553);
+            this.lblPhoneNumberErr.Name = "lblPhoneNumberErr";
+            this.lblPhoneNumberErr.Size = new System.Drawing.Size(44, 16);
+            this.lblPhoneNumberErr.TabIndex = 48;
+            this.lblPhoneNumberErr.Text = "label1";
             // 
             // frmCreateReservation
             // 
@@ -597,6 +633,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1349, 706);
+            this.Controls.Add(this.lblPhoneNumberErr);
+            this.Controls.Add(this.txtPhoneNumber);
+            this.Controls.Add(this.lblPhoneNumber);
             this.Controls.Add(this.lblSpecialReqErr);
             this.Controls.Add(this.lblBookingTypeErr);
             this.Controls.Add(this.lblEmailErr);
@@ -686,5 +725,8 @@
         private System.Windows.Forms.Label lblBookingTypeErr;
         private System.Windows.Forms.Label lblSpecialReqErr;
         private System.Windows.Forms.Label lblRoomSelectionErr;
+        private System.Windows.Forms.Label lblPhoneNumber;
+        private System.Windows.Forms.TextBox txtPhoneNumber;
+        private System.Windows.Forms.Label lblPhoneNumberErr;
     }
 }
