@@ -59,6 +59,7 @@ namespace INF2011S_Project_Group22.Presentation
                 txtNameOnCard.Clear();
                 return false;
             }
+            
 
             // Validation for Card Number
             if (string.IsNullOrWhiteSpace(cardNumber))

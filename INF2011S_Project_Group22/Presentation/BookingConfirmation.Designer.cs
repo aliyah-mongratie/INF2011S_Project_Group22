@@ -60,9 +60,11 @@
             // lblBookingReservation
             // 
             this.lblBookingReservation.AutoSize = true;
+            this.lblBookingReservation.Font = new System.Drawing.Font("Segoe UI Emoji", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBookingReservation.ForeColor = System.Drawing.Color.DarkSlateGray;
             this.lblBookingReservation.Location = new System.Drawing.Point(496, 578);
             this.lblBookingReservation.Name = "lblBookingReservation";
-            this.lblBookingReservation.Size = new System.Drawing.Size(28, 16);
+            this.lblBookingReservation.Size = new System.Drawing.Size(43, 24);
             this.lblBookingReservation.TabIndex = 4;
             this.lblBookingReservation.Text = "lbl1";
             // 
