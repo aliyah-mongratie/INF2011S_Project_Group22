@@ -80,7 +80,7 @@ namespace INF2011S_Project_Group22.Business
             Random rand = new Random();
             return rand.Next(10000, 100000); // generates a random number between 10000 and 100000
         }
-        public int GetBookingDuration()
+        public int GetBookingDuration(DateTime checkInDate, DateTime checkOutDate)
         {
             return (checkOutDate - checkInDate).Days;//calculates amount of days/nights stay for booking
         }

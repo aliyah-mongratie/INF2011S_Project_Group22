@@ -19,6 +19,7 @@ namespace INF2011S_Project_Group22.Data
 {
     class DB
     {
+        //innocent change
         #region Variable declaration
 
        //

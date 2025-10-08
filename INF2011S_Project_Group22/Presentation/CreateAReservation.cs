@@ -22,6 +22,7 @@ namespace INF2011S_Project_Group22
     {
         private Booking booking;
         private BookingType bookingType;
+        private HotelRoom room;
         private BookingController bookingController;
         private int totRoomPeople = 0;//variable to hold initial value of the total number of people input in all textboxes 
         public frmCreateReservation()
@@ -29,141 +30,76 @@ namespace INF2011S_Project_Group22
             InitializeComponent();
 
            
-           
-            BookingController bookingController = new BookingController(); //instantiate the booking controller class to use its methods
-
+            bookingController = new BookingController(); //instantiate the booking controller class to use its methods
+            booking = new Booking();
+            room = new HotelRoom();
 
 
         }
         #region Validation Method
-        private void EnterDetailsValidation()
+        private bool EnterDetailsValidation()
         {
             string firstName = txtFirstName.Text;
             string lastName = txtLastName.Text;
-            int numberOfPeople = int.Parse(txtNumPeople.Text);
-            int numberOfRooms = int.Parse(txtNumRooms.Text);
-            DateTime checkInDate;
-            DateTime checkOutDate;
 
-            try
+            if (string.IsNullOrWhiteSpace(firstName) || string.IsNullOrWhiteSpace(lastName))
             {
-                checkInDate = DateTime.Parse(txtCheckInDate.Text);//parsing to the textboxes
-                checkOutDate = DateTime.Parse(txtCheckOutDate.Text);
-            }
-            catch
-            {
-                MessageBox.Show("Please enter valid dates (e.g. 10/10/2025).", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
+                MessageBox.Show("First and Last Name are required.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
             }
 
+            if (firstName.Any(char.IsDigit) || lastName.Any(char.IsDigit))
+            {
+                MessageBox.Show("Names cannot contain numbers.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
 
-            //If the personal booking is chosen, the user will be directed to the payment form. If not, they will be directed to the confirmed booking form.
-            //The assumption is that personal bookings will always require payment, while travel agent bookings will be handled by the travel agent.
+            if (!int.TryParse(txtNumPeople.Text, out int numberOfPeople) || numberOfPeople < 1 || numberOfPeople > 6)
+            {
+                MessageBox.Show("Number of people must be between 1 and 6.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
 
+            if (!int.TryParse(txtNumRooms.Text, out int numberOfRooms) || numberOfRooms < 1 || numberOfRooms > 3)
+            {
+                MessageBox.Show("Number of rooms must be between 1 and 3.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            string email = txtEmail.Text;
+            if (string.IsNullOrEmpty(email) || !email.Contains("@") || !email.Contains("."))
+            {
+                MessageBox.Show("Please enter a valid email address.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            string specialRequirements = txtSpecialReq.Text;
+            if (specialRequirements.Length > 200)
+            {
+                MessageBox.Show("Special requirements cannot exceed 200 characters.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            // Only after all validation passes:
             if (rbPersonalBooking.Checked)
             {
                 bookingType = BookingType.Personal;
-                frmMakePayment newForm = new frmMakePayment();
-                newForm.ShowDialog();
+                new frmMakePayment().ShowDialog();
             }
             else if (rbTravelAgencyBooking.Checked)
             {
                 bookingType = BookingType.TravelAgency;
-                BookingConfirmation newForm = new BookingConfirmation();
-                newForm.ShowDialog();
+                new BookingConfirmation().ShowDialog();
+                return false;
+
             }
             else
             {
                 MessageBox.Show("Please select a booking type.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
+                return false;
             }
-
-            //
-
-            //Validation for first name and last name
-            if (string.IsNullOrWhiteSpace(firstName) || string.IsNullOrWhiteSpace(lastName)) // if the name fields (first or last) are empty or just whitespace, a messagebox will pop up telling the user there is an error.
-            {
-                MessageBox.Show("First Name and Last Name are required fields.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            if (firstName.Any(char.IsDigit) || lastName.Any(char.IsDigit)) // if the name fields (first or last) contain any digits, a messagebox will pop up telling the user there is an error.
-            {
-                MessageBox.Show("First Name and Last Name cannot contain numbers.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            if (firstName.Length > 50 || lastName.Length > 50) // if the name fields (first or last) are longer than 50 characters, a messagebox will pop up telling the user there is an error.
-            {
-                MessageBox.Show("First Name and Last Name cannot exceed 50 characters.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-
-            //Validation for number of people
-            if (numberOfPeople == 0) // if the number of people is 0, a messagebox will pop up telling the user there is an error.
-            {
-                MessageBox.Show("The number of people cannot be zero.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            if (numberOfPeople < 1 || numberOfPeople > 6) // if the number of people is less than 1 or more than 6, a messagebox will pop up telling the user there is an error.
-            {
-                MessageBox.Show("The number of people must be between 1 and 6.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            //Validation for number of rooms
-            if (numberOfRooms == 0) // if the number of rooms is 0, a messagebox will pop up telling the user there is an error.
-            {
-                MessageBox.Show("The number of rooms cannot be zero.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            if (numberOfRooms < 1 || numberOfRooms > 3) // if the number of rooms is less than 1 or more than 3, a messagebox will pop up telling the user there is an error.
-            {
-                MessageBox.Show("The number of rooms must be between 1 and 3.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            //Validation for check-in and check-out dates
-
-            //Make sure the dates are valid
+            return true;
             
-
-            if (checkInDate < DateTime.Today) // if the check-in date is before today's date, a messagebox will pop up telling the user there is an error.
-            {
-                MessageBox.Show("The check-in date cannot be in the past.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            else if (checkOutDate <= checkInDate)
-            {
-                MessageBox.Show("The check-out date must be after the check-in date.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else
-            {
-                MessageBox.Show($"Check-in date: {txtCheckInDate.Text}, Check-out date: {txtCheckOutDate.Text}");
-            }
-
-            //Special Requirements validation
-            string specialRequirements = txtSpecialReq.Text;
-            if (specialRequirements.Length > 200) // if the special requirements field is longer than 200 characters, a messagebox will pop up telling the user there is an error.
-            {
-                MessageBox.Show("Special Requirements cannot exceed 200 characters.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            //Email validation
-            string email = txtEmail.Text;
-            if (string.IsNullOrEmpty(email))
-            {
-                MessageBox.Show("Email is a required field.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-
-            // Check if the email contains '@' and '.'
-            if (!email.Contains("@") || !email.Contains("."))
-            {
-                MessageBox.Show("Email must contain '@' and '.' characters.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
             // If all validations pass, proceed with reservation creation
         }
         #endregion
@@ -201,6 +137,7 @@ namespace INF2011S_Project_Group22
 
         private void SetAvailableRooms(CheckBox cb, HotelRoom.RoomStatus roomStatus)
         {
+            //makes the rooms that are available visible in the checkboxes
             switch (roomStatus)
             {
                 case HotelRoom.RoomStatus.Available:
@@ -289,6 +226,50 @@ namespace INF2011S_Project_Group22
 
         }
 
+        private decimal CalculateBookingAmount()
+        {
+            decimal totalBookingPrice = 0;
+
+            // Validate dates first
+            if (string.IsNullOrEmpty(txtCheckInDate.Text) || string.IsNullOrEmpty(txtCheckOutDate.Text))
+            {
+                MessageBox.Show("Please enter both check-in and check-out dates.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return 0;
+            }
+
+            DateTime checkInDate;
+            DateTime checkOutDate;
+
+            try
+            {
+                checkInDate = Convert.ToDateTime(txtCheckInDate.Text);
+                checkOutDate = Convert.ToDateTime(txtCheckOutDate.Text);
+            }
+            catch
+            {
+                MessageBox.Show("Invalid date format. Please use (e.g. 10/10/2025).", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return 0;
+            }
+
+            int nights = booking.GetBookingDuration(checkInDate, checkOutDate);
+
+            var selectedRooms = GetSelectedRooms();
+            if (selectedRooms == null || selectedRooms.Count == 0)
+            {
+                MessageBox.Show("Please select at least one room.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return 0;
+            }
+
+            
+            foreach (HotelRoom selectedRoom in selectedRooms)
+            {
+                decimal roomPrice = selectedRoom.GetRoomPrice(checkInDate);
+                totalBookingPrice += roomPrice * nights;
+            }
+
+            return totalBookingPrice;
+        }
+
         #endregion
 
 
@@ -305,66 +286,80 @@ namespace INF2011S_Project_Group22
 
         private void btnCreateResNext_Click(object sender, EventArgs e)
         {
-            
+
+           
+
+             
 
 
-            //Show a message box if any of the required fields are empty when the next button is clicked
-            if (string.IsNullOrWhiteSpace(txtFirstName.Text) ||
-                string.IsNullOrWhiteSpace(txtLastName.Text) ||
-                string.IsNullOrWhiteSpace(txtNumPeople.Text) ||
-                string.IsNullOrWhiteSpace(txtNumRooms.Text) ||
-                string.IsNullOrWhiteSpace(txtEmail.Text))
+            if (!EnterDetailsValidation())
             {
-                MessageBox.Show("Please fill in all required fields.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            
-            EnterDetailsValidation(); //Call the method to validate the input fields
+            else
+            {
+                //Show a message box if any of the required fields are empty when the next button is clicked
+                if (string.IsNullOrWhiteSpace(txtFirstName.Text) ||
+                    string.IsNullOrWhiteSpace(txtLastName.Text) ||
+                    string.IsNullOrWhiteSpace(txtNumPeople.Text) ||
+                    string.IsNullOrWhiteSpace(txtNumRooms.Text) ||
+                    string.IsNullOrWhiteSpace(txtEmail.Text))
+                {
+                    MessageBox.Show("Please fill in all required fields.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                else
+                {
+                    //display the booking amount and number of rooms through a messagebox 
+                    MessageBox.Show($"The Total Booking Amount Is: {CalculateBookingAmount().ToString("C")} \r\n The Total Number Of Rooms Booked Is: {GetSelectedRooms().Count}");
+                }
+
+
+                // initiate the objects so it can be passed to the MakeBooking method
+                Guest guest = new Guest();
+                guest.FirstName = txtFirstName.Text;
+                guest.LastName = txtLastName.Text;
+                guest.Email = txtEmail.Text;
+                DateTime checkInDate, checkOutDate;
+                DateTime.TryParse(txtCheckInDate.Text, out checkInDate);
+                DateTime.TryParse(txtCheckOutDate.Text, out checkOutDate);
+                guest.CheckInDate = checkInDate;
+                guest.CheckOutDate = checkOutDate;
+                List<HotelRoom> rooms = new List<HotelRoom>(); //Create a new list to store the rooms that will be booked
+                TravelAgent travelAgent = new TravelAgent(); //Create a new travel agent object, it will be populated if the booking type is travel agent
+
+                int numOfPeople = int.Parse(txtNumPeople.Text); //Parse the number of people from the textbox
+                BookingType bookingType = (rbPersonalBooking.Checked) ? BookingType.Personal : BookingType.TravelAgency; //Determine the booking type based on the selected radio button
+                int numOfRooms = int.Parse(txtNumRooms.Text); //Parse the number of rooms from the textbox
+
+                string specialRequirements = txtSpecialReq.Text; //Get the special requirements from the textbox
+
+
+                //Call the MakeBooking method from the BookingController class to create a new booking
+                BookingController bookingController = new BookingController();
+                Booking booking = bookingController.MakeBooking(
+                    guest,
+                    rooms,
+                    travelAgent,
+                    numOfPeople.ToString(),
+                    (int)bookingType, // Convert BookingType enum to int
+                    numOfRooms,
+                    checkInDate,      // Pass checkInDate as DateTime
+                    checkOutDate,
+                    specialRequirements // Pass checkOutDate as DateTime
+
+                );
 
 
 
 
-            // initiate the objects so it can be passed to the MakeBooking method
-            Guest guest = new Guest();
-            guest.FirstName = txtFirstName.Text;
-            guest.LastName = txtLastName.Text;
-            guest.Email = txtEmail.Text;
-            DateTime checkInDate, checkOutDate;
-            DateTime.TryParse(txtCheckInDate.Text, out checkInDate);
-            DateTime.TryParse(txtCheckOutDate.Text, out checkOutDate);
-            guest.CheckInDate = checkInDate;
-            guest.CheckOutDate = checkOutDate;
-            List<HotelRoom> rooms = new List<HotelRoom>(); //Create a new list to store the rooms that will be booked
-            TravelAgent travelAgent = new TravelAgent(); //Create a new travel agent object, it will be populated if the booking type is travel agent
-           
-            int numOfPeople = int.Parse(txtNumPeople.Text); //Parse the number of people from the textbox
-            BookingType bookingType= (rbPersonalBooking.Checked) ? BookingType.Personal : BookingType.TravelAgency; //Determine the booking type based on the selected radio button
-            int numOfRooms = int.Parse(txtNumRooms.Text); //Parse the number of rooms from the textbox
-            
-            string specialRequirements = txtSpecialReq.Text; //Get the special requirements from the textbox
+
+                BookingConfirmation newForm = new BookingConfirmation(); //Open the booking confirmation form once the details have been entered and validated
+                newForm.ShowDialog();
+
+            }
 
 
-            //Call the MakeBooking method from the BookingController class to create a new booking
-            BookingController bookingController = new BookingController();
-            Booking booking = bookingController.MakeBooking(
-                guest,
-                rooms,
-                travelAgent,
-                numOfPeople.ToString(),
-                (int)bookingType, // Convert BookingType enum to int
-                numOfRooms,
-                checkInDate,      // Pass checkInDate as DateTime
-                checkOutDate,
-                specialRequirements // Pass checkOutDate as DateTime
-                                
-            );
-            
-
-
-
-
-            BookingConfirmation newForm = new BookingConfirmation(); //Open the booking confirmation form once the details have been entered and validated
-            newForm.ShowDialog();
 
 
         }
@@ -381,6 +376,19 @@ namespace INF2011S_Project_Group22
             txtCheckOutDate.Clear();
             txtSpecialReq.Clear();
             txtEmail.Clear();
+            rbPersonalBooking.Checked = false;
+            rbTravelAgencyBooking.Checked = false;
+            cbRoom101.Checked = false;
+            cbRoom102.Checked = false;
+            cbRoom103.Checked = false;
+            cbRoom104.Checked = false;
+            cbRoom105.Checked = false;
+            txtRoom101.Clear();
+            txtRoom102.Clear();
+            txtRoom103.Clear();
+            txtRoom104.Clear();
+            txtRoom105.Clear();
+
 
             txtFirstName.Focus();
         }
