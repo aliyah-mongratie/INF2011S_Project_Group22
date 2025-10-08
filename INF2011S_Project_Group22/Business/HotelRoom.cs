@@ -115,7 +115,7 @@ namespace INF2011S_Project_Group22
                 else
                 {
                     
-                    roomPrice = 0m;
+                    roomPrice = 550m;
                 }
             }
             return roomPrice;

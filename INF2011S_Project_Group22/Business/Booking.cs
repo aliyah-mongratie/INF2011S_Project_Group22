@@ -113,6 +113,11 @@ namespace INF2011S_Project_Group22.Business
             MessageBox.Show($"Count: {Rooms.Count}, Capacity: {Rooms.Capacity}");
         }
 
+        public decimal CalculateDeposit(decimal totalAmount)
+        {
+            // Deposit = 10% of total thats due 14 days before arrival
+            return totalAmount * 0.10m;
+        }
 
         #endregion
     }
