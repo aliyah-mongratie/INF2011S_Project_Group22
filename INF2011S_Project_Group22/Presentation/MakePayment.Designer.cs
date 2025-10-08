@@ -51,6 +51,10 @@
             this.btnBack = new System.Windows.Forms.Button();
             this.btnConfirm = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
+            this.lblCardNoError = new System.Windows.Forms.Label();
+            this.lblExpiryDateError = new System.Windows.Forms.Label();
+            this.lblNameCardError = new System.Windows.Forms.Label();
+            this.lblCVVError = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -86,7 +90,7 @@
             this.lblCardTypes.AutoSize = true;
             this.lblCardTypes.BackColor = System.Drawing.Color.OldLace;
             this.lblCardTypes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.lblCardTypes.Location = new System.Drawing.Point(94, 407);
+            this.lblCardTypes.Location = new System.Drawing.Point(94, 421);
             this.lblCardTypes.Name = "lblCardTypes";
             this.lblCardTypes.Size = new System.Drawing.Size(226, 16);
             this.lblCardTypes.TabIndex = 11;
@@ -105,7 +109,7 @@
             // 
             this.pictureBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.BackgroundImage")));
             this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox2.Location = new System.Drawing.Point(97, 371);
+            this.pictureBox2.Location = new System.Drawing.Point(97, 385);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(66, 33);
             this.pictureBox2.TabIndex = 13;
@@ -203,7 +207,7 @@
             this.lblSecurityCode.BackColor = System.Drawing.Color.OldLace;
             this.lblSecurityCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSecurityCode.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.lblSecurityCode.Location = new System.Drawing.Point(614, 338);
+            this.lblSecurityCode.Location = new System.Drawing.Point(617, 300);
             this.lblSecurityCode.Name = "lblSecurityCode";
             this.lblSecurityCode.Size = new System.Drawing.Size(172, 22);
             this.lblSecurityCode.TabIndex = 24;
@@ -213,7 +217,7 @@
             // 
             this.txtSecurityCode.BackColor = System.Drawing.Color.Bisque;
             this.txtSecurityCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSecurityCode.Location = new System.Drawing.Point(618, 395);
+            this.txtSecurityCode.Location = new System.Drawing.Point(621, 344);
             this.txtSecurityCode.Name = "txtSecurityCode";
             this.txtSecurityCode.Size = new System.Drawing.Size(141, 28);
             this.txtSecurityCode.TabIndex = 25;
@@ -223,7 +227,7 @@
             this.lblSecurityCodeDetail.AutoSize = true;
             this.lblSecurityCodeDetail.BackColor = System.Drawing.Color.OldLace;
             this.lblSecurityCodeDetail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.lblSecurityCodeDetail.Location = new System.Drawing.Point(615, 360);
+            this.lblSecurityCodeDetail.Location = new System.Drawing.Point(618, 325);
             this.lblSecurityCodeDetail.Name = "lblSecurityCodeDetail";
             this.lblSecurityCodeDetail.Size = new System.Drawing.Size(237, 16);
             this.lblSecurityCodeDetail.TabIndex = 26;
@@ -233,7 +237,7 @@
             // 
             this.pictureBox3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox3.BackgroundImage")));
             this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox3.Location = new System.Drawing.Point(169, 371);
+            this.pictureBox3.Location = new System.Drawing.Point(169, 385);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(66, 33);
             this.pictureBox3.TabIndex = 27;
@@ -243,7 +247,7 @@
             // 
             this.pictureBox4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox4.BackgroundImage")));
             this.pictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox4.Location = new System.Drawing.Point(241, 371);
+            this.pictureBox4.Location = new System.Drawing.Point(241, 385);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(66, 33);
             this.pictureBox4.TabIndex = 28;
@@ -253,7 +257,7 @@
             // 
             this.pictureBox5.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox5.BackgroundImage")));
             this.pictureBox5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox5.Location = new System.Drawing.Point(774, 390);
+            this.pictureBox5.Location = new System.Drawing.Point(768, 339);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(66, 33);
             this.pictureBox5.TabIndex = 29;
@@ -299,12 +303,56 @@
             this.label8.TabIndex = 32;
             this.label8.Text = "/";
             // 
+            // lblCardNoError
+            // 
+            this.lblCardNoError.AutoSize = true;
+            this.lblCardNoError.ForeColor = System.Drawing.Color.Red;
+            this.lblCardNoError.Location = new System.Drawing.Point(90, 360);
+            this.lblCardNoError.Name = "lblCardNoError";
+            this.lblCardNoError.Size = new System.Drawing.Size(44, 16);
+            this.lblCardNoError.TabIndex = 33;
+            this.lblCardNoError.Text = "label1";
+            // 
+            // lblExpiryDateError
+            // 
+            this.lblExpiryDateError.AutoSize = true;
+            this.lblExpiryDateError.ForeColor = System.Drawing.Color.Red;
+            this.lblExpiryDateError.Location = new System.Drawing.Point(87, 571);
+            this.lblExpiryDateError.Name = "lblExpiryDateError";
+            this.lblExpiryDateError.Size = new System.Drawing.Size(44, 16);
+            this.lblExpiryDateError.TabIndex = 34;
+            this.lblExpiryDateError.Text = "label2";
+            // 
+            // lblNameCardError
+            // 
+            this.lblNameCardError.AutoSize = true;
+            this.lblNameCardError.ForeColor = System.Drawing.Color.Red;
+            this.lblNameCardError.Location = new System.Drawing.Point(87, 664);
+            this.lblNameCardError.Name = "lblNameCardError";
+            this.lblNameCardError.Size = new System.Drawing.Size(44, 16);
+            this.lblNameCardError.TabIndex = 35;
+            this.lblNameCardError.Text = "label3";
+            // 
+            // lblCVVError
+            // 
+            this.lblCVVError.AutoSize = true;
+            this.lblCVVError.ForeColor = System.Drawing.Color.Red;
+            this.lblCVVError.Location = new System.Drawing.Point(618, 375);
+            this.lblCVVError.Name = "lblCVVError";
+            this.lblCVVError.Size = new System.Drawing.Size(44, 16);
+            this.lblCVVError.TabIndex = 36;
+            this.lblCVVError.Text = "label4";
+            // 
             // frmMakePayment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1359, 698);
+            this.Controls.Add(this.lblCVVError);
+            this.Controls.Add(this.lblNameCardError);
+            this.Controls.Add(this.lblExpiryDateError);
+            this.Controls.Add(this.lblCardNoError);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.btnConfirm);
             this.Controls.Add(this.btnBack);
@@ -362,5 +410,9 @@
         private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.Button btnConfirm;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label lblCardNoError;
+        private System.Windows.Forms.Label lblExpiryDateError;
+        private System.Windows.Forms.Label lblNameCardError;
+        private System.Windows.Forms.Label lblCVVError;
     }
 }
