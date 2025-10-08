@@ -201,6 +201,7 @@ namespace INF2011S_Project_Group22
 
         private void SetAvailableRooms(CheckBox cb, HotelRoom.RoomStatus roomStatus)
         {
+            //makes the rooms that are available visible in the checkboxes
             switch (roomStatus)
             {
                 case HotelRoom.RoomStatus.Available:
@@ -305,7 +306,7 @@ namespace INF2011S_Project_Group22
 
         private void btnCreateResNext_Click(object sender, EventArgs e)
         {
-            
+            //add booking 
 
 
             //Show a message box if any of the required fields are empty when the next button is clicked
