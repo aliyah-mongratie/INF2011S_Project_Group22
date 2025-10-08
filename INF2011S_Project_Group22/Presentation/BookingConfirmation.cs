@@ -24,7 +24,7 @@ namespace INF2011S_Project_Group22.Presentation
             int bookingResNumber = booking.bookingResNumber;
 
 
-            lblBookingReservation.Text= "The Booking Reservation Number is:"+bookingResNumber //add the booking reservation number here
+            lblBookingReservation.Text= "$The Booking Reservation Number is:"+bookingResNumber //add the booking reservation number here
             ;
         }
 
@@ -36,11 +36,6 @@ namespace INF2011S_Project_Group22.Presentation
         private void pictureBox1_Click(object sender, EventArgs e)
         {
 
-        }
-
-        private void btnBack_Click(object sender, EventArgs e)
-        {
-            this.Close();
         }
     }
 }
