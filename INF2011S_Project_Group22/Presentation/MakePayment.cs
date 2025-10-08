@@ -1,5 +1,4 @@
-﻿using INF2011S_Project_Group22.Business;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,11 +15,6 @@ namespace INF2011S_Project_Group22.Presentation
         public frmMakePayment()
         {
             InitializeComponent();
-            Payment payment = new Payment();
-            lblCardNoError.Visible = false;
-            lblExpiryDateError.Visible = false;
-            lblCVVError.Visible = false;
-            lblNameCardError.Visible = false;
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
