@@ -28,8 +28,6 @@ namespace INF2011S_Project_Group22.Presentation
 
         }
 
-   
-   
         private bool MakePaymentValidation()
         {
 
@@ -44,7 +42,7 @@ namespace INF2011S_Project_Group22.Presentation
             // Validation for Card Number
             if (string.IsNullOrWhiteSpace(cardName))
             {
-                lblNameCardError.Text= "Name on the card is a required field.";
+                lblNameCardError.Text = "Name on the card is a required field.";
                 lblNameCardError.Visible = true;
                 return false;
             }
@@ -73,7 +71,7 @@ namespace INF2011S_Project_Group22.Presentation
             }
             if (!cardNumber.All(char.IsDigit) || cardNumber.Length != 16)
             {
-                lblCardNoError.Text = "Card number must be exactly 16 digits."; 
+                lblCardNoError.Text = "Card number must be exactly 16 digits.";
                 lblCardNoError.Visible = true;
                 txtCardNumber.Clear();
                 return false;
@@ -113,7 +111,7 @@ namespace INF2011S_Project_Group22.Presentation
             // Validation for Expiry Year
             if (string.IsNullOrWhiteSpace(expYear))
             {
-                lblExpiryDateError.Text="Please enter the expiry year.";
+                lblExpiryDateError.Text = "Please enter the expiry year.";
                 lblExpiryDateError.Visible = true;
                 txtYear.Clear();
                 return false;
@@ -148,12 +146,12 @@ namespace INF2011S_Project_Group22.Presentation
                 return false;
             }
 
-           // string secureCardNumber = payment.GetCreditCardCredentials();
+            // string secureCardNumber = payment.GetCreditCardCredentials();
             string secureCardNumber = "**** **** **** " + cardNumber.Substring(cardNumber.Length - 4); // Mask all but last 4 digits
             MessageBox.Show($"Payment successful! Charged to card: {secureCardNumber}", "Payment Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Information);
             return true; // All validations passed
         }
-        
+
 
         private void btnConfirm_Click(object sender, EventArgs e)
         {
@@ -168,9 +166,12 @@ namespace INF2011S_Project_Group22.Presentation
 
             }
 
-               
-            
+
+
         }
+
+
+
 
         private void btnBack_Click(object sender, EventArgs e)
         {
