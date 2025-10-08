@@ -21,10 +21,11 @@ namespace INF2011S_Project_Group22.Presentation
             BookingController bookingController = new BookingController();
             Booking booking = new Booking(); //instantiate a booking object so that we can use the bookingResNumber property
 
-            int bookingResNumber = booking.bookingResNumber;
+            int bookingResNumber = Booking.generateBookingResNumber(); //generate a booking reservation number
+            lblBookingReservation.Text= "The Booking Reservation Number is: " + bookingResNumber; //add the booking reservation number here
 
 
-            lblBookingReservation.Text= "$The Booking Reservation Number is:"+bookingResNumber //add the booking reservation number here
+            //lblBookingReservation.Text= "$The Booking Reservation Number is:"+bookingResNumber //add the booking reservation number here
             ;
         }
 

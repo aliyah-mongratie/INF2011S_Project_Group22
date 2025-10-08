@@ -33,6 +33,16 @@ namespace INF2011S_Project_Group22
             bookingController = new BookingController(); //instantiate the booking controller class to use its methods
             booking = new Booking();
             room = new HotelRoom();
+            lblFNameErr.Visible = false;
+            lblLNameErr.Visible = false;
+            lblNoOfPeopleErr.Visible = false;
+            lblCheckInDateErr.Visible = false;
+            lblCheckOutDateErr.Visible = false;
+            lblEmailErr.Visible = false;
+            lblNoOfRoomsErr.Visible = false;
+            lblSpecialReqErr.Visible = false; 
+            lblBookingTypeErr.Visible = false;
+            lblRoomSelectionErr.Visible = false;
 
 
         }
@@ -44,39 +54,68 @@ namespace INF2011S_Project_Group22
 
             if (string.IsNullOrWhiteSpace(firstName) || string.IsNullOrWhiteSpace(lastName))
             {
-                MessageBox.Show("First and Last Name are required.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                lblFNameErr.Text = "First Name is required.";
+                lblLNameErr.Text = "Last Name is required.";
+
+                lblFNameErr.Visible = true;
+                lblLNameErr.Visible = true;
+
+                txtFirstName.Clear();
+                txtLastName.Clear();
+
                 return false;
             }
 
             if (firstName.Any(char.IsDigit) || lastName.Any(char.IsDigit))
             {
-                MessageBox.Show("Names cannot contain numbers.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                lblFNameErr.Text = "Names cannot contain numbers.";
+                lblLNameErr.Text = "Names cannot contain numbers.";
+
+                lblFNameErr.Visible = true;
+                lblLNameErr.Visible = true;
+
+                txtFirstName.Clear();
+                txtLastName.Clear();
+
+
                 return false;
             }
 
             if (!int.TryParse(txtNumPeople.Text, out int numberOfPeople) || numberOfPeople < 1 || numberOfPeople > 6)
             {
-                MessageBox.Show("Number of people must be between 1 and 6.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                lblNoOfPeopleErr.Text="Number of people must be between 1 and 6.";
+                lblNoOfPeopleErr.Visible = true;
+                
+                txtNumPeople.Clear();
                 return false;
             }
 
             if (!int.TryParse(txtNumRooms.Text, out int numberOfRooms) || numberOfRooms < 1 || numberOfRooms > 3)
             {
-                MessageBox.Show("Number of rooms must be between 1 and 3.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                lblNoOfRoomsErr.Text="Number of rooms must be between 1 and 3.";
+                lblNoOfRoomsErr.Visible = true;
+
+                txtNumRooms.Clear();
                 return false;
             }
 
             string email = txtEmail.Text;
             if (string.IsNullOrEmpty(email) || !email.Contains("@") || !email.Contains("."))
             {
-                MessageBox.Show("Please enter a valid email address.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                lblEmailErr.Text="Please enter a valid email address.";
+                lblEmailErr.Visible = true;
+                txtEmail.Clear();
                 return false;
             }
 
             string specialRequirements = txtSpecialReq.Text;
             if (specialRequirements.Length > 200)
             {
-                MessageBox.Show("Special requirements cannot exceed 200 characters.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                lblSpecialReqErr.Text="Special requirements cannot exceed 200 characters.";
+                lblSpecialReqErr.Visible = true;
+
+                txtSpecialReq.Clear();
                 return false;
             }
 
@@ -95,7 +134,7 @@ namespace INF2011S_Project_Group22
             }
             else
             {
-                MessageBox.Show("Please select a booking type.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                lblBookingTypeErr.Text="Please select a booking type.";
                 return false;
             }
             return true;
@@ -256,7 +295,9 @@ namespace INF2011S_Project_Group22
             var selectedRooms = GetSelectedRooms();
             if (selectedRooms == null || selectedRooms.Count == 0)
             {
-                MessageBox.Show("Please select at least one room.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                lblRoomSelectionErr.Text="Please select at least one room.";
+                lblRoomSelectionErr.Visible = true;
+
                 return 0;
             }
 
