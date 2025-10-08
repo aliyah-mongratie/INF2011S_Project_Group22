@@ -16,7 +16,7 @@ namespace INF2011S_Project_Group22.Data
     {
         #region Variable declaration
 
-        private string strConn = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"C:\\Users\\Imaan Cupido\\Desktop\\hopefullythisworks\\INF2011S_Project_Group22\\HotelBookingDB.mdf\";Integrated Security=True;Encrypt=False";//connection string used to connect to the HotelBookingDB
+        private string strConn = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\new inf2011s project\\INF2011S_Project_Group22\\HotelBookingDB.mdf;Integrated Security=True;Encrypt=False";//connection string used to connect to the HotelBookingDB
         protected SqlConnection cnMain; //represents a connection in the database 
         protected DataSet dsMain; //An in-memory collection of the data
         protected SqlDataAdapter daMain; // delivers data from the database to the dataset
@@ -94,3 +94,4 @@ namespace INF2011S_Project_Group22.Data
         #endregion
     }
 }
+//qwertyuiop
