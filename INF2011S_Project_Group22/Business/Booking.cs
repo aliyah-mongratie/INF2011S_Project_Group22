@@ -71,10 +71,13 @@ namespace INF2011S_Project_Group22.Business
             travelAgent= newTravelAgentID;
         }
 
+    
+
         #endregion
 
         #region Methods
 
+     
         public static int generateBookingResNumber() //generates a random booking/reservation number
         {
             Random rand = new Random();

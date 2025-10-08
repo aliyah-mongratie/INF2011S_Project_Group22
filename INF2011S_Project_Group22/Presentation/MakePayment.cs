@@ -13,13 +13,24 @@ namespace INF2011S_Project_Group22.Presentation
 {
     public partial class frmMakePayment : Form
     {
-        public frmMakePayment()
+        private string guestFirstName;
+        private string guestLastName;
+        private string guestEmail;
+        //private string guestPhone;
+        private int guestbookNo;
+        public frmMakePayment(string firstName, string lastName, string email, int bookNo) // add phone number here if its in UI 
         {
             InitializeComponent();
+            guestFirstName = firstName;
+            guestLastName = lastName;
+            guestEmail = email;
+            //guestPhone = phone;
             lblCardNoError.Visible = false;
             lblCVVError.Visible = false;
             lblExpiryDateError.Visible = false;
             lblNameCardError.Visible = false;
+            //from booking confirmation page
+            guestbookNo = bookNo;
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -161,10 +172,14 @@ namespace INF2011S_Project_Group22.Presentation
             }
             else
             {
-                BookingConfirmation newform = new BookingConfirmation();
+                BookingConfirmation newform = new BookingConfirmation(guestbookNo);//goes to next form
                 newform.ShowDialog();
 
             }
+
+            string cardNo = txtCardNumber.Text;
+            BookingController bookingcontroller = new BookingController();
+            //Payment payment = bookingcontroller.AddGuest(guestFirstName, guestLastName, guestEmail,/*addphonenumber*/ cardNo);
 
 
 

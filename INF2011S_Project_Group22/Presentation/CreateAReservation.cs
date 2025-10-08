@@ -12,6 +12,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static INF2011S_Project_Group22.Business.Booking;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 
 
@@ -24,6 +25,7 @@ namespace INF2011S_Project_Group22
         private BookingType bookingType;
         private HotelRoom room;
         private BookingController bookingController;
+        
         private int totRoomPeople = 0;//variable to hold initial value of the total number of people input in all textboxes 
         public frmCreateReservation()
         {
@@ -31,6 +33,7 @@ namespace INF2011S_Project_Group22
 
            
             bookingController = new BookingController(); //instantiate the booking controller class to use its methods
+            
             booking = new Booking();
             room = new HotelRoom();
             lblFNameErr.Visible = false;
@@ -119,25 +122,7 @@ namespace INF2011S_Project_Group22
                 return false;
             }
 
-            // Only after all validation passes:
-            if (rbPersonalBooking.Checked)
-            {
-                bookingType = BookingType.Personal;
-                new frmMakePayment().ShowDialog();
-            }
-            else if (rbTravelAgencyBooking.Checked)
-            {
-                bookingType = BookingType.TravelAgency;
-                new BookingConfirmation().ShowDialog();
-                return false;
-
-            }
-            else
-            {
-                lblBookingTypeErr.Text="Please select a booking type.";
-                return false;
-            }
-            return true;
+            return false;
             
             // If all validations pass, proceed with reservation creation
         }
@@ -195,6 +180,8 @@ namespace INF2011S_Project_Group22
             BookingController controller = new BookingController();
             List<HotelRoom> availableRooms = controller.GetAvailableRooms();
 
+            
+
             foreach (HotelRoom room in availableRooms)
             {
                 // Find the checkbox by name — for example: chkRoom101, chkRoom102, etc.
@@ -214,37 +201,12 @@ namespace INF2011S_Project_Group22
                     SetAvailableRooms(cb, room.roomStat);
                 }
 
-
-
-                //  Hide all room checkboxes first
-
-                /*foreach (Control ctrl in this.Controls)
+                if (availableRooms.Count == 0)
                 {
-                    if (ctrl is CheckBox cb && cb.Name.StartsWith("chkRoom"))
-                    {
-                        cb.Visible = false;//chk links the checkbox to a specific hotel room ID
-                        cb.Enabled = false;
-                    }
-                }*/
+                    MessageBox.Show("No rooms are currently available.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
 
-                //  Show only available room checkboxes
-                /* foreach (HotelRoom room in availableRooms)
-                 {
-                     string checkBoxName = "chk" + room.HotelRoomID; // e.g. "chkRoom101"
-                     CheckBox roomCheckBox = this.Controls.Find(checkBoxName, true).FirstOrDefault() as CheckBox;
-
-                     if (roomCheckBox != null)
-                     {
-                         roomCheckBox.Visible = true;
-                         roomCheckBox.Enabled = true;
-                     }
-                 }
-
-                 //  Handle case when no rooms are available
-                 if (availableRooms.Count == 0)
-                 {
-                     MessageBox.Show("No rooms are currently available.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                 }*/
+               
             }
         }
 
@@ -328,18 +290,12 @@ namespace INF2011S_Project_Group22
         private void btnCreateResNext_Click(object sender, EventArgs e)
         {
 
-           
-
-             
-
-
-            if (!EnterDetailsValidation())
+            try
             {
-                return;
-            }
-            else
-            {
-                //Show a message box if any of the required fields are empty when the next button is clicked
+                // Validate the user input first
+                if (!EnterDetailsValidation())
+                    return;
+
                 if (string.IsNullOrWhiteSpace(txtFirstName.Text) ||
                     string.IsNullOrWhiteSpace(txtLastName.Text) ||
                     string.IsNullOrWhiteSpace(txtNumPeople.Text) ||
@@ -349,58 +305,101 @@ namespace INF2011S_Project_Group22
                     MessageBox.Show("Please fill in all required fields.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
-                else
+
+                // Prepare booking data from inputs
+                Guest guest = new Guest
                 {
-                    //display the booking amount and number of rooms through a messagebox 
-                    MessageBox.Show($"The Total Booking Amount Is: {CalculateBookingAmount().ToString("C")} \r\n The Total Number Of Rooms Booked Is: {GetSelectedRooms().Count}");
-                }
+                    FirstName = txtFirstName.Text,
+                    LastName = txtLastName.Text,
+                    Email = txtEmail.Text
+                    // string phoneNumber = txtPhoneNumber.Text; // depending on if Imaan added phone number to the form. Then check what she called it
+                };
 
+                DateTime.TryParse(txtCheckInDate.Text, out DateTime checkInDate);
+                DateTime.TryParse(txtCheckOutDate.Text, out DateTime checkOutDate);
 
-                // initiate the objects so it can be passed to the MakeBooking method
-                Guest guest = new Guest();
-                guest.FirstName = txtFirstName.Text;
-                guest.LastName = txtLastName.Text;
-                guest.Email = txtEmail.Text;
-                DateTime checkInDate, checkOutDate;
-                DateTime.TryParse(txtCheckInDate.Text, out checkInDate);
-                DateTime.TryParse(txtCheckOutDate.Text, out checkOutDate);
-                guest.CheckInDate = checkInDate;
-                guest.CheckOutDate = checkOutDate;
-                List<HotelRoom> rooms = new List<HotelRoom>(); //Create a new list to store the rooms that will be booked
-                TravelAgent travelAgent = new TravelAgent(); //Create a new travel agent object, it will be populated if the booking type is travel agent
+                int numOfPeople = int.Parse(txtNumPeople.Text);
+                int numOfRooms = int.Parse(txtNumRooms.Text);
+                string specialRequirements = txtSpecialReq.Text;
 
-                int numOfPeople = int.Parse(txtNumPeople.Text); //Parse the number of people from the textbox
-                BookingType bookingType = (rbPersonalBooking.Checked) ? BookingType.Personal : BookingType.TravelAgency; //Determine the booking type based on the selected radio button
-                int numOfRooms = int.Parse(txtNumRooms.Text); //Parse the number of rooms from the textbox
+                BookingType bookingType = rbPersonalBooking.Checked ? BookingType.Personal : BookingType.TravelAgency;
 
-                string specialRequirements = txtSpecialReq.Text; //Get the special requirements from the textbox
+                List<HotelRoom> rooms = GetSelectedRooms();
+                TravelAgent travelAgent = new TravelAgent();
 
+                // calculate the booking costs and sidplay with the room count and deposti amount
+                Booking tempBooking = new Booking();
+                decimal totalAmount = CalculateBookingAmount();
+                decimal deposit = tempBooking.CalculateDeposit(totalAmount);
 
-                //Call the MakeBooking method from the BookingController class to create a new booking
-                BookingController bookingController = new BookingController();
-                Booking booking = bookingController.MakeBooking(
+                MessageBox.Show($"The Total Booking Amount Is: {totalAmount:C}\r\n" +
+                                $"The Total Number Of Rooms Booked Is: {rooms.Count}\r\n" +
+                                $"The Booking Deposit is: {deposit:C}");
+
+                //create booking once using the controller
+                bookingController = new BookingController();
+                booking = bookingController.MakeBooking(
                     guest,
                     rooms,
                     travelAgent,
-                    numOfPeople.ToString(),
-                    (int)bookingType, // Convert BookingType enum to int
+                    bookingType.ToString(),
+                    numOfPeople,
                     numOfRooms,
-                    checkInDate,      // Pass checkInDate as DateTime
+                    checkInDate,
                     checkOutDate,
-                    specialRequirements // Pass checkOutDate as DateTime
-
+                    specialRequirements
                 );
 
+                //booking now containg bookingResNUm
+                int bookNo = bookingController.MakeBooking( guest, rooms, travelAgent, bookingType.ToString(), numOfPeople, numOfRooms, checkInDate, 
+                                                           checkOutDate, specialRequirements).bookingResNumber;
 
 
 
+                if (booking == null)
+                {
+                    MessageBox.Show("Error: Booking could not be created. Please try again.", "Booking Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
 
-                BookingConfirmation newForm = new BookingConfirmation(); //Open the booking confirmation form once the details have been entered and validated
+                //prepare details data from inputs
+                string firstName = txtFirstName.Text;
+                string lastName = txtLastName.Text;
+                string email = txtEmail.Text;
+                // string phoneNumber = txtPhoneNumber.Text; // depending on if Imaan added phone number to the form. Then check what she called it
+
+
+                // Only after all validation passes:
+                if (rbPersonalBooking.Checked)
+                {
+                    bookingType = BookingType.Personal;
+                    new frmMakePayment(firstName, lastName, email, bookNo) /* add phone number here if its in UI*/.ShowDialog();
+                }
+                else if (rbTravelAgencyBooking.Checked)
+                {
+                    bookingType = BookingType.TravelAgency;
+                    new BookingConfirmation(booking.bookingResNumber).ShowDialog();
+                    
+
+                }
+                else
+                {
+                    lblBookingTypeErr.Text = "Please select a booking type.";
+                   
+                }
+               
+
+                // If all validations pass, proceed with reservation creation
+                //Open the payment details page once the details have been entered and validated 
+
+                frmMakePayment newForm = new frmMakePayment(firstName, lastName, email, bookNo); //add phone number here if it is in UI
                 newForm.ShowDialog();
 
             }
-
-
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error creating booking: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
 
         }
@@ -444,7 +443,7 @@ namespace INF2011S_Project_Group22
             DisplayAvailableRooms();
 
 
-            /*cbRoom101 = new HotelRoom(101, HotelRoom.RoomStatus.Available, );
+            /*cbRoom101 = new HotelRoom(101, HotelRoom.RoomStatus.Available);
             cbRoom102 = new HotelRoom(102, HotelRoom.RoomStatus.Occupied);
             cbRoom103 = new HotelRoom(103, HotelRoom.RoomStatus.Available);*/
         }
