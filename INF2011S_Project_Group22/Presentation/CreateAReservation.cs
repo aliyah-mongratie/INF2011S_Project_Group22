@@ -180,6 +180,9 @@ namespace INF2011S_Project_Group22
         }
         // If all validations pass, proceed with reservation creation
 
+
+            // If all validations pass, proceed with reservation creation
+        }
         #endregion
         #region Methods Available rooms
 
@@ -379,6 +382,7 @@ namespace INF2011S_Project_Group22
 
             //Calculate total price
             decimal totalBookingPrice = 0;
+
             foreach (HotelRoom selectedRoom in selectedRooms)
             {
                 decimal roomPrice = selectedRoom.GetRoomPrice(checkInDate);
@@ -405,6 +409,9 @@ namespace INF2011S_Project_Group22
 
         private void btnCreateResNext_Click(object sender, EventArgs e)
         {
+
+
+
 
 
 
