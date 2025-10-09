@@ -29,7 +29,7 @@ namespace INF2011S_Project_Group22
         {
             InitializeComponent();
 
-           
+
             bookingController = new BookingController(); //instantiate the booking controller class to use its methods
             booking = new Booking();
             room = new HotelRoom();
@@ -99,12 +99,12 @@ namespace INF2011S_Project_Group22
                 return false;
             }
             return true;
-            
+
             // If all validations pass, proceed with reservation creation
         }
         #endregion
         #region Methods Available rooms
-       
+
         public void getTotalRoomPeople()
         {
             int numberOfPeople = Convert.ToInt32(txtNumPeople.Text);
@@ -260,7 +260,7 @@ namespace INF2011S_Project_Group22
                 return 0;
             }
 
-            
+
             foreach (HotelRoom selectedRoom in selectedRooms)
             {
                 decimal roomPrice = selectedRoom.GetRoomPrice(checkInDate);
@@ -281,15 +281,15 @@ namespace INF2011S_Project_Group22
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void btnCreateResNext_Click(object sender, EventArgs e)
         {
 
-           
 
-             
+
+
 
 
             if (!EnterDetailsValidation())
