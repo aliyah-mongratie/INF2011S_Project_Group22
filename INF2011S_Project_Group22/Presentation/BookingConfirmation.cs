@@ -13,36 +13,25 @@ namespace INF2011S_Project_Group22.Presentation
 {
     public partial class BookingConfirmation : Form
     {
-
-        private Booking booking;
-        private int guestbookNo;
-        public BookingConfirmation(int bookNo)
+        public BookingConfirmation()
         {
             InitializeComponent();
-            guestbookNo = bookNo;
 
-            //booking = existingBooking; chat said just have this in constructor
+            
             BookingController bookingController = new BookingController();
             Booking booking = new Booking(); //instantiate a booking object so that we can use the bookingResNumber property
 
-            //int bookingResNumber = Booking.generateBookingResNumber(); //generate a booking reservation number
-            lblBookingReservation.Text= "The Booking Reservation Number is: " + bookNo; //add the booking reservation number here
+            int bookingResNumber = Booking.generateBookingResNumber(); //generate a booking reservation number
+            lblBookingReservation.Text= "The Booking Reservation Number is: " + bookingResNumber; //add the booking reservation number here
 
 
-            
-            
+
+            //lblBookingReservation.Text= "$The Booking Reservation Number is:"+bookingResNumber //add the booking reservation number here
+            ;
         }
-      
 
         private void BookingConfirmation_Load(object sender, EventArgs e)
         {
-            if (booking == null)
-            {
-                lblBookingReservation.Text = "Error: No booking information received.";
-                return;
-            }
-           
-
 
         }
 
