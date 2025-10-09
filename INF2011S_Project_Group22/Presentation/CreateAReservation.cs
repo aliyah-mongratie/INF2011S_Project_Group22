@@ -30,12 +30,12 @@ namespace INF2011S_Project_Group22
         {
             InitializeComponent();
 
-           
+
             bookingController = new BookingController(); //instantiate the booking controller class to use its methods
             booking = new Booking();
             room = new HotelRoom();
             //Make all error labels invisible when the form loads
-          
+
             HideErrorLabels();
 
         }
@@ -84,7 +84,7 @@ namespace INF2011S_Project_Group22
                 txtLastName.Clear();
                 return false;
             }
-           
+
             //Name validation- no numbers allowed
             if (firstName.Any(char.IsDigit) || lastName.Any(char.IsDigit))
             {
@@ -96,50 +96,50 @@ namespace INF2011S_Project_Group22
 
                 txtFirstName.Clear();
                 txtLastName.Clear();
-                valid= false;
+                valid = false;
             }
 
             //Number of people validation
             if (!int.TryParse(txtNumPeople.Text, out int numberOfPeople) || numberOfPeople < 1 || numberOfPeople > 6)
             {
-                lblNoOfPeopleErr.Text="Number of people must be between 1 and 6.";
+                lblNoOfPeopleErr.Text = "Number of people must be between 1 and 6.";
                 lblNoOfPeopleErr.Visible = true;
-                
+
                 txtNumPeople.Clear();
-                valid= false;
+                valid = false;
             }
 
             //Number of rooms validation
             if (!int.TryParse(txtNumRooms.Text, out int numberOfRooms) || numberOfRooms < 1 || numberOfRooms > 3)
             {
-                lblNoOfRoomsErr.Text="Number of rooms must be between 1 and 3.";
+                lblNoOfRoomsErr.Text = "Number of rooms must be between 1 and 3.";
                 lblNoOfRoomsErr.Visible = true;
 
                 txtNumRooms.Clear();
-                valid=false;
+                valid = false;
             }
 
             //Validation for email- must contain "@" and "."
 
             if (string.IsNullOrEmpty(email) || !email.Contains("@") || !email.Contains("."))
             {
-                lblEmailErr.Text="Please enter a valid email address.";
+                lblEmailErr.Text = "Please enter a valid email address.";
                 lblEmailErr.Visible = true;
                 txtEmail.Clear();
-                valid=false;
+                valid = false;
             }
 
             //Validation for special requirements- no longer than 200 characters
 
-          
+
             if (specialRequirements.Length > 200)
             {
 
-                lblSpecialReqErr.Text="Special requirements cannot exceed 200 characters.";
+                lblSpecialReqErr.Text = "Special requirements cannot exceed 200 characters.";
                 lblSpecialReqErr.Visible = true;
 
                 txtSpecialReq.Clear();
-                valid= false;
+                valid = false;
             }
 
             //Validation for phone numbers 
@@ -149,7 +149,7 @@ namespace INF2011S_Project_Group22
                 lblPhoneNumberErr.Visible = true;
                 txtPhoneNumber.Clear();
                 valid = false;
-               
+
             }
             if (!phoneNumber.All(char.IsDigit) || phoneNumber.Length != 10)
             {
@@ -169,7 +169,7 @@ namespace INF2011S_Project_Group22
         private bool ValidateRoomSelection(CheckBox cb, TextBox txt) //Method to help validate rooms
         {
             if (!cb.Checked) return true;
-            if (!int.TryParse(txt.Text, out int num)|| num<1 || num<4)
+            if (!int.TryParse(txt.Text, out int num) || num < 1 || num < 4)
             {
                 lblRoomSelectionErr.Text = "Number of people must be between 1 & 4";
                 lblRoomSelectionErr.Visible = true;
@@ -302,13 +302,13 @@ namespace INF2011S_Project_Group22
             return selectedRooms;
 
         }
-        
 
 
 
-        
-        
-        
+
+
+
+
 
         private decimal CalculateBookingAmount()
         {
@@ -328,7 +328,7 @@ namespace INF2011S_Project_Group22
             }
 
             //declare selected rooms variable
-            List<HotelRoom> selectedRooms=GetSelectedRooms();
+            List<HotelRoom> selectedRooms = GetSelectedRooms();
 
             //Validate date logic
             //Get the selected rooms
@@ -348,7 +348,7 @@ namespace INF2011S_Project_Group22
                 total += room.GetRoomPrice(checkInDate) * nights;
             }
 
- 
+
             //var selectedRooms = GetSelectedRooms();
             if (selectedRooms == null || selectedRooms.Count == 0)
             {
@@ -389,8 +389,8 @@ namespace INF2011S_Project_Group22
         }
 
         #endregion
-        
-      
+
+
 
 
         private void button1_Click(object sender, EventArgs e)
@@ -400,7 +400,7 @@ namespace INF2011S_Project_Group22
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void btnCreateResNext_Click(object sender, EventArgs e)
@@ -420,7 +420,7 @@ namespace INF2011S_Project_Group22
 
             }
 
-            decimal total=CalculateBookingAmount();
+            decimal total = CalculateBookingAmount();
             if (total <= 0) return;
             MessageBox.Show($"The Total Booking Amount Is: {total.ToString("C")} \r\n The Total Number Of Rooms Booked Is: {GetSelectedRooms().Count}");
 
