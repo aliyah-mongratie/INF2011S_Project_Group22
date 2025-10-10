@@ -41,7 +41,7 @@ namespace INF2011S_Project_Group22.Presentation
 
         }
         #region Methods
-        //Method to fill reservation details made
+     
 
         public void FillReservationDetails()
         {
@@ -73,7 +73,6 @@ namespace INF2011S_Project_Group22.Presentation
                         txtCheckOutDate.Text = Convert.ToDateTime(reader["CheckOutDate"]).ToString("yyyy-MM-dd");
                         txtSpecialRequirements.Text = reader["SpecialRequirements"].ToString();
                         txtEmail.Text = reader["GuestEmail"].ToString();
-                        txtPhoneNumber.Text = reader["GuestPhoneNumber"].ToString();
                     }
                     else
                     {
@@ -86,8 +85,6 @@ namespace INF2011S_Project_Group22.Presentation
                         txtCheckOutDate.Clear();
                         txtSpecialRequirements.Clear();
                         txtEmail.Clear();
-                        txtPhoneNumber.Clear();
-
                     }
                 }
 

@@ -40,6 +40,7 @@
             this.txtResNumber = new System.Windows.Forms.TextBox();
             this.btnBack = new System.Windows.Forms.Button();
             this.btnViewDetails = new System.Windows.Forms.Button();
+            this.btnClear = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
@@ -48,9 +49,10 @@
             // 
             this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(1, -3);
+            this.pictureBox1.Location = new System.Drawing.Point(1, -2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1412, 714);
+            this.pictureBox1.Size = new System.Drawing.Size(1059, 580);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
@@ -59,9 +61,10 @@
             // 
             this.pictureBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.BackgroundImage")));
             this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox2.Location = new System.Drawing.Point(638, 280);
+            this.pictureBox2.Location = new System.Drawing.Point(478, 228);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(143, 144);
+            this.pictureBox2.Size = new System.Drawing.Size(107, 117);
             this.pictureBox2.TabIndex = 1;
             this.pictureBox2.TabStop = false;
             // 
@@ -71,9 +74,10 @@
             this.label1.BackColor = System.Drawing.Color.OldLace;
             this.label1.Font = new System.Drawing.Font("Times New Roman", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.label1.Location = new System.Drawing.Point(12, 209);
+            this.label1.Location = new System.Drawing.Point(9, 170);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(344, 46);
+            this.label1.Size = new System.Drawing.Size(273, 36);
             this.label1.TabIndex = 2;
             this.label1.Text = "Reservation Enquiry";
             // 
@@ -83,9 +87,10 @@
             this.lblFirstName.BackColor = System.Drawing.Color.OldLace;
             this.lblFirstName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFirstName.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.lblFirstName.Location = new System.Drawing.Point(411, 478);
+            this.lblFirstName.Location = new System.Drawing.Point(308, 388);
+            this.lblFirstName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblFirstName.Name = "lblFirstName";
-            this.lblFirstName.Size = new System.Drawing.Size(112, 25);
+            this.lblFirstName.Size = new System.Drawing.Size(90, 20);
             this.lblFirstName.TabIndex = 3;
             this.lblFirstName.Text = "First Name:";
             // 
@@ -95,9 +100,10 @@
             this.lblResNumber.BackColor = System.Drawing.Color.OldLace;
             this.lblResNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblResNumber.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.lblResNumber.Location = new System.Drawing.Point(411, 560);
+            this.lblResNumber.Location = new System.Drawing.Point(308, 455);
+            this.lblResNumber.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblResNumber.Name = "lblResNumber";
-            this.lblResNumber.Size = new System.Drawing.Size(271, 25);
+            this.lblResNumber.Size = new System.Drawing.Size(220, 20);
             this.lblResNumber.TabIndex = 4;
             this.lblResNumber.Text = "Booking Reservation Number:";
             // 
@@ -107,9 +113,10 @@
             this.lblLastName.BackColor = System.Drawing.Color.OldLace;
             this.lblLastName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLastName.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.lblLastName.Location = new System.Drawing.Point(779, 477);
+            this.lblLastName.Location = new System.Drawing.Point(584, 388);
+            this.lblLastName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblLastName.Name = "lblLastName";
-            this.lblLastName.Size = new System.Drawing.Size(112, 25);
+            this.lblLastName.Size = new System.Drawing.Size(90, 20);
             this.lblLastName.TabIndex = 5;
             this.lblLastName.Text = "Last Name:";
             // 
@@ -117,27 +124,30 @@
             // 
             this.txtFirstName.BackColor = System.Drawing.Color.Bisque;
             this.txtFirstName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFirstName.Location = new System.Drawing.Point(529, 475);
+            this.txtFirstName.Location = new System.Drawing.Point(397, 386);
+            this.txtFirstName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtFirstName.Name = "txtFirstName";
-            this.txtFirstName.Size = new System.Drawing.Size(198, 30);
+            this.txtFirstName.Size = new System.Drawing.Size(150, 26);
             this.txtFirstName.TabIndex = 6;
             // 
             // txtLastName
             // 
             this.txtLastName.BackColor = System.Drawing.Color.Bisque;
             this.txtLastName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtLastName.Location = new System.Drawing.Point(897, 475);
+            this.txtLastName.Location = new System.Drawing.Point(673, 386);
+            this.txtLastName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtLastName.Name = "txtLastName";
-            this.txtLastName.Size = new System.Drawing.Size(198, 30);
+            this.txtLastName.Size = new System.Drawing.Size(150, 26);
             this.txtLastName.TabIndex = 7;
             // 
             // txtResNumber
             // 
             this.txtResNumber.BackColor = System.Drawing.Color.Bisque;
             this.txtResNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtResNumber.Location = new System.Drawing.Point(699, 557);
+            this.txtResNumber.Location = new System.Drawing.Point(524, 453);
+            this.txtResNumber.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtResNumber.Name = "txtResNumber";
-            this.txtResNumber.Size = new System.Drawing.Size(384, 30);
+            this.txtResNumber.Size = new System.Drawing.Size(289, 26);
             this.txtResNumber.TabIndex = 8;
             // 
             // btnBack
@@ -146,9 +156,10 @@
             this.btnBack.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBack.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.btnBack.Location = new System.Drawing.Point(996, 646);
+            this.btnBack.Location = new System.Drawing.Point(747, 525);
+            this.btnBack.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(199, 53);
+            this.btnBack.Size = new System.Drawing.Size(149, 43);
             this.btnBack.TabIndex = 9;
             this.btnBack.Text = "Back";
             this.btnBack.UseVisualStyleBackColor = true;
@@ -160,19 +171,36 @@
             this.btnViewDetails.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnViewDetails.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnViewDetails.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.btnViewDetails.Location = new System.Drawing.Point(1201, 646);
+            this.btnViewDetails.Location = new System.Drawing.Point(901, 525);
+            this.btnViewDetails.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnViewDetails.Name = "btnViewDetails";
-            this.btnViewDetails.Size = new System.Drawing.Size(199, 53);
+            this.btnViewDetails.Size = new System.Drawing.Size(149, 43);
             this.btnViewDetails.TabIndex = 10;
             this.btnViewDetails.Text = "View Details";
             this.btnViewDetails.UseVisualStyleBackColor = true;
             this.btnViewDetails.Click += new System.EventHandler(this.btnViewDetails_Click);
             // 
+            // btnClear
+            // 
+            this.btnClear.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnClear.BackgroundImage")));
+            this.btnClear.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClear.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.btnClear.Location = new System.Drawing.Point(594, 524);
+            this.btnClear.Margin = new System.Windows.Forms.Padding(2);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(149, 43);
+            this.btnClear.TabIndex = 11;
+            this.btnClear.Text = "Clear";
+            this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
+            // 
             // frmReservationEnquiry
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1412, 711);
+            this.ClientSize = new System.Drawing.Size(1028, 578);
+            this.Controls.Add(this.btnClear);
             this.Controls.Add(this.btnViewDetails);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.txtResNumber);
@@ -184,6 +212,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "frmReservationEnquiry";
             this.Text = "frmReservationEnquiry";
             this.Load += new System.EventHandler(this.frmReservationEnquiry_Load);
@@ -207,5 +236,6 @@
         private System.Windows.Forms.TextBox txtResNumber;
         private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.Button btnViewDetails;
+        private System.Windows.Forms.Button btnClear;
     }
 }
