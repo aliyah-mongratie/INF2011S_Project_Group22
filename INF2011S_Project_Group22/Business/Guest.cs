@@ -15,6 +15,7 @@ namespace INF2011S_Project_Group22
        
        public string firstName;
        public string lastName;
+        public string phoneNumber;
         
        
         public string creditCardNumber;
@@ -38,6 +39,12 @@ namespace INF2011S_Project_Group22
             get { return lastName; }
             set { lastName = value; }
         }
+
+        public string PhoneNumber
+        {
+            get { return phoneNumber; }
+            set { phoneNumber = value; }    
+        }
         public string CreditCardNumber
         {
             get { return creditCardNumber; }
@@ -56,15 +63,17 @@ namespace INF2011S_Project_Group22
             guestID = "";
             firstName = "";
             lastName = "";
+            phoneNumber = "";
             creditCardNumber = "";
            email = "";
         }
 
-        public Guest(string newGuestId, string newFirstName, string newLastName, string newEmail,string newCreditCardNumber):base() //parameterized constructor
+        public Guest(string newGuestId, string newFirstName, string newLastName,string newPhoneNumber, string newEmail,string newCreditCardNumber):base() //parameterized constructor
         {
             guestID = newGuestId;
            firstName = newFirstName;
            lastName = newLastName;
+            phoneNumber = newPhoneNumber;
            email = newEmail;
             creditCardNumber = newCreditCardNumber;
             

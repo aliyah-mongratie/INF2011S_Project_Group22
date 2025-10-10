@@ -55,6 +55,7 @@
             this.lblExpiryDateError = new System.Windows.Forms.Label();
             this.lblNameCardError = new System.Windows.Forms.Label();
             this.lblCVVError = new System.Windows.Forms.Label();
+            this.btnClear = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -104,7 +105,7 @@
             this.txtCardNumber.BackColor = System.Drawing.Color.Bisque;
             this.txtCardNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCardNumber.Location = new System.Drawing.Point(68, 264);
-            this.txtCardNumber.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtCardNumber.Margin = new System.Windows.Forms.Padding(2);
             this.txtCardNumber.Name = "txtCardNumber";
             this.txtCardNumber.Size = new System.Drawing.Size(276, 24);
             this.txtCardNumber.TabIndex = 12;
@@ -114,7 +115,7 @@
             this.pictureBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.BackgroundImage")));
             this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox2.Location = new System.Drawing.Point(73, 313);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(50, 27);
             this.pictureBox2.TabIndex = 13;
@@ -138,7 +139,7 @@
             this.txtMonth.BackColor = System.Drawing.Color.Bisque;
             this.txtMonth.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMonth.Location = new System.Drawing.Point(68, 439);
-            this.txtMonth.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtMonth.Margin = new System.Windows.Forms.Padding(2);
             this.txtMonth.Name = "txtMonth";
             this.txtMonth.Size = new System.Drawing.Size(65, 24);
             this.txtMonth.TabIndex = 17;
@@ -148,7 +149,7 @@
             this.txtYear.BackColor = System.Drawing.Color.Bisque;
             this.txtYear.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtYear.Location = new System.Drawing.Point(152, 439);
-            this.txtYear.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtYear.Margin = new System.Windows.Forms.Padding(2);
             this.txtYear.Name = "txtYear";
             this.txtYear.Size = new System.Drawing.Size(65, 24);
             this.txtYear.TabIndex = 18;
@@ -209,7 +210,7 @@
             this.txtNameOnCard.BackColor = System.Drawing.Color.Bisque;
             this.txtNameOnCard.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNameOnCard.Location = new System.Drawing.Point(68, 514);
-            this.txtNameOnCard.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtNameOnCard.Margin = new System.Windows.Forms.Padding(2);
             this.txtNameOnCard.Name = "txtNameOnCard";
             this.txtNameOnCard.Size = new System.Drawing.Size(276, 24);
             this.txtNameOnCard.TabIndex = 23;
@@ -232,7 +233,7 @@
             this.txtSecurityCode.BackColor = System.Drawing.Color.Bisque;
             this.txtSecurityCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSecurityCode.Location = new System.Drawing.Point(466, 280);
-            this.txtSecurityCode.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtSecurityCode.Margin = new System.Windows.Forms.Padding(2);
             this.txtSecurityCode.Name = "txtSecurityCode";
             this.txtSecurityCode.Size = new System.Drawing.Size(107, 24);
             this.txtSecurityCode.TabIndex = 25;
@@ -254,7 +255,7 @@
             this.pictureBox3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox3.BackgroundImage")));
             this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox3.Location = new System.Drawing.Point(127, 313);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(50, 27);
             this.pictureBox3.TabIndex = 27;
@@ -265,7 +266,7 @@
             this.pictureBox4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox4.BackgroundImage")));
             this.pictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox4.Location = new System.Drawing.Point(181, 313);
-            this.pictureBox4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox4.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(50, 27);
             this.pictureBox4.TabIndex = 28;
@@ -276,7 +277,7 @@
             this.pictureBox5.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox5.BackgroundImage")));
             this.pictureBox5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox5.Location = new System.Drawing.Point(576, 275);
-            this.pictureBox5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox5.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(50, 27);
             this.pictureBox5.TabIndex = 29;
@@ -289,7 +290,7 @@
             this.btnBack.Font = new System.Drawing.Font("Segoe UI Emoji", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBack.ForeColor = System.Drawing.Color.DarkSlateGray;
             this.btnBack.Location = new System.Drawing.Point(784, 518);
-            this.btnBack.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnBack.Margin = new System.Windows.Forms.Padding(2);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(111, 39);
             this.btnBack.TabIndex = 30;
@@ -304,7 +305,7 @@
             this.btnConfirm.Font = new System.Drawing.Font("Segoe UI Emoji", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnConfirm.ForeColor = System.Drawing.Color.DarkSlateGray;
             this.btnConfirm.Location = new System.Drawing.Point(899, 518);
-            this.btnConfirm.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnConfirm.Margin = new System.Windows.Forms.Padding(2);
             this.btnConfirm.Name = "btnConfirm";
             this.btnConfirm.Size = new System.Drawing.Size(111, 39);
             this.btnConfirm.TabIndex = 31;
@@ -369,12 +370,28 @@
             this.lblCVVError.TabIndex = 36;
             this.lblCVVError.Text = "label4";
             // 
+            // btnClear
+            // 
+            this.btnClear.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnClear.BackgroundImage")));
+            this.btnClear.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnClear.Font = new System.Drawing.Font("Segoe UI Emoji", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClear.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.btnClear.Location = new System.Drawing.Point(669, 518);
+            this.btnClear.Margin = new System.Windows.Forms.Padding(2);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(111, 39);
+            this.btnClear.TabIndex = 37;
+            this.btnClear.Text = "Clear";
+            this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
+            // 
             // frmMakePayment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1019, 567);
+            this.Controls.Add(this.btnClear);
             this.Controls.Add(this.lblCVVError);
             this.Controls.Add(this.lblNameCardError);
             this.Controls.Add(this.lblExpiryDateError);
@@ -401,7 +418,7 @@
             this.Controls.Add(this.lblCardTypes);
             this.Controls.Add(this.lblCardNumber);
             this.Controls.Add(this.lblCreditCardDetails);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmMakePayment";
             this.Text = "MakePayment";
             this.Load += new System.EventHandler(this.frmMakePayment_Load);
@@ -441,5 +458,6 @@
         private System.Windows.Forms.Label lblExpiryDateError;
         private System.Windows.Forms.Label lblNameCardError;
         private System.Windows.Forms.Label lblCVVError;
+        private System.Windows.Forms.Button btnClear;
     }
 }

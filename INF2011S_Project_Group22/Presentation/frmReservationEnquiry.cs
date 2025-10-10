@@ -140,5 +140,13 @@ namespace INF2011S_Project_Group22.Presentation
         {
 
         }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            txtFirstName.Clear();
+            txtLastName.Clear();
+            txtResNumber.Clear();
+
+        }
     }
 }

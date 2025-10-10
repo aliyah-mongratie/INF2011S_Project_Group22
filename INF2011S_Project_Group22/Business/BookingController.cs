@@ -1,4 +1,5 @@
 ﻿using INF2011S_Project_Group22.Data;
+using INF2011S_Project_Group22.Presentation;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -584,20 +585,59 @@ namespace INF2011S_Project_Group22.Business
 
             return availableRooms;
         }
-        public void AddGuest(string firstName, string lastName, string phoneNumber, string email, string creditCardNo)
+        public Guest AddGuest(string guestId,string firstName, string lastName, string phoneNumber, string email, string creditCardNo)
         {
-            
-            string guestId = Guest.generateGuestId(lastName);
 
-            Guest guest = new Guest(guestId, firstName,lastName, email, creditCardNo);
+            Guest guest = new Guest(guestId, firstName,lastName, phoneNumber, email, creditCardNo);
             guests.Add(guest);
 
             DataMaintenanceGuest(guest, DB.DBOperation.add);
             FinalizeChangesGuest(guest); // add guest into the database 
+
+            return guest;
+        }
+        public TravelAgent AddAgent(string agentId, string agencyName, string firstName, string lastName,string phoneNo, string email)
+        {
+            TravelAgent agent = new TravelAgent(agentId,agencyName,firstName,lastName,phoneNo,email);
+
+            DataMaintenanceAgent(agent, DB.DBOperation.add);
+            FinalizeChangesTravelAgent(agent); // add agent into the database 
+
+            return agent;
+        }
+
+        public GuestAccount AddGuestAccount(string guestId,string creditCardNum,decimal balance,decimal charges, DateTime checkIndate, DateTime checkOutDate)
+        {
+            GuestAccount.AccountStatus accountStatus = new GuestAccount.AccountStatus();
+            if(DateTime.Today >  checkIndate && DateTime.Today < checkOutDate)
+            {
+                accountStatus = GuestAccount.AccountStatus.Open;
+            }
+            else
+            {
+                accountStatus = GuestAccount.AccountStatus.Closed;
+            }
+                GuestAccount guestAccount = new GuestAccount(guestId, creditCardNum, accountStatus, balance, charges);
+            accounts.Add(guestAccount);
+
+            DataMaintenanceAccount(guestAccount, DB.DBOperation.add);
+            FinalizeChangesAccount(guestAccount); // add guest account into the database 
+            return guestAccount;
+        }
+
+        public Payment AddPayment(string paymentID, string guestId,Payment.PaymentStatus paymentStatus, decimal payAmount)
+        {
+
+            Payment payment = new Payment(paymentID, guestId,paymentStatus,payAmount);
+            payments.Add(payment);
+
+            DataMaintenancePayment(payment, DB.DBOperation.add);
+            FinalizeChangesPayment(payment); // add payment into the database 
+            return payment;
         }
 
         //This methods allow the receptionist to manage bookings according to the business rules, and communicate with the database through the BookingDB class.
-        public Booking MakeBooking(Guest guest, List<HotelRoom> rooms, TravelAgent travelAgent, string bookingType,
+        public Booking MakeBooking(int bookingResNumber, string guestId, string hotelId, Booking.BookingType bookingType,
                                    int numOfPeople, int numOfRooms, DateTime checkInDate, DateTime checkOutDate, string specialRequirements)
         {
             // Validation checks
@@ -623,37 +663,50 @@ namespace INF2011S_Project_Group22.Business
             /Assign property explicitly (ensures consistency)
             booking.bookingResNumber = bookingResNum;*/
 
-           
+
 
             //Generates the booking number 
-            int bookingResNumber = Booking.generateBookingResNumber();
+            Booking.BookingStatus bookingStatus = Booking.BookingStatus.Confirmed;
 
-            Booking booking = new Booking(bookingResNumber, numOfPeople, numOfRooms, checkInDate, checkOutDate,
-                                         specialRequirements, guest, rooms, travelAgent);
+            
+            // create the booking 
+            Booking booking = new Booking(bookingResNumber, guestId, hotelId,bookingStatus,bookingType,numOfPeople, numOfRooms, checkInDate, checkOutDate,
+                                         specialRequirements);
 
-            //Creates the  booking
-            booking = new Booking(bookingResNumber, numOfPeople, numOfRooms, checkInDate, checkOutDate,
-                                          specialRequirements, guest, rooms, travelAgent);
+           
 
             // dd to in-memory list and database
             bookings.Add(booking);
             DataMaintenanceBooking(booking, DB.DBOperation.add);
             FinalizeChangesBooking(booking);
 
+            
+
+            return booking;
+        }
+
+        public List<BookingRoom> AddBookingRoom(int bookingResNumber, List<HotelRoom> rooms)
+        {
+            List<BookingRoom> bookingRooms = new List<BookingRoom>();
             //  Add rooms to booking
             foreach (HotelRoom room in rooms)
             {
-                booking.AddRoom(room.HotelRoomID, room.HotelID, room.RoomPrice);
+                
                 room.CheckIn();
 
                 BookingRoom bookingRoom = new BookingRoom(bookingResNumber, room.HotelRoomID);
+                bookingRooms.Add(bookingRoom);
+
+                // add this record to the BookingRoom table 
                 bookingDB.DataSetChangeBookingRoom(bookingRoom, DB.DBOperation.add);
                 bookingDB.UpdateDataSource_BookRoom(bookingRoom);
+
+                // update the room status in the HotelRoom class 
                 bookingDB.DataSetChangeHotelRoom(room, DB.DBOperation.edit);
                 bookingDB.UpdateDataSource_Room(room);
             }
-
-            return booking;
+            return bookingRooms;
+            
         }
 
         // ChangeBooking method: allows the receptionist to change the details of an existing booking, and ensures that the changes abide by the business rules.
@@ -730,6 +783,7 @@ namespace INF2011S_Project_Group22.Business
 
             DataMaintenanceBooking(booking, DB.DBOperation.edit);
             FinalizeChangesBooking(booking);
+
         }
 
         // EnquireBooking method: allows the receptionist to view the details of an existing booking, given the booking reservation number.

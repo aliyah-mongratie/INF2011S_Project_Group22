@@ -13,24 +13,42 @@ namespace INF2011S_Project_Group22.Presentation
 {
     public partial class frmMakePayment : Form
     {
-        private string guestFirstName;
-        private string guestLastName;
-        private string guestEmail;
-        //private string guestPhone;
-        private int guestbookNo;
-        public frmMakePayment(string firstName, string lastName, string email, int bookNo) // add phone number here if its in UI 
+        public decimal payAmount;
+        public Booking.BookingType guestBookingType;
+        public string guestFirstName;
+        public string guestLastName;
+        public string guestEmail;
+        public string guestPhone;
+        public int guestNumRooms;
+        public DateTime guestCheckIn;
+        public DateTime guestCheckOut;
+        public string guestRequirements;
+        public List<HotelRoom> guestSelectedRooms;
+        public int guestNumPeople;
+        public string travelAgencyName;
+
+        public frmMakePayment(decimal paymentAmount,Booking.BookingType bookingType, string firstName, string lastName,string phone, string email, int numOfRooms, DateTime checkInDate, DateTime checkOutDate, string specialRequirements, List<HotelRoom> selectedRooms, int numOfPeople, string agencyName = null) // add phone number here if its in UI 
         {
             InitializeComponent();
+            payAmount = paymentAmount;
+            guestBookingType = bookingType;
             guestFirstName = firstName;
             guestLastName = lastName;
             guestEmail = email;
-            //guestPhone = phone;
+            guestPhone = phone;
+            guestNumRooms = numOfRooms;
+            guestCheckIn = checkInDate;
+            guestCheckOut = checkOutDate;
+            guestRequirements = specialRequirements;
+            guestSelectedRooms = selectedRooms;
+            guestNumPeople = numOfPeople;
+            travelAgencyName = agencyName;
             lblCardNoError.Visible = false;
             lblCVVError.Visible = false;
             lblExpiryDateError.Visible = false;
             lblNameCardError.Visible = false;
             //from booking confirmation page
-            guestbookNo = bookNo;
+           
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -166,22 +184,26 @@ namespace INF2011S_Project_Group22.Presentation
 
         private void btnConfirm_Click(object sender, EventArgs e)
         {
+            string guestId = Guest.generateGuestId(guestLastName);
+            string cardNo = txtCardNumber.Text;
+            BookingController bookingcontroller = new BookingController();
+            Guest guest = bookingcontroller.AddGuest(guestId, guestFirstName, guestLastName, guestPhone, guestEmail, cardNo);
             if (!MakePaymentValidation())
             {
                 return; // Stop further processing if validation fails
             }
             else
             {
-                BookingConfirmation newform = new BookingConfirmation(guestbookNo);//goes to next form
+                //booking confirmation pops up
+                BookingConfirmation newform = new BookingConfirmation(payAmount,cardNo,guestBookingType,guestId, guestCheckIn, guestCheckOut, guestNumRooms, guestRequirements, guestSelectedRooms, guestNumPeople, travelAgencyName);//goes to next form
                 newform.ShowDialog();
 
             }
+            // Add the payment to the database 
+            string payId = Payment.generatePaymentId().ToString();
+            Payment payment = bookingcontroller.AddPayment(payId,guestId,Payment.PaymentStatus.pending,payAmount);
 
-            string cardNo = txtCardNumber.Text;
-            BookingController bookingcontroller = new BookingController();
-            //Payment payment = bookingcontroller.AddGuest(guestFirstName, guestLastName, guestEmail,/*addphonenumber*/ cardNo);
-
-
+            
 
         }
 
@@ -195,7 +217,16 @@ namespace INF2011S_Project_Group22.Presentation
 
         private void frmMakePayment_Load(object sender, EventArgs e)
         {
-            //Is the github working now?
+            
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            txtCardNumber.Clear();
+            txtMonth.Clear();
+            txtYear.Clear();
+            txtNameOnCard.Clear();
+            txtSecurityCode.Clear();
         }
     }
 }
