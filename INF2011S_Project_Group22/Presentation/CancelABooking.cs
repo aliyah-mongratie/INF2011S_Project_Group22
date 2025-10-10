@@ -14,14 +14,16 @@ namespace INF2011S_Project_Group22.Presentation
 {
     public partial class frmCancelABooking : Form
     {
+        public List<HotelRoom> bookingRooms;
+        public DateTime bookingCheckIn;
         public frmCancelABooking()
         {
             InitializeComponent();
-            //Can you guys see this comment? @Aliyah
+           
             lblFNameError.Visible = false;
             lblLNameError.Visible = false;
             lblBookingResError.Visible = false;
-
+          
             txtFirstName.Focus();
 
         }
@@ -119,48 +121,63 @@ namespace INF2011S_Project_Group22.Presentation
         }
 
 
-
-
+       
 
         private void btnConfirm_Click(object sender, EventArgs e)
         {
-
-
+            //if details validation not valid returns nothing
             if (!CancelBookingDetailsValidation())
             {
-                return; // If validation fails, exit the method
+                return;
+            }
+               
+            //create instance of bookingcontroller
+            BookingController bookingController = new BookingController();
+            int bookingResNumber = int.Parse(txtEnterResNumber.Text);
+
+            Booking foundBooking = bookingController.Find(bookingResNumber);
+
+            //if booking is not found then a message box will appear
+            if (foundBooking == null)
+            {
+                MessageBox.Show("No booking found with the provided Reservation Number.",
+                                "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
 
-           
-            
+            //  Calculate total using the Booking class method
+            HotelRoom room = new HotelRoom();
+            decimal price = room.GetRoomPrice(bookingCheckIn);
+
+            // variables that hold the outputs of the methods
+            decimal total = foundBooking.CalculateBookingAmount(bookingRooms, price);
+            decimal deposit = foundBooking.CalculateDeposit(total);
+
+            MessageBox.Show($"Cancellation Confirmed.\nDeposit Amount Due: R{deposit:F2}",
+                            "Cancellation Complete", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
             frmBookingCancellation bookingCancellationForm = new frmBookingCancellation();
             bookingCancellationForm.ShowDialog();
-
-
-
-
-
-
-
-
-
-
-
-
 
 
         }
 
         private void frmCancelABooking_Load(object sender, EventArgs e)
         {
-
+           
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
 
         }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            txtEnterResNumber.Clear();
+            txtFirstName.Clear();
+            txtLastName.Clear();    
+        }
     }
 }
 
-//testing

@@ -9,7 +9,7 @@ using static INF2011S_Project_Group22.HotelRoom;
 
 namespace INF2011S_Project_Group22.Business
 {
-    internal class Booking
+    public class Booking
     {
         #region data members
         //attributes
@@ -35,8 +35,10 @@ namespace INF2011S_Project_Group22.Business
         public string specialRequirements { get; set; }//null??
 
         // Foreign Keys
-        public Guest guest { get; set; }
-        public TravelAgent travelAgent { get; set; }
+
+        public string guestId { get; set; }
+        public string travelAgentId { get; set; }
+        public string hotelId { get; set; }
         #endregion
         #region Constructors
         public Booking()
@@ -49,32 +51,36 @@ namespace INF2011S_Project_Group22.Business
             numOfRooms = 0;
             checkInDate = DateTime.Now;
             checkOutDate = DateTime.Today.AddDays(1);
-            specialRequirements = " ";
-            guest = new Guest();
+            specialRequirements = "";
+            hotelId = new Hotel().HotelID; 
+            guestId = new Guest().GuestID;
             Rooms = new List<HotelRoom>(3); 
-            travelAgent = new TravelAgent();    
+            travelAgentId = new TravelAgent().TravelAgentId;    
 
         }
-        public Booking(int newBookResNumber, int newNumOfPeople, int newNumOfRooms, DateTime newCheckInDate, DateTime newCheckOutDate, string newSpecialRequirements, Guest newGuest, List<HotelRoom> rooms, TravelAgent newTravelAgentID)
+        public Booking(int newBookResNumber, string newGuestId,string newHotelId, BookingStatus newBookingStatus, BookingType newBookingType, int newNumOfPeople, int newNumOfRooms, DateTime newCheckInDate, DateTime newCheckOutDate, string newSpecialRequirements, string newTravelAgentId = null)
         {
             bookingResNumber = newBookResNumber;
-            bookingStat = Booking.BookingStatus.Pending;
-            bookingType = Booking.BookingType.Personal;
+            bookingStat = newBookingStatus;
+            bookingType = newBookingType;
            
             numOfPeople = newNumOfPeople;
             numOfRooms = newNumOfRooms;
             checkInDate = newCheckInDate;
             checkOutDate = newCheckOutDate;
             specialRequirements = newSpecialRequirements;
-            guest = newGuest;
-            Rooms = new List<HotelRoom>();
-            travelAgent= newTravelAgentID;
+            guestId = newGuestId;
+            hotelId = newHotelId;
+            travelAgentId = newTravelAgentId ?? string.Empty;//optional
         }
+
+    
 
         #endregion
 
         #region Methods
 
+     
         public static int generateBookingResNumber() //generates a random booking/reservation number
         {
             Random rand = new Random();
@@ -100,19 +106,48 @@ namespace INF2011S_Project_Group22.Business
         }
 
         //This method is used to add a room to the booking
-        public void AddRoom(string newHotelRoomID, string newHotelID, decimal newRoomPrice) //add a room to teh booking
+        public void AddRoom(string newHotelRoomID, string newHotelID) //add a room to teh booking
          {
-            var newRoom = new HotelRoom(newHotelRoomID, newHotelID, newRoomPrice); //create a new room object
+            var newRoom = new HotelRoom(newHotelRoomID, newHotelID); //create a new room object
 
             // Change status to Occupied right after creation
             newRoom.roomStat = RoomStatus.Occupied;
 
             Rooms.Add(newRoom); //add the new room to the list of rooms in the booking
 
-            MessageBox.Show($"Added Room {newHotelRoomID} ({newHotelID}, {newRoomPrice}) - Status: {newRoom.roomStat}");
+            MessageBox.Show($"Added Room {newHotelRoomID} ({newHotelID}) - Status: {newRoom.roomStat}");
             MessageBox.Show($"Count: {Rooms.Count}, Capacity: {Rooms.Capacity}");
         }
 
+        public decimal CalculateBookingAmount(List<HotelRoom> rooms, decimal roomPrice)
+        {
+            if (Rooms == null || Rooms.Count == 0)
+            {
+                return 0;   
+            }
+               
+
+            int nights = (checkOutDate - checkInDate).Days;
+            if (nights <= 0) nights = 1;
+
+            decimal total = 0;
+
+            //loops through rooms and gets the prices for each and adds them together for the total
+            foreach (HotelRoom room in Rooms)
+            {
+                // Call GetRoomPrice() on each room
+                total += room.GetRoomPrice(checkInDate) * nights;
+            }
+
+            return total;
+        }
+        
+
+        public decimal CalculateDeposit(decimal totalAmount)
+        {
+            // Deposit = 10% of total thats due 14 days before arrival
+            return totalAmount * 0.10m;
+        }
 
         #endregion
     }

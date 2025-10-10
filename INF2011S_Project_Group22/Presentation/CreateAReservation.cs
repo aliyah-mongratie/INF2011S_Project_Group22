@@ -52,6 +52,7 @@ namespace INF2011S_Project_Group22
             lblBookingTypeErr.Visible = false;
             lblRoomSelectionErr.Visible = false;
             lblPhoneNumberErr.Visible = false;
+            lblAgencyNameErr.Visible = false;   
         }
         #region Validation Method
         private bool EnterDetailsValidation()
@@ -64,10 +65,33 @@ namespace INF2011S_Project_Group22
             string phoneNumber = txtPhoneNumber.Text;
             string email = txtEmail.Text;
             string specialRequirements = txtSpecialReq.Text;
-
+           
             bool valid = true;
 
+            //travel agent validation
+            string agencyName = txtAgencyName.Text;
 
+            if(rbTravelAgencyBooking.Checked == true)
+            {
+               
+                if (string.IsNullOrWhiteSpace(agencyName))
+                {
+                    lblAgencyNameErr.Text = "Agency Name is required.";
+                    lblAgencyNameErr.Visible = true;
+                    txtAgencyName.Clear();
+                    return false;
+                }
+
+                if (agencyName.Any(char.IsDigit))
+                {
+                    lblAgencyNameErr.Text = "Names cannot contain numbers.";
+
+                    lblAgencyNameErr.Visible = true;
+           
+                    txtAgencyName.Clear();
+                    valid = false;
+                }
+            }
 
             //First and Last names are required fields 
             if (string.IsNullOrWhiteSpace(firstName))
@@ -168,8 +192,13 @@ namespace INF2011S_Project_Group22
         }
         private bool ValidateRoomSelection(CheckBox cb, TextBox txt) //Method to help validate rooms
         {
-            if (!cb.Checked) return true;
-            if (!int.TryParse(txt.Text, out int num) || num < 1 || num < 4)
+            //validate the rooms checkboxes
+            if (!cb.Checked)
+            {
+                return true;
+            }
+
+            if (!int.TryParse(txt.Text, out int num) || num > 1 || num < 4)
             {
                 lblRoomSelectionErr.Text = "Number of people must be between 1 & 4";
                 lblRoomSelectionErr.Visible = true;
@@ -178,41 +207,73 @@ namespace INF2011S_Project_Group22
             }
             return true;
         }
-        // If all validations pass, proceed with reservation creation
+        
 
 
             // If all validations pass, proceed with reservation creation
-        }
+        
         #endregion
         #region Methods Available rooms
 
-        public void getTotalRoomPeople()
+        public bool getTotalRoomPeople()
         {
-            int numberOfPeople = Convert.ToInt32(txtNumPeople.Text);
-
-
-
-            while (txtNumPeople != null)
+            //gets the total amount of people and displays the avaiable rooms
+            // Check that total people for the booking is a number
+            if (txtNumPeople.Text == "")
             {
-
-
-                if (numberOfPeople > 0 && numberOfPeople < 7)
-                {
-                    /*  if the number of people entered is < 7 then the room capacities added together
-                    must also be < 7*/
-                    while (totRoomPeople < 7)
-                    {
-                        DisplayAvailableRooms();
-                    }
-
-
-                }
-                else
-                {
-                    // ❌ Conversion failed (user didn’t type a number)
-                    MessageBox.Show("Please enter a valid number for guests.");
-                }
+                MessageBox.Show("Please enter the total number of guests.");
+                return false;
             }
+
+            int totalPeople = int.Parse(txtNumPeople.Text);
+            int totalRoomPeople = 0;
+
+            // Check each selected room and adds up the number of people in each textbox
+            if (cbRoom101.Checked)
+            {
+                if (txtRoom101.Text != "")
+                    totalRoomPeople += int.Parse(txtRoom101.Text);
+            }
+
+            if (cbRoom102.Checked)
+            {
+                if (txtRoom102.Text != "")
+                    totalRoomPeople += int.Parse(txtRoom102.Text);
+            }
+
+            if (cbRoom103.Checked)
+            {
+                if (txtRoom103.Text != "")
+                    totalRoomPeople += int.Parse(txtRoom103.Text);
+            }
+
+            if (cbRoom104.Checked)
+            {
+                if (txtRoom104.Text != "")
+                    totalRoomPeople += int.Parse(txtRoom104.Text);
+            }
+
+            if (cbRoom105.Checked)
+            {
+                if (txtRoom105.Text != "")
+                    totalRoomPeople += int.Parse(txtRoom105.Text);
+            }
+
+            // Check if total people in rooms exceed the total people entered
+            if (totalRoomPeople > totalPeople)
+            {
+                MessageBox.Show("You have assigned more people to rooms than the total number entered.", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+            else if (totalRoomPeople < totalPeople)
+            {
+                MessageBox.Show("Some guests are not assigned to any room. Please fill all rooms correctly.", "Incomplete", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+
+            // Everything is valid
+            return true;
+
 
         }
         private void SetAvailableRooms(CheckBox cb, HotelRoom.RoomStatus roomStatus)
@@ -255,41 +316,16 @@ namespace INF2011S_Project_Group22
                     SetAvailableRooms(cb, room.roomStat);
                 }
 
-
-
-                //  Hide all room checkboxes first
-
-                /*foreach (Control ctrl in this.Controls)
+                if (availableRooms.Count == 0)
                 {
-                    if (ctrl is CheckBox cb && cb.Name.StartsWith("chkRoom"))
-                    {
-                        cb.Visible = false;//chk links the checkbox to a specific hotel room ID
-                        cb.Enabled = false;
-                    }
-                }*/
+                    MessageBox.Show("No rooms are currently available.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
 
-                //  Show only available room checkboxes
-                /* foreach (HotelRoom room in availableRooms)
-                 {
-                     string checkBoxName = "chk" + room.HotelRoomID; // e.g. "chkRoom101"
-                     CheckBox roomCheckBox = this.Controls.Find(checkBoxName, true).FirstOrDefault() as CheckBox;
-
-                     if (roomCheckBox != null)
-                     {
-                         roomCheckBox.Visible = true;
-                         roomCheckBox.Enabled = true;
-                     }
-                 }
-
-                 //  Handle case when no rooms are available
-                 if (availableRooms.Count == 0)
-                 {
-                     MessageBox.Show("No rooms are currently available.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                 }*/
+                
+                }
             }
-        }
 
-        private List<HotelRoom> GetSelectedRooms()
+        public List<HotelRoom> GetSelectedRooms()
         {
             // adds the checked rooms to a list and stores it for the booking by collecting user input and storing it
             List<HotelRoom> selectedRooms = new List<HotelRoom>();
@@ -313,7 +349,7 @@ namespace INF2011S_Project_Group22
 
 
 
-        private decimal CalculateBookingAmount()
+        public decimal CalculateBookingAmount()
         {
 
             HideErrorLabels(); //Hide all error labels at the start of calculation
@@ -329,6 +365,8 @@ namespace INF2011S_Project_Group22
                 lblCheckInDateErr.Visible = lblCheckOutDateErr.Visible = true;
                 return 0;
             }
+            //holds the amount of nights from the checkin and checkout dates
+          
 
             //declare selected rooms variable
             List<HotelRoom> selectedRooms = GetSelectedRooms();
@@ -338,6 +376,7 @@ namespace INF2011S_Project_Group22
 
             MessageBox.Show($"Selected rooms: {selectedRooms?.Count}");
 
+            //holds the amount of nights from the checkin and checkout dates
             int nights = (checkOutDate - checkInDate).Days;
             if (nights <= 0)
             {
@@ -345,6 +384,7 @@ namespace INF2011S_Project_Group22
                 lblCheckOutDateErr.Visible = true;
                 return 0;
             }
+            //holds the total price of all chosenrooms
             decimal total = 0;
             foreach (var room in selectedRooms)
             {
@@ -426,12 +466,17 @@ namespace INF2011S_Project_Group22
                 return;
 
             }
-
+            //holds the total amount of all the rooms
             decimal total = CalculateBookingAmount();
-            if (total <= 0) return;
-            MessageBox.Show($"The Total Booking Amount Is: {total.ToString("C")} \r\n The Total Number Of Rooms Booked Is: {GetSelectedRooms().Count}");
 
-            /*Show a message box if any of the required fields are empty when the next button is clicked
+            //holds the booking total deposti amount and call the total booking amount
+            Booking tempBooking = new Booking();
+            decimal deposit = tempBooking.CalculateDeposit(total);
+
+            if (total <= 0) return;
+            MessageBox.Show($"The Total Booking Amount Is: {total.ToString("C")} \r\n The Total Number Of Rooms Booked Is: {GetSelectedRooms().Count} \r\n The Booking Deposit is: {deposit:C}");
+
+            //Show a message box if any of the required fields are empty when the next button is clicked
             if (string.IsNullOrWhiteSpace(txtFirstName.Text) ||
                 string.IsNullOrWhiteSpace(txtLastName.Text) ||
                 string.IsNullOrWhiteSpace(txtNumPeople.Text) ||
@@ -444,22 +489,24 @@ namespace INF2011S_Project_Group22
             else
             {
                 //display the booking amount and number of rooms through a messagebox 
-                MessageBox.Show($"The Total Booking Amount Is: {CalculateBookingAmount().ToString("C")} \r\n The Total Number Of Rooms Booked Is: {GetSelectedRooms().Count}");
+                MessageBox.Show($"The Total Booking Amount Is: {CalculateBookingAmount().ToString("C")} \r\n The Total Number Of Rooms Booked Is: {GetSelectedRooms().Count} \r\n The Booking Deposit is: {deposit:C}");
             }
-            */
 
+            BookingController bookingController = new BookingController();
             // initiate the objects so it can be passed to the MakeBooking method
-            Guest guest = new Guest();
+
+           Guest guest = new Guest();
+
             guest.FirstName = txtFirstName.Text;
             guest.LastName = txtLastName.Text;
             guest.Email = txtEmail.Text;
+            guest.phoneNumber = txtPhoneNumber.Text;
             DateTime checkInDate, checkOutDate;
             DateTime.TryParse(txtCheckInDate.Text, out checkInDate);
             DateTime.TryParse(txtCheckOutDate.Text, out checkOutDate);
-            guest.CheckInDate = checkInDate;
-            guest.CheckOutDate = checkOutDate;
+
+           
             List<HotelRoom> rooms = new List<HotelRoom>(); //Create a new list to store the rooms that will be booked
-            TravelAgent travelAgent = new TravelAgent(); //Create a new travel agent object, it will be populated if the booking type is travel agent
 
             int numOfPeople = int.Parse(txtNumPeople.Text); //Parse the number of people from the textbox
             BookingType bookingType = (rbPersonalBooking.Checked) ? BookingType.Personal : BookingType.TravelAgency; //Determine the booking type based on the selected radio button
@@ -468,20 +515,50 @@ namespace INF2011S_Project_Group22
             string specialRequirements = txtSpecialReq.Text; //Get the special requirements from the textbox
 
 
-            //Call the MakeBooking method from the BookingController class to create a new booking
-            BookingController bookingController = new BookingController();
-            Booking booking = bookingController.MakeBooking(guest,
-                rooms,
-                travelAgent,
-                numOfPeople.ToString(),
-                (int)bookingType, // Convert BookingType enum to int
-                numOfRooms,
-                checkInDate,      // Pass checkInDate as DateTime
-                checkOutDate,
-                specialRequirements);
-            // Pass checkOutDate as DateTime
-            BookingConfirmation newForm = new BookingConfirmation(); //Open the booking confirmation form once the details have been entered and validated
-            newForm.ShowDialog();
+            //makes sure that the total people in all the testboxes in each room, is less than the tot number of people entered
+            getTotalRoomPeople();
+
+
+
+
+            //prepare details data from inputs
+            string firstName = txtFirstName.Text;
+            string lastName = txtLastName.Text;
+            string email = txtEmail.Text;
+             string phoneNumber = txtPhoneNumber.Text;
+            //declare selected rooms variable
+            List<HotelRoom> selectedRooms = GetSelectedRooms();
+
+            // Only after all validation passes:
+            if (rbPersonalBooking.Checked)
+            {
+                
+                bookingType = BookingType.Personal;
+                new frmMakePayment(CalculateBookingAmount(),bookingType,firstName, lastName, phoneNumber, email, numOfRooms,checkInDate,checkOutDate,specialRequirements, selectedRooms, numOfPeople, txtAgencyName.Text).ShowDialog();
+            }
+            else if (rbTravelAgencyBooking.Checked)
+            {
+                string agencyName = txtAgencyName.Text;
+                //make trvel agent inputs visible when radio button is clicked
+                string agentId = TravelAgent.generateAgentId(agencyName);
+                TravelAgent agent = bookingController.AddAgent(agentId, agencyName, firstName, lastName, phoneNumber, email);
+                txtAgencyName.Visible = true;
+                lblAgencyName.Visible = true;
+             
+                string cardNo = "";
+                bookingType = BookingType.TravelAgency;
+                string guestId = Guest.generateGuestId(lastName);
+                BookingConfirmation newform = new BookingConfirmation(CalculateBookingAmount(), cardNo,bookingType,guestId, checkInDate, checkOutDate, numOfRooms, specialRequirements, selectedRooms, numOfPeople);//goes to next form
+                newform.ShowDialog();
+                // new BookingConfirmation(booking.bookingResNumber).ShowDialog();
+
+
+            }
+            else
+            {
+                lblBookingTypeErr.Text = "Please select a booking type.";//error message pops up
+
+            }
 
 
 
@@ -541,12 +618,24 @@ namespace INF2011S_Project_Group22
         private void frmCreateReservation_Load(object sender, EventArgs e)
         {
             DisplayAvailableRooms();
-
+            //makes travel agent inputs invisible when form loads
+            txtAgencyName.Visible = false;
+            lblAgencyName.Visible = false;
+            
 
             /*cbRoom101 = new HotelRoom(101, HotelRoom.RoomStatus.Available, );
             cbRoom102 = new HotelRoom(102, HotelRoom.RoomStatus.Occupied);
             cbRoom103 = new HotelRoom(103, HotelRoom.RoomStatus.Available);*/
         }
 
+        private void lblCheckInDateErr_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblCheckOutDateErr_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

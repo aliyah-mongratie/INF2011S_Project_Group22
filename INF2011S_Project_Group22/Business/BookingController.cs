@@ -1,4 +1,5 @@
 ﻿using INF2011S_Project_Group22.Data;
+using INF2011S_Project_Group22.Presentation;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -584,16 +585,66 @@ namespace INF2011S_Project_Group22.Business
 
             return availableRooms;
         }
-        //This methods allow the receptionist to manage bookings according to the business rules, and communicate with the database through the BookingDB class.
-        public Booking MakeBooking(Guest guest, List<HotelRoom> rooms, TravelAgent travelAgent, string bookingType, int numOfPeople, int numOfRooms,
-                        DateTime checkInDate, DateTime checkOutDate, string specialRequirements)
+        public Guest AddGuest(string guestId,string firstName, string lastName, string phoneNumber, string email, string creditCardNo)
         {
-            // For the receptionist to make a new booking. It ensures that the booking abides by the business rules. 
 
+            Guest guest = new Guest(guestId, firstName,lastName, phoneNumber, email, creditCardNo);
+            guests.Add(guest);
+
+            DataMaintenanceGuest(guest, DB.DBOperation.add);
+            FinalizeChangesGuest(guest); // add guest into the database 
+
+            return guest;
+        }
+        public TravelAgent AddAgent(string agentId, string agencyName, string firstName, string lastName,string phoneNo, string email)
+        {
+            TravelAgent agent = new TravelAgent(agentId,agencyName,firstName,lastName,phoneNo,email);
+
+            DataMaintenanceAgent(agent, DB.DBOperation.add);
+            FinalizeChangesTravelAgent(agent); // add agent into the database 
+
+            return agent;
+        }
+
+        public GuestAccount AddGuestAccount(string guestId,string creditCardNum,decimal balance,decimal charges, DateTime checkIndate, DateTime checkOutDate)
+        {
+            GuestAccount.AccountStatus accountStatus = new GuestAccount.AccountStatus();
+            if(DateTime.Today >  checkIndate && DateTime.Today < checkOutDate)
+            {
+                accountStatus = GuestAccount.AccountStatus.Open;
+            }
+            else
+            {
+                accountStatus = GuestAccount.AccountStatus.Closed;
+            }
+                GuestAccount guestAccount = new GuestAccount(guestId, creditCardNum, accountStatus, balance, charges);
+            accounts.Add(guestAccount);
+
+            DataMaintenanceAccount(guestAccount, DB.DBOperation.add);
+            FinalizeChangesAccount(guestAccount); // add guest account into the database 
+            return guestAccount;
+        }
+
+        public Payment AddPayment(string paymentID, string guestId,Payment.PaymentStatus paymentStatus, decimal payAmount)
+        {
+
+            Payment payment = new Payment(paymentID, guestId,paymentStatus,payAmount);
+            payments.Add(payment);
+
+            DataMaintenancePayment(payment, DB.DBOperation.add);
+            FinalizeChangesPayment(payment); // add payment into the database 
+            return payment;
+        }
+
+        //This methods allow the receptionist to manage bookings according to the business rules, and communicate with the database through the BookingDB class.
+        public Booking MakeBooking(int bookingResNumber, string guestId, string hotelId, Booking.BookingType bookingType,
+                                   int numOfPeople, int numOfRooms, DateTime checkInDate, DateTime checkOutDate, string specialRequirements)
+        {
+            // Validation checks
             if (numOfPeople > 6)
             {
                 MessageBox.Show("The number of people for a booking cannot exceed 6.", "Invalid input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return null; // to stop booking from being created 
+                return null;
             }
 
             if (numOfRooms < 1 || numOfRooms > 3)
@@ -602,38 +653,60 @@ namespace INF2011S_Project_Group22.Business
                 return null;
             }
 
-
             if (checkInDate >= checkOutDate)
             {
-                MessageBox.Show("The check in date must be before the check out date", "Invalid input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("The check-in date must be before the check-out date", "Invalid input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return null;
             }
 
-            int bookingResNumber = Booking.generateBookingResNumber(); //generate a booking reservation number 
+            /*
+            /Assign property explicitly (ensures consistency)
+            booking.bookingResNumber = bookingResNum;*/
 
-            Booking booking = new Booking(bookingResNumber, numOfPeople, numOfRooms, checkInDate, checkOutDate, specialRequirements, guest, rooms, travelAgent);
 
-            booking = new Booking(bookingResNumber, numOfPeople, numOfRooms, checkInDate, checkOutDate, specialRequirements, guest, rooms, travelAgent);
+
+            //Generates the booking number 
+            Booking.BookingStatus bookingStatus = Booking.BookingStatus.Confirmed;
+
+            
+            // create the booking 
+            Booking booking = new Booking(bookingResNumber, guestId, hotelId,bookingStatus,bookingType,numOfPeople, numOfRooms, checkInDate, checkOutDate,
+                                         specialRequirements);
+
+           
+
+            // dd to in-memory list and database
             bookings.Add(booking);
             DataMaintenanceBooking(booking, DB.DBOperation.add);
-            FinalizeChangesBooking(booking);           // adding booking to the database 
+            FinalizeChangesBooking(booking);
+
             
 
-            foreach (HotelRoom room in rooms) // loop for each room that the guest is booking 
+            return booking;
+        }
+
+        public List<BookingRoom> AddBookingRoom(int bookingResNumber, List<HotelRoom> rooms)
+        {
+            List<BookingRoom> bookingRooms = new List<BookingRoom>();
+            //  Add rooms to booking
+            foreach (HotelRoom room in rooms)
             {
-                booking.AddRoom(room.HotelRoomID, room.HotelID, room.RoomPrice); // add the room to the booking
-                room.CheckIn(); //change the room status to "occupied"
+                
+                room.CheckIn();
 
                 BookingRoom bookingRoom = new BookingRoom(bookingResNumber, room.HotelRoomID);
+                bookingRooms.Add(bookingRoom);
 
+                // add this record to the BookingRoom table 
                 bookingDB.DataSetChangeBookingRoom(bookingRoom, DB.DBOperation.add);
                 bookingDB.UpdateDataSource_BookRoom(bookingRoom);
+
+                // update the room status in the HotelRoom class 
                 bookingDB.DataSetChangeHotelRoom(room, DB.DBOperation.edit);
                 bookingDB.UpdateDataSource_Room(room);
             }
-           
-            return booking;
-
+            return bookingRooms;
+            
         }
 
         // ChangeBooking method: allows the receptionist to change the details of an existing booking, and ensures that the changes abide by the business rules.
@@ -710,6 +783,7 @@ namespace INF2011S_Project_Group22.Business
 
             DataMaintenanceBooking(booking, DB.DBOperation.edit);
             FinalizeChangesBooking(booking);
+
         }
 
         // EnquireBooking method: allows the receptionist to view the details of an existing booking, given the booking reservation number.

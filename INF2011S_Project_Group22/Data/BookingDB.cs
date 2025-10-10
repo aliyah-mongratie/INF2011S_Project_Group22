@@ -205,7 +205,6 @@ namespace INF2011S_Project_Group22.Data
                 {
                     guest = new Guest();
                     guest.GuestID = Convert.ToString(myRow["GuestId"]).TrimEnd();
-                    guest.guestStat = (Guest.GuestStatus)Convert.ToByte(myRow["GuestStatus"]);
                     guest.FirstName = Convert.ToString(myRow["FirstName"]).TrimEnd();
                     guest.LastName = Convert.ToString(myRow["LastName"]).TrimEnd();
                     guest.PhoneNumber = Convert.ToString(myRow["PhoneNumber"]).TrimEnd();
@@ -267,7 +266,6 @@ namespace INF2011S_Project_Group22.Data
                 {
                     guestAccount = new GuestAccount();
                     guestAccount.GuestID = Convert.ToString(myRow["GuestId"]).TrimEnd();
-                    guestAccount.RoomID = Convert.ToString(myRow["HotelRoomId"]).TrimEnd();
                     guestAccount.CreditCardCredentials = Convert.ToString(myRow["CreditCardCredentials"]);
                     guestAccount.accountStat = (GuestAccount.AccountStatus)Convert.ToByte(myRow["AccountStatus"]);
                     guestAccount.AccountBalance = Convert.ToDecimal(myRow["AccountBalance"]);
@@ -341,7 +339,7 @@ namespace INF2011S_Project_Group22.Data
                     room.HotelID = Convert.ToString(myRow["HotelId"]).TrimEnd();
                     room.HotelRoomID = Convert.ToString(myRow["HotelRoomId"]).TrimEnd();
                     room.getRoomStatus = (HotelRoom.RoomStatus)Convert.ToByte(myRow["RoomStatus"]);
-                    room.RoomPrice = Convert.ToDecimal(myRow["RoomPrice"]);
+                    
                    
 
                     hotelRooms.Add(room);
@@ -362,11 +360,11 @@ namespace INF2011S_Project_Group22.Data
                 if (!(myRow.RowState == DataRowState.Deleted))
                 {
                     booking = new Booking(); // instantiate new booking object 
-                    booking.guest = new Guest();
-                    booking.travelAgent = new TravelAgent();
+                   
                     booking.bookingResNumber = Convert.ToInt32(myRow["BookingResNumber"]);
-                    booking.guest.guestID = Convert.ToString(myRow["GuestId"]).TrimEnd();
-                    booking.travelAgent.TravelAgentId = Convert.ToString(myRow["TravelAgentId"]).TrimEnd();
+                    booking.guestId = Convert.ToString(myRow["GuestId"]).TrimEnd();
+                    booking.hotelId = Convert.ToString(myRow["HotelId"]).TrimEnd();
+                    booking.travelAgentId = Convert.ToString(myRow["TravelAgentId"]).TrimEnd();
                     booking.bookingStat = (Booking.BookingStatus)Convert.ToByte(myRow["BookingStatus"]);
                     booking.bookingType = (Booking.BookingType)Convert.ToByte(myRow["bookingType"]);
                     booking.numOfPeople = Convert.ToInt32(myRow["numOfPeople"]);
@@ -388,8 +386,9 @@ namespace INF2011S_Project_Group22.Data
                 aRow["BookingResNumber"] = booking.bookingResNumber; //Set the row's primary key if a new row is being added 
             }
                
-            aRow["GuestId"] = booking.guest.guestID;
-            aRow["TravelAgentId"] = booking.travelAgent.TravelAgentId;
+            aRow["GuestId"] = booking.guestId;
+            aRow["HotelId"] = booking.hotelId;
+            aRow["TravelAgentId"] = booking.travelAgentId;
             aRow["BookingStatus"] = booking.bookingStat;
             aRow["bookingType"] = booking.bookingType;
             aRow["numOfPeople"] = booking.numOfPeople;
@@ -461,7 +460,7 @@ namespace INF2011S_Project_Group22.Data
             {
                 aRow["GuestId"] = guest.GuestID;
             }
-            aRow["GuestStatus"] = guest.getGuestStatus;
+         
             aRow["FirstName"] = guest.FirstName;
             aRow["LastName"] = guest.LastName;
             aRow["PhoneNumber"] = guest.PhoneNumber;
@@ -496,7 +495,6 @@ namespace INF2011S_Project_Group22.Data
                 aRow["GuestId"] = account.GuestID;
             }
 
-            aRow["HotelRoomId"] = account.RoomID;
             aRow["CreditCardCredentials"] = account.CreditCardCredentials;
             aRow["AccountStatus"] = account.accountStat;
             aRow["AccountBalance"] = account.AccountBalance;
@@ -596,7 +594,7 @@ namespace INF2011S_Project_Group22.Data
             }
             aRow["HotelId"] = room.HotelID;
             aRow["RoomStatus"] = room.getRoomStatus;
-            aRow["RoomPrice"] = room.RoomPrice;
+           
            
             
         }
@@ -866,9 +864,6 @@ namespace INF2011S_Project_Group22.Data
             param = new SqlParameter("@GuestId", SqlDbType.NVarChar, 10, "GuestId");
             daMain.UpdateCommand.Parameters.Add(param);
 
-            param = new SqlParameter("@GuestStatus", SqlDbType.NVarChar, 20, "GuestStatus");
-            daMain.UpdateCommand.Parameters.Add(param);
-
             param = new SqlParameter("@FirstName", SqlDbType.NVarChar, 50, "FirstName");
             daMain.UpdateCommand.Parameters.Add(param);
 
@@ -888,9 +883,6 @@ namespace INF2011S_Project_Group22.Data
         {
             SqlParameter param = default(SqlParameter);
             param = new SqlParameter("@GuestId", SqlDbType.NVarChar, 10, "GuestId");
-            daMain.UpdateCommand.Parameters.Add(param);
-
-            param = new SqlParameter("@HotelRoomId", SqlDbType.NVarChar, 10, "HotelRoomId");
             daMain.UpdateCommand.Parameters.Add(param);
 
             param = new SqlParameter("@CreditCardCredentials", SqlDbType.NVarChar, 19, "CreditCardCredentials");
@@ -918,8 +910,6 @@ namespace INF2011S_Project_Group22.Data
             param = new SqlParameter("@RoomStatus", SqlDbType.NVarChar, 20, "RoomStatus");
             daMain.UpdateCommand.Parameters.Add(param);
 
-            param = new SqlParameter("@RoomPrice", SqlDbType.Money, 8, "RoomPrice");
-            daMain.UpdateCommand.Parameters.Add(param);
 
             param = new SqlParameter("@RoomCapacity", SqlDbType.Int, 0, "RoomCapacity");
             daMain.UpdateCommand.Parameters.Add(param);
@@ -987,7 +977,7 @@ namespace INF2011S_Project_Group22.Data
         private void Create_UPDATE_Command_Guest(Guest guest)
         {
             daMain.UpdateCommand = new SqlCommand(
-                "UPDATE Guest SET GuestStatus = @GuestStatus, FirstName = @FirstName, LastName = @LastName, " +
+                "UPDATE Guest SET FirstName = @FirstName, LastName = @LastName, " +
                 "PhoneNumber = @PhoneNumber, Email = @Email, CreditCardNumber = @CreditCardNumber " +
                 "WHERE GuestId = @Original_GuestId", cnMain);
 
@@ -997,7 +987,7 @@ namespace INF2011S_Project_Group22.Data
         private void Create_UPDATE_Command_Account(GuestAccount account)
         {
             daMain.UpdateCommand = new SqlCommand(
-                "UPDATE GuestAccount SET HotelRoomId = @HotelRoomId, CreditCardCredentials = @CreditCardCredentials, " +
+                "UPDATE GuestAccount SET CreditCardCredentials = @CreditCardCredentials, " +
                 "AccountStatus = @AccountStatus, AccountBalance = @AccountBalance, AccountCharges = @AccountCharges " +
                 "WHERE GuestId = @Original_GuestId", cnMain);
 
@@ -1007,7 +997,7 @@ namespace INF2011S_Project_Group22.Data
         private void Create_UPDATE_Command_Room(HotelRoom room)
         {
             daMain.UpdateCommand = new SqlCommand(
-                "UPDATE HotelRoom SET HotelId = @HotelId, RoomStatus = @RoomStatus, RoomPrice = @RoomPrice, RoomCapacity = @RoomCapacity " +
+                "UPDATE HotelRoom SET HotelId = @HotelId, RoomStatus = @RoomStatus, RoomCapacity = @RoomCapacity " +
                 "WHERE HotelRoomId = @Original_HotelRoomId", cnMain);
 
             Build_UPDATE_Parameters_Room(room);
@@ -1094,9 +1084,6 @@ namespace INF2011S_Project_Group22.Data
             param = new SqlParameter("@GuestId", SqlDbType.NVarChar, 10, "GuestId");
             daMain.InsertCommand.Parameters.Add(param);
 
-            param = new SqlParameter("@GuestStatus", SqlDbType.NVarChar, 20, "GuestStatus");
-            daMain.InsertCommand.Parameters.Add(param);
-
             param = new SqlParameter("@FirstName", SqlDbType.NVarChar, 50, "FirstName");
             daMain.InsertCommand.Parameters.Add(param);
 
@@ -1119,9 +1106,6 @@ namespace INF2011S_Project_Group22.Data
       
             SqlParameter param = default(SqlParameter);
             param = new SqlParameter("@GuestId", SqlDbType.NVarChar, 10, "GuestId");
-            daMain.InsertCommand.Parameters.Add(param);
-
-            param = new SqlParameter("@HotelRoomId", SqlDbType.NVarChar, 10, "HotelRoomId");
             daMain.InsertCommand.Parameters.Add(param);
 
             param = new SqlParameter("@CreditCardCredentials", SqlDbType.NVarChar, 19, "CreditCardCredentials");
@@ -1147,9 +1131,6 @@ namespace INF2011S_Project_Group22.Data
             daMain.InsertCommand.Parameters.Add(param);
 
             param = new SqlParameter("@RoomStatus", SqlDbType.NVarChar, 20, "RoomStatus");
-            daMain.InsertCommand.Parameters.Add(param);
-
-            param = new SqlParameter("@RoomPrice", SqlDbType.Money, 8, "RoomPrice");
             daMain.InsertCommand.Parameters.Add(param);
 
             param = new SqlParameter("@RoomCapacity", SqlDbType.Int, 0, "RoomCapacity");
@@ -1221,7 +1202,7 @@ namespace INF2011S_Project_Group22.Data
         private void Create_INSERT_Command_Guest(Guest guest)
         {
             daMain.InsertCommand = new SqlCommand(
-                "INSERT Guest SET GuestStatus = @GuestStatus, FirstName = @FirstName, LastName = @LastName, " +
+                "INSERT Guest SET FirstName = @FirstName, LastName = @LastName, " +
                 "PhoneNumber = @PhoneNumber, Email = @Email, CreditCardNumber = @CreditCardNumber " +
                 "WHERE GuestId = @Original_GuestId", cnMain);
 
@@ -1231,7 +1212,7 @@ namespace INF2011S_Project_Group22.Data
         private void Create_INSERT_Command_Account(GuestAccount account)
         {
             daMain.InsertCommand = new SqlCommand(
-                "INSERT GuestAccount SET HotelRoomId = @HotelRoomId, CreditCardCredentials = @CreditCardCredentials, " +
+                "INSERT GuestAccount SET CreditCardCredentials = @CreditCardCredentials, " +
                 "AccountStatus = @AccountStatus, AccountBalance = @AccountBalance, AccountCharges = @AccountCharges " +
                 "WHERE GuestId = @Original_GuestId", cnMain);
 
@@ -1241,7 +1222,7 @@ namespace INF2011S_Project_Group22.Data
         private void Create_INSERT_Command_Room(HotelRoom room)
         {
             daMain.InsertCommand = new SqlCommand(
-                "INSERT HotelRoom SET HotelId = @HotelId, RoomStatus = @RoomStatus, RoomPrice = @RoomPrice, RoomCapacity = @RoomCapacity " +
+                "INSERT HotelRoom SET HotelId = @HotelId, RoomStatus = @RoomStatus, RoomCapacity = @RoomCapacity " +
                 "WHERE HotelRoomId = @Original_HotelRoomId", cnMain);
 
             Build_INSERT_Parameters_Room(room);
