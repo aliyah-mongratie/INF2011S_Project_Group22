@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace INF2011S_Project_Group22
-{
+{ // innocent change 
     internal class Manager:Person
     {
         #region Data Members
