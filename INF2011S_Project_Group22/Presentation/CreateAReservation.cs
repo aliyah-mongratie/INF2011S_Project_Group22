@@ -297,33 +297,27 @@ namespace INF2011S_Project_Group22
             BookingController controller = new BookingController();
             List<HotelRoom> availableRooms = controller.GetAvailableRooms();
 
+            if (availableRooms.Count == 0)
+            {
+                MessageBox.Show("No rooms are currently available.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
             foreach (HotelRoom room in availableRooms)
             {
-                // Find the checkbox by name — for example: chkRoom101, chkRoom102, etc.
-                Control[] foundControls = this.Controls.Find("chkRoom" + room.HotelRoomID, true); //Looks for a control (like a CheckBox) by name on the reservationDetails UI
+                Control[] foundControls = this.Controls.Find("cbRoom" + room.HotelRoomID, true); //Looks for a control (like a CheckBox) by name on the reservationDetails UI
 
-                CheckBox cb = null;
-
-                // Check if any control was found
                 if (foundControls.Length > 0)
                 {
-                    cb = (CheckBox)foundControls[0]; // Take the first control found
+                    CheckBox cb = (CheckBox)foundControls[0]; // Take the first control found
+                    SetAvailableRooms(cb, room.getRoomStatus);
+                    cb.Tag = room; // Store the HotelRoom object in the Tag property of the CheckBox
                 }
 
-                // If the checkbox exists, show or hide it based on the room status
-                if (cb != null)
-                {
-                    SetAvailableRooms(cb, room.roomStat);
-                }
-
-                if (availableRooms.Count == 0)
-                {
-                    MessageBox.Show("No rooms are currently available.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
 
                 
-                }
             }
+
+        }
 
         public List<HotelRoom> GetSelectedRooms()
         {
