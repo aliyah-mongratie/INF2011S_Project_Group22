@@ -10,6 +10,7 @@ using INF2011S_Project_Group22.Business;
 using INF2011S_Project_Group22.Data;
 using System.Windows.Forms;
 using System.Collections.ObjectModel;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace INF2011S_Project_Group22.Presentation
 {
@@ -36,14 +37,23 @@ namespace INF2011S_Project_Group22.Presentation
                     break;
 
             }
-
+           
         }
 
         private void ShowRoomAvailability()
         {
+            string allRoomsInfo = "";
+            foreach (HotelRoom room in bookingController.AllHotelRooms)
+            {
+                allRoomsInfo += $"Room {room.HotelRoomID} : {room.roomStat}\n";
+            }
+
+            MessageBox.Show(allRoomsInfo, "All Rooms Info");
+
+
             //Display the room availability based on the HotelRoomId and its status
-            Collection<HotelRoom> allRooms = bookingController.AllHotelRooms;
-            foreach (HotelRoom room in allRooms)
+            // Collection<HotelRoom> allRooms = bookingController.AllHotelRooms;
+            foreach (HotelRoom room in bookingController.AllHotelRooms)
             {
                 switch (room.HotelRoomID)
                 {
@@ -74,6 +84,10 @@ namespace INF2011S_Project_Group22.Presentation
         private void ViewAvailability_Load(object sender, EventArgs e)
         {
             bookingController = new BookingController();
+            // bookingController.LoadRooms();
+            bookingController.bookingDB.FillDataSet("SELECT * FROM HotelRoom", "HotelRoom");
+            bookingController.bookingDB.AddRoom();
+
 
             ShowRoomAvailability(); // Display the room availability when the form loads
         }
@@ -90,7 +104,7 @@ namespace INF2011S_Project_Group22.Presentation
 
         private void ViewAvailability_Load_1(object sender, EventArgs e)
         {
-
+            
         }
 
         private void btnResDetails_Click(object sender, EventArgs e)
@@ -104,6 +118,11 @@ namespace INF2011S_Project_Group22.Presentation
         private void btnBack_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void gbBackground_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }

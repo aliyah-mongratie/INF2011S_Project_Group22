@@ -14,7 +14,7 @@ namespace INF2011S_Project_Group22.Business
     class BookingController 
     {
         #region Data Members 
-        BookingDB bookingDB; // references the BookingDB class which communicates with the database 
+        public BookingDB bookingDB; // references the BookingDB class which communicates with the database 
         //Collections for each class 
         Collection<BookingRoom> bookingRooms;
         Collection<HotelRoom> rooms;
@@ -469,6 +469,7 @@ namespace INF2011S_Project_Group22.Business
             }
             
         }
+      
         public void DataMaintenanceRoom(HotelRoom room, DB.DBOperation operation)
         {
             int index = 0;

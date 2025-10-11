@@ -267,10 +267,10 @@ namespace INF2011S_Project_Group22.Data
                     guestAccount = new GuestAccount();
                     guestAccount.GuestID = Convert.ToString(myRow["GuestId"]).TrimEnd();
                     guestAccount.CreditCardCredentials = Convert.ToString(myRow["CreditCardCredentials"]);
-                    guestAccount.accountStat = (GuestAccount.AccountStatus)Convert.ToByte(myRow["AccountStatus"]);
+                    guestAccount.accountStat = (GuestAccount.AccountStatus)Enum.Parse(typeof(GuestAccount.AccountStatus),Convert.ToString(myRow["AccountStatus"]));
                     guestAccount.AccountBalance = Convert.ToDecimal(myRow["AccountBalance"]);
                     guestAccount.AccountCharges = Convert.ToInt32(myRow["AccountCharges"]);
-
+                    
 
                     accounts.Add(guestAccount);
                 }
@@ -292,9 +292,9 @@ namespace INF2011S_Project_Group22.Data
                     payment = new Payment();
                     payment.paymentID = Convert.ToString(myRow["PaymentId"]).TrimEnd();
                     payment.guestId = Convert.ToString(myRow["GuestId"]).TrimEnd();
-                    payment.paymentStat = (Payment.PaymentStatus)Convert.ToByte(myRow["PaymentStatus"]);
+                    payment.paymentStat = (Payment.PaymentStatus)Enum.Parse(typeof(Payment.PaymentStatus),Convert.ToString(myRow["PaymentStatus"]));
                     payment.paymentAmount = Convert.ToDecimal(myRow["PaymentAmount"]);
-
+                   
                     payments.Add(payment);
                 }
             }
@@ -322,30 +322,70 @@ namespace INF2011S_Project_Group22.Data
             }
         }
 
-        private void AddRoom()
+        public void AddRoom()
         {
-            DataRow myRow = null;
-            HotelRoom room;
             if (dsMain.Tables[tableRoom] == null)
-            {
-                throw new Exception($"Table '{tableRoom}' was not loaded into the DataSet."); //if the table is not loaded, throw an exception to remind the user.
-            }
-            foreach (DataRow myRow_loopVariable in dsMain.Tables[tableRoom].Rows)
-            {
-                myRow = myRow_loopVariable;
-                if (!(myRow.RowState == DataRowState.Deleted))
-                {
-                    room = new HotelRoom();
-                    room.HotelID = Convert.ToString(myRow["HotelId"]).TrimEnd();
-                    room.HotelRoomID = Convert.ToString(myRow["HotelRoomId"]).TrimEnd();
-                    room.getRoomStatus = (HotelRoom.RoomStatus)Convert.ToByte(myRow["RoomStatus"]);
-                    
-                   
+                throw new Exception($"Table '{tableRoom}' was not loaded into the DataSet.");
 
-                    hotelRooms.Add(room);
-                }
+            foreach (DataRow myRow in dsMain.Tables[tableRoom].Rows)
+            {
+                string roomId = Convert.ToString(myRow["HotelRoomId"]);
+                if (string.IsNullOrWhiteSpace(roomId) || myRow.RowState == DataRowState.Deleted)
+                    continue;
+
+                HotelRoom room = new HotelRoom
+                {
+                    HotelID = Convert.ToString(myRow["HotelId"]).Trim(),
+                    HotelRoomID = roomId.Trim(),
+                    RoomCapacity = Convert.ToInt32(myRow["RoomCapacity"])
+                };
+
+                string statusStr = Convert.ToString(myRow["RoomStatus"]).Trim();
+                if (!Enum.TryParse(statusStr, out HotelRoom.RoomStatus status))
+                    status = HotelRoom.RoomStatus.Available;
+
+                room.roomStat = status;
+
+                hotelRooms.Add(room); // **add to class-level collection**
             }
         }
+
+
+        /*  public void AddRoom()
+          {
+              if (dsMain.Tables[tableRoom] == null)
+                  throw new Exception($"Table '{tableRoom}' was not loaded into the DataSet.");
+
+              foreach (DataRow myRow in dsMain.Tables[tableRoom].Rows)
+              {
+                  // Skip rows with empty HotelRoomID
+                  string roomId = Convert.ToString(myRow["HotelRoomId"]);
+                  if (string.IsNullOrWhiteSpace(roomId))
+                      continue;
+
+                  // Skip deleted rows
+                  if (myRow.RowState == DataRowState.Deleted)
+                      continue;
+
+                  // Create new HotelRoom from DataRow
+                  HotelRoom room = new HotelRoom
+                  {
+                      HotelID = Convert.ToString(myRow["HotelId"]).Trim(),
+                      HotelRoomID = roomId.Trim(),
+                      RoomCapacity = Convert.ToInt32(myRow["RoomCapacity"])
+                  };
+
+                  // Safe enum parse for RoomStatus
+                  string statusStr = Convert.ToString(myRow["RoomStatus"]);
+                  if (!Enum.TryParse(statusStr, out HotelRoom.RoomStatus status))
+                      status = HotelRoom.RoomStatus.Available; // default if DB value is invalid
+
+                  room.getRoomStatus = status;
+
+                  hotelRooms.Add(room);
+              }
+          }*/
+
         private void AddBooking() 
         {
             DataRow myRow = null;
@@ -365,15 +405,14 @@ namespace INF2011S_Project_Group22.Data
                     booking.guestId = Convert.ToString(myRow["GuestId"]).TrimEnd();
                     booking.hotelId = Convert.ToString(myRow["HotelId"]).TrimEnd();
                     booking.travelAgentId = Convert.ToString(myRow["TravelAgentId"]).TrimEnd();
-                    booking.bookingStat = (Booking.BookingStatus)Convert.ToByte(myRow["BookingStatus"]);
-                    booking.bookingType = (Booking.BookingType)Convert.ToByte(myRow["bookingType"]);
+                    booking.bookingStat = (Booking.BookingStatus)Enum.Parse(typeof(Booking.BookingStatus),Convert.ToString(myRow["BookingStatus"]));
+                    booking.bookingType = (Booking.BookingType)Enum.Parse(typeof(Booking.BookingType),Convert.ToString(myRow["bookingType"]));
                     booking.numOfPeople = Convert.ToInt32(myRow["numOfPeople"]);
                     booking.numOfRooms = Convert.ToInt32(myRow["numOfRooms"]);
                     booking.checkInDate = Convert.ToDateTime(myRow["CheckInDate"]).Date;
                     booking.checkOutDate = Convert.ToDateTime(myRow["CheckOutDate"]).Date;
                     booking.specialRequirements = Convert.ToString(myRow["SpecialRequirements"]).TrimEnd();
 
-                    
                     bookings.Add(booking);
                 }
             }
@@ -593,10 +632,11 @@ namespace INF2011S_Project_Group22.Data
                 aRow["HotelRoomId"] = room.HotelRoomID;
             }
             aRow["HotelId"] = room.HotelID;
-            aRow["RoomStatus"] = room.getRoomStatus;
-           
-           
-            
+            aRow["RoomStatus"] = room.roomStat;
+            aRow["RoomCapacity"] = room.RoomCapacity;
+
+
+
         }
         private int FindRowRoom(HotelRoom room, string table)
         {
@@ -1121,23 +1161,7 @@ namespace INF2011S_Project_Group22.Data
             daMain.InsertCommand.Parameters.Add(param);
         }
 
-        private void Build_INSERT_Parameters_Room(HotelRoom room)
-        {
-            SqlParameter param = default(SqlParameter);
-            param = new SqlParameter("@HotelRoomId", SqlDbType.NVarChar, 10, "HotelRoomId");
-            daMain.InsertCommand.Parameters.Add(param);
-
-            param = new SqlParameter("@HotelId", SqlDbType.NVarChar, 10, "HotelId");
-            daMain.InsertCommand.Parameters.Add(param);
-
-            param = new SqlParameter("@RoomStatus", SqlDbType.NVarChar, 20, "RoomStatus");
-            daMain.InsertCommand.Parameters.Add(param);
-
-            param = new SqlParameter("@RoomCapacity", SqlDbType.Int, 0, "RoomCapacity");
-            daMain.InsertCommand.Parameters.Add(param);
-
-        }
-
+       
         private void Build_INSERT_Parameters_Payment(Payment payment)
         {
 
@@ -1181,11 +1205,10 @@ namespace INF2011S_Project_Group22.Data
         private void Create_INSERT_Command_Book(Booking booking)
         {
             daMain.InsertCommand = new SqlCommand(
-                "INSERT Booking SET GuestId = @GuestId, HotelId = @HotelId, TravelAgentId = @TravelAgentId, " +
-                "BookingStatus = @BookingStatus, bookingType = @bookingType, numOfPeople = @numOfPeople, " +
-                "numOfRooms = @numOfRooms, CheckInDate = @CheckInDate, CheckOutDate = @CheckOutDate, " +
-                "SpecialRequirements = @SpecialRequirements " +
-                "WHERE BookingResNumber = @Original_BookingResNumber", cnMain);
+                "INSERT INTO Booking (GuestId, HotelId, TravelAgentId, BookingStatus, bookingType, " +
+                "numOfPeople, numOfRooms, CheckInDate, CheckOutDate, SpecialRequirements) " +
+                "VALUES (@GuestId, @HotelId, @TravelAgentId, @BookingStatus, @bookingType, " +
+                "@numOfPeople, @numOfRooms, @CheckInDate, @CheckOutDate, @SpecialRequirements)", cnMain);
 
             Build_INSERT_Parameters_Book(booking);
         }
@@ -1193,8 +1216,8 @@ namespace INF2011S_Project_Group22.Data
         private void Create_INSERT_Command_BookRoom(BookingRoom bookingRoom)
         {
             daMain.InsertCommand = new SqlCommand(
-                "INSERT BookingRoom SET HotelRoomId = @HotelRoomId " +
-                "WHERE BookingResNumber = @Original_BookingResNumber", cnMain);
+                "INSERT INTO BookingRoom (BookingResNumber, HotelRoomId) " +
+                "VALUES (@Original_BookingResNumber, @HotelRoomId)", cnMain);
 
             Build_INSERT_Parameters_BookRoom(bookingRoom);
         }
@@ -1202,9 +1225,8 @@ namespace INF2011S_Project_Group22.Data
         private void Create_INSERT_Command_Guest(Guest guest)
         {
             daMain.InsertCommand = new SqlCommand(
-                "INSERT Guest SET FirstName = @FirstName, LastName = @LastName, " +
-                "PhoneNumber = @PhoneNumber, Email = @Email, CreditCardNumber = @CreditCardNumber " +
-                "WHERE GuestId = @Original_GuestId", cnMain);
+                "INSERT INTO Guest (GuestId, FirstName, LastName, PhoneNumber, Email, CreditCardNumber) " +
+                "VALUES (@Original_GuestId, @FirstName, @LastName, @PhoneNumber, @Email, @CreditCardNumber)", cnMain);
 
             Build_INSERT_Parameters_Guest(guest);
         }
@@ -1212,27 +1234,17 @@ namespace INF2011S_Project_Group22.Data
         private void Create_INSERT_Command_Account(GuestAccount account)
         {
             daMain.InsertCommand = new SqlCommand(
-                "INSERT GuestAccount SET CreditCardCredentials = @CreditCardCredentials, " +
-                "AccountStatus = @AccountStatus, AccountBalance = @AccountBalance, AccountCharges = @AccountCharges " +
-                "WHERE GuestId = @Original_GuestId", cnMain);
+                "INSERT INTO GuestAccount (GuestId, CreditCardCredentials, AccountStatus, AccountBalance, AccountCharges) " +
+                "VALUES (@Original_GuestId, @CreditCardCredentials, @AccountStatus, @AccountBalance, @AccountCharges)", cnMain);
 
             Build_INSERT_Parameters_Account(account);
-        }
-
-        private void Create_INSERT_Command_Room(HotelRoom room)
-        {
-            daMain.InsertCommand = new SqlCommand(
-                "INSERT HotelRoom SET HotelId = @HotelId, RoomStatus = @RoomStatus, RoomCapacity = @RoomCapacity " +
-                "WHERE HotelRoomId = @Original_HotelRoomId", cnMain);
-
-            Build_INSERT_Parameters_Room(room);
         }
 
         private void Create_INSERT_Command_Payment(Payment payment)
         {
             daMain.InsertCommand = new SqlCommand(
-                "INSERT Payment SET GuestId = @GuestId, PaymentStatus = @PaymentStatus, PaymentAmount = @PaymentAmount " +
-                "WHERE PaymentId = @Original_PaymentId", cnMain);
+                "INSERT INTO Payment (PaymentId, GuestId, PaymentStatus, PaymentAmount) " +
+                "VALUES (@Original_PaymentId, @GuestId, @PaymentStatus, @PaymentAmount)", cnMain);
 
             Build_INSERT_Parameters_Payment(payment);
         }
@@ -1240,12 +1252,12 @@ namespace INF2011S_Project_Group22.Data
         private void Create_INSERT_Command_Agent(TravelAgent agent)
         {
             daMain.InsertCommand = new SqlCommand(
-                "INSERT TravelAgent SET TravelAgency = @TravelAgency, FirstName = @FirstName, LastName = @LastName, " +
-                "PhoneNumber = @PhoneNumber, Email = @Email " +
-                "WHERE TravelAgentId = @Original_TravelAgentId", cnMain);
+                "INSERT INTO TravelAgent (TravelAgentId, TravelAgency, FirstName, LastName, PhoneNumber, Email) " +
+                "VALUES (@Original_TravelAgentId, @TravelAgency, @FirstName, @LastName, @PhoneNumber, @Email)", cnMain);
 
             Build_INSERT_Parameters_Agent(agent);
         }
+
         public bool UpdateDataSource_Book(Booking booking) 
         {
             bool success = true; //Tells you if the update succeeded or not 
@@ -1290,7 +1302,7 @@ namespace INF2011S_Project_Group22.Data
         public bool UpdateDataSource_Room(HotelRoom room)
         {
             bool success = true;
-            Create_INSERT_Command_Room(room);
+           
             Create_UPDATE_Command_Room(room);
             success = UpdateDataSource(sqlLocal3, tableRoom);
 
