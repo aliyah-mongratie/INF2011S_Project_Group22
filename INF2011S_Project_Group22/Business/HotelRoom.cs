@@ -16,13 +16,13 @@ namespace INF2011S_Project_Group22
         public string hotelID;//unique id of hotel in system
         public enum RoomStatus 
         {
-            Available = 0,
-            Occupied = 1
+            Available,
+            Occupied
                 
         }
         public RoomStatus roomStat;//various statuses that a room can be in
        
-        public const int roomCapacity = 4;//capacity the room is allowed to have
+        public int roomCapacity = 4;//capacity the room is allowed to have
         //should be linked to the UI when calculatin how many people per booking
 
         #endregion
@@ -43,8 +43,13 @@ namespace INF2011S_Project_Group22
             get { return roomStat; }
             set { roomStat = value; }
         }
-   
-      
+        public int RoomCapacity
+        {
+            get { return roomCapacity; }
+            set { roomCapacity = value; }
+        }
+
+
         #endregion
 
         #region Constructors 
@@ -53,15 +58,15 @@ namespace INF2011S_Project_Group22
             hotelRoomID = "";
             hotelID = "";
             roomStat = HotelRoom.RoomStatus.Available; //the default state of a room
-           
+            roomCapacity = 4;
             
         }
-        public HotelRoom(string newHotelRoomID, string newHotelID)
+        public HotelRoom(string newHotelRoomID, string newHotelID, RoomStatus status, int newCapacity)
         {
             hotelRoomID = newHotelRoomID;
             hotelID = newHotelID;
-            roomStat = HotelRoom.RoomStatus.Available;
-        
+            roomStat = status;
+            roomCapacity = newCapacity;
         }
 
         #endregion

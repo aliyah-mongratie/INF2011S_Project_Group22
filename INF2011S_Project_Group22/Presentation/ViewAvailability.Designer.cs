@@ -340,6 +340,7 @@
             this.gbBackground.Size = new System.Drawing.Size(915, 260);
             this.gbBackground.TabIndex = 22;
             this.gbBackground.TabStop = false;
+            this.gbBackground.Enter += new System.EventHandler(this.gbBackground_Enter);
             // 
             // lblViewAvailability
             // 
