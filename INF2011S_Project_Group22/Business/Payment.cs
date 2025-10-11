@@ -1,4 +1,5 @@
-﻿using System;
+﻿using INF2011S_Project_Group22.Data;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -32,12 +33,13 @@ namespace INF2011S_Project_Group22.Business
             paymentStat = Payment.PaymentStatus.unpaid;//default status
             paymentAmount = 0;
         }
-        public Payment(string payID,  decimal payAmount, string newGuestId)
+        public Payment(string payID, string newGuestId, Payment.PaymentStatus payStatus, decimal payAmount)
         {
             paymentID = payID;
             paymentStat = Payment.PaymentStatus.unpaid;//defualt status
             paymentAmount = payAmount;
             guestId = newGuestId;
+            paymentStat = payStatus;
         }
         #endregion
 
@@ -59,6 +61,17 @@ namespace INF2011S_Project_Group22.Business
             paymentStat = newStatus;//fetches the new status according to the booking /guest account statuses
         }
 
+        public static int generatePaymentId() //generates a random booking/reservation number
+        {
+            Random random = new Random();
+            return random.Next(10000, 100000); // generates a random number between 10000 and 100000
+        }
+        public int GetBookingDuration(DateTime checkInDate, DateTime checkOutDate)
+        {
+            return (checkOutDate - checkInDate).Days;//calculates amount of days/nights stay for booking
+        }
+
+       
 
         #endregion
     }

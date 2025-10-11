@@ -12,16 +12,15 @@ namespace INF2011S_Project_Group22
         #region Data Members
         //TEST
         public string guestID;
-        public enum GuestStatus
-        {
-            New,
-            Existing
-        }
-
-        public GuestStatus guestStat { get; set; }//i.e new or existing guest
-        private DateTime checkInDate;
-        private DateTime checkOutDate;
-        private string creditCardNumber;
+       
+       public string firstName;
+       public string lastName;
+        public string phoneNumber;
+        
+       
+        public string creditCardNumber;
+        public string email;
+       
         #endregion
 
         #region Property methods
@@ -30,46 +29,72 @@ namespace INF2011S_Project_Group22
             get { return guestID; }
             set { guestID = value; }
         }
-        public GuestStatus getGuestStatus
+        public string FirstName
         {
-            get { return guestStat; }
-            set { guestStat = value; }
+            get { return firstName; }
+            set { firstName = value; }
         }
-        public DateTime CheckInDate 
-        { 
-            get { return checkInDate; }
-            set { checkInDate = value; }
-        }
-        public DateTime CheckOutDate
+        public string LastName
         {
-            get { return checkOutDate; }
-            set { checkOutDate = value; }
+            get { return lastName; }
+            set { lastName = value; }
+        }
+
+        public string PhoneNumber
+        {
+            get { return phoneNumber; }
+            set { phoneNumber = value; }    
         }
         public string CreditCardNumber
         {
             get { return creditCardNumber; }
             set { creditCardNumber = value; }
         }
+        public string Email
+        {
+            get { return email; }
+            set { email = value; }
+        }
         #endregion
 
         #region Constructors
         public Guest():base() //default constructor
         {
-            checkInDate = DateTime.MinValue;
-            checkOutDate = DateTime.MinValue;
-            guestStat = GuestStatus.New;
+            guestID = "";
+            firstName = "";
+            lastName = "";
+            phoneNumber = "";
             creditCardNumber = "";
+           email = "";
         }
 
-        public Guest(DateTime newCheckInDate, DateTime newCheckOutDate, string newCreditCardNumber):base() //parameterized constructor
+        public Guest(string newGuestId, string newFirstName, string newLastName,string newPhoneNumber, string newEmail,string newCreditCardNumber):base() //parameterized constructor
         {
-            checkInDate = newCheckInDate;
-            checkOutDate = newCheckOutDate;
+            guestID = newGuestId;
+           firstName = newFirstName;
+           lastName = newLastName;
+            phoneNumber = newPhoneNumber;
+           email = newEmail;
             creditCardNumber = newCreditCardNumber;
-            guestStat = GuestStatus.New;
+            
         }
         #endregion
 
+        #region methods 
+        public static string generateGuestId(string lastName) //generates a random guestId 
+        {
+            Random rand = new Random();
+            lastName = lastName.ToLower();
+
+            int randomNumber = rand.Next(10000, 100000); // generates a random number between 10000 and 99999
+
+            
+            string guestId = lastName + randomNumber.ToString(); // add the last name and the random number together 
+
+            return guestId;
+
+        }
+        #endregion
     }
 
 }

@@ -16,17 +16,17 @@ namespace INF2011S_Project_Group22
         }
         #endregion
 
-        //Munta's part
+       
         #region Data Members
         public string guestID;
-        
-        private string roomID;
+        Guest guest = new Guest();
+       
         private string creditCardCredentials; // e.g. credit card number
         public enum AccountStatus
         {
-            Active,
-            Inactive,
-            Closed
+            Open,
+            Closed,
+            Settled
         }
         public AccountStatus accountStat { get; set; } // e.g. active, inactive, closed
         private decimal accountBalance; // e.g. current balance
@@ -40,11 +40,7 @@ namespace INF2011S_Project_Group22
             set { guestID = value; }
         }
       
-        public string RoomID
-        {
-            get { return roomID; }
-            set { roomID = value; }
-        }
+        
         public string CreditCardCredentials
         {
             get { return creditCardCredentials; }
@@ -66,17 +62,16 @@ namespace INF2011S_Project_Group22
         public GuestAccount()
         {
             guestID = " ";
-            roomID = "";
             creditCardCredentials = "";
-            accountStat = AccountStatus.Active;//default?
+            accountStat = AccountStatus.Closed; 
             accountBalance = 0.0m;
             accountCharges = 0.0m;
         }
 
-        public GuestAccount(string newGuestID,  string newRoomID, string newCreditCardCredentials,  decimal newAccountBalance)
+        public GuestAccount(string newGuestId,string newCreditCardCredentials, GuestAccount.AccountStatus newAccountStatus, decimal newAccountBalance, decimal newAccountCharges)
         {
-            guestID = newGuestID;
-            roomID = newRoomID;
+            guestID = newGuestId;
+            accountStat = newAccountStatus;
             creditCardCredentials = newCreditCardCredentials;
             accountBalance = newAccountBalance;
         }
