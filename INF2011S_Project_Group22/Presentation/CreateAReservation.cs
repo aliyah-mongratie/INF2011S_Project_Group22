@@ -26,6 +26,7 @@ namespace INF2011S_Project_Group22
         private HotelRoom room;
         private BookingController bookingController;
         private int totRoomPeople = 0;//variable to hold initial value of the total number of people input in all textboxes 
+
         public frmCreateReservation()
         {
             InitializeComponent();
@@ -38,6 +39,8 @@ namespace INF2011S_Project_Group22
 
             HideErrorLabels();
 
+            rbTravelAgencyBooking.CheckedChanged += rbTravelAgencyBooking_CheckedChanged;// event handler for the travel agent radio button
+            rbPersonalBooking.CheckedChanged += rbPersonalBooking_CheckedChanged;// event handler for the personal booking radio button
         }
         private void HideErrorLabels()
         {
@@ -52,9 +55,30 @@ namespace INF2011S_Project_Group22
             lblBookingTypeErr.Visible = false;
             lblRoomSelectionErr.Visible = false;
             lblPhoneNumberErr.Visible = false;
-            lblAgencyNameErr.Visible = false;   
+            lblAgencyNameErr.Visible = false;
         }
         #region Validation Method
+
+        private void rbTravelAgencyBooking_CheckedChanged(object sender, EventArgs e)
+        {
+            //make trvel agent inputs visible when radio button is clicked
+            if (rbTravelAgencyBooking.Checked)
+            {
+                txtAgencyName.Visible = true;
+                lblAgencyName.Visible = true;
+            }
+        }
+
+        private void rbPersonalBooking_CheckedChanged(object sender, EventArgs e)
+        {
+            //make trvel agent inputs invisible when radio button is clicked
+            if (rbPersonalBooking.Checked)
+            {
+                txtAgencyName.Visible = false;
+                lblAgencyName.Visible = false;
+            }
+        }
+
         private bool EnterDetailsValidation()
         {
             HideErrorLabels(); //Hide all error labels at the start of validation
@@ -65,15 +89,15 @@ namespace INF2011S_Project_Group22
             string phoneNumber = txtPhoneNumber.Text;
             string email = txtEmail.Text;
             string specialRequirements = txtSpecialReq.Text;
-           
+
             bool valid = true;
 
             //travel agent validation
             string agencyName = txtAgencyName.Text;
 
-            if(rbTravelAgencyBooking.Checked == true)
+            if (rbTravelAgencyBooking.Checked == true)
             {
-               
+
                 if (string.IsNullOrWhiteSpace(agencyName))
                 {
                     lblAgencyNameErr.Text = "Agency Name is required.";
@@ -87,7 +111,7 @@ namespace INF2011S_Project_Group22
                     lblAgencyNameErr.Text = "Names cannot contain numbers.";
 
                     lblAgencyNameErr.Visible = true;
-           
+
                     txtAgencyName.Clear();
                     valid = false;
                 }
@@ -207,11 +231,11 @@ namespace INF2011S_Project_Group22
             }
             return true;
         }
-        
 
 
-            // If all validations pass, proceed with reservation creation
-        
+
+        // If all validations pass, proceed with reservation creation
+
         #endregion
         #region Methods Available rooms
 
@@ -297,33 +321,27 @@ namespace INF2011S_Project_Group22
             BookingController controller = new BookingController();
             List<HotelRoom> availableRooms = controller.GetAvailableRooms();
 
+            if (availableRooms.Count == 0)
+            {
+                MessageBox.Show("No rooms are currently available.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
             foreach (HotelRoom room in availableRooms)
             {
-                // Find the checkbox by name — for example: chkRoom101, chkRoom102, etc.
-                Control[] foundControls = this.Controls.Find("chkRoom" + room.HotelRoomID, true); //Looks for a control (like a CheckBox) by name on the reservationDetails UI
+                Control[] foundControls = this.Controls.Find("cbRoom" + room.HotelRoomID, true); //Looks for a control (like a CheckBox) by name on the reservationDetails UI
 
-                CheckBox cb = null;
-
-                // Check if any control was found
                 if (foundControls.Length > 0)
                 {
-                    cb = (CheckBox)foundControls[0]; // Take the first control found
+                    CheckBox cb = (CheckBox)foundControls[0]; // Take the first control found
+                    SetAvailableRooms(cb, room.getRoomStatus);
+                    cb.Tag = room; // Store the HotelRoom object in the Tag property of the CheckBox
                 }
 
-                // If the checkbox exists, show or hide it based on the room status
-                if (cb != null)
-                {
-                    SetAvailableRooms(cb, room.roomStat);
-                }
 
-                if (availableRooms.Count == 0)
-                {
-                    MessageBox.Show("No rooms are currently available.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
 
-                
-                }
             }
+
+        }
 
         public List<HotelRoom> GetSelectedRooms()
         {
@@ -366,7 +384,7 @@ namespace INF2011S_Project_Group22
                 return 0;
             }
             //holds the amount of nights from the checkin and checkout dates
-          
+
 
             //declare selected rooms variable
             List<HotelRoom> selectedRooms = GetSelectedRooms();
@@ -495,7 +513,7 @@ namespace INF2011S_Project_Group22
             BookingController bookingController = new BookingController();
             // initiate the objects so it can be passed to the MakeBooking method
 
-           Guest guest = new Guest();
+            Guest guest = new Guest();
 
             guest.FirstName = txtFirstName.Text;
             guest.LastName = txtLastName.Text;
@@ -505,7 +523,7 @@ namespace INF2011S_Project_Group22
             DateTime.TryParse(txtCheckInDate.Text, out checkInDate);
             DateTime.TryParse(txtCheckOutDate.Text, out checkOutDate);
 
-           
+
             List<HotelRoom> rooms = new List<HotelRoom>(); //Create a new list to store the rooms that will be booked
 
             int numOfPeople = int.Parse(txtNumPeople.Text); //Parse the number of people from the textbox
@@ -525,16 +543,16 @@ namespace INF2011S_Project_Group22
             string firstName = txtFirstName.Text;
             string lastName = txtLastName.Text;
             string email = txtEmail.Text;
-             string phoneNumber = txtPhoneNumber.Text;
+            string phoneNumber = txtPhoneNumber.Text;
             //declare selected rooms variable
             List<HotelRoom> selectedRooms = GetSelectedRooms();
 
             // Only after all validation passes:
             if (rbPersonalBooking.Checked)
             {
-                
+
                 bookingType = BookingType.Personal;
-                new frmMakePayment(CalculateBookingAmount(),bookingType,firstName, lastName, phoneNumber, email, numOfRooms,checkInDate,checkOutDate,specialRequirements, selectedRooms, numOfPeople, txtAgencyName.Text).ShowDialog();
+                new frmMakePayment(CalculateBookingAmount(), bookingType, firstName, lastName, phoneNumber, email, numOfRooms, checkInDate, checkOutDate, specialRequirements, selectedRooms, numOfPeople, txtAgencyName.Text).ShowDialog();
             }
             else if (rbTravelAgencyBooking.Checked)
             {
@@ -544,11 +562,11 @@ namespace INF2011S_Project_Group22
                 TravelAgent agent = bookingController.AddAgent(agentId, agencyName, firstName, lastName, phoneNumber, email);
                 txtAgencyName.Visible = true;
                 lblAgencyName.Visible = true;
-             
+
                 string cardNo = "";
                 bookingType = BookingType.TravelAgency;
                 string guestId = Guest.generateGuestId(lastName);
-                BookingConfirmation newform = new BookingConfirmation(CalculateBookingAmount(), cardNo,bookingType,guestId, checkInDate, checkOutDate, numOfRooms, specialRequirements, selectedRooms, numOfPeople);//goes to next form
+                BookingConfirmation newform = new BookingConfirmation(CalculateBookingAmount(), cardNo, bookingType, guestId, checkInDate, checkOutDate, numOfRooms, specialRequirements, selectedRooms, numOfPeople);//goes to next form
                 newform.ShowDialog();
                 // new BookingConfirmation(booking.bookingResNumber).ShowDialog();
 
@@ -621,7 +639,7 @@ namespace INF2011S_Project_Group22
             //makes travel agent inputs invisible when form loads
             txtAgencyName.Visible = false;
             lblAgencyName.Visible = false;
-            
+
 
             /*cbRoom101 = new HotelRoom(101, HotelRoom.RoomStatus.Available, );
             cbRoom102 = new HotelRoom(102, HotelRoom.RoomStatus.Occupied);

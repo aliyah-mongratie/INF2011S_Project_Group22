@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Homepage));
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.btnMakeABooking = new System.Windows.Forms.Button();
@@ -37,28 +36,19 @@
             this.label3 = new System.Windows.Forms.Label();
             this.btnCancelABooking = new System.Windows.Forms.Button();
             this.btnBookingEnquiry = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
-            this.pictureBox1.Location = new System.Drawing.Point(-1, -18);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1748, 213);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Palatino Linotype", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.label1.Location = new System.Drawing.Point(-5, 225);
+            this.label1.Font = new System.Drawing.Font("Palatino Linotype", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Goldenrod;
+            this.label1.Location = new System.Drawing.Point(-3, 199);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(782, 92);
+            this.label1.Size = new System.Drawing.Size(786, 92);
             this.label1.TabIndex = 1;
             this.label1.Text = resources.GetString("label1.Text");
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -66,7 +56,7 @@
             // pictureBox2
             // 
             this.pictureBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.BackgroundImage")));
-            this.pictureBox2.Location = new System.Drawing.Point(22, 360);
+            this.pictureBox2.Location = new System.Drawing.Point(26, 319);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(701, 370);
             this.pictureBox2.TabIndex = 2;
@@ -74,25 +64,25 @@
             // 
             // btnMakeABooking
             // 
-            this.btnMakeABooking.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnMakeABooking.BackgroundImage")));
+            this.btnMakeABooking.BackColor = System.Drawing.Color.Goldenrod;
             this.btnMakeABooking.Font = new System.Drawing.Font("Segoe UI Emoji", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMakeABooking.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.btnMakeABooking.Location = new System.Drawing.Point(1006, 342);
+            this.btnMakeABooking.Location = new System.Drawing.Point(1006, 344);
             this.btnMakeABooking.Name = "btnMakeABooking";
-            this.btnMakeABooking.Size = new System.Drawing.Size(252, 55);
+            this.btnMakeABooking.Size = new System.Drawing.Size(252, 53);
             this.btnMakeABooking.TabIndex = 3;
             this.btnMakeABooking.Text = "Make a Booking";
-            this.btnMakeABooking.UseVisualStyleBackColor = true;
+            this.btnMakeABooking.UseVisualStyleBackColor = false;
             this.btnMakeABooking.Click += new System.EventHandler(this.btnMakeABooking_Click);
             // 
             // lblWelcome
             // 
             this.lblWelcome.AutoSize = true;
-            this.lblWelcome.Font = new System.Drawing.Font("Times New Roman", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblWelcome.ForeColor = System.Drawing.Color.DarkOrange;
-            this.lblWelcome.Location = new System.Drawing.Point(1031, 225);
+            this.lblWelcome.Font = new System.Drawing.Font("Times New Roman", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblWelcome.ForeColor = System.Drawing.Color.Goldenrod;
+            this.lblWelcome.Location = new System.Drawing.Point(1037, 226);
             this.lblWelcome.Name = "lblWelcome";
-            this.lblWelcome.Size = new System.Drawing.Size(178, 46);
+            this.lblWelcome.Size = new System.Drawing.Size(189, 45);
             this.lblWelcome.TabIndex = 4;
             this.lblWelcome.Text = "Welcome!";
             this.lblWelcome.Click += new System.EventHandler(this.label2_Click);
@@ -101,7 +91,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.DarkOrange;
+            this.label3.ForeColor = System.Drawing.Color.Goldenrod;
             this.label3.Location = new System.Drawing.Point(1014, 271);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(234, 20);
@@ -110,7 +100,7 @@
             // 
             // btnCancelABooking
             // 
-            this.btnCancelABooking.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnCancelABooking.BackgroundImage")));
+            this.btnCancelABooking.BackColor = System.Drawing.Color.Goldenrod;
             this.btnCancelABooking.Font = new System.Drawing.Font("Segoe UI Emoji", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelABooking.ForeColor = System.Drawing.Color.DarkSlateGray;
             this.btnCancelABooking.Location = new System.Drawing.Point(1009, 412);
@@ -118,12 +108,12 @@
             this.btnCancelABooking.Size = new System.Drawing.Size(252, 53);
             this.btnCancelABooking.TabIndex = 7;
             this.btnCancelABooking.Text = "Cancel A Booking";
-            this.btnCancelABooking.UseVisualStyleBackColor = true;
+            this.btnCancelABooking.UseVisualStyleBackColor = false;
             this.btnCancelABooking.Click += new System.EventHandler(this.btnCancelABooking_Click);
             // 
             // btnBookingEnquiry
             // 
-            this.btnBookingEnquiry.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnBookingEnquiry.BackgroundImage")));
+            this.btnBookingEnquiry.BackColor = System.Drawing.Color.Goldenrod;
             this.btnBookingEnquiry.Font = new System.Drawing.Font("Segoe UI Emoji", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBookingEnquiry.ForeColor = System.Drawing.Color.DarkSlateGray;
             this.btnBookingEnquiry.Location = new System.Drawing.Point(1009, 482);
@@ -131,14 +121,25 @@
             this.btnBookingEnquiry.Size = new System.Drawing.Size(255, 57);
             this.btnBookingEnquiry.TabIndex = 8;
             this.btnBookingEnquiry.Text = "Booking Enquiry";
-            this.btnBookingEnquiry.UseVisualStyleBackColor = true;
+            this.btnBookingEnquiry.UseVisualStyleBackColor = false;
             this.btnBookingEnquiry.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
+            this.pictureBox1.Location = new System.Drawing.Point(1, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(1539, 152);
+            this.pictureBox1.TabIndex = 9;
+            this.pictureBox1.TabStop = false;
             // 
             // Homepage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.DarkCyan;
             this.ClientSize = new System.Drawing.Size(1364, 742);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnBookingEnquiry);
             this.Controls.Add(this.btnCancelABooking);
             this.Controls.Add(this.label3);
@@ -146,20 +147,17 @@
             this.Controls.Add(this.btnMakeABooking);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.pictureBox1);
             this.Name = "Homepage";
             this.Text = "Homepage";
             this.Load += new System.EventHandler(this.Homepage_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Button btnMakeABooking;
@@ -167,5 +165,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnCancelABooking;
         private System.Windows.Forms.Button btnBookingEnquiry;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
