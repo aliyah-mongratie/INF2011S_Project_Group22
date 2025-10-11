@@ -29,42 +29,22 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmBookingCancellation));
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.lblBookingCancelled = new System.Windows.Forms.Label();
             this.lblBookingNumberRemoved = new System.Windows.Forms.Label();
             this.btnBack = new System.Windows.Forms.Button();
+            this.lblBookingCancelled = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(585, 300);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(229, 219);
-            this.pictureBox2.TabIndex = 1;
-            this.pictureBox2.TabStop = false;
-            // 
-            // lblBookingCancelled
-            // 
-            this.lblBookingCancelled.AutoSize = true;
-            this.lblBookingCancelled.BackColor = System.Drawing.Color.OldLace;
-            this.lblBookingCancelled.Font = new System.Drawing.Font("Bookman Old Style", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBookingCancelled.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.lblBookingCancelled.Location = new System.Drawing.Point(554, 261);
-            this.lblBookingCancelled.Name = "lblBookingCancelled";
-            this.lblBookingCancelled.Size = new System.Drawing.Size(313, 36);
-            this.lblBookingCancelled.TabIndex = 2;
-            this.lblBookingCancelled.Text = "Booking Cancelled!";
             // 
             // lblBookingNumberRemoved
             // 
             this.lblBookingNumberRemoved.AutoSize = true;
-            this.lblBookingNumberRemoved.BackColor = System.Drawing.Color.OldLace;
+            this.lblBookingNumberRemoved.BackColor = System.Drawing.Color.DarkCyan;
             this.lblBookingNumberRemoved.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBookingNumberRemoved.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.lblBookingNumberRemoved.Location = new System.Drawing.Point(442, 553);
+            this.lblBookingNumberRemoved.ForeColor = System.Drawing.Color.NavajoWhite;
+            this.lblBookingNumberRemoved.Location = new System.Drawing.Point(544, 547);
             this.lblBookingNumberRemoved.Name = "lblBookingNumberRemoved";
             this.lblBookingNumberRemoved.Size = new System.Drawing.Size(28, 16);
             this.lblBookingNumberRemoved.TabIndex = 3;
@@ -73,30 +53,61 @@
             // 
             // btnBack
             // 
-            this.btnBack.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnBack.BackgroundImage")));
+            this.btnBack.BackColor = System.Drawing.Color.Goldenrod;
             this.btnBack.Font = new System.Drawing.Font("Segoe UI Emoji", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBack.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.btnBack.Location = new System.Drawing.Point(55, 609);
+            this.btnBack.Location = new System.Drawing.Point(64, 629);
             this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(256, 55);
+            this.btnBack.Size = new System.Drawing.Size(198, 44);
             this.btnBack.TabIndex = 4;
             this.btnBack.Text = "Back";
-            this.btnBack.UseVisualStyleBackColor = true;
+            this.btnBack.UseVisualStyleBackColor = false;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+            // 
+            // lblBookingCancelled
+            // 
+            this.lblBookingCancelled.AutoSize = true;
+            this.lblBookingCancelled.Font = new System.Drawing.Font("Times New Roman", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBookingCancelled.ForeColor = System.Drawing.Color.Goldenrod;
+            this.lblBookingCancelled.Location = new System.Drawing.Point(504, 181);
+            this.lblBookingCancelled.Name = "lblBookingCancelled";
+            this.lblBookingCancelled.Size = new System.Drawing.Size(351, 45);
+            this.lblBookingCancelled.TabIndex = 5;
+            this.lblBookingCancelled.Text = "Booking Cancelled!";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
+            this.pictureBox1.Location = new System.Drawing.Point(-3, -1);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(1383, 131);
+            this.pictureBox1.TabIndex = 6;
+            this.pictureBox1.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.BackgroundImage")));
+            this.pictureBox2.Location = new System.Drawing.Point(512, 229);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(343, 293);
+            this.pictureBox2.TabIndex = 7;
+            this.pictureBox2.TabStop = false;
             // 
             // frmBookingCancellation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackColor = System.Drawing.Color.DarkCyan;
             this.ClientSize = new System.Drawing.Size(1349, 706);
+            this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.lblBookingCancelled);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.lblBookingNumberRemoved);
-            this.Controls.Add(this.lblBookingCancelled);
-            this.Controls.Add(this.pictureBox2);
             this.Name = "frmBookingCancellation";
             this.Text = "BookingCancellation";
             this.Load += new System.EventHandler(this.frmBookingCancellation_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -104,9 +115,10 @@
         }
 
         #endregion
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.Label lblBookingCancelled;
         private System.Windows.Forms.Label lblBookingNumberRemoved;
         private System.Windows.Forms.Button btnBack;
+        private System.Windows.Forms.Label lblBookingCancelled;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }
