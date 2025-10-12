@@ -43,11 +43,12 @@
             // 
             this.lblBookingConfirmed.AutoSize = true;
             this.lblBookingConfirmed.BackColor = System.Drawing.Color.OldLace;
-            this.lblBookingConfirmed.Font = new System.Drawing.Font("Bookman Old Style", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBookingConfirmed.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblBookingConfirmed.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.lblBookingConfirmed.Location = new System.Drawing.Point(529, 260);
+            this.lblBookingConfirmed.Location = new System.Drawing.Point(397, 211);
+            this.lblBookingConfirmed.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblBookingConfirmed.Name = "lblBookingConfirmed";
-            this.lblBookingConfirmed.Size = new System.Drawing.Size(0, 36);
+            this.lblBookingConfirmed.Size = new System.Drawing.Size(0, 29);
             this.lblBookingConfirmed.TabIndex = 1;
             // 
             // lblBookingReservation
@@ -56,9 +57,10 @@
             this.lblBookingReservation.BackColor = System.Drawing.Color.DarkCyan;
             this.lblBookingReservation.Font = new System.Drawing.Font("Segoe UI Emoji", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblBookingReservation.ForeColor = System.Drawing.Color.NavajoWhite;
-            this.lblBookingReservation.Location = new System.Drawing.Point(531, 519);
+            this.lblBookingReservation.Location = new System.Drawing.Point(398, 422);
+            this.lblBookingReservation.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblBookingReservation.Name = "lblBookingReservation";
-            this.lblBookingReservation.Size = new System.Drawing.Size(43, 24);
+            this.lblBookingReservation.Size = new System.Drawing.Size(38, 20);
             this.lblBookingReservation.TabIndex = 4;
             this.lblBookingReservation.Text = "lbl1";
             // 
@@ -67,9 +69,10 @@
             this.btnBack.BackColor = System.Drawing.Color.Goldenrod;
             this.btnBack.Font = new System.Drawing.Font("Segoe UI Emoji", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBack.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.btnBack.Location = new System.Drawing.Point(29, 618);
+            this.btnBack.Location = new System.Drawing.Point(22, 502);
+            this.btnBack.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(254, 56);
+            this.btnBack.Size = new System.Drawing.Size(190, 46);
             this.btnBack.TabIndex = 5;
             this.btnBack.Text = "Back";
             this.btnBack.UseVisualStyleBackColor = false;
@@ -77,9 +80,10 @@
             // pictureBox2
             // 
             this.pictureBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.BackgroundImage")));
-            this.pictureBox2.Location = new System.Drawing.Point(535, 213);
+            this.pictureBox2.Location = new System.Drawing.Point(401, 173);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(346, 293);
+            this.pictureBox2.Size = new System.Drawing.Size(260, 238);
             this.pictureBox2.TabIndex = 8;
             this.pictureBox2.TabStop = false;
             // 
@@ -88,33 +92,37 @@
             this.lblbookingcon.AutoSize = true;
             this.lblbookingcon.Font = new System.Drawing.Font("Times New Roman", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblbookingcon.ForeColor = System.Drawing.Color.Goldenrod;
-            this.lblbookingcon.Location = new System.Drawing.Point(527, 165);
+            this.lblbookingcon.Location = new System.Drawing.Point(395, 134);
+            this.lblbookingcon.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblbookingcon.Name = "lblbookingcon";
-            this.lblbookingcon.Size = new System.Drawing.Size(369, 45);
+            this.lblbookingcon.Size = new System.Drawing.Size(299, 36);
             this.lblbookingcon.TabIndex = 9;
             this.lblbookingcon.Text = "Booking Confirmed!";
             // 
             // pictureBox1
             // 
             this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
-            this.pictureBox1.Location = new System.Drawing.Point(1, -9);
+            this.pictureBox1.Location = new System.Drawing.Point(1, -7);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1383, 131);
+            this.pictureBox1.Size = new System.Drawing.Size(1037, 106);
             this.pictureBox1.TabIndex = 10;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click_1);
             // 
             // BookingConfirmation
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkCyan;
-            this.ClientSize = new System.Drawing.Size(1359, 698);
+            this.ClientSize = new System.Drawing.Size(1019, 567);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.lblbookingcon);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.lblBookingReservation);
             this.Controls.Add(this.lblBookingConfirmed);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "BookingConfirmation";
             this.Text = "BookingConfirmation";
             this.Load += new System.EventHandler(this.BookingConfirmation_Load);

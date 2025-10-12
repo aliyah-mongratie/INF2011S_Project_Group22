@@ -570,6 +570,20 @@ namespace INF2011S_Project_Group22
             //declare selected rooms variable
             List<HotelRoom> selectedRooms = GetSelectedRooms();
 
+            DateTime checkInDate, checkOutDate;
+            DateTime.TryParse(txtCheckInDate.Text, out checkInDate);
+            DateTime.TryParse(txtCheckOutDate.Text, out checkOutDate);
+
+            BookingType bookingType = (rbPersonalBooking.Checked) ? BookingType.Personal : BookingType.TravelAgency; //Determine the booking type based on the selected radio button
+
+            string firstName = txtFirstName.Text;
+            string lastName = txtLastName.Text;
+            string email = txtEmail.Text;
+            string phoneNumber = txtPhoneNumber.Text;
+            string agencyName = txtAgencyName.Text;
+            string specialRequirements = txtSpecialReq.Text; //Get the special requirements from the textbox
+
+            BookingController bookingController = new BookingController();
 
             //holds the total amount of all the rooms
             decimal total = CalculateBookingAmount();
@@ -577,13 +591,22 @@ namespace INF2011S_Project_Group22
             //holds the booking total deposit amount and call the total booking amount
             Booking tempBooking = new Booking();
 
-            
+            string agentId = null;
+
+            // Add TravelAgent to DB if applicable
+            if (bookingType == BookingType.TravelAgency)
+            {
+                agentId = TravelAgent.generateAgentId(agencyName);
+                // DO NOT add agent yet. Let the next form handle it after payment.
+            }
+
+            string guestId = Guest.generateGuestId(lastName);
+
+
             decimal deposit = tempBooking.CalculateDeposit(total);
             MessageBox.Show($"The Total Booking Amount Is: {total:C} \r\n The Total Number Of Rooms Booked Is: {selectedRooms.Count} \r\n The Booking Deposit is: {deposit:C}");
 
-            DateTime checkInDate, checkOutDate;
-            DateTime.TryParse(txtCheckInDate.Text, out checkInDate);
-            DateTime.TryParse(txtCheckOutDate.Text, out checkOutDate);
+            
 
             List<HotelRoom> rooms = new List<HotelRoom>(); //Create a new list to store the rooms that will be booked
                                                            // Parse number of people safely
@@ -599,41 +622,28 @@ namespace INF2011S_Project_Group22
                 MessageBox.Show("Number of rooms is invalid. Please try again.");
                 return;
             }
-            BookingType bookingType = (rbPersonalBooking.Checked) ? BookingType.Personal : BookingType.TravelAgency; //Determine the booking type based on the selected radio button
-           
 
-            string specialRequirements = txtSpecialReq.Text; //Get the special requirements from the textbox
-
-            BookingController bookingController = new BookingController();
-
-
-            //prepare details data from inputs
-            string firstName = txtFirstName.Text;
-            string lastName = txtLastName.Text;
-            string email = txtEmail.Text;
-            string phoneNumber = txtPhoneNumber.Text;
-
-           
+          
             // Open the appropriate forms base on the booking type 
             if (bookingType == BookingType.Personal)
             {
-                new frmMakePayment(total, bookingType, firstName, lastName, phoneNumber, email, numOfRooms, checkInDate, checkOutDate, specialRequirements, selectedRooms, numOfPeople).ShowDialog();
+                    new frmMakePayment(guestId,agentId, total, bookingType, firstName, lastName, phoneNumber, email,
+                    numOfRooms, checkInDate, checkOutDate, specialRequirements, selectedRooms, numOfPeople, agencyName)
+                    .ShowDialog();
                 /* The Guest table needs the card information from the Make Payment form. This line opens this form and takes the data about 
-                   the guest and booking with it so that those objects can be created once all the parameters needed are received*/
+                  the guest and booking with it so that those objects can be created once all the parameters needed are received*/
             }
             else if (bookingType == BookingType.TravelAgency)
             {
-                string agencyName = txtAgencyName.Text;
-                string agentId = TravelAgent.generateAgentId(agencyName);
-
-                TravelAgent agent = bookingController.AddAgent(agentId, agencyName, firstName, lastName, phoneNumber, email);
-               
-                string cardNo = "";
-                bookingType = BookingType.TravelAgency;
-                string guestId = Guest.generateGuestId(lastName);
-                new BookingConfirmation(total, cardNo, bookingType, guestId, checkInDate, checkOutDate, numOfRooms, specialRequirements, selectedRooms, numOfPeople).ShowDialog();//goes to next form
+                string cardNo = ""; // placeholder if needed
+            
+                
+                    new BookingConfirmation(firstName,lastName,phoneNumber, email,agentId, total, cardNo, bookingType, guestId, checkInDate, checkOutDate,
+                    numOfRooms, specialRequirements, selectedRooms, numOfPeople,agencyName)
+                    .ShowDialog();
                 // go to the booking confirmation page and take the data from this form with so that the booking can be created 
             }
+
            
         }
 

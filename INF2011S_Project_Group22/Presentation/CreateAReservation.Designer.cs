@@ -92,9 +92,10 @@
             this.lblCreateAReservation.BackColor = System.Drawing.Color.DarkCyan;
             this.lblCreateAReservation.Font = new System.Drawing.Font("Times New Roman", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCreateAReservation.ForeColor = System.Drawing.Color.Goldenrod;
-            this.lblCreateAReservation.Location = new System.Drawing.Point(1, 138);
+            this.lblCreateAReservation.Location = new System.Drawing.Point(1, 112);
+            this.lblCreateAReservation.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblCreateAReservation.Name = "lblCreateAReservation";
-            this.lblCreateAReservation.Size = new System.Drawing.Size(320, 45);
+            this.lblCreateAReservation.Size = new System.Drawing.Size(255, 36);
             this.lblCreateAReservation.TabIndex = 2;
             this.lblCreateAReservation.Text = "Create A Booking";
             // 
@@ -104,10 +105,10 @@
             this.btnBack.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnBack.Font = new System.Drawing.Font("Segoe UI Emoji", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBack.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.btnBack.Location = new System.Drawing.Point(9, 651);
-            this.btnBack.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnBack.Location = new System.Drawing.Point(7, 529);
+            this.btnBack.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(253, 44);
+            this.btnBack.Size = new System.Drawing.Size(190, 36);
             this.btnBack.TabIndex = 14;
             this.btnBack.Text = "Back";
             this.btnBack.UseVisualStyleBackColor = false;
@@ -119,10 +120,10 @@
             this.btnConfirm.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnConfirm.Font = new System.Drawing.Font("Segoe UI Emoji", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnConfirm.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.btnConfirm.Location = new System.Drawing.Point(921, 651);
-            this.btnConfirm.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnConfirm.Location = new System.Drawing.Point(691, 529);
+            this.btnConfirm.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnConfirm.Name = "btnConfirm";
-            this.btnConfirm.Size = new System.Drawing.Size(253, 43);
+            this.btnConfirm.Size = new System.Drawing.Size(190, 35);
             this.btnConfirm.TabIndex = 15;
             this.btnConfirm.Text = "Confirm";
             this.btnConfirm.UseVisualStyleBackColor = false;
@@ -134,10 +135,10 @@
             this.btnCreateResClear.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnCreateResClear.Font = new System.Drawing.Font("Segoe UI Emoji", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCreateResClear.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.btnCreateResClear.Location = new System.Drawing.Point(1218, 651);
-            this.btnCreateResClear.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnCreateResClear.Location = new System.Drawing.Point(914, 529);
+            this.btnCreateResClear.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnCreateResClear.Name = "btnCreateResClear";
-            this.btnCreateResClear.Size = new System.Drawing.Size(253, 43);
+            this.btnCreateResClear.Size = new System.Drawing.Size(190, 35);
             this.btnCreateResClear.TabIndex = 16;
             this.btnCreateResClear.Text = "Clear";
             this.btnCreateResClear.UseVisualStyleBackColor = false;
@@ -149,10 +150,10 @@
             this.rbTravelAgencyBooking.BackColor = System.Drawing.Color.DarkCyan;
             this.rbTravelAgencyBooking.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rbTravelAgencyBooking.ForeColor = System.Drawing.Color.NavajoWhite;
-            this.rbTravelAgencyBooking.Location = new System.Drawing.Point(5, 196);
-            this.rbTravelAgencyBooking.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.rbTravelAgencyBooking.Location = new System.Drawing.Point(4, 159);
+            this.rbTravelAgencyBooking.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.rbTravelAgencyBooking.Name = "rbTravelAgencyBooking";
-            this.rbTravelAgencyBooking.Size = new System.Drawing.Size(236, 29);
+            this.rbTravelAgencyBooking.Size = new System.Drawing.Size(188, 24);
             this.rbTravelAgencyBooking.TabIndex = 17;
             this.rbTravelAgencyBooking.TabStop = true;
             this.rbTravelAgencyBooking.Text = "Travel Agency Booking";
@@ -165,10 +166,10 @@
             this.rbPersonalBooking.BackColor = System.Drawing.Color.DarkCyan;
             this.rbPersonalBooking.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rbPersonalBooking.ForeColor = System.Drawing.Color.NavajoWhite;
-            this.rbPersonalBooking.Location = new System.Drawing.Point(289, 196);
-            this.rbPersonalBooking.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.rbPersonalBooking.Location = new System.Drawing.Point(217, 159);
+            this.rbPersonalBooking.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.rbPersonalBooking.Name = "rbPersonalBooking";
-            this.rbPersonalBooking.Size = new System.Drawing.Size(186, 29);
+            this.rbPersonalBooking.Size = new System.Drawing.Size(151, 24);
             this.rbPersonalBooking.TabIndex = 18;
             this.rbPersonalBooking.TabStop = true;
             this.rbPersonalBooking.Text = "Personal Booking";
@@ -181,9 +182,10 @@
             this.lblFirstName.BackColor = System.Drawing.Color.DarkCyan;
             this.lblFirstName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFirstName.ForeColor = System.Drawing.Color.NavajoWhite;
-            this.lblFirstName.Location = new System.Drawing.Point(7, 264);
+            this.lblFirstName.Location = new System.Drawing.Point(5, 214);
+            this.lblFirstName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblFirstName.Name = "lblFirstName";
-            this.lblFirstName.Size = new System.Drawing.Size(112, 25);
+            this.lblFirstName.Size = new System.Drawing.Size(90, 20);
             this.lblFirstName.TabIndex = 19;
             this.lblFirstName.Text = "First Name:";
             // 
@@ -193,9 +195,10 @@
             this.lblNumRooms.BackColor = System.Drawing.Color.DarkCyan;
             this.lblNumRooms.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNumRooms.ForeColor = System.Drawing.Color.NavajoWhite;
-            this.lblNumRooms.Location = new System.Drawing.Point(7, 327);
+            this.lblNumRooms.Location = new System.Drawing.Point(5, 266);
+            this.lblNumRooms.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblNumRooms.Name = "lblNumRooms";
-            this.lblNumRooms.Size = new System.Drawing.Size(243, 25);
+            this.lblNumRooms.Size = new System.Drawing.Size(197, 20);
             this.lblNumRooms.TabIndex = 20;
             this.lblNumRooms.Text = "Number of rooms required:";
             // 
@@ -205,9 +208,10 @@
             this.lblNumPeople.BackColor = System.Drawing.Color.DarkCyan;
             this.lblNumPeople.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNumPeople.ForeColor = System.Drawing.Color.NavajoWhite;
-            this.lblNumPeople.Location = new System.Drawing.Point(4, 382);
+            this.lblNumPeople.Location = new System.Drawing.Point(3, 310);
+            this.lblNumPeople.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblNumPeople.Name = "lblNumPeople";
-            this.lblNumPeople.Size = new System.Drawing.Size(172, 25);
+            this.lblNumPeople.Size = new System.Drawing.Size(139, 20);
             this.lblNumPeople.TabIndex = 21;
             this.lblNumPeople.Text = "Number of people:";
             // 
@@ -217,9 +221,10 @@
             this.lblBookingDate.BackColor = System.Drawing.Color.DarkCyan;
             this.lblBookingDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblBookingDate.ForeColor = System.Drawing.Color.NavajoWhite;
-            this.lblBookingDate.Location = new System.Drawing.Point(7, 440);
+            this.lblBookingDate.Location = new System.Drawing.Point(5, 358);
+            this.lblBookingDate.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblBookingDate.Name = "lblBookingDate";
-            this.lblBookingDate.Size = new System.Drawing.Size(132, 25);
+            this.lblBookingDate.Size = new System.Drawing.Size(107, 20);
             this.lblBookingDate.TabIndex = 22;
             this.lblBookingDate.Text = "Booking date:";
             // 
@@ -229,9 +234,10 @@
             this.lblCheckOut.BackColor = System.Drawing.Color.DarkCyan;
             this.lblCheckOut.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCheckOut.ForeColor = System.Drawing.Color.NavajoWhite;
-            this.lblCheckOut.Location = new System.Drawing.Point(597, 445);
+            this.lblCheckOut.Location = new System.Drawing.Point(448, 362);
+            this.lblCheckOut.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblCheckOut.Name = "lblCheckOut";
-            this.lblCheckOut.Size = new System.Drawing.Size(155, 25);
+            this.lblCheckOut.Size = new System.Drawing.Size(125, 20);
             this.lblCheckOut.TabIndex = 23;
             this.lblCheckOut.Text = "Check-out Date:";
             // 
@@ -241,9 +247,10 @@
             this.lblSR.BackColor = System.Drawing.Color.DarkCyan;
             this.lblSR.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSR.ForeColor = System.Drawing.Color.NavajoWhite;
-            this.lblSR.Location = new System.Drawing.Point(4, 546);
+            this.lblSR.Location = new System.Drawing.Point(3, 444);
+            this.lblSR.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblSR.Name = "lblSR";
-            this.lblSR.Size = new System.Drawing.Size(295, 25);
+            this.lblSR.Size = new System.Drawing.Size(239, 20);
             this.lblSR.TabIndex = 24;
             this.lblSR.Text = "Special Requirements (optional):";
             // 
@@ -253,9 +260,10 @@
             this.lblCheckIn.BackColor = System.Drawing.Color.DarkCyan;
             this.lblCheckIn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCheckIn.ForeColor = System.Drawing.Color.NavajoWhite;
-            this.lblCheckIn.Location = new System.Drawing.Point(181, 441);
+            this.lblCheckIn.Location = new System.Drawing.Point(136, 358);
+            this.lblCheckIn.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblCheckIn.Name = "lblCheckIn";
-            this.lblCheckIn.Size = new System.Drawing.Size(143, 25);
+            this.lblCheckIn.Size = new System.Drawing.Size(114, 20);
             this.lblCheckIn.TabIndex = 25;
             this.lblCheckIn.Text = "Check-in Date:";
             // 
@@ -265,9 +273,10 @@
             this.lblEmail.BackColor = System.Drawing.Color.DarkCyan;
             this.lblEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEmail.ForeColor = System.Drawing.Color.NavajoWhite;
-            this.lblEmail.Location = new System.Drawing.Point(12, 597);
+            this.lblEmail.Location = new System.Drawing.Point(9, 485);
+            this.lblEmail.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblEmail.Name = "lblEmail";
-            this.lblEmail.Size = new System.Drawing.Size(66, 25);
+            this.lblEmail.Size = new System.Drawing.Size(52, 20);
             this.lblEmail.TabIndex = 26;
             this.lblEmail.Text = "Email:";
             // 
@@ -277,10 +286,10 @@
             this.txtFirstName.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtFirstName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtFirstName.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.txtFirstName.Location = new System.Drawing.Point(138, 266);
-            this.txtFirstName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtFirstName.Location = new System.Drawing.Point(104, 216);
+            this.txtFirstName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtFirstName.Name = "txtFirstName";
-            this.txtFirstName.Size = new System.Drawing.Size(213, 23);
+            this.txtFirstName.Size = new System.Drawing.Size(160, 19);
             this.txtFirstName.TabIndex = 27;
             // 
             // txtNumRooms
@@ -289,10 +298,10 @@
             this.txtNumRooms.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtNumRooms.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNumRooms.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.txtNumRooms.Location = new System.Drawing.Point(258, 331);
-            this.txtNumRooms.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtNumRooms.Location = new System.Drawing.Point(194, 269);
+            this.txtNumRooms.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtNumRooms.Name = "txtNumRooms";
-            this.txtNumRooms.Size = new System.Drawing.Size(319, 23);
+            this.txtNumRooms.Size = new System.Drawing.Size(239, 19);
             this.txtNumRooms.TabIndex = 28;
             // 
             // txtNumPeople
@@ -301,10 +310,10 @@
             this.txtNumPeople.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtNumPeople.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNumPeople.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.txtNumPeople.Location = new System.Drawing.Point(256, 382);
-            this.txtNumPeople.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtNumPeople.Location = new System.Drawing.Point(192, 310);
+            this.txtNumPeople.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtNumPeople.Name = "txtNumPeople";
-            this.txtNumPeople.Size = new System.Drawing.Size(319, 23);
+            this.txtNumPeople.Size = new System.Drawing.Size(239, 19);
             this.txtNumPeople.TabIndex = 29;
             // 
             // txtCheckInDate
@@ -313,10 +322,10 @@
             this.txtCheckInDate.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtCheckInDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCheckInDate.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.txtCheckInDate.Location = new System.Drawing.Point(330, 440);
-            this.txtCheckInDate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtCheckInDate.Location = new System.Drawing.Point(248, 358);
+            this.txtCheckInDate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtCheckInDate.Name = "txtCheckInDate";
-            this.txtCheckInDate.Size = new System.Drawing.Size(216, 23);
+            this.txtCheckInDate.Size = new System.Drawing.Size(162, 19);
             this.txtCheckInDate.TabIndex = 30;
             // 
             // txtCheckOutDate
@@ -325,10 +334,10 @@
             this.txtCheckOutDate.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtCheckOutDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCheckOutDate.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.txtCheckOutDate.Location = new System.Drawing.Point(758, 447);
-            this.txtCheckOutDate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtCheckOutDate.Location = new System.Drawing.Point(568, 363);
+            this.txtCheckOutDate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtCheckOutDate.Name = "txtCheckOutDate";
-            this.txtCheckOutDate.Size = new System.Drawing.Size(216, 23);
+            this.txtCheckOutDate.Size = new System.Drawing.Size(162, 19);
             this.txtCheckOutDate.TabIndex = 31;
             // 
             // txtSpecialReq
@@ -337,11 +346,11 @@
             this.txtSpecialReq.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtSpecialReq.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSpecialReq.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.txtSpecialReq.Location = new System.Drawing.Point(330, 544);
-            this.txtSpecialReq.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtSpecialReq.Location = new System.Drawing.Point(248, 442);
+            this.txtSpecialReq.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtSpecialReq.Multiline = true;
             this.txtSpecialReq.Name = "txtSpecialReq";
-            this.txtSpecialReq.Size = new System.Drawing.Size(496, 25);
+            this.txtSpecialReq.Size = new System.Drawing.Size(372, 20);
             this.txtSpecialReq.TabIndex = 32;
             // 
             // txtEmail
@@ -350,10 +359,10 @@
             this.txtEmail.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtEmail.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.txtEmail.Location = new System.Drawing.Point(103, 597);
-            this.txtEmail.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtEmail.Location = new System.Drawing.Point(77, 485);
+            this.txtEmail.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(496, 23);
+            this.txtEmail.Size = new System.Drawing.Size(372, 19);
             this.txtEmail.TabIndex = 33;
             // 
             // lblLastName
@@ -362,9 +371,10 @@
             this.lblLastName.BackColor = System.Drawing.Color.DarkCyan;
             this.lblLastName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLastName.ForeColor = System.Drawing.Color.NavajoWhite;
-            this.lblLastName.Location = new System.Drawing.Point(390, 266);
+            this.lblLastName.Location = new System.Drawing.Point(292, 216);
+            this.lblLastName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblLastName.Name = "lblLastName";
-            this.lblLastName.Size = new System.Drawing.Size(112, 25);
+            this.lblLastName.Size = new System.Drawing.Size(90, 20);
             this.lblLastName.TabIndex = 35;
             this.lblLastName.Text = "Last Name:";
             // 
@@ -383,11 +393,9 @@
             this.gBoxRoomPeople.Controls.Add(this.txtRoom102);
             this.gBoxRoomPeople.Controls.Add(this.txtRoom103);
             this.gBoxRoomPeople.ForeColor = System.Drawing.Color.NavajoWhite;
-            this.gBoxRoomPeople.Location = new System.Drawing.Point(1111, 279);
-            this.gBoxRoomPeople.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gBoxRoomPeople.Location = new System.Drawing.Point(833, 227);
             this.gBoxRoomPeople.Name = "gBoxRoomPeople";
-            this.gBoxRoomPeople.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.gBoxRoomPeople.Size = new System.Drawing.Size(349, 274);
+            this.gBoxRoomPeople.Size = new System.Drawing.Size(262, 223);
             this.gBoxRoomPeople.TabIndex = 36;
             this.gBoxRoomPeople.TabStop = false;
             this.gBoxRoomPeople.Text = "Select room and Specify number of people";
@@ -396,9 +404,10 @@
             // 
             this.lblRoomSelectionErr.AutoSize = true;
             this.lblRoomSelectionErr.ForeColor = System.Drawing.Color.Red;
-            this.lblRoomSelectionErr.Location = new System.Drawing.Point(19, 251);
+            this.lblRoomSelectionErr.Location = new System.Drawing.Point(14, 204);
+            this.lblRoomSelectionErr.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblRoomSelectionErr.Name = "lblRoomSelectionErr";
-            this.lblRoomSelectionErr.Size = new System.Drawing.Size(44, 16);
+            this.lblRoomSelectionErr.Size = new System.Drawing.Size(35, 13);
             this.lblRoomSelectionErr.TabIndex = 31;
             this.lblRoomSelectionErr.Text = "label1";
             // 
@@ -406,10 +415,10 @@
             // 
             this.cbRoom101.AutoSize = true;
             this.cbRoom101.ForeColor = System.Drawing.Color.NavajoWhite;
-            this.cbRoom101.Location = new System.Drawing.Point(19, 32);
-            this.cbRoom101.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbRoom101.Location = new System.Drawing.Point(14, 26);
+            this.cbRoom101.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cbRoom101.Name = "cbRoom101";
-            this.cbRoom101.Size = new System.Drawing.Size(90, 20);
+            this.cbRoom101.Size = new System.Drawing.Size(75, 17);
             this.cbRoom101.TabIndex = 26;
             this.cbRoom101.Text = "Room 101";
             this.cbRoom101.UseVisualStyleBackColor = true;
@@ -417,19 +426,19 @@
             // txtRoom105
             // 
             this.txtRoom105.BackColor = System.Drawing.Color.NavajoWhite;
-            this.txtRoom105.Location = new System.Drawing.Point(135, 217);
-            this.txtRoom105.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtRoom105.Location = new System.Drawing.Point(101, 176);
+            this.txtRoom105.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtRoom105.Name = "txtRoom105";
-            this.txtRoom105.Size = new System.Drawing.Size(100, 22);
+            this.txtRoom105.Size = new System.Drawing.Size(76, 20);
             this.txtRoom105.TabIndex = 25;
             // 
             // cbRoom105
             // 
             this.cbRoom105.AutoSize = true;
-            this.cbRoom105.Location = new System.Drawing.Point(19, 219);
-            this.cbRoom105.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbRoom105.Location = new System.Drawing.Point(14, 178);
+            this.cbRoom105.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cbRoom105.Name = "cbRoom105";
-            this.cbRoom105.Size = new System.Drawing.Size(90, 20);
+            this.cbRoom105.Size = new System.Drawing.Size(75, 17);
             this.cbRoom105.TabIndex = 30;
             this.cbRoom105.Text = "Room 105";
             this.cbRoom105.UseVisualStyleBackColor = true;
@@ -437,19 +446,19 @@
             // txtRoom101
             // 
             this.txtRoom101.BackColor = System.Drawing.Color.NavajoWhite;
-            this.txtRoom101.Location = new System.Drawing.Point(135, 30);
-            this.txtRoom101.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtRoom101.Location = new System.Drawing.Point(101, 24);
+            this.txtRoom101.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtRoom101.Name = "txtRoom101";
-            this.txtRoom101.Size = new System.Drawing.Size(100, 22);
+            this.txtRoom101.Size = new System.Drawing.Size(76, 20);
             this.txtRoom101.TabIndex = 21;
             // 
             // cbRoom104
             // 
             this.cbRoom104.AutoSize = true;
-            this.cbRoom104.Location = new System.Drawing.Point(19, 169);
-            this.cbRoom104.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbRoom104.Location = new System.Drawing.Point(14, 137);
+            this.cbRoom104.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cbRoom104.Name = "cbRoom104";
-            this.cbRoom104.Size = new System.Drawing.Size(90, 20);
+            this.cbRoom104.Size = new System.Drawing.Size(75, 17);
             this.cbRoom104.TabIndex = 29;
             this.cbRoom104.Text = "Room 104";
             this.cbRoom104.UseVisualStyleBackColor = true;
@@ -457,19 +466,19 @@
             // txtRoom104
             // 
             this.txtRoom104.BackColor = System.Drawing.Color.NavajoWhite;
-            this.txtRoom104.Location = new System.Drawing.Point(135, 166);
-            this.txtRoom104.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtRoom104.Location = new System.Drawing.Point(101, 135);
+            this.txtRoom104.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtRoom104.Name = "txtRoom104";
-            this.txtRoom104.Size = new System.Drawing.Size(100, 22);
+            this.txtRoom104.Size = new System.Drawing.Size(76, 20);
             this.txtRoom104.TabIndex = 24;
             // 
             // cbRoom102
             // 
             this.cbRoom102.AutoSize = true;
-            this.cbRoom102.Location = new System.Drawing.Point(19, 73);
-            this.cbRoom102.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbRoom102.Location = new System.Drawing.Point(14, 59);
+            this.cbRoom102.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cbRoom102.Name = "cbRoom102";
-            this.cbRoom102.Size = new System.Drawing.Size(90, 20);
+            this.cbRoom102.Size = new System.Drawing.Size(75, 17);
             this.cbRoom102.TabIndex = 27;
             this.cbRoom102.Text = "Room 102";
             this.cbRoom102.UseVisualStyleBackColor = true;
@@ -477,10 +486,10 @@
             // cbRoom103
             // 
             this.cbRoom103.AutoSize = true;
-            this.cbRoom103.Location = new System.Drawing.Point(19, 123);
-            this.cbRoom103.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbRoom103.Location = new System.Drawing.Point(14, 100);
+            this.cbRoom103.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cbRoom103.Name = "cbRoom103";
-            this.cbRoom103.Size = new System.Drawing.Size(90, 20);
+            this.cbRoom103.Size = new System.Drawing.Size(75, 17);
             this.cbRoom103.TabIndex = 28;
             this.cbRoom103.Text = "Room 103";
             this.cbRoom103.UseVisualStyleBackColor = true;
@@ -488,19 +497,19 @@
             // txtRoom102
             // 
             this.txtRoom102.BackColor = System.Drawing.Color.NavajoWhite;
-            this.txtRoom102.Location = new System.Drawing.Point(135, 70);
-            this.txtRoom102.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtRoom102.Location = new System.Drawing.Point(101, 57);
+            this.txtRoom102.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtRoom102.Name = "txtRoom102";
-            this.txtRoom102.Size = new System.Drawing.Size(100, 22);
+            this.txtRoom102.Size = new System.Drawing.Size(76, 20);
             this.txtRoom102.TabIndex = 22;
             // 
             // txtRoom103
             // 
             this.txtRoom103.BackColor = System.Drawing.Color.NavajoWhite;
-            this.txtRoom103.Location = new System.Drawing.Point(135, 119);
-            this.txtRoom103.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtRoom103.Location = new System.Drawing.Point(101, 97);
+            this.txtRoom103.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtRoom103.Name = "txtRoom103";
-            this.txtRoom103.Size = new System.Drawing.Size(100, 22);
+            this.txtRoom103.Size = new System.Drawing.Size(76, 20);
             this.txtRoom103.TabIndex = 23;
             // 
             // lblFNameErr
@@ -508,9 +517,10 @@
             this.lblFNameErr.AutoSize = true;
             this.lblFNameErr.BackColor = System.Drawing.Color.DarkCyan;
             this.lblFNameErr.ForeColor = System.Drawing.Color.Red;
-            this.lblFNameErr.Location = new System.Drawing.Point(135, 291);
+            this.lblFNameErr.Location = new System.Drawing.Point(101, 236);
+            this.lblFNameErr.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblFNameErr.Name = "lblFNameErr";
-            this.lblFNameErr.Size = new System.Drawing.Size(44, 16);
+            this.lblFNameErr.Size = new System.Drawing.Size(35, 13);
             this.lblFNameErr.TabIndex = 37;
             this.lblFNameErr.Text = "label1";
             // 
@@ -519,9 +529,10 @@
             this.lblLNameErr.AutoSize = true;
             this.lblLNameErr.BackColor = System.Drawing.Color.DarkCyan;
             this.lblLNameErr.ForeColor = System.Drawing.Color.Red;
-            this.lblLNameErr.Location = new System.Drawing.Point(505, 291);
+            this.lblLNameErr.Location = new System.Drawing.Point(379, 236);
+            this.lblLNameErr.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblLNameErr.Name = "lblLNameErr";
-            this.lblLNameErr.Size = new System.Drawing.Size(44, 16);
+            this.lblLNameErr.Size = new System.Drawing.Size(35, 13);
             this.lblLNameErr.TabIndex = 38;
             this.lblLNameErr.Text = "label2";
             // 
@@ -530,9 +541,10 @@
             this.lblNoOfRoomsErr.AutoSize = true;
             this.lblNoOfRoomsErr.BackColor = System.Drawing.Color.DarkCyan;
             this.lblNoOfRoomsErr.ForeColor = System.Drawing.Color.Red;
-            this.lblNoOfRoomsErr.Location = new System.Drawing.Point(255, 356);
+            this.lblNoOfRoomsErr.Location = new System.Drawing.Point(191, 289);
+            this.lblNoOfRoomsErr.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblNoOfRoomsErr.Name = "lblNoOfRoomsErr";
-            this.lblNoOfRoomsErr.Size = new System.Drawing.Size(44, 16);
+            this.lblNoOfRoomsErr.Size = new System.Drawing.Size(35, 13);
             this.lblNoOfRoomsErr.TabIndex = 39;
             this.lblNoOfRoomsErr.Text = "label3";
             // 
@@ -541,9 +553,10 @@
             this.lblNoOfPeopleErr.AutoSize = true;
             this.lblNoOfPeopleErr.BackColor = System.Drawing.Color.DarkCyan;
             this.lblNoOfPeopleErr.ForeColor = System.Drawing.Color.Red;
-            this.lblNoOfPeopleErr.Location = new System.Drawing.Point(255, 407);
+            this.lblNoOfPeopleErr.Location = new System.Drawing.Point(191, 331);
+            this.lblNoOfPeopleErr.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblNoOfPeopleErr.Name = "lblNoOfPeopleErr";
-            this.lblNoOfPeopleErr.Size = new System.Drawing.Size(44, 16);
+            this.lblNoOfPeopleErr.Size = new System.Drawing.Size(35, 13);
             this.lblNoOfPeopleErr.TabIndex = 40;
             this.lblNoOfPeopleErr.Text = "label4";
             // 
@@ -552,9 +565,10 @@
             this.lblCheckInDateErr.AutoSize = true;
             this.lblCheckInDateErr.BackColor = System.Drawing.Color.DarkCyan;
             this.lblCheckInDateErr.ForeColor = System.Drawing.Color.Red;
-            this.lblCheckInDateErr.Location = new System.Drawing.Point(327, 467);
+            this.lblCheckInDateErr.Location = new System.Drawing.Point(245, 379);
+            this.lblCheckInDateErr.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblCheckInDateErr.Name = "lblCheckInDateErr";
-            this.lblCheckInDateErr.Size = new System.Drawing.Size(44, 16);
+            this.lblCheckInDateErr.Size = new System.Drawing.Size(35, 13);
             this.lblCheckInDateErr.TabIndex = 41;
             this.lblCheckInDateErr.Text = "label5";
             this.lblCheckInDateErr.Click += new System.EventHandler(this.lblCheckInDateErr_Click);
@@ -564,9 +578,10 @@
             this.lblCheckOutDateErr.AutoSize = true;
             this.lblCheckOutDateErr.BackColor = System.Drawing.Color.DarkCyan;
             this.lblCheckOutDateErr.ForeColor = System.Drawing.Color.Red;
-            this.lblCheckOutDateErr.Location = new System.Drawing.Point(755, 472);
+            this.lblCheckOutDateErr.Location = new System.Drawing.Point(566, 384);
+            this.lblCheckOutDateErr.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblCheckOutDateErr.Name = "lblCheckOutDateErr";
-            this.lblCheckOutDateErr.Size = new System.Drawing.Size(44, 16);
+            this.lblCheckOutDateErr.Size = new System.Drawing.Size(35, 13);
             this.lblCheckOutDateErr.TabIndex = 42;
             this.lblCheckOutDateErr.Text = "label6";
             this.lblCheckOutDateErr.Click += new System.EventHandler(this.lblCheckOutDateErr_Click);
@@ -576,9 +591,10 @@
             this.lblEmailErr.AutoSize = true;
             this.lblEmailErr.BackColor = System.Drawing.Color.DarkCyan;
             this.lblEmailErr.ForeColor = System.Drawing.Color.Red;
-            this.lblEmailErr.Location = new System.Drawing.Point(100, 622);
+            this.lblEmailErr.Location = new System.Drawing.Point(75, 505);
+            this.lblEmailErr.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblEmailErr.Name = "lblEmailErr";
-            this.lblEmailErr.Size = new System.Drawing.Size(44, 16);
+            this.lblEmailErr.Size = new System.Drawing.Size(35, 13);
             this.lblEmailErr.TabIndex = 43;
             this.lblEmailErr.Text = "label7";
             // 
@@ -587,9 +603,10 @@
             this.lblBookingTypeErr.AutoSize = true;
             this.lblBookingTypeErr.BackColor = System.Drawing.Color.DarkCyan;
             this.lblBookingTypeErr.ForeColor = System.Drawing.Color.Red;
-            this.lblBookingTypeErr.Location = new System.Drawing.Point(14, 227);
+            this.lblBookingTypeErr.Location = new System.Drawing.Point(10, 184);
+            this.lblBookingTypeErr.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblBookingTypeErr.Name = "lblBookingTypeErr";
-            this.lblBookingTypeErr.Size = new System.Drawing.Size(44, 16);
+            this.lblBookingTypeErr.Size = new System.Drawing.Size(35, 13);
             this.lblBookingTypeErr.TabIndex = 44;
             this.lblBookingTypeErr.Text = "label8";
             // 
@@ -598,9 +615,10 @@
             this.lblSpecialReqErr.AutoSize = true;
             this.lblSpecialReqErr.BackColor = System.Drawing.Color.DarkCyan;
             this.lblSpecialReqErr.ForeColor = System.Drawing.Color.Red;
-            this.lblSpecialReqErr.Location = new System.Drawing.Point(327, 571);
+            this.lblSpecialReqErr.Location = new System.Drawing.Point(245, 464);
+            this.lblSpecialReqErr.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblSpecialReqErr.Name = "lblSpecialReqErr";
-            this.lblSpecialReqErr.Size = new System.Drawing.Size(44, 16);
+            this.lblSpecialReqErr.Size = new System.Drawing.Size(35, 13);
             this.lblSpecialReqErr.TabIndex = 45;
             this.lblSpecialReqErr.Text = "label1";
             // 
@@ -610,9 +628,10 @@
             this.lblPhoneNumber.BackColor = System.Drawing.Color.DarkCyan;
             this.lblPhoneNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPhoneNumber.ForeColor = System.Drawing.Color.NavajoWhite;
-            this.lblPhoneNumber.Location = new System.Drawing.Point(7, 498);
+            this.lblPhoneNumber.Location = new System.Drawing.Point(5, 405);
+            this.lblPhoneNumber.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblPhoneNumber.Name = "lblPhoneNumber";
-            this.lblPhoneNumber.Size = new System.Drawing.Size(149, 25);
+            this.lblPhoneNumber.Size = new System.Drawing.Size(119, 20);
             this.lblPhoneNumber.TabIndex = 46;
             this.lblPhoneNumber.Text = "Phone Number:";
             // 
@@ -622,11 +641,11 @@
             this.txtPhoneNumber.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtPhoneNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPhoneNumber.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.txtPhoneNumber.Location = new System.Drawing.Point(200, 498);
-            this.txtPhoneNumber.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtPhoneNumber.Location = new System.Drawing.Point(150, 405);
+            this.txtPhoneNumber.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtPhoneNumber.Multiline = true;
             this.txtPhoneNumber.Name = "txtPhoneNumber";
-            this.txtPhoneNumber.Size = new System.Drawing.Size(413, 24);
+            this.txtPhoneNumber.Size = new System.Drawing.Size(310, 20);
             this.txtPhoneNumber.TabIndex = 47;
             // 
             // lblPhoneNumberErr
@@ -634,9 +653,10 @@
             this.lblPhoneNumberErr.AutoSize = true;
             this.lblPhoneNumberErr.BackColor = System.Drawing.Color.DarkCyan;
             this.lblPhoneNumberErr.ForeColor = System.Drawing.Color.Red;
-            this.lblPhoneNumberErr.Location = new System.Drawing.Point(197, 524);
+            this.lblPhoneNumberErr.Location = new System.Drawing.Point(148, 426);
+            this.lblPhoneNumberErr.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblPhoneNumberErr.Name = "lblPhoneNumberErr";
-            this.lblPhoneNumberErr.Size = new System.Drawing.Size(44, 16);
+            this.lblPhoneNumberErr.Size = new System.Drawing.Size(35, 13);
             this.lblPhoneNumberErr.TabIndex = 48;
             this.lblPhoneNumberErr.Text = "label7";
             // 
@@ -645,47 +665,53 @@
             this.lblAgencyNameErr.AutoSize = true;
             this.lblAgencyNameErr.BackColor = System.Drawing.Color.DarkCyan;
             this.lblAgencyNameErr.ForeColor = System.Drawing.Color.Red;
-            this.lblAgencyNameErr.Location = new System.Drawing.Point(677, 221);
+            this.lblAgencyNameErr.Location = new System.Drawing.Point(508, 180);
+            this.lblAgencyNameErr.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblAgencyNameErr.Name = "lblAgencyNameErr";
-            this.lblAgencyNameErr.Size = new System.Drawing.Size(44, 16);
+            this.lblAgencyNameErr.Size = new System.Drawing.Size(35, 13);
             this.lblAgencyNameErr.TabIndex = 54;
             this.lblAgencyNameErr.Text = "label8";
             // 
             // pictureBox1
             // 
             this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
-            this.pictureBox1.Location = new System.Drawing.Point(-18, -7);
+            this.pictureBox1.Location = new System.Drawing.Point(-14, -6);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1699, 125);
+            this.pictureBox1.Size = new System.Drawing.Size(1274, 102);
             this.pictureBox1.TabIndex = 55;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click_1);
             // 
             // lblAgencyName
             // 
             this.lblAgencyName.AutoSize = true;
             this.lblAgencyName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAgencyName.ForeColor = System.Drawing.Color.NavajoWhite;
-            this.lblAgencyName.Location = new System.Drawing.Point(529, 196);
+            this.lblAgencyName.Location = new System.Drawing.Point(397, 159);
+            this.lblAgencyName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblAgencyName.Name = "lblAgencyName";
-            this.lblAgencyName.Size = new System.Drawing.Size(142, 25);
+            this.lblAgencyName.Size = new System.Drawing.Size(112, 20);
             this.lblAgencyName.TabIndex = 56;
             this.lblAgencyName.Text = "Agency Name:";
             // 
             // txtAgencyName
             // 
             this.txtAgencyName.BackColor = System.Drawing.Color.NavajoWhite;
-            this.txtAgencyName.Location = new System.Drawing.Point(677, 196);
+            this.txtAgencyName.Location = new System.Drawing.Point(508, 159);
+            this.txtAgencyName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtAgencyName.Name = "txtAgencyName";
-            this.txtAgencyName.Size = new System.Drawing.Size(226, 22);
+            this.txtAgencyName.Size = new System.Drawing.Size(170, 20);
             this.txtAgencyName.TabIndex = 57;
             // 
             // txtLastName
             // 
             this.txtLastName.BackColor = System.Drawing.Color.NavajoWhite;
             this.txtLastName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtLastName.Location = new System.Drawing.Point(508, 261);
+            this.txtLastName.Location = new System.Drawing.Point(381, 212);
+            this.txtLastName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtLastName.Name = "txtLastName";
-            this.txtLastName.Size = new System.Drawing.Size(270, 30);
+            this.txtLastName.Size = new System.Drawing.Size(204, 26);
             this.txtLastName.TabIndex = 58;
             // 
             // toolTip1
@@ -694,10 +720,10 @@
             // 
             // frmCreateReservation
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkCyan;
-            this.ClientSize = new System.Drawing.Size(1483, 706);
+            this.ClientSize = new System.Drawing.Size(1028, 574);
             this.Controls.Add(this.txtLastName);
             this.Controls.Add(this.txtAgencyName);
             this.Controls.Add(this.lblAgencyName);
@@ -738,7 +764,7 @@
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.lblCreateAReservation);
             this.Controls.Add(this.pictureBox1);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "frmCreateReservation";
             this.Text = " ";
             this.Load += new System.EventHandler(this.frmCreateReservation_Load);
