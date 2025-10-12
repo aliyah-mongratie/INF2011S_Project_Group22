@@ -150,7 +150,7 @@ namespace INF2011S_Project_Group22.Presentation
             decimal price = room.GetRoomPrice(bookingCheckIn);
 
             // variables that hold the outputs of the methods
-            decimal total = foundBooking.CalculateBookingAmount(bookingRooms, price);
+            decimal total = foundBooking.CalculateBookingAmount();
             decimal deposit = foundBooking.CalculateDeposit(total);
 
             MessageBox.Show($"Cancellation Confirmed.\nDeposit Amount Due: R{deposit:F2}",
@@ -177,6 +177,11 @@ namespace INF2011S_Project_Group22.Presentation
             txtEnterResNumber.Clear();
             txtFirstName.Clear();
             txtLastName.Clear();    
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

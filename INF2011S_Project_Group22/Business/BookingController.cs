@@ -691,7 +691,8 @@ namespace INF2011S_Project_Group22.Business
             //  Add rooms to booking
             foreach (HotelRoom room in rooms)
             {
-                
+                if (room == null)
+                    continue;
                 room.CheckIn();
 
                 BookingRoom bookingRoom = new BookingRoom(bookingResNumber, room.HotelRoomID);
