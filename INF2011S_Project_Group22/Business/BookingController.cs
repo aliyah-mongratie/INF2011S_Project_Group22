@@ -574,6 +574,9 @@ namespace INF2011S_Project_Group22.Business
 
         public List<HotelRoom> GetAvailableRooms()
         {
+            bookingDB.FillDataSet("SELECT * FROM HotelRoom", "HotelRoom");
+            bookingDB.AllHotelRooms.Clear();
+            bookingDB.AddRoom();
             List<HotelRoom> availableRooms = new List<HotelRoom>();
 
             foreach (HotelRoom room in bookingDB.AllHotelRooms)
@@ -600,6 +603,7 @@ namespace INF2011S_Project_Group22.Business
         public TravelAgent AddAgent(string agentId, string agencyName, string firstName, string lastName,string phoneNo, string email)
         {
             TravelAgent agent = new TravelAgent(agentId,agencyName,firstName,lastName,phoneNo,email);
+            agents.Add(agent);
 
             DataMaintenanceAgent(agent, DB.DBOperation.add);
             FinalizeChangesTravelAgent(agent); // add agent into the database 
@@ -638,7 +642,7 @@ namespace INF2011S_Project_Group22.Business
         }
 
         //This methods allow the receptionist to manage bookings according to the business rules, and communicate with the database through the BookingDB class.
-        public Booking MakeBooking(int bookingResNumber, string guestId, string hotelId, Booking.BookingType bookingType,
+        public Booking MakeBooking(int bookingResNumber, string guestId, string hotelId, string agentId, Booking.BookingType bookingType,
                                    int numOfPeople, int numOfRooms, DateTime checkInDate, DateTime checkOutDate, string specialRequirements)
         {
             // Validation checks
@@ -660,28 +664,23 @@ namespace INF2011S_Project_Group22.Business
                 return null;
             }
 
-            /*
-            /Assign property explicitly (ensures consistency)
-            booking.bookingResNumber = bookingResNum;*/
-
-
+            if (string.IsNullOrEmpty(hotelId))
+            {
+                hotelId = "PK1"; // default hotel
+            }
 
             //Generates the booking number 
             Booking.BookingStatus bookingStatus = Booking.BookingStatus.Confirmed;
 
             
             // create the booking 
-            Booking booking = new Booking(bookingResNumber, guestId, hotelId,bookingStatus,bookingType,numOfPeople, numOfRooms, checkInDate, checkOutDate,
+            Booking booking = new Booking(bookingResNumber, guestId, hotelId, agentId,bookingStatus,bookingType,numOfPeople, numOfRooms, checkInDate, checkOutDate,
                                          specialRequirements);
 
-           
-
-            // dd to in-memory list and database
+            // add to in-memory list and database
             bookings.Add(booking);
             DataMaintenanceBooking(booking, DB.DBOperation.add);
             FinalizeChangesBooking(booking);
-
-            
 
             return booking;
         }
@@ -692,7 +691,8 @@ namespace INF2011S_Project_Group22.Business
             //  Add rooms to booking
             foreach (HotelRoom room in rooms)
             {
-                
+                if (room == null)
+                    continue;
                 room.CheckIn();
 
                 BookingRoom bookingRoom = new BookingRoom(bookingResNumber, room.HotelRoomID);

@@ -20,7 +20,7 @@ namespace INF2011S_Project_Group22.Presentation
         public decimal balance; //The total cost of the booking 
         public string guestCardNo;
         public Booking.BookingType bookType { get; set; }
-        
+        public string agentId;
         public string bookingGuestId;
         public DateTime bookingCheckIn;
         public DateTime bookingCheckOut;
@@ -28,12 +28,23 @@ namespace INF2011S_Project_Group22.Presentation
         public string bookingRequirements;
         public List<HotelRoom> bookingRooms;
         public int bookingNumPeople;
+        public string firstName, lastName, phone, email, agencyName;
 
-        public BookingConfirmation(decimal accountBalance,string cardNo,Booking.BookingType bookingType,string guestId, DateTime guestCheckIn, DateTime guestCheckOut,int guestNumRooms, string guestRequirements, List<HotelRoom> guestSelectedRooms, int guestNumPeople, string agencyName = null)
+        int bookingResNumber = Booking.generateBookingResNumber(); // generate bookingResNumber 
+
+        public BookingConfirmation(string guestFirstName, string guestLastName, string guestPhone, string guestEmail,
+            string travAgentId, decimal accountBalance,string cardNo,Booking.BookingType bookingType,
+            string guestId, DateTime guestCheckIn, DateTime guestCheckOut,int guestNumRooms,
+            string guestRequirements, List<HotelRoom> guestSelectedRooms, int guestNumPeople, string travelAgencyName)
         {
 
             InitializeComponent();
-            //guestbookNo = bookNo;
+            //guestbookNo = bookNo
+            agencyName = travelAgencyName;
+            firstName = guestFirstName;
+            lastName = guestLastName;
+            phone = guestPhone;
+            email = guestEmail;
             balance = accountBalance;
             guestCardNo = cardNo;
             bookType = bookingType;
@@ -45,43 +56,70 @@ namespace INF2011S_Project_Group22.Presentation
             bookingRequirements = guestRequirements;
             bookingNumPeople = guestNumPeople;
 
-            //generates travel agent id uding the agency name passed from the creat reservation form
-            if (!string.IsNullOrEmpty(agencyName))
+
+            if (bookType == Booking.BookingType.TravelAgency) // ensure that the booking is created with an agentId if it was a travel agent booking
             {
-                string travelAgentId = TravelAgent.generateAgentId(agencyName);
-               
+                agentId = travAgentId;
+            }
+            else
+            {
+                agentId = null; //ensure that booking is created without a travelAgentId if the booking was personal
             }
 
+            if (bookType == Booking.BookingType.TravelAgency)
+            {
+                bookingGuestId = null; // No guest for travel agent bookings
+            }
+            else
+            {
+                bookingGuestId = guestId; // Personal booking has guestId
+            }
         }
         private void ConfirmBooking()
         {
-
             BookingController bookingController = new BookingController();
-            //Call the MakeBooking method from the BookingController class to create a new booking
-            int bookingResNumber = Booking.generateBookingResNumber(); // generate bookingResNumber 
+           
 
-            string hotelId = "PK1"; // Phumla Kamnandi Hotel 1. Our system database is based off of one hotel 
+            if (bookType == Booking.BookingType.TravelAgency)
+            {
+                TravelAgent agent = bookingController.AddAgent(agentId, agencyName, firstName, lastName, phone, email);
+            }
+            if (bookType == Booking.BookingType.Personal)
+            {
+                // Only for personal bookings:
+                Guest guest = bookingController.AddGuest(bookingGuestId, firstName, lastName, phone, email, guestCardNo);
 
-            // add the booking to the database using the MakeBooking() method
-             Booking booking = bookingController.MakeBooking(bookingResNumber,bookingGuestId,
-                 hotelId, bookType, bookingNumPeople,bookingNumRooms,bookingCheckIn,bookingCheckOut,bookingRequirements
-                 );
-              //display an error when the booking is details are empty
-              if (booking == null)
-              {
-                  MessageBox.Show("Error: Booking could not be created. Please try again.", "Booking Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                  return;
-              }
+                decimal charges = 0; // based on service charges that wiil be made once the guest checks into and stays at the hotel
+                GuestAccount account = bookingController.AddGuestAccount(
+                    bookingGuestId, guestCardNo, balance, charges, bookingCheckIn, bookingCheckOut
+                );
+                //add payment to the db 
+                string payId = Payment.generatePaymentId().ToString();
+                Payment payment = bookingController.AddPayment(payId, bookingGuestId, Payment.PaymentStatus.pending, balance);
+            }
+            
 
-              // add each selected room to the BookingRoom table and link it to the bookingResNumber by using the AddBookingRoom method
+            string hotelId = "PK1";
+
+            string bookingAgentId = (bookType == Booking.BookingType.TravelAgency) ? agentId : null;
+
+            Booking booking = bookingController.MakeBooking(bookingResNumber, bookingGuestId,
+                hotelId, bookingAgentId, bookType, bookingNumPeople, bookingNumRooms, bookingCheckIn, bookingCheckOut, bookingRequirements);
+
+            if (booking == null)
+            {
+                MessageBox.Show("Error: Booking could not be created. Please try again.", "Booking Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             List<BookingRoom> bookedRooms = bookingController.AddBookingRoom(bookingResNumber, bookingRooms);
 
-            lblBookingReservation.Text = "The Booking Reservation Number is: " + bookingResNumber; //add the booking reservation number here
+            lblBookingReservation.Text = "The Booking Reservation Number is: " + bookingResNumber; //Display booking reservation reference number 
 
-            decimal charges = 0; // Account charges are the incurred costs charged over the time of stay in the hotel room after the booking is made. This means it is out of scope for now
-            GuestAccount Account = bookingController.AddGuestAccount(bookingGuestId, guestCardNo, balance, charges, bookingCheckIn, bookingCheckOut);
-            
+           
+           
         }
+
         private void BookingConfirmation_Load(object sender, EventArgs e)
         {
            
@@ -89,6 +127,11 @@ namespace INF2011S_Project_Group22.Presentation
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click_1(object sender, EventArgs e)
         {
 
         }
