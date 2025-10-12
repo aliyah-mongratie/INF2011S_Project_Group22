@@ -58,12 +58,12 @@ namespace INF2011S_Project_Group22.Business
             travelAgentId = new TravelAgent().TravelAgentId;    
 
         }
-        public Booking(int newBookResNumber, string newGuestId,string newHotelId, BookingStatus newBookingStatus, BookingType newBookingType, int newNumOfPeople, int newNumOfRooms, DateTime newCheckInDate, DateTime newCheckOutDate, string newSpecialRequirements, string newTravelAgentId = null)
+        public Booking(int newBookResNumber, string newGuestId,string newHotelId, string agentId,BookingStatus newBookingStatus, BookingType newBookingType, int newNumOfPeople, int newNumOfRooms, DateTime newCheckInDate, DateTime newCheckOutDate, string newSpecialRequirements, string newTravelAgentId = null)
         {
             bookingResNumber = newBookResNumber;
             bookingStat = newBookingStatus;
             bookingType = newBookingType;
-           
+            travelAgentId = agentId;
             numOfPeople = newNumOfPeople;
             numOfRooms = newNumOfRooms;
             checkInDate = newCheckInDate;
