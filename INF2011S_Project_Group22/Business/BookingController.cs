@@ -574,6 +574,9 @@ namespace INF2011S_Project_Group22.Business
 
         public List<HotelRoom> GetAvailableRooms()
         {
+            bookingDB.FillDataSet("SELECT * FROM HotelRoom", "HotelRoom");
+            bookingDB.AllHotelRooms.Clear();
+            bookingDB.AddRoom();
             List<HotelRoom> availableRooms = new List<HotelRoom>();
 
             foreach (HotelRoom room in bookingDB.AllHotelRooms)

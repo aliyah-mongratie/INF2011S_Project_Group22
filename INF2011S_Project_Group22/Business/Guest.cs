@@ -87,8 +87,13 @@ namespace INF2011S_Project_Group22
             lastName = lastName.ToLower();
 
             int randomNumber = rand.Next(10000, 100000); // generates a random number between 10000 and 99999
+            // make sure the id does not exceed 10 characters
+            int maxNameLength = 10 - randomNumber.ToString().Length;
+            if (lastName.Length > maxNameLength)
+            {
+                lastName = lastName.Substring(0, maxNameLength);
+            }
 
-            
             string guestId = lastName + randomNumber.ToString(); // add the last name and the random number together 
 
             return guestId;

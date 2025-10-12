@@ -22,8 +22,8 @@ namespace INF2011S_Project_Group22.Data
         //innocent change
         #region Variable declaration
 
-       //
-       private string strConn = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\hello\\Desktop\\INF2011S_Group22\\INF2011S_Project_Group22\\HotelBookingDB.mdf;Integrated Security=True;Encrypt=False";//connection string used to connect to the HotelBookingDB
+        //
+        private string strConn = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\hello\\Desktop\\new_Group22\\INF2011S_Project_Group22\\HotelBookingDB.mdf;Integrated Security=True;Encrypt=False";
         //private string strConn = Settings.Default.HotelBookingDBConnectionString; //connection string used to connect to the HotelBookingDB
         protected SqlConnection cnMain; //represents a connection in the database 
         protected DataSet dsMain; //An in-memory collection of the data
@@ -57,17 +57,24 @@ namespace INF2011S_Project_Group22.Data
         #region Update the DateSet
         public void FillDataSet(string aSQLstring, string aTable)
         {
-            //fills dataset fresh from the db for a specific table and with a specific Query
             try
             {
-                daMain = new SqlDataAdapter(aSQLstring, cnMain);
-                cnMain.Open();
-                daMain.Fill(dsMain, aTable);
-                cnMain.Close();
+                using (SqlDataAdapter adapter = new SqlDataAdapter(aSQLstring, cnMain))
+                {
+                    if (cnMain.State != ConnectionState.Open)
+                        cnMain.Open();
+
+                    adapter.Fill(dsMain, aTable);
+                }
             }
             catch (Exception errObj)
             {
-                MessageBox.Show(errObj.Message + "  " + errObj.StackTrace);
+                MessageBox.Show(errObj.Message + "\n" + errObj.StackTrace, "Error Filling DataSet");
+            }
+            finally
+            {
+                if (cnMain.State == ConnectionState.Open)
+                    cnMain.Close();
             }
         }
 
@@ -76,29 +83,32 @@ namespace INF2011S_Project_Group22.Data
         #region Update the data source 
         protected bool UpdateDataSource(string sqlLocal, string table)
         {
-            bool success;
+            bool success = true;
+
             try
             {
-                //open the connection
-                cnMain.Open();
-                //update the database table via the data adapter
+                if (cnMain.State != ConnectionState.Open)
+                    cnMain.Open();
+
                 daMain.Update(dsMain, table);
-                //close the connection
-                cnMain.Close();
-                //refresh the dataset
-                FillDataSet(sqlLocal, table);
-                success = true;
             }
             catch (Exception errObj)
             {
-                MessageBox.Show(errObj.Message + "  " + errObj.StackTrace);
+                MessageBox.Show(errObj.Message + "\n" + errObj.StackTrace, "Error Updating DataSource");
                 success = false;
             }
             finally
             {
+                if (cnMain.State == ConnectionState.Open)
+                    cnMain.Close();
             }
+
+            // Refresh dataset after update
+            FillDataSet(sqlLocal, table);
+
             return success;
         }
+
         #endregion
     }
 }

@@ -46,7 +46,12 @@ namespace INF2011S_Project_Group22.Business
              agencyName = agencyName.ToLower();
 
             int randomNumber = rand.Next(10000, 100000); // generates a random number between 10000 and 99999
-
+            // make sure that the id does not exceed 10 characters 
+            int maxNameLength = 10 - randomNumber.ToString().Length;
+            if (agencyName.Length > maxNameLength)
+            {
+                agencyName = agencyName.Substring(0, maxNameLength);
+            }
 
             string agentId = agencyName + randomNumber.ToString(); // add the last name and the random number together 
 
