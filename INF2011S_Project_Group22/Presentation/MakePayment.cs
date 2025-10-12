@@ -30,7 +30,10 @@ namespace INF2011S_Project_Group22.Presentation
         public string guestsId;
 
 
-        public frmMakePayment(string guestId,string agentId, decimal paymentAmount,Booking.BookingType bookingType, string firstName, string lastName,string phone, string email, int numOfRooms, DateTime checkInDate, DateTime checkOutDate, string specialRequirements, List<HotelRoom> selectedRooms, int numOfPeople, string agencyName) // add phone number here if its in UI 
+        public frmMakePayment(string guestId,string agentId, decimal paymentAmount,Booking.BookingType bookingType,
+            string firstName, string lastName,string phone, string email, int numOfRooms, DateTime checkInDate, 
+            DateTime checkOutDate, string specialRequirements, List<HotelRoom> selectedRooms, int numOfPeople,
+            string agencyName) 
         {
             InitializeComponent();
             travelAgentId = agentId;
@@ -48,6 +51,8 @@ namespace INF2011S_Project_Group22.Presentation
             guestNumPeople = numOfPeople;
             travelAgencyName = agencyName;
             guestsId = guestId;
+
+
             lblCardNoError.Visible = false;
             lblCVVError.Visible = false;
             lblExpiryDateError.Visible = false;
@@ -189,27 +194,24 @@ namespace INF2011S_Project_Group22.Presentation
 
         private void btnConfirm_Click(object sender, EventArgs e)
         {
-           
             string cardNo = txtCardNumber.Text;
-            BookingController bookingcontroller = new BookingController();
-            Guest guest = bookingcontroller.AddGuest(guestsId, guestFirstName, guestLastName, guestPhone, guestEmail, cardNo);
+            //BookingController bookingcontroller = new BookingController();
+
+           // Guest guest = bookingcontroller.AddGuest(guestsId, guestFirstName, guestLastName, guestPhone, guestEmail, cardNo);
             if (!MakePaymentValidation())
             {
                 return; // Stop further processing if validation fails
             }
             else
             {
-                    //booking confirmation pops up
-                    BookingConfirmation newform = new BookingConfirmation(guestFirstName,guestLastName, guestPhone, guestEmail,travelAgentId,payAmount, cardNo,guestBookingType,guestsId, guestCheckIn, guestCheckOut, guestNumRooms, guestRequirements, guestSelectedRooms, guestNumPeople, travelAgencyName);//goes to next form
+                //booking confirmation pops up
+                BookingConfirmation newform = new BookingConfirmation(guestFirstName,guestLastName, guestPhone, guestEmail,travelAgentId,payAmount,
+                        cardNo,guestBookingType,guestsId, guestCheckIn, guestCheckOut, guestNumRooms, guestRequirements, 
+                        guestSelectedRooms, guestNumPeople, travelAgencyName);//goes to next form
                 newform.ShowDialog();
 
             }
-            // Add the payment to the database 
-            string payId = Payment.generatePaymentId().ToString();
-            Payment payment = bookingcontroller.AddPayment(payId,guestsId,Payment.PaymentStatus.pending,payAmount);
-
-            
-
+         
         }
 
 
