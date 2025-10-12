@@ -13,6 +13,7 @@ namespace INF2011S_Project_Group22.Presentation
 {
     public partial class frmMakePayment : Form
     {
+        public string travelAgentId;
         public decimal payAmount;
         public Booking.BookingType guestBookingType;
         public string guestFirstName;
@@ -26,10 +27,13 @@ namespace INF2011S_Project_Group22.Presentation
         public List<HotelRoom> guestSelectedRooms;
         public int guestNumPeople;
         public string travelAgencyName;
+        public string guestsId;
 
-        public frmMakePayment(decimal paymentAmount,Booking.BookingType bookingType, string firstName, string lastName,string phone, string email, int numOfRooms, DateTime checkInDate, DateTime checkOutDate, string specialRequirements, List<HotelRoom> selectedRooms, int numOfPeople, string agencyName = null) // add phone number here if its in UI 
+
+        public frmMakePayment(string guestId,string agentId, decimal paymentAmount,Booking.BookingType bookingType, string firstName, string lastName,string phone, string email, int numOfRooms, DateTime checkInDate, DateTime checkOutDate, string specialRequirements, List<HotelRoom> selectedRooms, int numOfPeople, string agencyName) // add phone number here if its in UI 
         {
             InitializeComponent();
+            travelAgentId = agentId;
             payAmount = paymentAmount;
             guestBookingType = bookingType;
             guestFirstName = firstName;
@@ -43,6 +47,7 @@ namespace INF2011S_Project_Group22.Presentation
             guestSelectedRooms = selectedRooms;
             guestNumPeople = numOfPeople;
             travelAgencyName = agencyName;
+            guestsId = guestId;
             lblCardNoError.Visible = false;
             lblCVVError.Visible = false;
             lblExpiryDateError.Visible = false;
@@ -184,24 +189,24 @@ namespace INF2011S_Project_Group22.Presentation
 
         private void btnConfirm_Click(object sender, EventArgs e)
         {
-            string guestId = Guest.generateGuestId(guestLastName);
+           
             string cardNo = txtCardNumber.Text;
             BookingController bookingcontroller = new BookingController();
-            Guest guest = bookingcontroller.AddGuest(guestId, guestFirstName, guestLastName, guestPhone, guestEmail, cardNo);
+            Guest guest = bookingcontroller.AddGuest(guestsId, guestFirstName, guestLastName, guestPhone, guestEmail, cardNo);
             if (!MakePaymentValidation())
             {
                 return; // Stop further processing if validation fails
             }
             else
             {
-                //booking confirmation pops up
-                BookingConfirmation newform = new BookingConfirmation(payAmount,cardNo,guestBookingType,guestId, guestCheckIn, guestCheckOut, guestNumRooms, guestRequirements, guestSelectedRooms, guestNumPeople, travelAgencyName);//goes to next form
+                    //booking confirmation pops up
+                    BookingConfirmation newform = new BookingConfirmation(guestFirstName,guestLastName, guestPhone, guestEmail,travelAgentId,payAmount, cardNo,guestBookingType,guestsId, guestCheckIn, guestCheckOut, guestNumRooms, guestRequirements, guestSelectedRooms, guestNumPeople, travelAgencyName);//goes to next form
                 newform.ShowDialog();
 
             }
             // Add the payment to the database 
             string payId = Payment.generatePaymentId().ToString();
-            Payment payment = bookingcontroller.AddPayment(payId,guestId,Payment.PaymentStatus.pending,payAmount);
+            Payment payment = bookingcontroller.AddPayment(payId,guestsId,Payment.PaymentStatus.pending,payAmount);
 
             
 
@@ -227,6 +232,11 @@ namespace INF2011S_Project_Group22.Presentation
             txtYear.Clear();
             txtNameOnCard.Clear();
             txtSecurityCode.Clear();
+        }
+
+        private void pictureBox1_Click_1(object sender, EventArgs e)
+        {
+
         }
     }
 }
