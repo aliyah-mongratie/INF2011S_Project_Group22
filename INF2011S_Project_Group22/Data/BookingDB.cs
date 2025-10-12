@@ -240,7 +240,7 @@ namespace INF2011S_Project_Group22.Data
                     travelAgent.LastName = Convert.ToString(myRow["LastName"]).TrimEnd();
                     travelAgent.PhoneNumber = Convert.ToString(myRow["PhoneNumber"]).TrimEnd();
                     travelAgent.Email = Convert.ToString(myRow["Email"]).TrimEnd();
-                   
+
 
 
 
@@ -267,10 +267,10 @@ namespace INF2011S_Project_Group22.Data
                     guestAccount = new GuestAccount();
                     guestAccount.GuestID = Convert.ToString(myRow["GuestId"]).TrimEnd();
                     guestAccount.CreditCardCredentials = Convert.ToString(myRow["CreditCardCredentials"]);
-                    guestAccount.accountStat = (GuestAccount.AccountStatus)Enum.Parse(typeof(GuestAccount.AccountStatus),Convert.ToString(myRow["AccountStatus"]));
+                    guestAccount.accountStat = (GuestAccount.AccountStatus)Enum.Parse(typeof(GuestAccount.AccountStatus), Convert.ToString(myRow["AccountStatus"]));
                     guestAccount.AccountBalance = Convert.ToDecimal(myRow["AccountBalance"]);
                     guestAccount.AccountCharges = Convert.ToInt32(myRow["AccountCharges"]);
-                    
+
 
                     accounts.Add(guestAccount);
                 }
@@ -292,9 +292,9 @@ namespace INF2011S_Project_Group22.Data
                     payment = new Payment();
                     payment.paymentID = Convert.ToString(myRow["PaymentId"]).TrimEnd();
                     payment.guestId = Convert.ToString(myRow["GuestId"]).TrimEnd();
-                    payment.paymentStat = (Payment.PaymentStatus)Enum.Parse(typeof(Payment.PaymentStatus),Convert.ToString(myRow["PaymentStatus"]));
+                    payment.paymentStat = (Payment.PaymentStatus)Enum.Parse(typeof(Payment.PaymentStatus), Convert.ToString(myRow["PaymentStatus"]));
                     payment.paymentAmount = Convert.ToDecimal(myRow["PaymentAmount"]);
-                   
+
                     payments.Add(payment);
                 }
             }
@@ -386,7 +386,7 @@ namespace INF2011S_Project_Group22.Data
               }
           }*/
 
-        private void AddBooking() 
+        private void AddBooking()
         {
             DataRow myRow = null;
             Booking booking;
@@ -400,13 +400,13 @@ namespace INF2011S_Project_Group22.Data
                 if (!(myRow.RowState == DataRowState.Deleted))
                 {
                     booking = new Booking(); // instantiate new booking object 
-                   
+
                     booking.bookingResNumber = Convert.ToInt32(myRow["BookingResNumber"]);
                     booking.guestId = Convert.ToString(myRow["GuestId"]).TrimEnd();
                     booking.hotelId = Convert.ToString(myRow["HotelId"]).TrimEnd();
                     booking.travelAgentId = Convert.ToString(myRow["TravelAgentId"]).TrimEnd();
-                    booking.bookingStat = (Booking.BookingStatus)Enum.Parse(typeof(Booking.BookingStatus),Convert.ToString(myRow["BookingStatus"]));
-                    booking.bookingType = (Booking.BookingType)Enum.Parse(typeof(Booking.BookingType),Convert.ToString(myRow["bookingType"]));
+                    booking.bookingStat = (Booking.BookingStatus)Enum.Parse(typeof(Booking.BookingStatus), Convert.ToString(myRow["BookingStatus"]));
+                    booking.bookingType = (Booking.BookingType)Enum.Parse(typeof(Booking.BookingType), Convert.ToString(myRow["bookingType"]));
                     booking.numOfPeople = Convert.ToInt32(myRow["numOfPeople"]);
                     booking.numOfRooms = Convert.ToInt32(myRow["numOfRooms"]);
                     booking.checkInDate = Convert.ToDateTime(myRow["CheckInDate"]).Date;
@@ -424,7 +424,7 @@ namespace INF2011S_Project_Group22.Data
             {
                 aRow["BookingResNumber"] = booking.bookingResNumber; //Set the row's primary key if a new row is being added 
             }
-               
+
             aRow["GuestId"] = booking.guestId;
             aRow["HotelId"] = booking.hotelId;
             aRow["TravelAgentId"] = booking.travelAgentId;
@@ -443,7 +443,7 @@ namespace INF2011S_Project_Group22.Data
             aRow["SpecialRequirements"] = booking.specialRequirements;
 
         }
-        
+
         private int FindRowBooking(Booking booking, string table)
         {
             //Find the index of the row in the table which represents a specific object. In this case a booking.
@@ -499,7 +499,7 @@ namespace INF2011S_Project_Group22.Data
             {
                 aRow["GuestId"] = guest.GuestID;
             }
-         
+
             aRow["FirstName"] = guest.FirstName;
             aRow["LastName"] = guest.LastName;
             aRow["PhoneNumber"] = guest.PhoneNumber;
@@ -687,7 +687,7 @@ namespace INF2011S_Project_Group22.Data
                         aRow.Delete();
                     break;
             }
-           
+
         }
 
         public void DataSetChangeBookingRoom(BookingRoom bookingRoom, DB.DBOperation operation)
@@ -888,7 +888,7 @@ namespace INF2011S_Project_Group22.Data
         }
         private void Build_UPDATE_Parameters_BookRoom(BookingRoom bookingRoom)
         {
-            
+
             SqlParameter param = default(SqlParameter);
 
             param = new SqlParameter("@BookingResNumber", SqlDbType.Int, 0, "BookingResNumber");
@@ -1102,7 +1102,7 @@ namespace INF2011S_Project_Group22.Data
             param = new SqlParameter("@SpecialRequirements", SqlDbType.NVarChar, 500, "SpecialRequirements");
             daMain.InsertCommand.Parameters.Add(param);
 
-           
+
         }
 
         private void Build_INSERT_Parameters_BookRoom(BookingRoom bookingRoom)
@@ -1143,7 +1143,7 @@ namespace INF2011S_Project_Group22.Data
 
         private void Build_INSERT_Parameters_Account(GuestAccount account)
         {
-      
+
             SqlParameter param = default(SqlParameter);
             param = new SqlParameter("@GuestId", SqlDbType.NVarChar, 10, "GuestId");
             daMain.InsertCommand.Parameters.Add(param);
@@ -1161,7 +1161,7 @@ namespace INF2011S_Project_Group22.Data
             daMain.InsertCommand.Parameters.Add(param);
         }
 
-       
+
         private void Build_INSERT_Parameters_Payment(Payment payment)
         {
 
@@ -1258,14 +1258,14 @@ namespace INF2011S_Project_Group22.Data
             Build_INSERT_Parameters_Agent(agent);
         }
 
-        public bool UpdateDataSource_Book(Booking booking) 
+        public bool UpdateDataSource_Book(Booking booking)
         {
             bool success = true; //Tells you if the update succeeded or not 
             Create_INSERT_Command_Book(booking);
             Create_UPDATE_Command_Book(booking);
 
             success = UpdateDataSource(sqlLocal1, tableBooking);
-          
+
             return success;
         }
 
@@ -1302,7 +1302,7 @@ namespace INF2011S_Project_Group22.Data
         public bool UpdateDataSource_Room(HotelRoom room)
         {
             bool success = true;
-           
+
             Create_UPDATE_Command_Room(room);
             success = UpdateDataSource(sqlLocal3, tableRoom);
 
