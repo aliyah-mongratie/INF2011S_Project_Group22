@@ -23,7 +23,11 @@ namespace INF2011S_Project_Group22
     {
        
         public int totRoomPeople = 0;//variable to hold initial value of the total number of people input in all textboxes 
-
+        private Booking booking;
+        private BookingType bookingType;
+        private HotelRoom room;
+        private BookingController bookingController;
+        
         public frmCreateReservation()
         {
             InitializeComponent();
@@ -310,7 +314,7 @@ namespace INF2011S_Project_Group22
         #endregion
         #region Methods Available rooms
 
-        private void SetAvailableRooms(CheckBox cb, HotelRoom.RoomStatus roomStatus)
+       /* private void SetAvailableRooms(CheckBox cb, HotelRoom.RoomStatus roomStatus)
         {
             //makes the rooms that are available visible in the checkboxes
             switch (roomStatus)
@@ -351,97 +355,240 @@ namespace INF2011S_Project_Group22
 
             }
 
+        }*/
+        private void SetAvailableRooms(CheckBox cb, HotelRoom.RoomStatus roomStatus)
+        {
+            //makes the rooms that are available visible in the checkboxes
+            switch (roomStatus)
+            {
+                case HotelRoom.RoomStatus.Available:
+                    cb.Visible = true; break;
+                case HotelRoom.RoomStatus.Occupied:
+                    cb.Visible = false; break;
+
+            }
+
+        }
+        public void DisplayAvailableRooms()
+        {
+            //displays the textboxes and checkboxes of only available rooms
+
+            //  Get available rooms from the controller
+            BookingController controller = new BookingController();
+            List<HotelRoom> availableRooms = controller.GetAvailableRooms();
+
+            if (availableRooms.Count == 0)
+            {
+                MessageBox.Show("No rooms are currently available.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
+            foreach (HotelRoom room in availableRooms)
+            {
+                Control[] foundControls = this.Controls.Find("cbRoom" + room.HotelRoomID, true); //Looks for a control (like a CheckBox) by name on the reservationDetails UI
+
+                if (foundControls.Length > 0)
+                {
+                    CheckBox cb = (CheckBox)foundControls[0]; // Take the first control found
+                    SetAvailableRooms(cb, room.getRoomStatus);
+                    cb.Tag = room; // Store the HotelRoom object in the Tag property of the CheckBox
+                }
+
+
+
+            }
         }
 
         public List<HotelRoom> GetSelectedRooms()
         {
-            // adds the checked rooms to a list and stores it for the booking by collecting user input and storing it
             List<HotelRoom> selectedRooms = new List<HotelRoom>();
 
             foreach (Control ctrl in gBoxRoomPeople.Controls)
             {
-                if (ctrl is CheckBox cb && cb.Checked && cb.Tag is HotelRoom room)
+                if (ctrl is CheckBox cb && cb.Checked) // && cb.Tag is HotelRoom room
                 {
-                    selectedRooms.Add(room);
+                    selectedRooms.Add(room); // add the actual HotelRoom object
                 }
             }
 
             return selectedRooms;
-
         }
+
+
+
+        /* public List<HotelRoom> GetSelectedRooms()
+         {
+             // adds the checked rooms to a list and stores it for the booking by collecting user input and storing it
+             List<HotelRoom> selectedRooms = new List<HotelRoom>();
+
+             foreach (Control ctrl in gBoxRoomPeople.Controls)
+             {
+                 if (ctrl is CheckBox cb && cb.Checked && cb.Tag is HotelRoom room)
+                 {
+                     selectedRooms.Add(room);
+                 }
+             }
+
+             return selectedRooms;
+
+         }*/
+
         public decimal CalculateBookingAmount()
         {
-            HideErrorLabels();//Hide all error labels at the start of calculation
+            HideErrorLabels(); //Hide all error labels at the start of calculation
+
+            //Declare date variables
+            DateTime checkInDate;
+            DateTime checkOutDate;
 
             //Validate and parse dates
-            if (!DateTime.TryParse(txtCheckInDate.Text, out DateTime checkInDate) ||
-                !DateTime.TryParse(txtCheckOutDate.Text, out DateTime checkOutDate))
+            if (!DateTime.TryParse(txtCheckInDate.Text, out checkInDate) || !DateTime.TryParse(txtCheckOutDate.Text, out checkOutDate))
             {
-                lblCheckInDateErr.Text = lblCheckOutDateErr.Text = "Please enter valid check-in and check-out dates.";
+                lblCheckInDateErr.Text = lblCheckOutDateErr.Text = "Please enter valid check in and check out dates.";
                 lblCheckInDateErr.Visible = lblCheckOutDateErr.Visible = true;
                 return 0;
             }
-            //holds the number of nights from the checkin and checkout dates
-            int nights = (checkOutDate - checkInDate).Days;
+            //holds the amount of nights from the checkin and checkout dates
 
+
+            //declare selected rooms variable
+            List<HotelRoom> selectedRooms = GetSelectedRooms();
+
+            //Validate date logic
+            //Get the selected rooms
+
+            MessageBox.Show($"Selected rooms: {selectedRooms?.Count}");
+
+            //holds the amount of nights from the checkin and checkout dates
+            int nights = (checkOutDate - checkInDate).Days;
             if (nights <= 0)
             {
                 lblCheckOutDateErr.Text = "Check-out date must be after check-in date.";
                 lblCheckOutDateErr.Visible = true;
                 return 0;
             }
+            //holds the total price of all chosenrooms
+            decimal total = 0;
+            foreach (var room in selectedRooms)
+            {
+                if (room == null) continue;
+                total += room.GetRoomPrice(checkInDate) * nights;
+            }
 
-            //declare selected rooms variable
-            List<HotelRoom> selectedRooms = GetSelectedRooms();
 
+            //var selectedRooms = GetSelectedRooms();
             if (selectedRooms == null || selectedRooms.Count == 0)
             {
                 lblRoomSelectionErr.Text = "Please select at least one room.";
                 lblRoomSelectionErr.Visible = true;
+
                 return 0;
             }
-
-            int numRoomsSpecified = int.Parse(txtNumRooms.Text);
-
-            if (selectedRooms.Count > numRoomsSpecified)
+            if (selectedRooms.Count > int.Parse(txtNumRooms.Text))
             {
                 lblRoomSelectionErr.Text = "You have selected more rooms than specified.";
                 lblRoomSelectionErr.Visible = true;
                 return 0;
             }
-
-            if (selectedRooms.Count < numRoomsSpecified)
+            if (selectedRooms.Count < int.Parse(txtNumRooms.Text))
             {
                 lblRoomSelectionErr.Text = "You have selected fewer rooms than specified.";
                 lblRoomSelectionErr.Visible = true;
                 return 0;
             }
-
-            // Validate room capacities
+            //Validate room capacities
             int totalCapacity = 0;
             foreach (HotelRoom room in selectedRooms)
             {
-                totalCapacity += room.RoomCapacity; // Each room should have a RoomCapacity property
+                // Assuming each room has a Capacity property
+                totalCapacity += 4; // Each room can accommodate up to 4 people
             }
 
-            int numPeople = int.Parse(txtNumPeople.Text);
-            if (numPeople > totalCapacity)
-            {
-                lblRoomSelectionErr.Text = "Selected rooms cannot accommodate all guests.";
-                lblRoomSelectionErr.Visible = true;
-                return 0;
-            }
-
-            // Calculate the total price
+            //Calculate total price
             decimal totalBookingPrice = 0;
-            foreach (HotelRoom room in selectedRooms)
+
+            foreach (HotelRoom selectedRoom in selectedRooms)
             {
-                decimal roomPrice = room.GetRoomPrice(checkInDate);
+                if (selectedRoom == null)
+                    continue;
+                decimal roomPrice = selectedRoom.GetRoomPrice(checkInDate);
                 totalBookingPrice += roomPrice * nights;
             }
 
             return totalBookingPrice;
         }
+        /* public decimal CalculateBookingAmount()
+         {
+             HideErrorLabels();//Hide all error labels at the start of calculation
+
+             //Validate and parse dates
+             if (!DateTime.TryParse(txtCheckInDate.Text, out DateTime checkInDate) ||
+                 !DateTime.TryParse(txtCheckOutDate.Text, out DateTime checkOutDate))
+             {
+                 lblCheckInDateErr.Text = lblCheckOutDateErr.Text = "Please enter valid check-in and check-out dates.";
+                 lblCheckInDateErr.Visible = lblCheckOutDateErr.Visible = true;
+                 return 0;
+             }
+             //holds the number of nights from the checkin and checkout dates
+             int nights = (checkOutDate - checkInDate).Days;
+
+             if (nights <= 0)
+             {
+                 lblCheckOutDateErr.Text = "Check-out date must be after check-in date.";
+                 lblCheckOutDateErr.Visible = true;
+                 return 0;
+             }
+
+             //declare selected rooms variable
+             List<HotelRoom> selectedRooms = GetSelectedRooms();
+
+             if (selectedRooms == null || selectedRooms.Count == 0)
+             {
+                 lblRoomSelectionErr.Text = "Please select at least one room.";
+                 lblRoomSelectionErr.Visible = true;
+                 return 0;
+             }
+
+             int numRoomsSpecified = int.Parse(txtNumRooms.Text);
+
+             if (selectedRooms.Count > numRoomsSpecified)
+             {
+                 lblRoomSelectionErr.Text = "You have selected more rooms than specified.";
+                 lblRoomSelectionErr.Visible = true;
+                 return 0;
+             }
+
+             if (selectedRooms.Count < numRoomsSpecified)
+             {
+                 lblRoomSelectionErr.Text = "You have selected fewer rooms than specified.";
+                 lblRoomSelectionErr.Visible = true;
+                 return 0;
+             }
+
+             // Validate room capacities
+             int totalCapacity = 0;
+             foreach (HotelRoom room in selectedRooms)
+             {
+                 totalCapacity += room.RoomCapacity; // Each room should have a RoomCapacity property
+             }
+
+             int numPeople = int.Parse(txtNumPeople.Text);
+             if (numPeople > totalCapacity)
+             {
+                 lblRoomSelectionErr.Text = "Selected rooms cannot accommodate all guests.";
+                 lblRoomSelectionErr.Visible = true;
+                 return 0;
+             }
+
+             // Calculate the total price
+             decimal totalBookingPrice = 0;
+             foreach (HotelRoom room in selectedRooms)
+             {
+                 decimal roomPrice = room.GetRoomPrice(checkInDate);
+                 totalBookingPrice += roomPrice * nights;
+             }
+
+             return totalBookingPrice;
+         }*/
 
         /*public decimal CalculateBookingAmount()
         {
@@ -597,17 +744,15 @@ namespace INF2011S_Project_Group22
             if (bookingType == BookingType.TravelAgency)
             {
                 agentId = TravelAgent.generateAgentId(agencyName);
-                // DO NOT add agent yet. Let the next form handle it after payment.
+
             }
 
             string guestId = Guest.generateGuestId(lastName);
-
 
             decimal deposit = tempBooking.CalculateDeposit(total);
             MessageBox.Show($"The Total Booking Amount Is: {total:C} \r\n The Total Number Of Rooms Booked Is: {selectedRooms.Count} \r\n The Booking Deposit is: {deposit:C}");
 
             
-
             List<HotelRoom> rooms = new List<HotelRoom>(); //Create a new list to store the rooms that will be booked
                                                            // Parse number of people safely
             if (!int.TryParse(txtNumPeople.Text.Trim(), out int numOfPeople))
@@ -622,8 +767,7 @@ namespace INF2011S_Project_Group22
                 MessageBox.Show("Number of rooms is invalid. Please try again.");
                 return;
             }
-
-          
+           
             // Open the appropriate forms base on the booking type 
             if (bookingType == BookingType.Personal)
             {
@@ -636,9 +780,9 @@ namespace INF2011S_Project_Group22
             else if (bookingType == BookingType.TravelAgency)
             {
                 string cardNo = ""; // placeholder if needed
-            
-                
-                    new BookingConfirmation(firstName,lastName,phoneNumber, email,agentId, total, cardNo, bookingType, guestId, checkInDate, checkOutDate,
+
+                new BookingConfirmation(firstName,lastName,phoneNumber, email,agentId, total, cardNo, bookingType, 
+                        guestId, checkInDate, checkOutDate,
                     numOfRooms, specialRequirements, selectedRooms, numOfPeople,agencyName)
                     .ShowDialog();
                 // go to the booking confirmation page and take the data from this form with so that the booking can be created 

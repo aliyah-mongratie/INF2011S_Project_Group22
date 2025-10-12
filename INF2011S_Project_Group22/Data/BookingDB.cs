@@ -388,7 +388,7 @@ namespace INF2011S_Project_Group22.Data
                 aRow["BookingResNumber"] = booking.bookingResNumber; //Set the row's primary key if a new row is being added 
             }
 
-            aRow["GuestId"] = booking.guestId;
+            aRow["GuestId"] = booking.guestId ?? (object)DBNull.Value;
             aRow["HotelId"] = booking.hotelId;
             if (booking.travelAgentId == null)
                 aRow["TravelAgentId"] = DBNull.Value;
@@ -631,7 +631,7 @@ namespace INF2011S_Project_Group22.Data
 
         #region Build Parameters, Create Commands & Update database
 
-        private void Create_UPDATE_Command_Book()
+        private void Create_UPDATE_Command_Book(Booking booking)
         {
             daMain.UpdateCommand = new SqlCommand(
                 "UPDATE Booking SET GuestId = @GuestId, HotelId = @HotelId, TravelAgentId = @TravelAgentId, " +
@@ -640,7 +640,7 @@ namespace INF2011S_Project_Group22.Data
                 "SpecialRequirements = @SpecialRequirements " +
                 "WHERE BookingResNumber = @Original_BookingResNumber", cnMain);
 
-            Build_UPDATE_Parameters_Book();
+            Build_UPDATE_Parameters_Book(booking);
         }
 
         private void Create_UPDATE_Command_BookRoom()
@@ -702,18 +702,20 @@ namespace INF2011S_Project_Group22.Data
             Build_UPDATE_Parameters_Agent();
         }
 
-        private void Build_UPDATE_Parameters_Book()
+        private void Build_UPDATE_Parameters_Book(Booking booking)
         {
             daMain.UpdateCommand.Parameters.Clear();
 
             SqlParameter param;
             param = new SqlParameter("@GuestId", SqlDbType.NVarChar, 10, "GuestId");
+            param.Value = booking.guestId ?? (object)DBNull.Value;
             daMain.UpdateCommand.Parameters.Add(param);
 
             param = new SqlParameter("@HotelId", SqlDbType.NVarChar, 10, "HotelId");
             daMain.UpdateCommand.Parameters.Add(param);
 
             param = new SqlParameter("@TravelAgentId", SqlDbType.NVarChar, 10, "TravelAgentId");
+            param.Value = booking.travelAgentId ?? (object)DBNull.Value;
             daMain.UpdateCommand.Parameters.Add(param);
 
             param = new SqlParameter("@BookingStatus", SqlDbType.NVarChar, 20, "BookingStatus");
@@ -954,12 +956,10 @@ namespace INF2011S_Project_Group22.Data
             param = new SqlParameter("@GuestId", SqlDbType.NVarChar, 10, "GuestId");
             daMain.InsertCommand.Parameters.Add(param);
 
-            //Do the same for Description & answer -ensure that you choose the right size
             param = new SqlParameter("@HotelId", SqlDbType.NVarChar, 10, "HotelId");
             daMain.InsertCommand.Parameters.Add(param);
 
             param = new SqlParameter("@TravelAgentId", SqlDbType.NVarChar, 10, "TravelAgentId");
-            param.Value = DBNull.Value;
             daMain.InsertCommand.Parameters.Add(param);
 
             param = new SqlParameter("@BookingStatus", SqlDbType.NVarChar, 20, "BookingStatus");
@@ -1283,7 +1283,7 @@ namespace INF2011S_Project_Group22.Data
         {
             bool success = true; //Tells you if the update succeeded or not 
             Create_INSERT_Command_Book();
-            Create_UPDATE_Command_Book();
+            Create_UPDATE_Command_Book(booking);
 
             success = UpdateDataSource(sqlLocal1, tableBooking);
 
