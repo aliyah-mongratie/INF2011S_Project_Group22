@@ -12,10 +12,10 @@ namespace INF2011S_Project_Group22.Business
         // Travel Agent inherits from Person
         public string TravelAgentId { get; set; }
         public string AgencyName { get; set; }
-        public string firstName { get; set; }
-        public string lastName { get; set; }
-        public string phoneNumber { get; set; }
-        public string email { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string PhoneNumber { get; set; }
+        public string Email { get; set; }
         
 
         #endregion
@@ -24,19 +24,19 @@ namespace INF2011S_Project_Group22.Business
         {
             TravelAgentId = "";
             AgencyName = "";
-            firstName = "";
-            lastName = "";
-            phoneNumber = "";
-            email = "";
+            FirstName = "";
+            LastName = "";
+            PhoneNumber = "";
+            Email = "";
         }
         public TravelAgent(string newAgentId, string newAgencyName, string newFirstName, string newLastName, string newPhone, string newEmail)
         {
             TravelAgentId = newAgentId;
             AgencyName = newAgencyName;
-            firstName = newFirstName;
-            lastName = newLastName;
-            phoneNumber = newPhone;
-            email = newEmail;
+            FirstName = newFirstName;
+            LastName = newLastName;
+            PhoneNumber = newPhone;
+            Email = newEmail;
         }
         #endregion
         #region Methods 
@@ -46,7 +46,12 @@ namespace INF2011S_Project_Group22.Business
              agencyName = agencyName.ToLower();
 
             int randomNumber = rand.Next(10000, 100000); // generates a random number between 10000 and 99999
-
+            // make sure that the id does not exceed 10 characters 
+            int maxNameLength = 10 - randomNumber.ToString().Length;
+            if (agencyName.Length > maxNameLength)
+            {
+                agencyName = agencyName.Substring(0, maxNameLength);
+            }
 
             string agentId = agencyName + randomNumber.ToString(); // add the last name and the random number together 
 

@@ -56,18 +56,20 @@
             this.lblNameCardError = new System.Windows.Forms.Label();
             this.lblCVVError = new System.Windows.Forms.Label();
             this.btnClear = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // lblCreditCardDetails
             // 
             this.lblCreditCardDetails.AutoSize = true;
-            this.lblCreditCardDetails.BackColor = System.Drawing.Color.OldLace;
+            this.lblCreditCardDetails.BackColor = System.Drawing.Color.DarkCyan;
             this.lblCreditCardDetails.Font = new System.Drawing.Font("Times New Roman", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCreditCardDetails.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.lblCreditCardDetails.ForeColor = System.Drawing.Color.Goldenrod;
             this.lblCreditCardDetails.Location = new System.Drawing.Point(11, 118);
             this.lblCreditCardDetails.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblCreditCardDetails.Name = "lblCreditCardDetails";
@@ -78,10 +80,10 @@
             // lblCardNumber
             // 
             this.lblCardNumber.AutoSize = true;
-            this.lblCardNumber.BackColor = System.Drawing.Color.OldLace;
+            this.lblCardNumber.BackColor = System.Drawing.Color.DarkCyan;
             this.lblCardNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCardNumber.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.lblCardNumber.Location = new System.Drawing.Point(70, 244);
+            this.lblCardNumber.ForeColor = System.Drawing.Color.NavajoWhite;
+            this.lblCardNumber.Location = new System.Drawing.Point(68, 171);
             this.lblCardNumber.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblCardNumber.Name = "lblCardNumber";
             this.lblCardNumber.Size = new System.Drawing.Size(101, 18);
@@ -91,9 +93,9 @@
             // lblCardTypes
             // 
             this.lblCardTypes.AutoSize = true;
-            this.lblCardTypes.BackColor = System.Drawing.Color.OldLace;
-            this.lblCardTypes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.lblCardTypes.Location = new System.Drawing.Point(70, 342);
+            this.lblCardTypes.BackColor = System.Drawing.Color.DarkCyan;
+            this.lblCardTypes.ForeColor = System.Drawing.Color.NavajoWhite;
+            this.lblCardTypes.Location = new System.Drawing.Point(70, 272);
             this.lblCardTypes.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblCardTypes.Name = "lblCardTypes";
             this.lblCardTypes.Size = new System.Drawing.Size(181, 13);
@@ -102,10 +104,10 @@
             // 
             // txtCardNumber
             // 
-            this.txtCardNumber.BackColor = System.Drawing.Color.Bisque;
+            this.txtCardNumber.BackColor = System.Drawing.Color.NavajoWhite;
             this.txtCardNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCardNumber.Location = new System.Drawing.Point(68, 264);
-            this.txtCardNumber.Margin = new System.Windows.Forms.Padding(2);
+            this.txtCardNumber.Location = new System.Drawing.Point(70, 191);
+            this.txtCardNumber.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtCardNumber.Name = "txtCardNumber";
             this.txtCardNumber.Size = new System.Drawing.Size(276, 24);
             this.txtCardNumber.TabIndex = 12;
@@ -114,8 +116,8 @@
             // 
             this.pictureBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.BackgroundImage")));
             this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox2.Location = new System.Drawing.Point(73, 313);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox2.Location = new System.Drawing.Point(73, 244);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(50, 27);
             this.pictureBox2.TabIndex = 13;
@@ -124,10 +126,10 @@
             // lblExpiryDate
             // 
             this.lblExpiryDate.AutoSize = true;
-            this.lblExpiryDate.BackColor = System.Drawing.Color.OldLace;
+            this.lblExpiryDate.BackColor = System.Drawing.Color.DarkCyan;
             this.lblExpiryDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblExpiryDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.lblExpiryDate.Location = new System.Drawing.Point(70, 368);
+            this.lblExpiryDate.ForeColor = System.Drawing.Color.NavajoWhite;
+            this.lblExpiryDate.Location = new System.Drawing.Point(70, 305);
             this.lblExpiryDate.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblExpiryDate.Name = "lblExpiryDate";
             this.lblExpiryDate.Size = new System.Drawing.Size(83, 18);
@@ -136,20 +138,20 @@
             // 
             // txtMonth
             // 
-            this.txtMonth.BackColor = System.Drawing.Color.Bisque;
+            this.txtMonth.BackColor = System.Drawing.Color.NavajoWhite;
             this.txtMonth.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMonth.Location = new System.Drawing.Point(68, 439);
-            this.txtMonth.Margin = new System.Windows.Forms.Padding(2);
+            this.txtMonth.Location = new System.Drawing.Point(70, 363);
+            this.txtMonth.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtMonth.Name = "txtMonth";
             this.txtMonth.Size = new System.Drawing.Size(65, 24);
             this.txtMonth.TabIndex = 17;
             // 
             // txtYear
             // 
-            this.txtYear.BackColor = System.Drawing.Color.Bisque;
+            this.txtYear.BackColor = System.Drawing.Color.NavajoWhite;
             this.txtYear.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtYear.Location = new System.Drawing.Point(152, 439);
-            this.txtYear.Margin = new System.Windows.Forms.Padding(2);
+            this.txtYear.Location = new System.Drawing.Point(152, 363);
+            this.txtYear.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtYear.Name = "txtYear";
             this.txtYear.Size = new System.Drawing.Size(65, 24);
             this.txtYear.TabIndex = 18;
@@ -157,9 +159,9 @@
             // lblDateExample
             // 
             this.lblDateExample.AutoSize = true;
-            this.lblDateExample.BackColor = System.Drawing.Color.OldLace;
-            this.lblDateExample.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.lblDateExample.Location = new System.Drawing.Point(70, 386);
+            this.lblDateExample.BackColor = System.Drawing.Color.DarkCyan;
+            this.lblDateExample.ForeColor = System.Drawing.Color.NavajoWhite;
+            this.lblDateExample.Location = new System.Drawing.Point(70, 323);
             this.lblDateExample.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblDateExample.Name = "lblDateExample";
             this.lblDateExample.Size = new System.Drawing.Size(99, 13);
@@ -169,10 +171,10 @@
             // lblMonth
             // 
             this.lblMonth.AutoSize = true;
-            this.lblMonth.BackColor = System.Drawing.Color.OldLace;
+            this.lblMonth.BackColor = System.Drawing.Color.DarkCyan;
             this.lblMonth.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMonth.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.lblMonth.Location = new System.Drawing.Point(70, 418);
+            this.lblMonth.ForeColor = System.Drawing.Color.NavajoWhite;
+            this.lblMonth.Location = new System.Drawing.Point(75, 344);
             this.lblMonth.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblMonth.Name = "lblMonth";
             this.lblMonth.Size = new System.Drawing.Size(54, 18);
@@ -182,10 +184,10 @@
             // lblYear
             // 
             this.lblYear.AutoSize = true;
-            this.lblYear.BackColor = System.Drawing.Color.OldLace;
+            this.lblYear.BackColor = System.Drawing.Color.DarkCyan;
             this.lblYear.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblYear.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.lblYear.Location = new System.Drawing.Point(148, 418);
+            this.lblYear.ForeColor = System.Drawing.Color.NavajoWhite;
+            this.lblYear.Location = new System.Drawing.Point(149, 344);
             this.lblYear.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblYear.Name = "lblYear";
             this.lblYear.Size = new System.Drawing.Size(42, 18);
@@ -195,10 +197,10 @@
             // lblNameOnCard
             // 
             this.lblNameOnCard.AutoSize = true;
-            this.lblNameOnCard.BackColor = System.Drawing.Color.OldLace;
+            this.lblNameOnCard.BackColor = System.Drawing.Color.DarkCyan;
             this.lblNameOnCard.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNameOnCard.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.lblNameOnCard.Location = new System.Drawing.Point(70, 494);
+            this.lblNameOnCard.ForeColor = System.Drawing.Color.NavajoWhite;
+            this.lblNameOnCard.Location = new System.Drawing.Point(68, 431);
             this.lblNameOnCard.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblNameOnCard.Name = "lblNameOnCard";
             this.lblNameOnCard.Size = new System.Drawing.Size(109, 18);
@@ -207,10 +209,10 @@
             // 
             // txtNameOnCard
             // 
-            this.txtNameOnCard.BackColor = System.Drawing.Color.Bisque;
+            this.txtNameOnCard.BackColor = System.Drawing.Color.NavajoWhite;
             this.txtNameOnCard.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNameOnCard.Location = new System.Drawing.Point(68, 514);
-            this.txtNameOnCard.Margin = new System.Windows.Forms.Padding(2);
+            this.txtNameOnCard.Location = new System.Drawing.Point(68, 451);
+            this.txtNameOnCard.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtNameOnCard.Name = "txtNameOnCard";
             this.txtNameOnCard.Size = new System.Drawing.Size(276, 24);
             this.txtNameOnCard.TabIndex = 23;
@@ -218,10 +220,10 @@
             // lblSecurityCode
             // 
             this.lblSecurityCode.AutoSize = true;
-            this.lblSecurityCode.BackColor = System.Drawing.Color.OldLace;
+            this.lblSecurityCode.BackColor = System.Drawing.Color.DarkCyan;
             this.lblSecurityCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSecurityCode.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.lblSecurityCode.Location = new System.Drawing.Point(463, 244);
+            this.lblSecurityCode.ForeColor = System.Drawing.Color.NavajoWhite;
+            this.lblSecurityCode.Location = new System.Drawing.Point(524, 171);
             this.lblSecurityCode.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblSecurityCode.Name = "lblSecurityCode";
             this.lblSecurityCode.Size = new System.Drawing.Size(141, 18);
@@ -230,10 +232,10 @@
             // 
             // txtSecurityCode
             // 
-            this.txtSecurityCode.BackColor = System.Drawing.Color.Bisque;
+            this.txtSecurityCode.BackColor = System.Drawing.Color.NavajoWhite;
             this.txtSecurityCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSecurityCode.Location = new System.Drawing.Point(466, 280);
-            this.txtSecurityCode.Margin = new System.Windows.Forms.Padding(2);
+            this.txtSecurityCode.Location = new System.Drawing.Point(526, 215);
+            this.txtSecurityCode.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtSecurityCode.Name = "txtSecurityCode";
             this.txtSecurityCode.Size = new System.Drawing.Size(107, 24);
             this.txtSecurityCode.TabIndex = 25;
@@ -241,9 +243,9 @@
             // lblSecurityCodeDetail
             // 
             this.lblSecurityCodeDetail.AutoSize = true;
-            this.lblSecurityCodeDetail.BackColor = System.Drawing.Color.OldLace;
-            this.lblSecurityCodeDetail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.lblSecurityCodeDetail.Location = new System.Drawing.Point(464, 264);
+            this.lblSecurityCodeDetail.BackColor = System.Drawing.Color.DarkCyan;
+            this.lblSecurityCodeDetail.ForeColor = System.Drawing.Color.NavajoWhite;
+            this.lblSecurityCodeDetail.Location = new System.Drawing.Point(524, 201);
             this.lblSecurityCodeDetail.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblSecurityCodeDetail.Name = "lblSecurityCodeDetail";
             this.lblSecurityCodeDetail.Size = new System.Drawing.Size(195, 13);
@@ -254,8 +256,8 @@
             // 
             this.pictureBox3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox3.BackgroundImage")));
             this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox3.Location = new System.Drawing.Point(127, 313);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox3.Location = new System.Drawing.Point(128, 244);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(50, 27);
             this.pictureBox3.TabIndex = 27;
@@ -265,8 +267,8 @@
             // 
             this.pictureBox4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox4.BackgroundImage")));
             this.pictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox4.Location = new System.Drawing.Point(181, 313);
-            this.pictureBox4.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox4.Location = new System.Drawing.Point(182, 244);
+            this.pictureBox4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(50, 27);
             this.pictureBox4.TabIndex = 28;
@@ -276,8 +278,8 @@
             // 
             this.pictureBox5.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox5.BackgroundImage")));
             this.pictureBox5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox5.Location = new System.Drawing.Point(576, 275);
-            this.pictureBox5.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox5.Location = new System.Drawing.Point(637, 215);
+            this.pictureBox5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(50, 27);
             this.pictureBox5.TabIndex = 29;
@@ -285,41 +287,41 @@
             // 
             // btnBack
             // 
-            this.btnBack.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnBack.BackgroundImage")));
+            this.btnBack.BackColor = System.Drawing.Color.Goldenrod;
             this.btnBack.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnBack.Font = new System.Drawing.Font("Segoe UI Emoji", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBack.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.btnBack.Location = new System.Drawing.Point(784, 518);
-            this.btnBack.Margin = new System.Windows.Forms.Padding(2);
+            this.btnBack.Location = new System.Drawing.Point(12, 519);
+            this.btnBack.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(111, 39);
             this.btnBack.TabIndex = 30;
             this.btnBack.Text = "Back";
-            this.btnBack.UseVisualStyleBackColor = true;
+            this.btnBack.UseVisualStyleBackColor = false;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // btnConfirm
             // 
-            this.btnConfirm.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnConfirm.BackgroundImage")));
+            this.btnConfirm.BackColor = System.Drawing.Color.Goldenrod;
             this.btnConfirm.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnConfirm.Font = new System.Drawing.Font("Segoe UI Emoji", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnConfirm.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.btnConfirm.Location = new System.Drawing.Point(899, 518);
-            this.btnConfirm.Margin = new System.Windows.Forms.Padding(2);
+            this.btnConfirm.Location = new System.Drawing.Point(760, 519);
+            this.btnConfirm.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnConfirm.Name = "btnConfirm";
             this.btnConfirm.Size = new System.Drawing.Size(111, 39);
             this.btnConfirm.TabIndex = 31;
             this.btnConfirm.Text = "Confirm";
-            this.btnConfirm.UseVisualStyleBackColor = true;
+            this.btnConfirm.UseVisualStyleBackColor = false;
             this.btnConfirm.Click += new System.EventHandler(this.btnConfirm_Click);
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.BackColor = System.Drawing.Color.OldLace;
+            this.label8.BackColor = System.Drawing.Color.DarkCyan;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.label8.Location = new System.Drawing.Point(136, 444);
+            this.label8.ForeColor = System.Drawing.Color.NavajoWhite;
+            this.label8.Location = new System.Drawing.Point(139, 366);
             this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(12, 18);
@@ -330,7 +332,7 @@
             // 
             this.lblCardNoError.AutoSize = true;
             this.lblCardNoError.ForeColor = System.Drawing.Color.Red;
-            this.lblCardNoError.Location = new System.Drawing.Point(68, 292);
+            this.lblCardNoError.Location = new System.Drawing.Point(70, 215);
             this.lblCardNoError.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblCardNoError.Name = "lblCardNoError";
             this.lblCardNoError.Size = new System.Drawing.Size(35, 13);
@@ -341,7 +343,7 @@
             // 
             this.lblExpiryDateError.AutoSize = true;
             this.lblExpiryDateError.ForeColor = System.Drawing.Color.Red;
-            this.lblExpiryDateError.Location = new System.Drawing.Point(65, 464);
+            this.lblExpiryDateError.Location = new System.Drawing.Point(70, 398);
             this.lblExpiryDateError.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblExpiryDateError.Name = "lblExpiryDateError";
             this.lblExpiryDateError.Size = new System.Drawing.Size(35, 13);
@@ -352,7 +354,7 @@
             // 
             this.lblNameCardError.AutoSize = true;
             this.lblNameCardError.ForeColor = System.Drawing.Color.Red;
-            this.lblNameCardError.Location = new System.Drawing.Point(65, 540);
+            this.lblNameCardError.Location = new System.Drawing.Point(68, 483);
             this.lblNameCardError.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblNameCardError.Name = "lblNameCardError";
             this.lblNameCardError.Size = new System.Drawing.Size(35, 13);
@@ -363,7 +365,7 @@
             // 
             this.lblCVVError.AutoSize = true;
             this.lblCVVError.ForeColor = System.Drawing.Color.Red;
-            this.lblCVVError.Location = new System.Drawing.Point(464, 305);
+            this.lblCVVError.Location = new System.Drawing.Point(524, 240);
             this.lblCVVError.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblCVVError.Name = "lblCVVError";
             this.lblCVVError.Size = new System.Drawing.Size(35, 13);
@@ -372,25 +374,37 @@
             // 
             // btnClear
             // 
-            this.btnClear.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnClear.BackgroundImage")));
+            this.btnClear.BackColor = System.Drawing.Color.Goldenrod;
             this.btnClear.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnClear.Font = new System.Drawing.Font("Segoe UI Emoji", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClear.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.btnClear.Location = new System.Drawing.Point(669, 518);
-            this.btnClear.Margin = new System.Windows.Forms.Padding(2);
+            this.btnClear.Location = new System.Drawing.Point(883, 519);
+            this.btnClear.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(111, 39);
             this.btnClear.TabIndex = 37;
             this.btnClear.Text = "Clear";
-            this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.UseVisualStyleBackColor = false;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
+            this.pictureBox1.Location = new System.Drawing.Point(-14, -3);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(1037, 101);
+            this.pictureBox1.TabIndex = 38;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click_1);
             // 
             // frmMakePayment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackColor = System.Drawing.Color.DarkCyan;
             this.ClientSize = new System.Drawing.Size(1019, 567);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.lblCVVError);
             this.Controls.Add(this.lblNameCardError);
@@ -418,7 +432,7 @@
             this.Controls.Add(this.lblCardTypes);
             this.Controls.Add(this.lblCardNumber);
             this.Controls.Add(this.lblCreditCardDetails);
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "frmMakePayment";
             this.Text = "MakePayment";
             this.Load += new System.EventHandler(this.frmMakePayment_Load);
@@ -426,6 +440,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -459,5 +474,6 @@
         private System.Windows.Forms.Label lblNameCardError;
         private System.Windows.Forms.Label lblCVVError;
         private System.Windows.Forms.Button btnClear;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

@@ -58,12 +58,12 @@ namespace INF2011S_Project_Group22.Business
             travelAgentId = new TravelAgent().TravelAgentId;    
 
         }
-        public Booking(int newBookResNumber, string newGuestId,string newHotelId, BookingStatus newBookingStatus, BookingType newBookingType, int newNumOfPeople, int newNumOfRooms, DateTime newCheckInDate, DateTime newCheckOutDate, string newSpecialRequirements, string newTravelAgentId = null)
+        public Booking(int newBookResNumber, string newGuestId,string newHotelId, string agentId,BookingStatus newBookingStatus, BookingType newBookingType, int newNumOfPeople, int newNumOfRooms, DateTime newCheckInDate, DateTime newCheckOutDate, string newSpecialRequirements, string newTravelAgentId = null)
         {
             bookingResNumber = newBookResNumber;
             bookingStat = newBookingStatus;
             bookingType = newBookingType;
-           
+            travelAgentId = agentId;
             numOfPeople = newNumOfPeople;
             numOfRooms = newNumOfRooms;
             checkInDate = newCheckInDate;
@@ -106,42 +106,36 @@ namespace INF2011S_Project_Group22.Business
         }
 
         //This method is used to add a room to the booking
-        public void AddRoom(string newHotelRoomID, string newHotelID) //add a room to teh booking
-         {
-            var newRoom = new HotelRoom(newHotelRoomID, newHotelID); //create a new room object
+        /*  public void AddRoom(string newHotelRoomID, string newHotelID) //add a room to teh booking
+           {
+              var newRoom = new HotelRoom(newHotelRoomID, newHotelID); //create a new room object
 
-            // Change status to Occupied right after creation
-            newRoom.roomStat = RoomStatus.Occupied;
+              // Change status to Occupied right after creation
+              newRoom.roomStat = RoomStatus.Occupied;
 
-            Rooms.Add(newRoom); //add the new room to the list of rooms in the booking
+              Rooms.Add(newRoom); //add the new room to the list of rooms in the booking
 
-            MessageBox.Show($"Added Room {newHotelRoomID} ({newHotelID}) - Status: {newRoom.roomStat}");
-            MessageBox.Show($"Count: {Rooms.Count}, Capacity: {Rooms.Capacity}");
-        }
+              MessageBox.Show($"Added Room {newHotelRoomID} ({newHotelID}) - Status: {newRoom.roomStat}");
+              MessageBox.Show($"Count: {Rooms.Count}, Capacity: {Rooms.Capacity}");
+          } */
 
-        public decimal CalculateBookingAmount(List<HotelRoom> rooms, decimal roomPrice)
+        public decimal CalculateBookingAmount()
         {
-            if (Rooms == null || Rooms.Count == 0)
-            {
-                return 0;   
-            }
-               
+            if (Rooms == null || Rooms.Count == 0) return 0;
 
             int nights = (checkOutDate - checkInDate).Days;
             if (nights <= 0) nights = 1;
 
             decimal total = 0;
-
-            //loops through rooms and gets the prices for each and adds them together for the total
             foreach (HotelRoom room in Rooms)
             {
-                // Call GetRoomPrice() on each room
                 total += room.GetRoomPrice(checkInDate) * nights;
             }
 
             return total;
         }
-        
+
+
 
         public decimal CalculateDeposit(decimal totalAmount)
         {
